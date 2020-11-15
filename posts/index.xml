@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/posts/</link>
+    <description>Recent content in Posts on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Exercise Url-Shortener</title>
+      <link>https://marcoepsilon.github.io/posts/exercise/go/url-shortener/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/exercise/go/url-shortener/</guid>
+      <description>Exercise Requirement Go语言的语法及基本概念 包net/http的一些基本函数其含义和功能 一些JSON,YAML,TOML等格式数据的序列化和反序列化 命令行的</description>
+    </item>
+    
+    <item>
+      <title>Ruby Concurrent Programing</title>
+      <link>https://marcoepsilon.github.io/posts/ruby/ruby_thread/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/ruby/ruby_thread/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+    </item>
+    
+    <item>
+      <title>File &amp;&amp; Directory</title>
+      <link>https://marcoepsilon.github.io/posts/system/file/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/system/file/</guid>
+      <description>Overview 目录(Directory)主要用于将磁盘中的文件分级表示,而文件则用于在磁盘中存储数据,且目录与文件的组合,使得数据有组织,而不产生混乱 File</description>
+    </item>
+    
+    <item>
+      <title>Ruby Basic Summary</title>
+      <link>https://marcoepsilon.github.io/posts/ruby/basic_summary/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/ruby/basic_summary/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+    </item>
+    
+    <item>
+      <title>Stack &amp;&amp; Queue</title>
+      <link>https://marcoepsilon.github.io/posts/algorithm/stack_queue/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/algorithm/stack_queue/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+    </item>
+    
+    <item>
+      <title>Linear List</title>
+      <link>https://marcoepsilon.github.io/posts/algorithm/linear-list/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/algorithm/linear-list/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+    </item>
+    
+    <item>
+      <title>Linear-Algebra</title>
+      <link>https://marcoepsilon.github.io/posts/math/linear-algebra/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/math/linear-algebra/</guid>
+      <description>逆序数 考虑一个长度为n的偏序序列 \(a_{1}a_{2}a_{3}{\cdots}a_{n}\) 首先我们需要对这个序列规定标准次序,比如规定序列升序是升序排列的,而若序列中前面与后面的元素违反了标准次序</description>
+    </item>
+    
+    <item>
+      <title>English Writing</title>
+      <link>https://marcoepsilon.github.io/posts/english/writing/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/english/writing/</guid>
+      <description>2017 英语(一) Directions: You are to write a email to James Cook, a newly arrived Austrlian professor,recommending some tourist attractions in your city. Please give reasons for your recommendation. Self Analysis: 1. 第一段表达出对James Cook教授的到来感到高兴 2. 第二段开始介绍自</description>
+    </item>
+    
+    <item>
+      <title>Go Reflection</title>
+      <link>https://marcoepsilon.github.io/posts/20190713/</link>
+      <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190713/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+    </item>
+    
+    <item>
+      <title>Golang Template</title>
+      <link>https://marcoepsilon.github.io/posts/20190706/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190706/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+    </item>
+    
+    <item>
+      <title>Web前端开发环境的构建</title>
+      <link>https://marcoepsilon.github.io/posts/20190626/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190626/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,14 @@
+body {
+    margin: 0px;
+    padding:0px;
+    background-color:#1f222a;
+}
+
+.root.center {
+    max-width: 840px;
+    min-height:100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+}

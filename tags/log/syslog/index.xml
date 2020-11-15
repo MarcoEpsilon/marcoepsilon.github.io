@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>log/syslog on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/log/syslog/</link>
+    <description>Recent content in log/syslog on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sun, 24 Nov 2019 22:45:02 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/log/syslog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Syslog</title>
+      <link>https://marcoepsilon.github.io/golib/log/syslog/</link>
+      <pubDate>Sun, 24 Nov 2019 22:45:02 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/log/syslog/</guid>
+      <description>Overview 包syslog提供系统日志服务,它能够发送消息到系统日志守护进程使用Unix套接字UDP或者TCP. 只需要调用一次Dial,当写入失败时,</description>
+    </item>
+    
+  </channel>
+</rss>

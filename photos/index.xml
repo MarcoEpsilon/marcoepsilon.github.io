@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Photos on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/photos/</link>
+    <description>Recent content in Photos on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Wed, 21 Aug 2019 22:24:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/photos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Photos</title>
+      <link>https://marcoepsilon.github.io/photos/photos/</link>
+      <pubDate>Wed, 21 Aug 2019 22:24:59 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/photos/photos/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

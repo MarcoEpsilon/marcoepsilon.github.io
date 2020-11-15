@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/go/</link>
+    <description>Recent content in go on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Exercise Url-Shortener</title>
+      <link>https://marcoepsilon.github.io/posts/exercise/go/url-shortener/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/exercise/go/url-shortener/</guid>
+      <description>Exercise Requirement Go语言的语法及基本概念 包net/http的一些基本函数其含义和功能 一些JSON,YAML,TOML等格式数据的序列化和反序列化 命令行的</description>
+    </item>
+    
+  </channel>
+</rss>

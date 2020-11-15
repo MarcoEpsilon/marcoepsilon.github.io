@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sort on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/sort/</link>
+    <description>Recent content in sort on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Wed, 20 Nov 2019 16:25:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/sort/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sort</title>
+      <link>https://marcoepsilon.github.io/golib/sort/</link>
+      <pubDate>Wed, 20 Nov 2019 16:25:24 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/sort/</guid>
+      <description>Overview 包sort提供排序切片和用户自定义集合的原语 函数(Functions) func Float64s(a []float64) Float64s以升序排序切片,NaN(not a number)</description>
+    </item>
+    
+  </channel>
+</rss>

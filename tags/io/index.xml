@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>io on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/io/</link>
+    <description>Recent content in io on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 22 Jul 2019 18:09:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Io</title>
+      <link>https://marcoepsilon.github.io/golib/io/</link>
+      <pubDate>Mon, 22 Jul 2019 18:09:46 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/io/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+    </item>
+    
+  </channel>
+</rss>

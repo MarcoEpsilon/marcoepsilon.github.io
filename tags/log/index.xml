@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>log on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/log/</link>
+    <description>Recent content in log on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Thu, 21 Nov 2019 22:25:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/log/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Log</title>
+      <link>https://marcoepsilon.github.io/golib/log/log/</link>
+      <pubDate>Thu, 21 Nov 2019 22:25:04 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/log/log/</guid>
+      <description>Overview 包log实现简单的日志包,它定义的类型Logger,包含一些格式化输出的方法,它还有预定义的易访问的标准&#34;Logger&#34;,通过帮助函数 Pr</description>
+    </item>
+    
+  </channel>
+</rss>

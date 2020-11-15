@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sync on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/sync/</link>
+    <description>Recent content in sync on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sat, 02 Nov 2019 22:29:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/sync/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sync</title>
+      <link>https://marcoepsilon.github.io/golib/sync/sync/</link>
+      <pubDate>Sat, 02 Nov 2019 22:29:07 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/sync/sync/</guid>
+      <description>Overview sync提供了同步原语比如互斥锁,以及Once,WaitGroup类型.大多都供底层例层使用,高级同步更好地的使用通过通道和交流,该包包含</description>
+    </item>
+    
+  </channel>
+</rss>

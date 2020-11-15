@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Sync :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview sync提供了同步原语比如互斥锁,以及Once,WaitGroup类型.大多都供底层例层使用,高级同步更好地的使用通过通道和交流,该包包含"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/sync/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Sync :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview sync提供了同步原语比如互斥锁,以及Once,WaitGroup类型.大多都供底层例层使用,高级同步更好地的使用通过通道和交流,该包包含" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Sync :: Marco Epsilon — ">
+<meta property="og:description" content="Overview sync提供了同步原语比如互斥锁,以及Once,WaitGroup类型.大多都供底层例层使用,高级同步更好地的使用通过通道和交流,该包包含" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/sync/" />
+<meta property="og:site_name" content="Sync" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-11-02 22:29:07 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/sync/">Sync</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-11-02
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/sync/">sync</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+sync提供了同步原语比如互斥锁,以及Once,WaitGroup类型.大多都供底层例层使用,高级同步更好地的使用通过通道和交流,该包包含的值不应该被复制
+
+</span>
+
+<h1 id="type-cond">type Cond</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+<br>
+<pre><code class="language-go">type Cond struct {
+    // L 被用来观察和改变条件
+    L Locker
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>Cond实现了条件变量,多个goroutines的汇合点或者宣布事件的发生.每个Cond都有关联的Locker(通常是*Mutex或者*RWMutex),可以改变条件变量或者可以调用Wait方法，在第一次使用之后，不应该被复制</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewCond(l Locker) *Cond
+
+</p>
+NewCond通过l返回一个新的Cond
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Cond) Broadcast()
+
+</p>
+Broadcast唤醒所有等待c的通道
+允许但不要求调用者持有c.L
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Cond) Signal()
+
+</p>
+如果有的话,c唤醒等待c的一个goroutine
+允许但不要求调用者持有c.L
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Cond) Wait()
+
+</p>
+Wait自动解锁c.L并且暂停当前goroutine的执行,之后恢复执行,Wait在返回前锁住c.L,不像其他系统,Wait不能返回除非被Signal或Broadcast唤醒
+因为c.L不是被锁的在Wait第一次被唤醒之前,调用者通常不能确保条件是true当Wait返回.而不是,调用者应该在循环中等待.
+<br>
+<pre><code class="language-go">c.Locker.Lock()
+if !condition() {
+    c.Wait()
+}
+... make use of condition ...
+c.L.Lock()
+</code></pre>
+
+</span>
+
+<h1 id="type-locker">type Locker</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+<br>
+<pre><code class="language-go">type Locker interface {
+    Lock()
+    Unlock()
+}
+</code></pre>
+
+<p>Locker表示一个可以被锁和解锁的对象</p>
+
+
+</span>
+
+<h1 id="type-map">type Map</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+<br>
+<pre><code class="language-go">type Map struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+Map和map[interface{}]interface{},但是对于多个goroutine并发是安全的,而不用增加锁和协调,Loads,stores,deletes,分摊常数时间
+Map是特化的,大多数时候应该使用带锁和协调的map，以更好的类型安全和更简单的维护map中不变的内容
+Map对于两种用例进行了优化:
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+    对于给定的key入口只写入一次但是读取多次,当作只增的缓存
+    
+    </span>
+</p>
+    
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+    当多个goroutine读取,写入,覆写不相交的入口key
+    
+    </span>
+</p>
+
+</div>
+
+在这两种情况下,使用Map能够明显的减少锁竞争,对于map使用分开的Mutex或RWMutex
+Map的零值是空的并准备使用,当第一次使用后必须不能被使用.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m *Map) Delete(key interface{})
+
+</p>
+Delete删除给定的key的值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m *Map) Load(key interface{}) (value interface{}, ok bool)
+
+</p>
+Load返回存储在m给定key的值，或者value不存在返回nil,ok表明是否在map中找到value
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m *Map) LoadOrStore(key, value interface{}) (actual interface{}, loaded bool)
+
+</p>
+LoadOrStore返回对于key存在的值,否则,进行储存和返回给定的value,loaded返回ture,如果值是被加载的,返回false,如果值是被存储的
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m *Map) Range(f func(key, value interface{}) bool)
+
+</p>
+Range对于Map连续的key和value调用f,如果f返回true，Range停止迭代
+Range对于Map内容任何一致的快照不是必须的:对于map中key访问不会超过一次,但是如果同时储存和删除，Range可能反射任何key在Range调用期间
+Range可能O(N)时间复杂度，即使Range在常数个元素返回false
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m *Map) Store(key, value interface{})
+
+</p>
+Store给给定key为value
+
+</span>
+
+<h1 id="type-mutex">type Mutex</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+<br>
+<pre><code class="language-go">type Mutex struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+Mutex是一个互斥锁,Mutex的零值是一个不被锁的互斥量
+Mutex第一次使用后不能被复制
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m *Mutex) Lock()
+
+</p>
+Lock会锁住m,如果锁已经被锁，当前goroutine将会被阻塞直到mutex可用
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m *Mutex) Unlock()
+
+</p>
+Unlock解锁m,如果m没有被锁而Unlock,会发生runtime-error
+一个锁住的mutex并不是和一个特别的goroutine关联的,允许一个goroutine锁住mutex，而安排其他goroutine去Unlock
+
+</span>
+
+<h1 id="type-once">type Once</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+<br>
+<pre><code class="language-go">type Once struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>Once是一个只会执行一次动作的对象</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (o *Once) Do(f func())
+
+</p>
+Do调用函数f只有当Once实例第一次调用Do,换句话说,给定:
+<br>
+<pre><code class="language-go">var once Once
+</code></pre>
+
+<p>如果once.Do(f)调用多次,只有第一次触发,即使f拥有不同的value每次调用,每次函数执行都要求Once的新实例,Do用于初始化被精确的执行一次,如果f产生panic,以后调用f将会直接返回</p>
+
+
+</span>
+
+<h1 id="type-pool">type Pool</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+<br>
+<pre><code class="language-go">type Pool struct {
+    // New可选的指定一个函数产生一个值当Get,否则返回nil
+    // 并发调用Get .，可能不会发生改变
+    New func() interface{}
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>Pool是一个可能被单独地保存和取出的临时对象的集合,任何存储在Pool里的元素可能会无通知的被删除,当发生时,如果Pool只拥有引用,元素可能会被重新分配
+Pool能够被多个goroutine安全地同时使用
+Pool的目的缓存已分配的元素,而不是之后使用的未使用元素,减轻垃圾收集器的负担,Pool很简单的构建线程安全的空闲列表,但是不适合所有空闲列表.
+一个合适的使用Pool场景是管理一组临时元素,默默的分享和潜在地被包中其他客户并发使用,Pool提供一个方法去缓冲使用在多个客户之上,
+Pool好的使用例子在负责分配动态大小临时缓冲区的fmt package
+另一方面,一个空闲列表负责维护短暂生命期的对象不适合使用Pool
+Pool在第一次使用后不应该不复制</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *Pool) Get() interface{}
+
+</p>
+Get从Pool任意挑选一个对象,从Pool删除并返回给调用者,Get可能会忽视pool,并将其视为nil,调用者不应该对Get和Put的值关系和任何假设,如果Get乐意而不是返回nil且p.New非nil,Get返回p.New的结果
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *Pool) Put(x interface{})
+
+</p>
+Put添加x到pool
+
+</span>
+
+<h1 id="type-rwmutex">type RWMutex</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+<br>
+<pre><code class="language-go">type RWMutex struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>RWMutex是读写互斥锁,该锁能够被任意个读者或者一个写者拥有,RWMutex的零值是未锁的互斥量
+RWMutex第一次使用后不能被复制
+如果一个goroutine持有RWMutex的读，另一个goroutine可能调用Lock，没有goroutine应该期待能够获得读锁直到最初的读锁被释放,特别地,这个禁止递归读锁.这确保锁最终可用，Lock将会阻塞除了一个新的读者获得锁</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (rw *RWMutex) Lock()
+
+</p>
+Lock锁住锁的写端,如果对于写端和读端,锁早已锁定,Lock会阻塞直到可用
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (rw *RWMutex) RLock()
+
+</p>
+RLock锁住读端，不应该被用于递归读取,Lock调用将会阻塞，除了一个新的读者获得锁
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (rw *RWMutex) RLocker() Locker
+
+</p>
+RLocker获得读端的Locker接口,可以调用Lock和Unlock
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (rw *RWMutex) RUnlock()
+
+</p>
+RUnlock撤销一个RLock调用,对于其他同时的读者不产生影响,如果rw读端没有被锁,将会造成runtime-error
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (rw *RWMutex) Unlock()
+
+</p>
+Unlock将会解锁写端,如果写端没有被锁,将会产生runtime-error,和Mutex类似,RWMutex并不和一个指定的goroutine关联,可以在一个gorotine执行RLock(Lock),其他goroutine执行RUnlock(Unlock).
+
+</span>
+
+<h1 id="type-waitgroup">type WaitGroup</h1>
+
+<span style="color:#FF7F50; " class="plain_text plain_text_default">
+    
+<br>
+<pre><code class="language-go">type WaitGroup struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>WaitGroup等待一个集合的goroutine完成,main goroutine设置Add的gorouine数量,每个gorountine完成调用Done,与此同时,Wait能够阻塞直到所有gorutine完成</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (wg *WaitGroup) Add(delta int)
+
+</p>
+Add增加差分,差分可能是负值,到WaitGroup计数器,如果计数器是零,Wait的所有goroutine都被释放,如果计数器变成负值,Add会panic.
+注意当计数器为0时，增加一个正的delta应该在调用Wait之前
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (wg *WaitGroup) Done()
+
+</p>
+将计时器减1
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (wg *WaitGroup) Wait()
+
+</p>
+Wait阻塞直到计时器为0
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/time/">
+          <span class="button__text">Time</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>
