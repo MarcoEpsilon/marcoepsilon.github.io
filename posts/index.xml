@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Marco Epsilon</title>
@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Marco Epsilon@Copyright</copyright>
-    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://marcoepsilon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 31 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://marcoepsilon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>&lt;&lt;The Art of R Programing&gt;&gt; -- exercise</title>
+      <link>https://marcoepsilon.github.io/posts/r/art-of-r-programing/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/r/art-of-r-programing/</guid>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
+    </item>
     
     <item>
       <title>Go Exercise Url-Shortener</title>
@@ -27,7 +32,7 @@
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://marcoepsilon.github.io/posts/ruby/ruby_thread/</guid>
-      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
     </item>
     
     <item>
@@ -45,7 +50,7 @@
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://marcoepsilon.github.io/posts/ruby/basic_summary/</guid>
-      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
     </item>
     
     <item>
@@ -54,7 +59,7 @@
       <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://marcoepsilon.github.io/posts/algorithm/stack_queue/</guid>
-      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
     </item>
     
     <item>
@@ -63,7 +68,7 @@
       <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://marcoepsilon.github.io/posts/algorithm/linear-list/</guid>
-      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
     </item>
     
     <item>
@@ -90,7 +95,7 @@
       <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://marcoepsilon.github.io/posts/20190713/</guid>
-      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
     </item>
     
     <item>
@@ -99,7 +104,7 @@
       <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://marcoepsilon.github.io/posts/20190706/</guid>
-      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
     </item>
     
     <item>
@@ -108,7 +113,7 @@
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://marcoepsilon.github.io/posts/20190626/</guid>
-      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
     </item>
     
   </channel>

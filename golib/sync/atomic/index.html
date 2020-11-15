@@ -252,37 +252,26 @@
   
 
   <div class="post-content">
-    
-
-<h1 id="overview">Overview</h1>
-
+    <h1 id="overview">Overview</h1>
 <span style="color:#E57662; " class="plain_text plain_text_default">
     
 包atomic提供了底层原子atomic memory原语,用于实现同步算法.
 这些函数要求格外的小心才能正确使用.除了特别的底层应用,同步最好使用通道或sync包的使用.通过交流共享内存，而不是为了交流去共享内存.
 交换操作,被SwapT函数实现，它等价于:
 <br>
-<pre><code class="language-go">old = *addr
-addr = new
-return old
-</code></pre>
-
-<p>比较和交换操作，通过CompareAndSwapT函数实现,等价于原子性的:</p>
-
-<pre><code class="language-go">if *addr == old {
-    *addr = new
-    return true
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">old</span> = <span style="color:#f92672">*</span><span style="color:#a6e22e">addr</span>
+<span style="color:#a6e22e">addr</span> = <span style="color:#a6e22e">new</span>
+<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">old</span>
+</code></pre></div><p>比较和交换操作，通过CompareAndSwapT函数实现,等价于原子性的:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">if</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">addr</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">old</span> {
+    <span style="color:#f92672">*</span><span style="color:#a6e22e">addr</span> = <span style="color:#a6e22e">new</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
 }
-return false
-</code></pre>
-
-<p>增加操作,通过AddT实现,等价于原子性的:</p>
-
-<pre><code class="language-go">*addr += delta
-return *addr
-</code></pre>
-
-<p>加载和存储操作,由LoadT和StoreT实现,等价于原子性的&rdquo;return *addr&rdquo;和&rdquo;*addr = val&rdquo;</p>
+<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</code></pre></div><p>增加操作,通过AddT实现,等价于原子性的:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">*</span><span style="color:#a6e22e">addr</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">delta</span>
+<span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">addr</span>
+</code></pre></div><p>加载和存储操作,由LoadT和StoreT实现,等价于原子性的&quot;return *addr&quot;和&quot;*addr = val&quot;</p>
 
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
     
@@ -453,16 +442,14 @@ func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)
 SwapPointer原子性的存储new到*addr,并返回原来的*addr
 
 </span>
-
 <h1 id="type-value">type Value</h1>
-
 <span style="color:#E57662; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Value struct {
-    // contains filtered or unexported fields
-}
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Value</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div>
 Value提供了原子性的加载和存储的一致性类型,Value的零值从Value返回nil,一旦Store调用，Value将不能被复制.
 Value使用后必须不能被复制
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
@@ -479,73 +466,67 @@ func (v *Value) Store(x interface{})
 设置Value的值为x,所有调用Store给出的值必须是固定的类型,设置不一致的类型将会panic,比如Store(nil)
 
 </span>
-
 <h1 id="example">Example</h1>
-
 <br>
-<pre><code class="language-go">package main
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-import (
-	&quot;sync&quot;
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;sync&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
 
-func main() {
-	var done sync.WaitGroup
-	done.Add(2)
-	firstPipe := 0
-	secondPipe := 0
-	go func() {
-		for i := 0; i &lt; 50; i++ {
-			firstPipe++
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">done</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>
+	<span style="color:#a6e22e">done</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#ae81ff">2</span>)
+	<span style="color:#a6e22e">firstPipe</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#a6e22e">secondPipe</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">50</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+			<span style="color:#a6e22e">firstPipe</span><span style="color:#f92672">++</span>
 		}
-		done.Done()
+		<span style="color:#a6e22e">done</span>.<span style="color:#a6e22e">Done</span>()
 	}()
-	go func() {
-		for i := 0; i &lt; 200; i++ {
-			secondPipe++
+	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">200</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+			<span style="color:#a6e22e">secondPipe</span><span style="color:#f92672">++</span>
 		}
-		done.Done()
+		<span style="color:#a6e22e">done</span>.<span style="color:#a6e22e">Done</span>()
 	}()
-	done.Wait()
-	fmt.Println(&quot;total: &quot;, (firstPipe + secondPipe))
+	<span style="color:#a6e22e">done</span>.<span style="color:#a6e22e">Wait</span>()
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;total: &#34;</span>, (<span style="color:#a6e22e">firstPipe</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">secondPipe</span>))
 }
-</code></pre>
+</code></pre></div><h1 id="example">Example</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<h1 id="example">Example</h1>
-
-<pre><code class="language-go">package main
-
-import (
-	&quot;sync&quot;
-	&quot;sync/atomic&quot;
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;sync&#34;</span>
+	<span style="color:#e6db74">&#34;sync/atomic&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
 
-func main() {
-	var counter int32 = 0
-	// for add 2
-	times := 100000
-	var done sync.WaitGroup
-	done.Add(2)
-	go func() {
-		for i := 0; i &lt; times; i++ {
-			atomic.AddInt32(&amp;counter, 2)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">counter</span> <span style="color:#66d9ef">int32</span> = <span style="color:#ae81ff">0</span>
+	<span style="color:#75715e">// for add 2
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">times</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">100000</span>
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">done</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>
+	<span style="color:#a6e22e">done</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#ae81ff">2</span>)
+	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">times</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+			<span style="color:#a6e22e">atomic</span>.<span style="color:#a6e22e">AddInt32</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">counter</span>, <span style="color:#ae81ff">2</span>)
 		}
-		defer done.Done()
+		<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">done</span>.<span style="color:#a6e22e">Done</span>()
 	}()
-	// for sub 1
-	go func() {
-		for i := 0; i &lt; times; i++ {
-			atomic.AddInt32(&amp;counter, -1)
+	<span style="color:#75715e">// for sub 1
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">times</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+			<span style="color:#a6e22e">atomic</span>.<span style="color:#a6e22e">AddInt32</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">counter</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 		}
-		defer done.Done()
+		<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">done</span>.<span style="color:#a6e22e">Done</span>()
 	}()
-	done.Wait()
-	fmt.Println(&quot;counter: &quot;, counter, &quot;times: &quot;, times)
+	<span style="color:#a6e22e">done</span>.<span style="color:#a6e22e">Wait</span>()
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;counter: &#34;</span>, <span style="color:#a6e22e">counter</span>, <span style="color:#e6db74">&#34;times: &#34;</span>, <span style="color:#a6e22e">times</span>)
 }
-</code></pre>
-
+</code></pre></div>
 
   </div>
   
@@ -597,9 +578,6 @@ func main() {
     
   </div>
 </footer>
-<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
-<script src="https://marcoepsilon.github.io/assets/main.js"></script>
-<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
 
 
 

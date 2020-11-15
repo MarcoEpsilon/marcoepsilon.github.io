@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>time on Marco Epsilon</title>
@@ -7,18 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Marco Epsilon@Copyright</copyright>
-    <lastBuildDate>Mon, 14 Oct 2019 23:13:49 +0800</lastBuildDate>
-    
-	<atom:link href="https://marcoepsilon.github.io/tags/time/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 14 Oct 2019 23:13:49 +0800</lastBuildDate><atom:link href="https://marcoepsilon.github.io/tags/time/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Time</title>
       <link>https://marcoepsilon.github.io/golib/time/</link>
       <pubDate>Mon, 14 Oct 2019 23:13:49 +0800</pubDate>
       
       <guid>https://marcoepsilon.github.io/golib/time/</guid>
-      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;; item.firstChild.style.fontFamily = &#34;FiraCode&#34;; item.firstChild.style.fontSize = &#34;18px&#34;; }); } function afterLoad()</description>
+      <description>.plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;</description>
     </item>
     
   </channel>

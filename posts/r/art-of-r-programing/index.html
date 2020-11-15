@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>&lt;&lt;The Art of R Programing&gt;&gt; -- exercise :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content=".plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/r/art-of-r-programing/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="&lt;&lt;The Art of R Programing&gt;&gt; -- exercise :: Marco Epsilon — " />
+<meta name="twitter:description" content=".plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="&lt;&lt;The Art of R Programing&gt;&gt; -- exercise :: Marco Epsilon — ">
+<meta property="og:description" content=".plain_text { word-wrap: break-word; word-break: break-all; white-space:normal; color:lime; } span .plain_text .plain_text_default { color:lightskyblue!important; } @font-face { font-family: FiraCode; src:url(&#39;/fonts/FiraCode-Regular.ttf&#39;); } h1, h2, h3, h4, h5{ margin-top: 20px; margin-bottom: 20px; } function removeSurplus() { let plainText = document.querySelectorAll(&#34;pre code .plain_text&#34;); plainText.forEach(function (element,index,parent) { { let grand = element.parentNode.parentNode.parentNode; let parent = element.parentNode.parentNode; grand.replaceChild(element,parent); } }); } function addLineNumber() { let pres = document.querySelectorAll(&#34;pre&#34;); pres.forEach(function (item,index) { item.classList.add(&#34;line-numbers&#34;); item.style.whiteSpace = &#34;pre-wrap&#34;;" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/r/art-of-r-programing/" />
+<meta property="og:site_name" content="&lt;&lt;The Art of R Programing&gt;&gt; -- exercise" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2020-10-31 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/r/art-of-r-programing/">&laquo;The Art of R Programing&raquo; &ndash; exercise</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-10-31
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/r/">R</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/programing/">Programing</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    <style type="text/css">
+    .plain_text {
+        word-wrap: break-word;
+        word-break: break-all;
+        white-space:normal;
+        color:lime;
+    }
+    span .plain_text .plain_text_default {
+        color:lightskyblue!important;
+    }
+    @font-face {
+        font-family: FiraCode;
+        src:url('/fonts/FiraCode-Regular.ttf');
+    }
+    h1, h2, h3, h4, h5{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+<script type="text/javascript">
+    function removeSurplus() {
+        let plainText = document.querySelectorAll("pre code .plain_text");
+        plainText.forEach(function (element,index,parent) {
+            {
+                let grand = element.parentNode.parentNode.parentNode;
+                let parent = element.parentNode.parentNode;
+                grand.replaceChild(element,parent);
+            }
+        });
+    }
+    function addLineNumber() {
+        let pres = document.querySelectorAll("pre");
+        pres.forEach(function (item,index) {
+            item.classList.add("line-numbers");
+            item.style.whiteSpace = "pre-wrap";
+            item.firstChild.style.fontFamily = "FiraCode";
+            item.firstChild.style.fontSize = "18px";
+        });
+    }
+    function afterLoad() {
+        return new Promise(function (resolve,reject) {
+            removeSurplus();
+            resolve();
+        }).then(function (data) {
+            addLineNumber();
+        });
+    }
+    document.addEventListener("DOMContentLoaded",afterLoad);
+</script>
+
+<link rel="stylesheet" href="/prism/prism.css" type="text/css" />
+<script src="/prism/prism.js" type="text/javascript" ></script>
+
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-1">Exercise #1</h1>
+</div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-图像操作">Target: 图像操作</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+用户可以使用选取pgm图片对角线的位置,为其打上马赛克(为图片的灰度值增加噪声)
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+运用pixmap读取pgm格式图片,使用plot绘制该图片,通过locator函数返回用户通过鼠标在图片选取的区域(注:图片原点在左上方,locator返回的点原点在左下角,所以要进行转换),然后通过改变read.pnm()返回的图片对象的灰度值,然后通过plot重新绘制该对象
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h2 id="achieve">Achieve</h2>
+</div></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># 导入 pixmap library 用于操作图像数据</span>
+<span style="color:#a6e22e">if </span>(<span style="color:#e6db74">&#34;pixmap&#34;</span> <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">.packages</span>(all.available <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) {
+	<span style="color:#a6e22e">library</span>(pixmap)
+} else {
+	<span style="color:#a6e22e">install.packages</span>(pixmap)
+	<span style="color:#a6e22e">library</span>(pixmap)
+}
+
+
+img <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.pnm</span>(<span style="color:#e6db74">&#34;test.pgm&#34;</span>)
+
+
+<span style="color:#a6e22e">plot</span>(img)
+
+loc <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">locator</span>()
+
+<span style="color:#a6e22e">if </span>(<span style="color:#a6e22e">length</span>(loc<span style="color:#f92672">$</span>x) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+	<span style="color:#a6e22e">quit</span>()
+}
+
+area <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>()
+
+
+area<span style="color:#f92672">$</span>rows <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">seq</span>(from <span style="color:#f92672">=</span> <span style="color:#a6e22e">ifelse</span>(<span style="color:#a6e22e">length</span>(loc<span style="color:#f92672">$</span>y) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>,
+    img<span style="color:#f92672">@</span>size[1] <span style="color:#f92672">-</span> loc<span style="color:#f92672">$</span>y[1]), to <span style="color:#f92672">=</span> <span style="color:#a6e22e">ifelse</span>(<span style="color:#a6e22e">length</span>(loc<span style="color:#f92672">$</span>y) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>, 
+    img<span style="color:#f92672">@</span>size[1], img<span style="color:#f92672">@</span>size[1] <span style="color:#f92672">-</span> loc<span style="color:#f92672">$</span>y[2]), by <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+
+area<span style="color:#f92672">$</span>columns <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">seq</span>(from <span style="color:#f92672">=</span> <span style="color:#a6e22e">ifelse</span>(<span style="color:#a6e22e">length</span>(loc<span style="color:#f92672">$</span>x) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>,
+    loc<span style="color:#f92672">$</span>x[1]), to <span style="color:#f92672">=</span> <span style="color:#a6e22e">ifelse</span>(<span style="color:#a6e22e">length</span>(loc<span style="color:#f92672">$</span>x) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>,
+    img<span style="color:#f92672">@</span>size[2], loc<span style="color:#f92672">$</span>x[2]), by <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+
+<span style="color:#a6e22e">print</span>(area)
+<span style="color:#75715e">#根据 locator得到的像素区域进行增加噪声</span>
+
+blurImgArea <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(img, area, noise)
+{
+	nRows <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">length</span>(area<span style="color:#f92672">$</span>rows)
+	nCols <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">length</span>(area<span style="color:#f92672">$</span>columns)
+
+	randomNoiseMatrix <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(data <span style="color:#f92672">=</span> <span style="color:#a6e22e">runif</span>(nRows <span style="color:#f92672">*</span> nCols, min <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, max <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>),
+        nrow <span style="color:#f92672">=</span> nRows, ncol <span style="color:#f92672">=</span> nCols)
+	
+	img<span style="color:#f92672">@</span>grey[area<span style="color:#f92672">$</span>rows, area<span style="color:#f92672">$</span>columns] <span style="color:#f92672">&lt;-</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> noise) <span style="color:#f92672">*</span>
+        img<span style="color:#f92672">@</span>grey[area<span style="color:#f92672">$</span>rows, area<span style="color:#f92672">$</span>columns] <span style="color:#f92672">+</span> noise <span style="color:#f92672">*</span> randomNoiseMatrix
+
+	<span style="color:#a6e22e">return</span>(img)
+}
+
+<span style="color:#a6e22e">plot</span>(<span style="color:#a6e22e">blurImgArea</span>(img, area, <span style="color:#ae81ff">0.75</span>))
+</code></pre></div><p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-2">Exercise #2</h1>
+</div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target求距离矩阵最小值">Target：求距离矩阵最小值</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+输入一个距离矩阵,返回最小距离的行号和列号(假设最小距离只有一个,且矩阵对角线为0并舍弃该值)
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+根据距离矩阵dis[i, j] == dis[j, i],我们可以避免多次重复比较,通过R的apply函数对矩阵的行扫描,当扫描到某i行就表示该行的前i列已经参与了比较,无需重复比较.
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h2 id="achieve">Achieve</h2>
+</div></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># 通过输入一个距离矩阵,找出最小距离及其行列号(舍弃mat[i, i] == 0的结果)</span>
+<span style="color:#75715e"># 通过对距离矩阵进行遍历进行两两比较我们可以很快就能得到答案</span>
+<span style="color:#75715e"># ,但这种方法效率不高,没有利用到距离矩阵mat[i, j] == mat[j, i]的有效信息</span>
+
+<span style="color:#75715e"># 我们先对每行处理 找出每行的最小元素,然后综合所有行结果找出解集</span>
+<span style="color:#75715e"># 利用mat[i, j] == mat[j, i]的信息我们可以舍弃</span>
+<span style="color:#75715e"># 每行的行号之前的列元素进行求解</span>
+
+<span style="color:#75715e"># 由于apply函数会丢弃行号的信息,所以我们可以重新构造矩阵为其添加上</span>
+
+addRowTag <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(mat)
+{
+	<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">cbind</span>(mat, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">nrow</span>(mat)))
+}
+
+rowMin <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(rVec)
+{
+	n <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">length</span>(rVec)
+	currRow <span style="color:#f92672">&lt;-</span> rVec[n]
+	minColIndex <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">which.min</span>(rVec<span style="color:#a6e22e">[</span>(currRow <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)<span style="color:#f92672">:</span>(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)])
+	<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">c</span>(currRow <span style="color:#f92672">+</span> minColIndex, rVec[currRow <span style="color:#f92672">+</span> minColIndex]))
+}
+
+<span style="color:#75715e"># 返回值为 [行号, 列号, 最小元素值]</span>
+getDistanceInfo <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(mat)
+{
+	mat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">addRowTag</span>(mat)
+
+	n <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">nrow</span>(mat)
+	
+	<span style="color:#75715e"># 返回2xn矩阵 每列包含最小元素的列和该最小元素值</span>
+	rowsMinInfo <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">apply</span>(mat[<span style="color:#f92672">-</span>n, ], <span style="color:#ae81ff">1</span>, rowMin)
+
+	<span style="color:#75715e"># 综合所有元素值找出最小元素值</span>
+	i <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">which.min</span>(rowsMinInfo[2, ]) <span style="color:#75715e">#行号</span>
+	j <span style="color:#f92672">&lt;-</span> rowsMinInfo[1, i] <span style="color:#75715e"># 列号</span>
+	<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">c</span>(i, j, rowsMinInfo[2, i]))
+}
+
+testMat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">20</span>,
+	<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">88</span>,
+	<span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>,
+	<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">33</span>,
+	<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">88</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">33</span>, <span style="color:#ae81ff">0</span>), nrow <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>)
+
+
+<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">getDistanceInfo</span>(testMat))
+
+</code></pre></div><p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-3">Exercise #3</h1>
+</div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target获取单词的索引列表">Target：获取单词的索引列表</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+读取文本文件test.txt，首先进行预处理，将文本中非单词字符替换为空格得到所有的单词,然后根据得到的单词集合进行处理，得到单词的索引列表
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+读取文件使用scan函数,其中what要使用""，表示要读取的是字符串集合,scan会返回一个字符串向量,然后我们使用gsub函数通过合理的正则表达式将所有非单词字符替换为空格,然后使用strsplit将所有单词提取处理,此时strsplit返回的列表还包含了空字符串""和包含大写的单词,我们通过向量的筛选和toupper提取到最终想要的单词表
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h2 id="achieve">Achieve</h2>
+</div></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># 读取文件 为文件出现的单词创建索引</span>
+indexWords <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(file)
+{
+	<span style="color:#75715e"># 读取文件内容</span>
+	contents <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">scan</span>(file, what<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>)
+
+	<span style="color:#75715e">#将所有非单词字符替换为空格</span>
+	contents <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">gsub</span>(<span style="color:#e6db74">&#34;[^a-zA-Z]&#34;</span>, <span style="color:#e6db74">&#34; &#34;</span>, contents)
+	<span style="color:#75715e"># 得到所有单词的列表</span>
+	words <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">strsplit</span>(contents, split<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+
+	<span style="color:#75715e"># 快捷函数 </span>
+	<span style="color:#75715e"># 将字符串向量内容转换为小写</span>
+	words <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lapply</span>(words, <span style="color:#a6e22e">function</span>(strs) {
+		<span style="color:#75715e"># 移除空字符串</span>
+		strs <span style="color:#f92672">&lt;-</span> strs[strs <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>]
+		<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">sapply</span>(strs, tolower))
+	})
+
+	<span style="color:#75715e"># 将列表转换为向量</span>
+	words <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">unlist</span>(words)
+	
+	indexs <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>()
+	<span style="color:#a6e22e">for </span>(i in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">length</span>(words))
+	{
+		indexs[[words[i]]] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(indexs[[words[i]]], i)
+	}
+
+	<span style="color:#a6e22e">return</span>(indexs)
+}
+
+
+sortListByAplpha <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(wrdList)
+{
+	keys <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">names</span>(wrdList)
+	index <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">order</span>(keys)
+	<span style="color:#a6e22e">return</span>(wrdList[index])
+}
+
+sortListByRate <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(wrdList)
+{
+	rates <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(wrdList, length)
+	<span style="color:#a6e22e">return</span>(wrdList<span style="color:#a6e22e">[order</span>(rates)])
+}
+
+
+<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">indexWords</span>(<span style="color:#e6db74">&#34;test.txt&#34;</span>))
+</code></pre></div><p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-4">Exercise #4</h1>
+</div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-鲍鱼数据-关于性别的logistic回归模型分析">Target: 鲍鱼数据-关于性别的Logistic回归模型分析</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+读取csv格式的包含鲍鱼数据的文件,通过R中提供的glm函数,对鲍鱼数据中除性别外的有关列对性别进行Logistic回归分析,并返回结果集(练习中用到的鲍鱼数据文件在附件中)
+
+</span></p>
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+练习中用到的鲍鱼数据文件中性别使用字符串表示的,类型是charcter，而使用Logistic回归分析时,随机变量Y的取值范围是 0<=Y <=1,所以使用read.csv时需要通过stringsAsFactors=T来使得Gender列映射为0-1
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h1 id="achieve">Achieve</h1>
+</div></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># 读取鲍鱼数据</span>
+<span style="color:#75715e"># 鲍鱼数据每一行表示:</span>
+<span style="color:#75715e"># Gender,Length,Diameter,Height,WholeWt,ShuckedWt,ViscWt,ShellWt,Rings</span>
+<span style="color:#75715e"># 中文解释:	 		</span>
+<span style="color:#75715e">#  性别  	长度	直径	 高度	实际重量 去壳重量 脏器重量 壳重  年龄</span>
+<span style="color:#75715e"># 附加描述:	</span>
+<span style="color:#75715e"># in（&#39;M&#39;, &#39;F&#39;, &#39;I&#39;）</span>
+<span style="color:#75715e"># 对鲍鱼数据每一列(除性别)用Logistic模型进行回归分析,对鲍鱼性别Gender进行预测</span>
+
+logisticPredict <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(dataFile)
+{
+	<span style="color:#75715e"># 读取鲍鱼数据</span>
+	data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(dataFile, header<span style="color:#f92672">=</span>T, stringsAsFactors<span style="color:#f92672">=</span>T)
+	
+	<span style="color:#75715e"># 鲍鱼数据包含(M, F, I),分别表示 公 母 幼儿(暂时无性别特征)</span>
+	<span style="color:#75715e"># 去除性别为幼儿的数据</span>
+	data <span style="color:#f92672">&lt;-</span> data[data<span style="color:#f92672">$</span>Gender <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;I&#34;</span>, ] 
+	
+	<span style="color:#a6e22e">print</span>(data)	
+	<span style="color:#75715e"># 对鲍鱼数据的某列进行Logistic回归分析</span>
+	predictResult <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(cData)
+	{
+		<span style="color:#a6e22e">return </span>(<span style="color:#a6e22e">glm</span>(data<span style="color:#f92672">$</span>Gender <span style="color:#f92672">~</span> cData, family<span style="color:#f92672">=</span>binomial)<span style="color:#f92672">$</span>coefficient)
+	}
+
+	<span style="color:#75715e"># 对鲍鱼数据除性别列外所以列进行Logistic回归分析,并返回结果集</span>
+	<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">sapply</span>(data[, <span style="color:#ae81ff">-1</span>], predictResult))	
+}
+
+<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">logisticPredict</span>(<span style="color:#e6db74">&#39;AbaloneWithHeader.data&#39;</span>))
+</code></pre></div><p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/appendix.png" />&nbsp;<h2 id="appendix">Appendix</h2>
+</div>
+<div style="display: flex; flex-direction: row; justify-content: space-around; margin-top:2rem;">
+    
+
+
+<a href="/appendix/R/AbaloneWithHeader.data" download="AbaloneWithHeader.data" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>鲍鱼数据(带头部)</a>
+
+
+<a href="/appendix/R/Abalone.data" download="Abalone.data" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>鲍鱼数据(无头部)</a>
+
+</div></p>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/exercise/go/url-shortener/">
+          <span class="button__text">Go Exercise Url-Shortener</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

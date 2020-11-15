@@ -252,47 +252,33 @@
   
 
   <div class="post-content">
-    
-
-<h1 id="overview">Overview</h1>
-
+    <h1 id="overview">Overview</h1>
 <span style="color:#eed202; " class="plain_text plain_text_default">
     
 包log实现简单的日志包,它定义的类型Logger,包含一些格式化输出的方法,它还有预定义的易访问的标准"Logger",通过帮助函数 Print[f|ln],Fatal[f|ln],Panic[f|ln]，比手动地创建Logger更简单,日志库写入标准错误且在日志消息中打印每个日期和时间.每个日志消息由换行符分割,如果打印的消息没有换行符,日志器将会增加一个,Fatal函数将写入日志消息后调用os.Exit(1),Panic函数将会在写入日志消息后调用panic
 
 </span>
-
-<h1 id="常量-constants">常量(Constants)</h1>
-
+<h1 id="常量constants">常量(Constants)</h1>
 <span style="color:#eed202; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">const (
-    Ldate = 1 &lt;&lt; itoa // 本地时区日期: 2009/01/23
-    Ltime // 本地时区时间: 01:23:23
-    Lmicroseconds // 微秒精度: 01:23:23.123123, 假定Ltime
-    Llongfile // 充分的文件名和行号: /a/b/c/d.go:23
-    Lshortfile // 最后的文件名和行号: d.go:23
-    LUTC // 如果Ldate或Ltime被设置,使用UTC时区而不是本地时区
-    LstdFlags = Ldate | Ltime // 标准日志器的初始值
-)
-</code></pre>
-
-<p>这些flags定义了由日志器产生的每个消息的文本前缀条目,位的顺序共同控制打印的格式,这里无法控制它们出现的顺序或它们呈现的格式(注释中的格式),当Llongfile或Lshortfile指定时,前缀指定着冒号,比如Ldate|Ltime(LstdFlags)产生的.</p>
-
-<pre><code class="language-go">2009/01/23 01:23:23 message
-</code></pre>
-
-<p>而Ldate|Ltime|Lmicrosceonds|Llongfile产生的.</p>
-
-<pre><code class="language-go">2009/01/23 01:23:23.123123 /a/b/c/d.go: message
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">const</span> (
+    <span style="color:#a6e22e">Ldate</span> = <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#a6e22e">itoa</span> <span style="color:#75715e">// 本地时区日期: 2009/01/23
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Ltime</span> <span style="color:#75715e">// 本地时区时间: 01:23:23
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Lmicroseconds</span> <span style="color:#75715e">// 微秒精度: 01:23:23.123123, 假定Ltime
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Llongfile</span> <span style="color:#75715e">// 充分的文件名和行号: /a/b/c/d.go:23
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Lshortfile</span> <span style="color:#75715e">// 最后的文件名和行号: d.go:23
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">LUTC</span> <span style="color:#75715e">// 如果Ldate或Ltime被设置,使用UTC时区而不是本地时区
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">LstdFlags</span> = <span style="color:#a6e22e">Ldate</span> | <span style="color:#a6e22e">Ltime</span> <span style="color:#75715e">// 标准日志器的初始值
+</span><span style="color:#75715e"></span>)
+</code></pre></div><p>这些flags定义了由日志器产生的每个消息的文本前缀条目,位的顺序共同控制打印的格式,这里无法控制它们出现的顺序或它们呈现的格式(注释中的格式),当Llongfile或Lshortfile指定时,前缀指定着冒号,比如Ldate|Ltime(LstdFlags)产生的.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ae81ff">2009</span><span style="color:#f92672">/</span><span style="color:#ae81ff">01</span><span style="color:#f92672">/</span><span style="color:#ae81ff">23</span> <span style="color:#ae81ff">01</span>:<span style="color:#ae81ff">23</span>:<span style="color:#ae81ff">23</span> <span style="color:#a6e22e">message</span>
+</code></pre></div><p>而Ldate|Ltime|Lmicrosceonds|Llongfile产生的.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ae81ff">2009</span><span style="color:#f92672">/</span><span style="color:#ae81ff">01</span><span style="color:#f92672">/</span><span style="color:#ae81ff">23</span> <span style="color:#ae81ff">01</span>:<span style="color:#ae81ff">23</span>:<span style="color:#ae81ff">23.123123</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">a</span><span style="color:#f92672">/</span><span style="color:#a6e22e">b</span><span style="color:#f92672">/</span><span style="color:#a6e22e">c</span><span style="color:#f92672">/</span><span style="color:#a6e22e">d</span>.<span style="color:#66d9ef">go</span>: <span style="color:#a6e22e">message</span>
+</code></pre></div>
 
 </span>
-
-<h1 id="函数-functions">函数(Functions)</h1>
-
+<h1 id="函数functions">函数(Functions)</h1>
 <span style="color:#eed202; " class="plain_text plain_text_default">
     
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
@@ -393,18 +379,14 @@ func Writer() io.Writer
 返回标准日志器的输出目的地
 
 </span>
-
 <h1 id="type-logger">type Logger</h1>
-
 <span style="color:#eed202; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Logger struct {
-    // contains filtered or unexported fields
-}
-</code></pre>
-
-<p>Logger表示一个活跃的日志对象产生输出行到io.Writer,每个日志操作都会作出一个简单Writer的Write方法调用,日志器能够保证被多个goroutine使用,它保证使用Writer序列化.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Logger</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Logger表示一个活跃的日志对象产生输出行到io.Writer,每个日志操作都会作出一个简单Writer的Write方法调用,日志器能够保证被多个goroutine使用,它保证使用Writer序列化.</p>
 
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
     
@@ -510,30 +492,28 @@ func (l *Logger) Writer() io.Writer
 Writer返回日志器的输出目的地
 
 </span>
-
 <h1 id="examples">Examples</h1>
-
 <span style="color:#eed202; " class="plain_text plain_text_default">
     
 自定义Logger
 <br>
-<pre><code class="language-go">package main
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-import (
-	&quot;log&quot;
-	&quot;bytes&quot;
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;log&#34;</span>
+	<span style="color:#e6db74">&#34;bytes&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
 
-var (
-	buf bytes.Buffer
-	logger = log.New(&amp;buf, &quot;self logger: &quot;, log.LstdFlags)
+<span style="color:#66d9ef">var</span> (
+	<span style="color:#a6e22e">buf</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">Buffer</span>
+	<span style="color:#a6e22e">logger</span> = <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">New</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">buf</span>, <span style="color:#e6db74">&#34;self logger: &#34;</span>, <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">LstdFlags</span>)
 )
-func main() {
-	logger.Println(&quot;hello, my logger&quot;)
-	fmt.Print(buf.String())	
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">logger</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;hello, my logger&#34;</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">buf</span>.<span style="color:#a6e22e">String</span>())	
 }
-</code></pre>
+</code></pre></div>
 
 </span>
 
@@ -587,9 +567,6 @@ func main() {
     
   </div>
 </footer>
-<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
-<script src="https://marcoepsilon.github.io/assets/main.js"></script>
-<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
 
 
 

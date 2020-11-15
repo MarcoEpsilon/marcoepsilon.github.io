@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>log/syslog on Marco Epsilon</title>
@@ -6,12 +6,7 @@
     <description>Recent content in log/syslog on Marco Epsilon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>Marco Epsilon@Copyright</copyright>
-    <lastBuildDate>Sun, 24 Nov 2019 22:45:02 +0800</lastBuildDate>
-    
-	<atom:link href="https://marcoepsilon.github.io/tags/log/syslog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Marco Epsilon@Copyright</copyright><atom:link href="https://marcoepsilon.github.io/tags/log/syslog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Syslog</title>
       <link>https://marcoepsilon.github.io/golib/log/syslog/</link>

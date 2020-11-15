@@ -250,18 +250,13 @@
   
 
   <div class="post-content">
-    
-
-<h1 id="overview">Overview</h1>
-
+    <h1 id="overview">Overview</h1>
 <span style="color:#d3ff00; " class="plain_text plain_text_default">
     
 serde是为rust数据结构高效的序列化和反序列化的框架,其他的大部分语言使用运行时的反射技术来序列化数据,Serde是建立在Rust高效的trait生态系统,一个实现trait Serialize和trait Deserialize的数据结构知道如何序列化和反序列化它自己(或者使用serde的derive属性在编译时自动生成实现),这避免了任何反射的开销和任何运行时类型推断的信息,实际上,在大多数场景下数据结构和数据格式的交互能够完全的被Rust编译器优化.Serde支持多种格式的序列化,甚至能够自行增加格式(这也是被称为框架的原因)
 
 </span>
-
 <h1 id="attributes">Attributes</h1>
-
 <span style="color:#d3ff00; " class="plain_text plain_text_default">
     
 Atrributes用于定制化通过Serde的derive产生的Serialize和Deserialize实现,存在三种attributes的策略:
@@ -299,9 +294,7 @@ Atrributes用于定制化通过Serde的derive产生的Serialize和Deserialize实
 
 
 </span>
-
 <h2 id="container-attributes">Container attributes</h2>
-
 <span style="color:#d3ff00; " class="plain_text plain_text_default">
     
 <div style="padding-left:2.5rem; color:#FFAB0B;">
@@ -550,9 +543,7 @@ Atrributes用于定制化通过Serde的derive产生的Serialize和Deserialize实
 
 
 </span>
-
 <h2 id="variant-attributes">Variant Attributes</h2>
-
 <span style="color:#d3ff00; " class="plain_text plain_text_default">
     
 <div style="padding-left:2.5rem; color:#FFAB0B;">
@@ -687,8 +678,8 @@ Atrributes用于定制化通过Serde的derive产生的Serialize和Deserialize实
 </p>
     序列化variant使用不同于Serialize实现的函数,给定的函数必须像
     <br>
-<pre><code class="language-rust">    fn&lt;S&gt;(&amp;FIELD0, &amp;FIELD1, ..., S) -&gt; Result&lt;S::Ok, S::Error&gt; where S: Serializer
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">    <span style="color:#66d9ef">fn</span><span style="color:#f92672">&lt;</span>S<span style="color:#f92672">&gt;</span>(<span style="color:#f92672">&amp;</span>FIELD0, <span style="color:#f92672">&amp;</span>FIELD1, ..., S) -&gt; Result<span style="color:#f92672">&lt;</span>S::Ok, S::Error<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">where</span> S: <span style="color:#a6e22e">Serializer</span>
+</code></pre></div>
     ,尽管可能生成超过FIELD{n}类型,Variants使用serialize_with而不要求能够derive Serialize.Field{n}存在variant的每个字段,因此单元variant只有参数 <span style="color:#FFA500; background-color:#1C1C1C;">
      S 
 </span>,turple/struct有每个字段的参数.
@@ -702,8 +693,8 @@ Atrributes用于定制化通过Serde的derive产生的Serialize和Deserialize实
 </p>
     反序列化该variant使用特定函数而不是Deserialize的实现,给定的函数必须是形如
     <br>
-<pre><code class="language-rust">    fn&lt;'de, D&gt;(D) -&gt; Result&lt;FIELDS, D::Error&gt; where D: Deserializer&lt;'de&gt;
-</code></pre>,尽管通用的超过FIELDS的元素,Variant使用deserialize_with,不被要求derive Deserialize.FIELDS是variant所有字段的turple.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">    <span style="color:#66d9ef">fn</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">&#39;de</span>, D<span style="color:#f92672">&gt;</span>(D) -&gt; Result<span style="color:#f92672">&lt;</span>FIELDS, D::Error<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">where</span> D: <span style="color:#a6e22e">Deserializer</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">&#39;de</span><span style="color:#f92672">&gt;</span>
+</code></pre></div>,尽管通用的超过FIELDS的元素,Variant使用deserialize_with,不被要求derive Deserialize.FIELDS是variant所有字段的turple.
     
 <p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
     <span style="font-size: 18px;">
@@ -774,9 +765,7 @@ Atrributes用于定制化通过Serde的derive产生的Serialize和Deserialize实
 
 
 </span>
-
 <h2 id="field-attributes">Field Attributes</h2>
-
 <span style="color:#d3ff00; " class="plain_text plain_text_default">
     
 <div style="padding-left:2.5rem; color:#FF82AB;">
@@ -905,9 +894,6 @@ Atrributes用于定制化通过Serde的derive产生的Serialize和Deserialize实
     
   </div>
 </footer>
-<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
-<script src="https://marcoepsilon.github.io/assets/main.js"></script>
-<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
 
 
 

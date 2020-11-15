@@ -250,10 +250,7 @@
   
 
   <div class="post-content">
-    
-
-<h1 id="exercise-requirement">Exercise Requirement</h1>
-
+    <h1 id="exercise-requirement">Exercise Requirement</h1>
 <span style="color:#f82d2d; " class="plain_text plain_text_default">
     
 <div style="padding-left:2.5rem; color:#FF82AB;">
@@ -295,9 +292,7 @@
 
 
 </span>
-
 <h1 id="external-package">External Package</h1>
-
 <span style="color:#f82d2d; " class="plain_text plain_text_default">
     
 <div style="padding-left:2.5rem; color:#FF82AB;">
@@ -318,82 +313,72 @@
 
 
 </span>
-
 <h1 id="exercise-goal">Exercise Goal</h1>
-
 <span style="color:#f82d2d; " class="plain_text plain_text_default">
     
 通过实现http.Handler接口完成将请求重定向到键值对应的URL,比如JSON数据:
 <br>
-<pre><code class="language-json">[
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
     {
-        &quot;path&quot;: &quot;http&quot;,
-        &quot;url&quot;: &quot;https://marcoepsilon.site/golib/net/http/&quot;,
+        <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;http&#34;</span>,
+        <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://marcoepsilon.site/golib/net/http/&#34;</span>,
     },
     {
-        &quot;path&quot;: &quot;os&quot;,
-        &quot;url&quot;: &quot;https://marcoepsilon.site/golib/sort/&quot;
+        <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;os&#34;</span>,
+        <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://marcoepsilon.site/golib/sort/&#34;</span>
     }
 ]
-</code></pre>
-
-<p>通过读取JSON数据增加http.Handler,在用户输入&rdquo;localhost:port/path&rdquo;时,能够重定向到JSON数据path对应的url</p>
+</code></pre></div><p>通过读取JSON数据增加http.Handler,在用户输入&quot;localhost:port/path&quot;时,能够重定向到JSON数据path对应的url</p>
 
 
 </span>
-
 <h1 id="exercise-details">Exercise Details</h1>
-
 <span style="color:#f82d2d; " class="plain_text plain_text_default">
     
 在实现时我们要解决可能来自用户输入,指定文件,JSON,YAML,TOML等格式数据来源能够被统一处理,比如所有的输入数据可以被统一为Go中的map[string]string,然后将其重定向到请求中URL的Path映射的URL,如果未发现映射,默认用http.NotFound处理,我们可以很快速的写出处理map[string]string的原型
 <br>
-<pre><code class="language-go">type Source map[string]string
-func MapHandler(source Source) http.HandlerFunc {
-	return http.HandlerFunc(
-		func(w http.ResponseWriter, r *http.Request) {
-			if url, ok := source[strings.TrimPrefix(r.URL.Path, &quot;/&quot;)]; ok {
-				http.Redirect(w, r, url, http.StatusFound)
-			} else {
-				http.NotFound(w, r)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Source</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">MapHandler</span>(<span style="color:#a6e22e">source</span> <span style="color:#a6e22e">Source</span>) <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandlerFunc</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandlerFunc</span>(
+		<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimPrefix</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">Path</span>, <span style="color:#e6db74">&#34;/&#34;</span>)]; <span style="color:#a6e22e">ok</span> {
+				<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Redirect</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>, <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusFound</span>)
+			} <span style="color:#66d9ef">else</span> {
+				<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NotFound</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>)
 			}
 		},
 	)
 }
-</code></pre>
-
-<p>这样对于YAML,JSON等数据类型我们只需要写出其解析的函数和将其转化为MapHandler处理即可</p>
-
-<pre><code class="language-go">/*
-    import (
-        yaml &quot;gopkg.in/yaml.v2&quot;
-    )
-*/
-func parseYAMLToSource(data []byte) (Source, error) {
-	type pathUrl struct {
-		Path string `yaml:&quot;path&quot;`
-		URL string	`yaml:&quot;url&quot;`
+</code></pre></div><p>这样对于YAML,JSON等数据类型我们只需要写出其解析的函数和将其转化为MapHandler处理即可</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">/*
+</span><span style="color:#75715e">    import (
+</span><span style="color:#75715e">        yaml &#34;gopkg.in/yaml.v2&#34;
+</span><span style="color:#75715e">    )
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">parseYAMLToSource</span>(<span style="color:#a6e22e">data</span> []<span style="color:#66d9ef">byte</span>) (<span style="color:#a6e22e">Source</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">pathUrl</span> <span style="color:#66d9ef">struct</span> {
+		<span style="color:#a6e22e">Path</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`yaml:&#34;path&#34;`</span>
+		<span style="color:#a6e22e">URL</span> <span style="color:#66d9ef">string</span>	<span style="color:#e6db74">`yaml:&#34;url&#34;`</span>
 	}
-	var pathUrls []pathUrl
-	err := yaml.Unmarshal(data, &amp;pathUrls)
-	if err != nil {
-		return nil, err
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pathUrls</span> []<span style="color:#a6e22e">pathUrl</span>
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">yaml</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">data</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">pathUrls</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
 	}
-	source := make(map[string]string)
-	for _, value := range pathUrls {
-		source[value.Path] = value.URL
+	<span style="color:#a6e22e">source</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">value</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">pathUrls</span> {
+		<span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">Path</span>] = <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">URL</span>
 	}
-	return source, nil
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">source</span>, <span style="color:#66d9ef">nil</span>
 }
-func YAMLHandler(data []byte) http.HandlerFunc {
-	source, err := parseYAMLToSource(data)
-	if err != nil {
-		log.Fatalf(&quot;Reason: %s&quot;, err.Error())
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">YAMLHandler</span>(<span style="color:#a6e22e">data</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandlerFunc</span> {
+	<span style="color:#a6e22e">source</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">parseYAMLToSource</span>(<span style="color:#a6e22e">data</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;Reason: %s&#34;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
 	}
-	return MapHandler(source)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">MapHandler</span>(<span style="color:#a6e22e">source</span>)
 }
-</code></pre>
-
+</code></pre></div>
 <a href=https://github.com/MarcoEpsilon/codingExercise style="color:chartreuse; display:inline-block; position:absolute;">
     完整代码
 </a>     
@@ -410,6 +395,13 @@ func YAMLHandler(data []byte) http.HandlerFunc {
       <hr />
     </div>
     <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/r/art-of-r-programing/">
+          <span class="button__icon">←</span>
+          <span class="button__text">&lt;&lt;The Art of R Programing&gt;&gt; -- exercise</span>
+        </a>
+      </span>
       
       
       <span class="button next">
@@ -444,9 +436,6 @@ func YAMLHandler(data []byte) http.HandlerFunc {
     
   </div>
 </footer>
-<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
-<script src="https://marcoepsilon.github.io/assets/main.js"></script>
-<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
 
 
 

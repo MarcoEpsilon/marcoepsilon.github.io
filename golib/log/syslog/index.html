@@ -252,86 +252,69 @@
   
 
   <div class="post-content">
-    
-
-<h1 id="overview">Overview</h1>
-
+    <h1 id="overview">Overview</h1>
 <span style="color:#f283a0; " class="plain_text plain_text_default">
     
 包syslog提供系统日志服务,它能够发送消息到系统日志守护进程使用Unix套接字UDP或者TCP.
 只需要调用一次Dial,当写入失败时,系统日志客户将会企图重新连接并写入,系统日志包被冻结了,不接受新的特征.
 
 </span>
-
 <h1 id="type-priority">type Priority</h1>
-
 <span style="color:#f283a0; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Priority int
-</code></pre>
-
-<p>Priority是设施性和告警性的结合,比如,LOG_ALERT|LOG_FTP发送一个警示消息从FTP设施.默认的严重程度是LOG_EMERG，默认的设施是LOG_KERN.</p>
-
-<pre><code class="language-go">const (
-    // From /usr/include/sys/syslog.h
-    // There are same on Linux, BSD and OS X.
-    LOG_EMERG Priotity = itoa
-    LOG_ALERT
-    LOG_CRIT
-    LOG_ERR
-    LOG_WARNING
-    LOG_NOTICE
-    LOG_INFO
-    LOG_DEBUG
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Priority</span> <span style="color:#66d9ef">int</span>
+</code></pre></div><p>Priority是设施性和告警性的结合,比如,LOG_ALERT|LOG_FTP发送一个警示消息从FTP设施.默认的严重程度是LOG_EMERG，默认的设施是LOG_KERN.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">const</span> (
+    <span style="color:#75715e">// From /usr/include/sys/syslog.h
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// There are same on Linux, BSD and OS X.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">LOG_EMERG</span> <span style="color:#a6e22e">Priotity</span> = <span style="color:#a6e22e">itoa</span>
+    <span style="color:#a6e22e">LOG_ALERT</span>
+    <span style="color:#a6e22e">LOG_CRIT</span>
+    <span style="color:#a6e22e">LOG_ERR</span>
+    <span style="color:#a6e22e">LOG_WARNING</span>
+    <span style="color:#a6e22e">LOG_NOTICE</span>
+    <span style="color:#a6e22e">LOG_INFO</span>
+    <span style="color:#a6e22e">LOG_DEBUG</span>
 )
-</code></pre>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">const</span> (
+    <span style="color:#a6e22e">LOG_KERN</span> <span style="color:#a6e22e">Priority</span> = <span style="color:#a6e22e">itoa</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">3</span>
+    <span style="color:#a6e22e">LOG_USER</span>
+    <span style="color:#a6e22e">LOG_MAIL</span>
+    <span style="color:#a6e22e">LOG_DAEMON</span>
+    <span style="color:#a6e22e">LOG_AUTH</span>
+    <span style="color:#a6e22e">LOG_SYSLOG</span>
+    <span style="color:#a6e22e">LOG_LPR</span>
+    <span style="color:#a6e22e">LOG_NEWS</span>
+    <span style="color:#a6e22e">LOG_UUCP</span>
+    <span style="color:#a6e22e">LOG_CRON</span>
+    <span style="color:#a6e22e">LOG_AUTHPRIV</span>
+    <span style="color:#a6e22e">LOG_FTP</span>
 
-<pre><code class="language-go">const (
-    LOG_KERN Priority = itoa &lt;&lt; 3
-    LOG_USER
-    LOG_MAIL
-    LOG_DAEMON
-    LOG_AUTH
-    LOG_SYSLOG
-    LOG_LPR
-    LOG_NEWS
-    LOG_UUCP
-    LOG_CRON
-    LOG_AUTHPRIV
-    LOG_FTP
-
-    LOG_LOCAL0
-    LOG_LOCAL1
-    LOG_LOCAL2
-    LOG_LOCAL3
-    LOG_LOCAL4
-    LOG_LOCAL5
-    LOG_LOCAL6
-    LOG_LOCAL7
+    <span style="color:#a6e22e">LOG_LOCAL0</span>
+    <span style="color:#a6e22e">LOG_LOCAL1</span>
+    <span style="color:#a6e22e">LOG_LOCAL2</span>
+    <span style="color:#a6e22e">LOG_LOCAL3</span>
+    <span style="color:#a6e22e">LOG_LOCAL4</span>
+    <span style="color:#a6e22e">LOG_LOCAL5</span>
+    <span style="color:#a6e22e">LOG_LOCAL6</span>
+    <span style="color:#a6e22e">LOG_LOCAL7</span>
 )
-</code></pre>
-
+</code></pre></div>
 
 </span>
-
 <h1 id="type-writer">type Writer</h1>
-
 <span style="color:#f283a0; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Writer struct {
-    // contains filtered or unexported fields
-}
-</code></pre>
-
-<p>Writer是syslog服务器的连接</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Writer</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Writer是syslog服务器的连接</p>
 
 
 </span>
-
-<h1 id="函数-functions">函数(Functions)</h1>
-
+<h1 id="函数functions">函数(Functions)</h1>
 <span style="color:#f283a0; " class="plain_text plain_text_default">
     
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
@@ -459,9 +442,6 @@ Write发送一个消息到系统日志守护进程.
     
   </div>
 </footer>
-<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
-<script src="https://marcoepsilon.github.io/assets/main.js"></script>
-<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
 
 
 

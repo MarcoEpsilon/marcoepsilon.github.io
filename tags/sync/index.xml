@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sync on Marco Epsilon</title>
@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Marco Epsilon@Copyright</copyright>
-    <lastBuildDate>Sat, 02 Nov 2019 22:29:07 +0800</lastBuildDate>
-    
-	<atom:link href="https://marcoepsilon.github.io/tags/sync/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 06 Nov 2019 22:08:28 +0800</lastBuildDate><atom:link href="https://marcoepsilon.github.io/tags/sync/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Atomic</title>
+      <link>https://marcoepsilon.github.io/golib/sync/atomic/</link>
+      <pubDate>Wed, 06 Nov 2019 22:08:28 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/sync/atomic/</guid>
+      <description>Overview 包atomic提供了底层原子atomic memory原语,用于实现同步算法. 这些函数要求格外的小心才能正确使用.除了特别的底层应用,同步最</description>
+    </item>
     
     <item>
       <title>Sync</title>

@@ -252,18 +252,13 @@
   
 
   <div class="post-content">
-    
-
-<h1 id="overview">Overview</h1>
-
+    <h1 id="overview">Overview</h1>
 <span style="color:#FF6A00; " class="plain_text plain_text_default">
     
 包sort提供排序切片和用户自定义集合的原语
 
 </span>
-
-<h1 id="函数-functions">函数(Functions)</h1>
-
+<h1 id="函数functions">函数(Functions)</h1>
 <span style="color:#FF6A00; " class="plain_text plain_text_default">
     
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
@@ -371,14 +366,12 @@ func StringsAreSorted(a []string) bool
 StringsAreSorted检查字符串切片是否以升序排序.
 
 </span>
-
 <h1 id="type-float64slice">type Float64Slice</h1>
-
 <span style="color:#FF6A00; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Float64Slice []float64
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Float64Slice</span> []<span style="color:#66d9ef">float64</span>
+</code></pre></div>
 Float64Slice实现了sort.Interface，以升序的排序切片,NaN(not a number)被视为小于其他值
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
     
@@ -408,14 +401,12 @@ func (p Float64Slice) Sort()
 </p>
 
 </span>
-
 <h1 id="type-intslice">type IntSlice</h1>
-
 <span style="color:#FF6A00; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type IntSlice []int
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">IntSlice</span> []<span style="color:#66d9ef">int</span>
+</code></pre></div>
 IntSlice实现了sort.Interface接口,以升序排序整型切片
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
     
@@ -446,18 +437,16 @@ func (p IntSlice) Sort()
 Sort是sort.Sort(p)的简单表示
 
 </span>
-
 <h1 id="type-interface">type Interface</h1>
-
 <span style="color:#FF6A00; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Interface interface {
-    Less(i, j int) bool
-    Len() int
-    Swap(i, j int)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Interface</span> <span style="color:#66d9ef">interface</span> {
+    <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span>
+    <span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span>
+    <span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>)
 }
-</code></pre>
+</code></pre></div>
 为了排序定义的接口,通常集合会实现它,这些方法要求集合能够被整数索引
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
     
@@ -467,344 +456,313 @@ func Reverse(data Interface) Interface
 Reverse返回data的逆序
 
 </span>
-
 <h1 id="type-stringslice">type StringSlice</h1>
-
 <span style="color:#FF6A00; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type StringSlice []string
-</code></pre>
-
-<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
-    
-func (p StringSlice) Len() int
-
-</p>
-<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
-    
-func (p StringSlice) Less(i, j int) bool
-
-</p>
-<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
-    
-func (p StringSlice) Swap(i, j int) bool
-
-</p>
-<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
-    
-func (p StringSlice) Search(x string) int
-
-</p>
-<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
-    
-func (p StringSlice) Sort()
-
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">StringSlice</span> []<span style="color:#66d9ef">string</span>
+</code></pre></div><!-- raw HTML omitted -->
+<p>func (p StringSlice) Len() int</p>
+<!-- raw HTML omitted -->
+<p>func (p StringSlice) Less(i, j int) bool</p>
+<!-- raw HTML omitted -->
+<p>func (p StringSlice) Swap(i, j int) bool</p>
+<!-- raw HTML omitted -->
+<p>func (p StringSlice) Search(x string) int</p>
+<!-- raw HTML omitted -->
+<p>func (p StringSlice) Sort()</p>
+<!-- raw HTML omitted -->
 
 
 </span>
-
 <h1 id="examples">Examples</h1>
-
 <span style="color:#FF6A00; " class="plain_text plain_text_default">
     
 <br>
 <p>两种方法排序</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">sort_test</span>
 
-<pre><code class="language-go">package sort_test
-
-import (
-	&quot;sort&quot;
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;sort&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
 
-type Person struct {
-	Name string
-	Age int
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">Age</span> <span style="color:#66d9ef">int</span>
 }
-func (p Person) String() string {
-	return fmt.Sprintf(&quot;%s: %d&quot;, p.Name, p.Age)
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#a6e22e">Person</span>) <span style="color:#a6e22e">String</span>() <span style="color:#66d9ef">string</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s: %d&#34;</span>, <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Name</span>, <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Age</span>)
 }
-type ByAge []Person
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ByAge</span> []<span style="color:#a6e22e">Person</span>
 
-func (ba ByAge) Len() int {
-	return len(ba)
-}
-
-func (ba ByAge) Less(i, j int) bool {
-	return ba[i].Age &lt; ba[j].Age
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ba</span> <span style="color:#a6e22e">ByAge</span>) <span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">ba</span>)
 }
 
-func (ba ByAge) Swap(i, j int) {
-	ba[i], ba[j] = ba[j], ba[i]
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ba</span> <span style="color:#a6e22e">ByAge</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ba</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">Age</span> &lt; <span style="color:#a6e22e">ba</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">Age</span>
 }
 
-func Example() {
-	people := []Person {
-		{&quot;Bob&quot;, 31},
-		{&quot;John&quot;, 42},
-		{&quot;Michael&quot;, 17},
-		{&quot;Jenny&quot;, 26},
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ba</span> <span style="color:#a6e22e">ByAge</span>) <span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">ba</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">ba</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">ba</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">ba</span>[<span style="color:#a6e22e">i</span>]
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Example</span>() {
+	<span style="color:#a6e22e">people</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">Person</span> {
+		{<span style="color:#e6db74">&#34;Bob&#34;</span>, <span style="color:#ae81ff">31</span>},
+		{<span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#ae81ff">42</span>},
+		{<span style="color:#e6db74">&#34;Michael&#34;</span>, <span style="color:#ae81ff">17</span>},
+		{<span style="color:#e6db74">&#34;Jenny&#34;</span>, <span style="color:#ae81ff">26</span>},
 	}
-	fmt.Println(people)
-	// 第一种方法: 通过实现sort.Interface接口进行排序
-	sort.Sort(ByAge(people))
-	fmt.Println(people)
-	// 第二种方法: 如果原生类型是切片,可以直接提供Less函数排序
-	sort.Slice(people, func(i, j int) bool {
-		return people[i].Age &gt; people[j].Age
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">people</span>)
+	<span style="color:#75715e">// 第一种方法: 通过实现sort.Interface接口进行排序
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">ByAge</span>(<span style="color:#a6e22e">people</span>))
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">people</span>)
+	<span style="color:#75715e">// 第二种方法: 如果原生类型是切片,可以直接提供Less函数排序
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Slice</span>(<span style="color:#a6e22e">people</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">people</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">Age</span> &gt; <span style="color:#a6e22e">people</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">Age</span>
 	})
-	fmt.Println(people)
-	// Output:
-	// [Bob: 31 John: 42 Michael: 17 Jenny: 26]
-	// [Michael: 17 Jenny: 26 Bob: 31 John: 42]
-	// [John: 42 Bob: 31 Jenny: 26 Michael: 17]
-}
-</code></pre>
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">people</span>)
+	<span style="color:#75715e">// Output:
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// [Bob: 31 John: 42 Michael: 17 Jenny: 26]
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// [Michael: 17 Jenny: 26 Bob: 31 John: 42]
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// [John: 42 Bob: 31 Jenny: 26 Michael: 17]
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>按照指定key排序</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">sort_test</span>
 
-<p>按照指定key排序</p>
-
-<pre><code class="language-go">package sort_test
-
-import (
-	&quot;sort&quot;
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;sort&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
 
-type earthMass float64
-type au float64
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">earthMass</span> <span style="color:#66d9ef">float64</span>
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">au</span> <span style="color:#66d9ef">float64</span>
 
-type Planet struct {
-	name string
-	mass earthMass
-	distance au
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Planet</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">mass</span> <span style="color:#a6e22e">earthMass</span>
+	<span style="color:#a6e22e">distance</span> <span style="color:#a6e22e">au</span>
 }
 
-type By func(p1, p2 *Planet) bool
-func (by By) Sort(planets []Planet) {
-	ps := &amp;PlanetSorter {
-		planets: planets,
-		by: by,
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">By</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Planet</span>) <span style="color:#66d9ef">bool</span>
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">by</span> <span style="color:#a6e22e">By</span>) <span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">planets</span> []<span style="color:#a6e22e">Planet</span>) {
+	<span style="color:#a6e22e">ps</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">PlanetSorter</span> {
+		<span style="color:#a6e22e">planets</span>: <span style="color:#a6e22e">planets</span>,
+		<span style="color:#a6e22e">by</span>: <span style="color:#a6e22e">by</span>,
 	}
-	sort.Sort(ps)
+	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">ps</span>)
 }
-type PlanetSorter struct {
-	planets []Planet
-	by func(p1, p2 *Planet) bool
-}
-
-func (ps *PlanetSorter) Len() int {
-	return len(ps.planets)
-}
-func (ps *PlanetSorter) Less(i, j int) bool {
-	return ps.by(&amp;ps.planets[i], &amp;ps.planets[j])
-}
-func (ps *PlanetSorter) Swap(i, j int) {
-	ps.planets[i], ps.planets[j] = ps.planets[j], ps.planets[i]
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PlanetSorter</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">planets</span> []<span style="color:#a6e22e">Planet</span>
+	<span style="color:#a6e22e">by</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Planet</span>) <span style="color:#66d9ef">bool</span>
 }
 
-var planets = []Planet {
-	{&quot;Mercury&quot;, 0.055, 0.4},
-	{&quot;Venus&quot;, 0.815, 0.7},
-	{&quot;Earth&quot;, 1.0, 1.0},
-	{&quot;Mars&quot;, 0.107, 1.5},
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ps</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">PlanetSorter</span>) <span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">planets</span>)
+}
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ps</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">PlanetSorter</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">by</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">planets</span>[<span style="color:#a6e22e">i</span>], <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">planets</span>[<span style="color:#a6e22e">j</span>])
+}
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ps</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">PlanetSorter</span>) <span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">planets</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">planets</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">planets</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">planets</span>[<span style="color:#a6e22e">i</span>]
 }
 
-func Example_sortkeys() {
-	name := func(p1, p2 *Planet) bool {
-		return p1.name &lt; p2.name
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">planets</span> = []<span style="color:#a6e22e">Planet</span> {
+	{<span style="color:#e6db74">&#34;Mercury&#34;</span>, <span style="color:#ae81ff">0.055</span>, <span style="color:#ae81ff">0.4</span>},
+	{<span style="color:#e6db74">&#34;Venus&#34;</span>, <span style="color:#ae81ff">0.815</span>, <span style="color:#ae81ff">0.7</span>},
+	{<span style="color:#e6db74">&#34;Earth&#34;</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">1.0</span>},
+	{<span style="color:#e6db74">&#34;Mars&#34;</span>, <span style="color:#ae81ff">0.107</span>, <span style="color:#ae81ff">1.5</span>},
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Example_sortkeys</span>() {
+	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Planet</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">p1</span>.<span style="color:#a6e22e">name</span> &lt; <span style="color:#a6e22e">p2</span>.<span style="color:#a6e22e">name</span>
 	}
-	mass := func(p1, p2 *Planet) bool {
-		return p1.mass &lt; p2.mass
+	<span style="color:#a6e22e">mass</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Planet</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">p1</span>.<span style="color:#a6e22e">mass</span> &lt; <span style="color:#a6e22e">p2</span>.<span style="color:#a6e22e">mass</span>
 	}
-	distance := func(p1, p2 *Planet) bool {
-		return p1.distance &lt; p2.distance
+	<span style="color:#a6e22e">distance</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Planet</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">p1</span>.<span style="color:#a6e22e">distance</span> &lt; <span style="color:#a6e22e">p2</span>.<span style="color:#a6e22e">distance</span>
 	}
-	decreasingDistance := func(p1, p2 *Planet) bool {
-		return distance(p2, p1)
+	<span style="color:#a6e22e">decreasingDistance</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Planet</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">distance</span>(<span style="color:#a6e22e">p2</span>, <span style="color:#a6e22e">p1</span>)
 	}
-	By(name).Sort(planets)
-	fmt.Println(&quot;By name:&quot;, planets)
-	By(mass).Sort(planets)
-	fmt.Println(&quot;By mass:&quot;, planets)
-	By(distance).Sort(planets)
-	fmt.Println(&quot;By distance:&quot;, planets)
-	By(decreasingDistance).Sort(planets)
-	fmt.Println(&quot;By decreasing distance:&quot;, planets)
-	// Output: By name: [{Earth 1 1} {Mars 0.107 1.5} {Mercury 0.055 0.4} {Venus 0.815 0.7}]
-	// By mass: [{Mercury 0.055 0.4} {Mars 0.107 1.5} {Venus 0.815 0.7} {Earth 1 1}]
-    // By distance: [{Mercury 0.055 0.4} {Venus 0.815 0.7} {Earth 1 1} {Mars 0.107 1.5}]
-    // By decreasing distance: [{Mars 0.107 1.5} {Earth 1 1} {Venus 0.815 0.7} {Mercury 0.055 0.4}]
-}
-</code></pre>
-
-<p>组合多个key进行排序</p>
-
-<pre><code class="language-go">package sort_test
+	<span style="color:#a6e22e">By</span>(<span style="color:#a6e22e">name</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">planets</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By name:&#34;</span>, <span style="color:#a6e22e">planets</span>)
+	<span style="color:#a6e22e">By</span>(<span style="color:#a6e22e">mass</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">planets</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By mass:&#34;</span>, <span style="color:#a6e22e">planets</span>)
+	<span style="color:#a6e22e">By</span>(<span style="color:#a6e22e">distance</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">planets</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By distance:&#34;</span>, <span style="color:#a6e22e">planets</span>)
+	<span style="color:#a6e22e">By</span>(<span style="color:#a6e22e">decreasingDistance</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">planets</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By decreasing distance:&#34;</span>, <span style="color:#a6e22e">planets</span>)
+	<span style="color:#75715e">// Output: By name: [{Earth 1 1} {Mars 0.107 1.5} {Mercury 0.055 0.4} {Venus 0.815 0.7}]
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// By mass: [{Mercury 0.055 0.4} {Mars 0.107 1.5} {Venus 0.815 0.7} {Earth 1 1}]
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// By distance: [{Mercury 0.055 0.4} {Venus 0.815 0.7} {Earth 1 1} {Mars 0.107 1.5}]
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// By decreasing distance: [{Mars 0.107 1.5} {Earth 1 1} {Venus 0.815 0.7} {Mercury 0.055 0.4}]
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>组合多个key进行排序</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">sort_test</span>
 
 
-import (
-	&quot;sort&quot;
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;sort&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
 
-type Change struct {
-	user string
-	language string
-	line int
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Change</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">user</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">language</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">line</span> <span style="color:#66d9ef">int</span>
 }
-type lessFunc func(p1, p2 *Change) bool
-type MultiSorter struct {
-	changes []Change
-	less []lessFunc
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">lessFunc</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Change</span>) <span style="color:#66d9ef">bool</span>
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">MultiSorter</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">changes</span> []<span style="color:#a6e22e">Change</span>
+	<span style="color:#a6e22e">less</span> []<span style="color:#a6e22e">lessFunc</span>
 }
 
-func OrderBy(less ...lessFunc) *MultiSorter {
-	return &amp;MultiSorter {
-		less: less,
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">OrderBy</span>(<span style="color:#a6e22e">less</span> <span style="color:#f92672">...</span><span style="color:#a6e22e">lessFunc</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">MultiSorter</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">MultiSorter</span> {
+		<span style="color:#a6e22e">less</span>: <span style="color:#a6e22e">less</span>,
 	}
 }
 
-func (ms *MultiSorter) Sort(changes []Change) {
-	ms.changes = changes
-	sort.Sort(ms)
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ms</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">MultiSorter</span>) <span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">changes</span> []<span style="color:#a6e22e">Change</span>) {
+	<span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span> = <span style="color:#a6e22e">changes</span>
+	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">ms</span>)
 }
-func (ms MultiSorter) Len() int {
-	return len(ms.changes)
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ms</span> <span style="color:#a6e22e">MultiSorter</span>) <span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>)
 }
 
-func (ms MultiSorter) Swap(i, j int) {
-	ms.changes[i], ms.changes[j] = ms.changes[j], ms.changes[i]
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ms</span> <span style="color:#a6e22e">MultiSorter</span>) <span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">i</span>]
 }
-func (ms MultiSorter) Less(i, j int) bool {
-	for _, less := range ms.less {
-		switch {
-		case less(&amp;ms.changes[i], &amp;ms.changes[j]) :
-			return true
-		case less(&amp;ms.changes[j], &amp;ms.changes[i]):
-			return false
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">ms</span> <span style="color:#a6e22e">MultiSorter</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">less</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">less</span> {
+		<span style="color:#66d9ef">switch</span> {
+		<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">less</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">i</span>], <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">j</span>]) :
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+		<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">less</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">j</span>], <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">i</span>]):
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
 		}
 	}
-	return ms.less[len(ms.less) - 1](&amp;ms.changes[i], &amp;ms.changes[j])
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">less</span>[len(<span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">less</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>](<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">i</span>], <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ms</span>.<span style="color:#a6e22e">changes</span>[<span style="color:#a6e22e">j</span>])
 }
-var changes = []Change{
-    {&quot;gri&quot;, &quot;Go&quot;, 100},
-    {&quot;ken&quot;, &quot;C&quot;, 150},
-    {&quot;glenda&quot;, &quot;Go&quot;, 200},
-    {&quot;rsc&quot;, &quot;Go&quot;, 200},
-    {&quot;r&quot;, &quot;Go&quot;, 100},
-    {&quot;ken&quot;, &quot;Go&quot;, 200},
-    {&quot;dmr&quot;, &quot;C&quot;, 100},
-    {&quot;r&quot;, &quot;C&quot;, 150},
-    {&quot;gri&quot;, &quot;Smalltalk&quot;, 80},
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">changes</span> = []<span style="color:#a6e22e">Change</span>{
+    {<span style="color:#e6db74">&#34;gri&#34;</span>, <span style="color:#e6db74">&#34;Go&#34;</span>, <span style="color:#ae81ff">100</span>},
+    {<span style="color:#e6db74">&#34;ken&#34;</span>, <span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#ae81ff">150</span>},
+    {<span style="color:#e6db74">&#34;glenda&#34;</span>, <span style="color:#e6db74">&#34;Go&#34;</span>, <span style="color:#ae81ff">200</span>},
+    {<span style="color:#e6db74">&#34;rsc&#34;</span>, <span style="color:#e6db74">&#34;Go&#34;</span>, <span style="color:#ae81ff">200</span>},
+    {<span style="color:#e6db74">&#34;r&#34;</span>, <span style="color:#e6db74">&#34;Go&#34;</span>, <span style="color:#ae81ff">100</span>},
+    {<span style="color:#e6db74">&#34;ken&#34;</span>, <span style="color:#e6db74">&#34;Go&#34;</span>, <span style="color:#ae81ff">200</span>},
+    {<span style="color:#e6db74">&#34;dmr&#34;</span>, <span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#ae81ff">100</span>},
+    {<span style="color:#e6db74">&#34;r&#34;</span>, <span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#ae81ff">150</span>},
+    {<span style="color:#e6db74">&#34;gri&#34;</span>, <span style="color:#e6db74">&#34;Smalltalk&#34;</span>, <span style="color:#ae81ff">80</span>},
 }
-func Example_sortMultiKeys() {
-	user := func(c1, c2 *Change) bool {
-		return c1.user &lt; c2.user
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Example_sortMultiKeys</span>() {
+	<span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c1</span>, <span style="color:#a6e22e">c2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Change</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c1</span>.<span style="color:#a6e22e">user</span> &lt; <span style="color:#a6e22e">c2</span>.<span style="color:#a6e22e">user</span>
 	}
-	language := func(c1, c2 *Change) bool {
-		return c1.language &lt; c2.language
+	<span style="color:#a6e22e">language</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c1</span>, <span style="color:#a6e22e">c2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Change</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c1</span>.<span style="color:#a6e22e">language</span> &lt; <span style="color:#a6e22e">c2</span>.<span style="color:#a6e22e">language</span>
 	}
-	increasingLines := func(c1, c2 *Change) bool {
-		return c1.line &lt; c2.line
+	<span style="color:#a6e22e">increasingLines</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c1</span>, <span style="color:#a6e22e">c2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Change</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c1</span>.<span style="color:#a6e22e">line</span> &lt; <span style="color:#a6e22e">c2</span>.<span style="color:#a6e22e">line</span>
 	}
-	decreasingLines := func(c1, c2 *Change) bool {
-		return increasingLines(c2, c1)
+	<span style="color:#a6e22e">decreasingLines</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c1</span>, <span style="color:#a6e22e">c2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Change</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">increasingLines</span>(<span style="color:#a6e22e">c2</span>, <span style="color:#a6e22e">c1</span>)
 	}
-	OrderBy(user).Sort(changes)
-	fmt.Println(&quot;By user:&quot;, changes)
-	OrderBy(user, increasingLines).Sort(changes)
-	fmt.Println(&quot;By user,&lt;lines:&quot;, changes)
-	OrderBy(user, decreasingLines).Sort(changes)
-	fmt.Println(&quot;By user,&gt;lines:&quot;, changes)
-	OrderBy(language, increasingLines).Sort(changes)
-	fmt.Println(&quot;By language,&lt;lines:&quot;, changes)
-	OrderBy(language, increasingLines, user).Sort(changes)
-	fmt.Println(&quot;By language,&lt;lines,user:&quot;, changes)
-	// Output:
-    // By user: [{dmr C 100} {glenda Go 200} {gri Go 100} {gri Smalltalk 80} {ken C 150} {ken Go 200} {r Go 100} {r C 150} {rsc Go 200}]
-    // By user,&lt;lines: [{dmr C 100} {glenda Go 200} {gri Smalltalk 80} {gri Go 100} {ken C 150} {ken Go 200} {r Go 100} {r C 150} {rsc Go 200}]
-    // By user,&gt;lines: [{dmr C 100} {glenda Go 200} {gri Go 100} {gri Smalltalk 80} {ken Go 200} {ken C 150} {r C 150} {r Go 100} {rsc Go 200}]
-    // By language,&lt;lines: [{dmr C 100} {ken C 150} {r C 150} {r Go 100} {gri Go 100} {ken Go 200} {glenda Go 200} {rsc Go 200} {gri Smalltalk 80}]
-    // By language,&lt;lines,user: [{dmr C 100} {ken C 150} {r C 150} {gri Go 100} {r Go 100} {glenda Go 200} {ken Go 200} {rsc Go 200} {gri Smalltalk 80}]
-}
-</code></pre>
-
-<p>组合封装成sort.Interface接口</p>
-
-<pre><code class="language-go">package sort_test
+	<span style="color:#a6e22e">OrderBy</span>(<span style="color:#a6e22e">user</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By user:&#34;</span>, <span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">OrderBy</span>(<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">increasingLines</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By user,&lt;lines:&#34;</span>, <span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">OrderBy</span>(<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">decreasingLines</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By user,&gt;lines:&#34;</span>, <span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">OrderBy</span>(<span style="color:#a6e22e">language</span>, <span style="color:#a6e22e">increasingLines</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By language,&lt;lines:&#34;</span>, <span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">OrderBy</span>(<span style="color:#a6e22e">language</span>, <span style="color:#a6e22e">increasingLines</span>, <span style="color:#a6e22e">user</span>).<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">changes</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;By language,&lt;lines,user:&#34;</span>, <span style="color:#a6e22e">changes</span>)
+	<span style="color:#75715e">// Output:
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// By user: [{dmr C 100} {glenda Go 200} {gri Go 100} {gri Smalltalk 80} {ken C 150} {ken Go 200} {r Go 100} {r C 150} {rsc Go 200}]
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// By user,&lt;lines: [{dmr C 100} {glenda Go 200} {gri Smalltalk 80} {gri Go 100} {ken C 150} {ken Go 200} {r Go 100} {r C 150} {rsc Go 200}]
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// By user,&gt;lines: [{dmr C 100} {glenda Go 200} {gri Go 100} {gri Smalltalk 80} {ken Go 200} {ken C 150} {r C 150} {r Go 100} {rsc Go 200}]
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// By language,&lt;lines: [{dmr C 100} {ken C 150} {r C 150} {r Go 100} {gri Go 100} {ken Go 200} {glenda Go 200} {rsc Go 200} {gri Smalltalk 80}]
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// By language,&lt;lines,user: [{dmr C 100} {ken C 150} {r C 150} {gri Go 100} {r Go 100} {glenda Go 200} {ken Go 200} {rsc Go 200} {gri Smalltalk 80}]
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>组合封装成sort.Interface接口</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">sort_test</span>
 
 
-import (
-	&quot;sort&quot;
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;sort&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
-type Grams int
-func (g Grams) String() string {
-	return fmt.Sprintf(&quot;%dg&quot;, int(g))
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Grams</span> <span style="color:#66d9ef">int</span>
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">g</span> <span style="color:#a6e22e">Grams</span>) <span style="color:#a6e22e">String</span>() <span style="color:#66d9ef">string</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%dg&#34;</span>, int(<span style="color:#a6e22e">g</span>))
 }
-type Organ struct {
-	Name string
-	Weight Grams
-}
-
-type Organs []*Organ
-func (s Organs) Len() int {
-	return len(s)
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Organ</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">Weight</span> <span style="color:#a6e22e">Grams</span>
 }
 
-func (s Organs) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Organs</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">Organ</span>
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">Organs</span>) <span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">s</span>)
 }
 
-type ByName struct { Organs }
-func (s ByName) Less(i, j int) bool {
-	return s.Organs[i].Name &lt; s.Organs[j].Name
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">Organs</span>) <span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>]
 }
 
-type ByWeight struct { Organs }
-func (s ByWeight) Less(i, j int) bool {
-	return s.Organs[i].Weight &lt; s.Organs[j].Weight
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ByName</span> <span style="color:#66d9ef">struct</span> { <span style="color:#a6e22e">Organs</span> }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">ByName</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Organs</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">Name</span> &lt; <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Organs</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">Name</span>
 }
-func printOrgans(s []*Organ) {
-	for _, v := range s {
-		fmt.Printf(&quot;%-8s (%v)\n&quot;, v.Name, v.Weight)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ByWeight</span> <span style="color:#66d9ef">struct</span> { <span style="color:#a6e22e">Organs</span> }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">ByWeight</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Organs</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">Weight</span> &lt; <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Organs</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">Weight</span>
+}
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">printOrgans</span>(<span style="color:#a6e22e">s</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">Organ</span>) {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">s</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%-8s (%v)\n&#34;</span>, <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Name</span>, <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Weight</span>)
 	}
 }
-func Example_sortWrapper() {
-	s := []*Organ {
-		{&quot;brain&quot;, 1340},
-        {&quot;heart&quot;, 290},
-        {&quot;liver&quot;, 1494},
-        {&quot;pancreas&quot;, 131},
-        {&quot;prostate&quot;, 62},
-        {&quot;spleen&quot;, 162},
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Example_sortWrapper</span>() {
+	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">Organ</span> {
+		{<span style="color:#e6db74">&#34;brain&#34;</span>, <span style="color:#ae81ff">1340</span>},
+        {<span style="color:#e6db74">&#34;heart&#34;</span>, <span style="color:#ae81ff">290</span>},
+        {<span style="color:#e6db74">&#34;liver&#34;</span>, <span style="color:#ae81ff">1494</span>},
+        {<span style="color:#e6db74">&#34;pancreas&#34;</span>, <span style="color:#ae81ff">131</span>},
+        {<span style="color:#e6db74">&#34;prostate&#34;</span>, <span style="color:#ae81ff">62</span>},
+        {<span style="color:#e6db74">&#34;spleen&#34;</span>, <span style="color:#ae81ff">162</span>},
 	}
-	sort.Sort(ByWeight{ s })
-	fmt.Println(&quot;Organs by weight:&quot;)
-	printOrgans(s)
-	sort.Sort(ByName{ s })
-	fmt.Println(&quot;Organs by name:&quot;)
-	printOrgans(s)
-	// Output:
-    // Organs by weight:
-    // prostate (62g)
-    // pancreas (131g)
-    // spleen   (162g)
-    // heart    (290g)
-    // brain    (1340g)
-    // liver    (1494g)
-    // Organs by name:
-    // brain    (1340g)
-    // heart    (290g)
-    // liver    (1494g)
-    // pancreas (131g)
-    // prostate (62g)
-    // spleen   (162g)
-}
-</code></pre>
-
+	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">ByWeight</span>{ <span style="color:#a6e22e">s</span> })
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Organs by weight:&#34;</span>)
+	<span style="color:#a6e22e">printOrgans</span>(<span style="color:#a6e22e">s</span>)
+	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">ByName</span>{ <span style="color:#a6e22e">s</span> })
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Organs by name:&#34;</span>)
+	<span style="color:#a6e22e">printOrgans</span>(<span style="color:#a6e22e">s</span>)
+	<span style="color:#75715e">// Output:
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// Organs by weight:
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// prostate (62g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// pancreas (131g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// spleen   (162g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// heart    (290g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// brain    (1340g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// liver    (1494g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// Organs by name:
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// brain    (1340g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// heart    (290g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// liver    (1494g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// pancreas (131g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// prostate (62g)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// spleen   (162g)
+</span><span style="color:#75715e"></span>}
+</code></pre></div>
 
 </span>
 
@@ -858,9 +816,6 @@ func Example_sortWrapper() {
     
   </div>
 </footer>
-<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
-<script src="https://marcoepsilon.github.io/assets/main.js"></script>
-<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
 
 
 

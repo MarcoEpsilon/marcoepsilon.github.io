@@ -252,29 +252,22 @@
   
 
   <div class="post-content">
-    
-
-<h1 id="overview">Overview</h1>
-
+    <h1 id="overview">Overview</h1>
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 sync提供了同步原语比如互斥锁,以及Once,WaitGroup类型.大多都供底层例层使用,高级同步更好地的使用通过通道和交流,该包包含的值不应该被复制
 
 </span>
-
 <h1 id="type-cond">type Cond</h1>
-
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Cond struct {
-    // L 被用来观察和改变条件
-    L Locker
-    // contains filtered or unexported fields
-}
-</code></pre>
-
-<p>Cond实现了条件变量,多个goroutines的汇合点或者宣布事件的发生.每个Cond都有关联的Locker(通常是*Mutex或者*RWMutex),可以改变条件变量或者可以调用Wait方法，在第一次使用之后，不应该被复制</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cond</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// L 被用来观察和改变条件
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">L</span> <span style="color:#a6e22e">Locker</span>
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Cond实现了条件变量,多个goroutines的汇合点或者宣布事件的发生.每个Cond都有关联的Locker(通常是<em>Mutex或者</em>RWMutex),可以改变条件变量或者可以调用Wait方法，在第一次使用之后，不应该被复制</p>
 
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
     
@@ -304,41 +297,35 @@ func (c *Cond) Wait()
 Wait自动解锁c.L并且暂停当前goroutine的执行,之后恢复执行,Wait在返回前锁住c.L,不像其他系统,Wait不能返回除非被Signal或Broadcast唤醒
 因为c.L不是被锁的在Wait第一次被唤醒之前,调用者通常不能确保条件是true当Wait返回.而不是,调用者应该在循环中等待.
 <br>
-<pre><code class="language-go">c.Locker.Lock()
-if !condition() {
-    c.Wait()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Locker</span>.<span style="color:#a6e22e">Lock</span>()
+<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">condition</span>() {
+    <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Wait</span>()
 }
-... make use of condition ...
-c.L.Lock()
-</code></pre>
+<span style="color:#f92672">...</span> <span style="color:#a6e22e">make</span> <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">of</span> <span style="color:#a6e22e">condition</span> <span style="color:#f92672">...</span>
+<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">L</span>.<span style="color:#a6e22e">Lock</span>()
+</code></pre></div>
 
 </span>
-
 <h1 id="type-locker">type Locker</h1>
-
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Locker interface {
-    Lock()
-    Unlock()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Locker</span> <span style="color:#66d9ef">interface</span> {
+    <span style="color:#a6e22e">Lock</span>()
+    <span style="color:#a6e22e">Unlock</span>()
 }
-</code></pre>
-
-<p>Locker表示一个可以被锁和解锁的对象</p>
+</code></pre></div><p>Locker表示一个可以被锁和解锁的对象</p>
 
 
 </span>
-
 <h1 id="type-map">type Map</h1>
-
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Map struct {
-    // contains filtered or unexported fields
-}
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Map</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div>
 Map和map[interface{}]interface{},但是对于多个goroutine并发是安全的,而不用增加锁和协调,Loads,stores,deletes,分摊常数时间
 Map是特化的,大多数时候应该使用带锁和协调的map，以更好的类型安全和更简单的维护map中不变的内容
 Map对于两种用例进行了优化:
@@ -399,16 +386,14 @@ func (m *Map) Store(key, value interface{})
 Store给给定key为value
 
 </span>
-
 <h1 id="type-mutex">type Mutex</h1>
-
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Mutex struct {
-    // contains filtered or unexported fields
-}
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mutex</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div>
 Mutex是一个互斥锁,Mutex的零值是一个不被锁的互斥量
 Mutex第一次使用后不能被复制
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
@@ -426,18 +411,14 @@ Unlock解锁m,如果m没有被锁而Unlock,会发生runtime-error
 一个锁住的mutex并不是和一个特别的goroutine关联的,允许一个goroutine锁住mutex，而安排其他goroutine去Unlock
 
 </span>
-
 <h1 id="type-once">type Once</h1>
-
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Once struct {
-    // contains filtered or unexported fields
-}
-</code></pre>
-
-<p>Once是一个只会执行一次动作的对象</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Once</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Once是一个只会执行一次动作的对象</p>
 
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
     
@@ -446,28 +427,22 @@ func (o *Once) Do(f func())
 </p>
 Do调用函数f只有当Once实例第一次调用Do,换句话说,给定:
 <br>
-<pre><code class="language-go">var once Once
-</code></pre>
-
-<p>如果once.Do(f)调用多次,只有第一次触发,即使f拥有不同的value每次调用,每次函数执行都要求Once的新实例,Do用于初始化被精确的执行一次,如果f产生panic,以后调用f将会直接返回</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">once</span> <span style="color:#a6e22e">Once</span>
+</code></pre></div><p>如果once.Do(f)调用多次,只有第一次触发,即使f拥有不同的value每次调用,每次函数执行都要求Once的新实例,Do用于初始化被精确的执行一次,如果f产生panic,以后调用f将会直接返回</p>
 
 
 </span>
-
 <h1 id="type-pool">type Pool</h1>
-
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type Pool struct {
-    // New可选的指定一个函数产生一个值当Get,否则返回nil
-    // 并发调用Get .，可能不会发生改变
-    New func() interface{}
-    // contains filtered or unexported fields
-}
-</code></pre>
-
-<p>Pool是一个可能被单独地保存和取出的临时对象的集合,任何存储在Pool里的元素可能会无通知的被删除,当发生时,如果Pool只拥有引用,元素可能会被重新分配
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Pool</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// New可选的指定一个函数产生一个值当Get,否则返回nil
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 并发调用Get .，可能不会发生改变
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">New</span> <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">interface</span>{}
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Pool是一个可能被单独地保存和取出的临时对象的集合,任何存储在Pool里的元素可能会无通知的被删除,当发生时,如果Pool只拥有引用,元素可能会被重新分配
 Pool能够被多个goroutine安全地同时使用
 Pool的目的缓存已分配的元素,而不是之后使用的未使用元素,减轻垃圾收集器的负担,Pool很简单的构建线程安全的空闲列表,但是不适合所有空闲列表.
 一个合适的使用Pool场景是管理一组临时元素,默默的分享和潜在地被包中其他客户并发使用,Pool提供一个方法去缓冲使用在多个客户之上,
@@ -489,18 +464,14 @@ func (p *Pool) Put(x interface{})
 Put添加x到pool
 
 </span>
-
 <h1 id="type-rwmutex">type RWMutex</h1>
-
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type RWMutex struct {
-    // contains filtered or unexported fields
-}
-</code></pre>
-
-<p>RWMutex是读写互斥锁,该锁能够被任意个读者或者一个写者拥有,RWMutex的零值是未锁的互斥量
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">RWMutex</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>RWMutex是读写互斥锁,该锁能够被任意个读者或者一个写者拥有,RWMutex的零值是未锁的互斥量
 RWMutex第一次使用后不能被复制
 如果一个goroutine持有RWMutex的读，另一个goroutine可能调用Lock，没有goroutine应该期待能够获得读锁直到最初的读锁被释放,特别地,这个禁止递归读锁.这确保锁最终可用，Lock将会阻塞除了一个新的读者获得锁</p>
 
@@ -536,18 +507,14 @@ func (rw *RWMutex) Unlock()
 Unlock将会解锁写端,如果写端没有被锁,将会产生runtime-error,和Mutex类似,RWMutex并不和一个指定的goroutine关联,可以在一个gorotine执行RLock(Lock),其他goroutine执行RUnlock(Unlock).
 
 </span>
-
 <h1 id="type-waitgroup">type WaitGroup</h1>
-
 <span style="color:#FF7F50; " class="plain_text plain_text_default">
     
 <br>
-<pre><code class="language-go">type WaitGroup struct {
-    // contains filtered or unexported fields
-}
-</code></pre>
-
-<p>WaitGroup等待一个集合的goroutine完成,main goroutine设置Add的gorouine数量,每个gorountine完成调用Done,与此同时,Wait能够阻塞直到所有gorutine完成</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">WaitGroup</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// contains filtered or unexported fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>WaitGroup等待一个集合的goroutine完成,main goroutine设置Add的gorouine数量,每个gorountine完成调用Done,与此同时,Wait能够阻塞直到所有gorutine完成</p>
 
 <p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
     
@@ -621,9 +588,6 @@ Wait阻塞直到计时器为0
     
   </div>
 </footer>
-<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
-<script src="https://marcoepsilon.github.io/assets/main.js"></script>
-<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
 
 
 
