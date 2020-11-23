@@ -1,0 +1,6 @@
+"Vote for X" "Vote for X Last Time"
+"Yes" "Yes"
+"Yes" "No"
+"No" "No"
+"Not Sure" "Yes"
+"No" "No"

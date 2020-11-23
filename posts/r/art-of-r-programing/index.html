@@ -552,8 +552,6 @@ logisticPredict <span style="color:#f92672">&lt;-</span> <span style="color:#a6e
 <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">logisticPredict</span>(<span style="color:#e6db74">&#39;AbaloneWithHeader.data&#39;</span>))
 </code></pre></div><p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/appendix.png" />&nbsp;<h2 id="appendix">Appendix</h2>
 </div>
-<div style="display: flex; flex-direction: row; justify-content: space-around; margin-top:2rem;">
-    
 
 
 <a href="/appendix/R/AbaloneWithHeader.data" download="AbaloneWithHeader.data" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
@@ -561,9 +559,335 @@ logisticPredict <span style="color:#f92672">&lt;-</span> <span style="color:#a6e
 
 
 <a href="/appendix/R/Abalone.data" download="Abalone.data" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
-    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>鲍鱼数据(无头部)</a>
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>鲍鱼数据(无头部)</a></p>
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-5">Exercise #5</h1>
+</div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-提取子表">Target: 提取子表</h2>
+</div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+对于R中的table类型通过给出各个维度的子向量,提取出和这些子向量有关的表数据,通过此次练习,可以更清楚的意识到R中关于table的数据结构
+<div style="padding-left:2.5rem; color:#1296db;">
+    
 
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+初识table的构造
+
+    </span>
+</p>
+R中的table由一个表示因子水平频数的向量或矩阵,表示因子组合的向量或列表构成,通过传参任何能够提取因子组合的数据结构给table函数就能构造一个table
+<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#f92672">&gt;</span> ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;M&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span>))
+<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">print</span>(ct)
+
+F I M 
+<span style="color:#ae81ff">2</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">&gt;</span> ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;M&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span>), <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">19</span>, <span style="color:#ae81ff">22</span>))
+<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">print</span>(ct)
+   
+    <span style="color:#ae81ff">19</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">22</span>
+  F  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+  I  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+  M  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span>
+
+<span style="color:#f92672">&gt;</span> ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">list</span>(sex<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;M&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span>), age<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">19</span>, <span style="color:#ae81ff">22</span>)))
+<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">print</span>(ct)
+   age
+sex <span style="color:#ae81ff">19</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">22</span>
+  F  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+  I  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+  M  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span>
+
+<span style="color:#f92672">&gt;</span> ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">data.frame</span>(sex<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;M&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span>), age<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">19</span>, <span style="color:#ae81ff">22</span>)))
+<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">print</span>(ct)
+   age
+sex <span style="color:#ae81ff">19</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">22</span>
+  F  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+  I  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+  M  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span>
+
+<span style="color:#f92672">&gt;</span> ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;M&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span>), <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">19</span>))
+Error in <span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;M&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span>), <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">19</span>)) <span style="color:#f92672">:</span> 
+  所有参数的长度都应一致
+
+<span style="color:#f92672">&gt;</span> ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">data.frame</span>(sex<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;M&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span>), age<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">19</span>)))
+Error in <span style="color:#a6e22e">data.frame</span>(sex <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;M&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;I&#34;</span>), age <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">19</span>)) <span style="color:#f92672">:</span> 
+  参数值意味着不同的行数<span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">3</span>
+
+</code></pre></div>
+通过以上输出,我们不难发现,其实table内部只是维护了可转化为data.frame的数据结构,然后可以通过该data.frame的列(去重)计算所有列正交后的频数,所有列的水平
+所以我们能推出R中得到一个table数据结构的一般步骤:
+<div style="padding-left:2.5rem; color:brown;">
+    
+
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+将维度相同所有因子作为输入(可转化为data.frame的数据结构)
+
+    </span>
+</p>
+
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+内部计算因子水平频数矩阵或数组
+
+    </span>
+</p>
+
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+内部计算得到因子水平的向量或列表
+
+    </span>
+</p>
+
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+组合二者得到table
+
+    </span>
+</p>
+
+</div>
+
+
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+提取子表
+
+    </span>
+</p>
+通过以上知识我们知道,table由不同空间的水平(包含该水平的标识)和由该数据结构计算的组合水平频数构成，我们通过提供水平元组(level1, level2, level3, ...)来提取它的频数,比如:
+<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#f92672">&gt;</span> ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(name<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Marry&#34;</span>, <span style="color:#e6db74">&#34;Lisa&#34;</span>, <span style="color:#e6db74">&#34;Jack&#34;</span>), sex<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;M&#34;</span>), age<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">19</span>))
+<span style="color:#f92672">&gt;</span> ct[<span style="color:#e6db74">&#34;Lisa&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;21&#34;</span>]
+[1] <span style="color:#ae81ff">1</span>
+</code></pre></div>
+假如我们编写了subtable函数,那么输出应该符合下面的代码:
+<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#f92672">&gt;</span> ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(name<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Marry&#34;</span>, <span style="color:#e6db74">&#34;Lisa&#34;</span>, <span style="color:#e6db74">&#34;Jack&#34;</span>), sex<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;M&#34;</span>), age<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">19</span>))
+<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">subtable</span>(ct, <span style="color:#a6e22e">list</span>(name<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Marry&#34;</span>, <span style="color:#e6db74">&#34;Lisa&#34;</span>), sex<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#e6db74">&#34;M&#34;</span>), age<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;18&#34;</span>, <span style="color:#e6db74">&#34;21&#34;</span>)))
+<span style="color:#f92672">$</span>name
+[1] <span style="color:#ae81ff">2</span>
+
+<span style="color:#f92672">$</span>sex
+[1] <span style="color:#ae81ff">2</span>
+
+<span style="color:#f92672">$</span>age
+[1] <span style="color:#ae81ff">2</span>
+
+ <span style="color:#e6db74">&#39;table&#39;</span> int [1<span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>] <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+ <span style="color:#f92672">-</span> <span style="color:#a6e22e">attr</span>(<span style="color:#f92672">*</span>, <span style="color:#e6db74">&#34;dimnames&#34;</span>)<span style="color:#f92672">=</span>List of <span style="color:#ae81ff">3</span>
+  ..<span style="color:#f92672">$</span> name<span style="color:#f92672">:</span> chr [1<span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>] <span style="color:#e6db74">&#34;Marry&#34;</span> <span style="color:#e6db74">&#34;Lisa&#34;</span>
+  ..<span style="color:#f92672">$</span> sex <span style="color:#f92672">:</span> chr [1<span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>] <span style="color:#e6db74">&#34;F&#34;</span> <span style="color:#e6db74">&#34;M&#34;</span>
+  ..<span style="color:#f92672">$</span> age <span style="color:#f92672">:</span> chr [1<span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>] <span style="color:#e6db74">&#34;18&#34;</span> <span style="color:#e6db74">&#34;21&#34;</span>
+<span style="color:#66d9ef">NULL</span>
+, , age <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>
+
+       sex
+name    F M
+  Marry <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span>
+  Lisa  <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+
+, , age <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>
+
+       sex
+name    F M
+  Marry <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+  Lisa  <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span>
+
+
+</code></pre></div>
+通过以上样例可知,我们的subtable应该能够接受多个水平向量(可变参数),subtable需要一个函数能够对table内部的频数矩阵进行不定水平向量个数的"["进行提取调用,此时R中提供的do.call将派上用场,能够对提供的表进行诸如 ct[level1, level2, level3, ...]之类的调用
+
+</div>
+
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h2 id="achieve">Achieve</h2>
 </div></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.table</span>(<span style="color:#e6db74">&#34;ct.txt&#34;</span>, header<span style="color:#f92672">=</span>T)
+
+cttab <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(ct)
+<span style="color:#75715e"># 提取 table的子集</span>
+subtable <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(tab, subDims)
+{
+	tabArray <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">unclass</span>(tab)
+	
+	<span style="color:#75715e"># 获取每个维度的因子</span>
+	dcargs <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(tabArray)
+	nDims <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">length</span>(subDims)
+	<span style="color:#a6e22e">for </span>(i in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>nDims)
+	{
+		dcargs[[i<span style="color:#ae81ff">+1</span>]] <span style="color:#f92672">&lt;-</span> subDims[[i]]
+	}
+
+	subArray <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">do.call</span>(<span style="color:#e6db74">&#34;[&#34;</span>, dcargs)
+	
+	dim <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lapply</span>(subDims, length)
+	subArray <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">array</span>(subArray, dim<span style="color:#f92672">=</span>dim, subDims)
+
+	<span style="color:#a6e22e">class</span>(subArray) <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;table&#34;</span>
+	<span style="color:#a6e22e">return</span>(subArray)
+}
+
+<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">subtable</span>(cttab, <span style="color:#a6e22e">list</span>(Vote.for.X<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;No&#34;</span>, <span style="color:#e6db74">&#34;Yes&#34;</span>), Vote.for.Last.Time<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;No&#34;</span>, <span style="color:#e6db74">&#34;Yes&#34;</span>))))
+</code></pre></div><p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-6">Exercise #6</h1>
+</div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-在表中找寻频数最大的单元格">Target: 在表中找寻频数最大的单元格</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+R中table是有关一个元组(多个空间的水平组成的)的频数对照表,比如存在table tab,我们通过tab[level1, level2, ...]可以很快的访问元组(level1, level2, ...)的频数,寻找在表中频数最大的单元格,我们可以扩展以下,将问题转化为将表table转化为一个可以快速访问表中升序/降序排序频数的数据结构,此时,不难想到用一个行为水平元组外加上一个元组的频数构成的data.frame能够表示这种数据结构
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="more">More</h2>
+</div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+<div style="padding-left:2.5rem; color:#1296db;">
+    
+
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+方案一
+
+    </span>
+</p>
+如果我们对R中as.data.frame(tab)的行为一无所知的话,我们可以通过table的数据结构,自行编写代码构造上述data.frame,首先我们需要获取table中所有空间的水平,构造所有可能的水平元组(通过"向量"的积构造),将该水平元组集合构造为data.frame，然后通过所有元组访问table获取频数,构造频数向量,最后将该频数向量增加到data.frame中,最后通过order函数排序
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h3 id="achieve">Achieve</h3>
+</div>
+<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.table</span>(<span style="color:#e6db74">&#34;ct.txt&#34;</span>, header<span style="color:#f92672">=</span>T)
+ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(ct)
+<span style="color:#75715e"># 获取&#34;向量&#34;积的集合</span>
+combineVec <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(m, v)
+{
+	<span style="color:#a6e22e">if </span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">is.vector</span>(v))
+	{
+		<span style="color:#a6e22e">return</span>(<span style="color:#66d9ef">NA</span>)
+	}
+
+	<span style="color:#a6e22e">if </span>(<span style="color:#a6e22e">is.null</span>(m))
+	{
+		<span style="color:#a6e22e">return</span>(v)
+	}
+	nCol <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ifelse</span>(<span style="color:#a6e22e">is.vector</span>(m), <span style="color:#a6e22e">length</span>(m), <span style="color:#a6e22e">ncol</span>(m))
+	<span style="color:#a6e22e">print</span>(nCol)
+	nFrame <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">NULL</span>
+	<span style="color:#a6e22e">for </span>(i in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>nCol)
+	{
+		<span style="color:#a6e22e">for </span>(j in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">length</span>(v))
+		{
+			nFrame <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(nFrame, <span style="color:#a6e22e">c</span>(<span style="color:#a6e22e">ifelse</span>(<span style="color:#a6e22e">is.vector</span>(m), m[i], m[, i]), v[j]))
+		}
+	}
+	<span style="color:#a6e22e">return</span>(nFrame)
+}
+
+tabdom <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(tab)
+{
+	<span style="color:#a6e22e">if </span>(<span style="color:#e6db74">&#34;Freq&#34;</span> <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">dimnames</span>(tab))
+	{
+		<span style="color:#75715e"># 简单处理 如果有&#34;Freq&#34;列冲突直接返回</span>
+		<span style="color:#a6e22e">return</span>(<span style="color:#66d9ef">NA</span>)
+	}
+		
+	<span style="color:#75715e"># 将tab转为data.frame	</span>
+	levels <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dimnames</span>(tab)
+	frame <span style="color:#f92672">&lt;-</span> levels[[1]]
+	<span style="color:#a6e22e">for </span>(i in <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span><span style="color:#a6e22e">length</span>(levels))
+	{
+		frame <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">combineVec</span>(frame, levels[[i]])
+	}
+	<span style="color:#75715e"># 转置:使得行向量为水平元组</span>
+	frame <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">t</span>(frame)
+	<span style="color:#a6e22e">colnames</span>(frame) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">names</span>(levels)
+	frame <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(frame)
+	freqs <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">NULL</span>
+	
+	<span style="color:#75715e"># 构造频数向量</span>
+	<span style="color:#a6e22e">for </span>(i in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">nrow</span>(frame))
+	{
+		
+		doArgs <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(tab)
+		<span style="color:#a6e22e">for </span>(j in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ncol</span>(frame))
+		{
+			doArgs[[j<span style="color:#ae81ff">+1</span>]] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.character</span>(frame[i, j])
+		}
+		freqs <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(freqs, <span style="color:#a6e22e">do.call</span>(<span style="color:#e6db74">&#34;[&#34;</span>, doArgs))
+	}
+	frame<span style="color:#f92672">$</span>Freq <span style="color:#f92672">&lt;-</span> freqs
+	frame <span style="color:#f92672">&lt;-</span> frame<span style="color:#a6e22e">[order</span>(freqs, decreasing<span style="color:#f92672">=</span>T), ]	
+	<span style="color:#a6e22e">return</span>(frame)
+}
+
+<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">tabdom</span>(ct))
+</code></pre></div>
+
+<p style="display: list-item; font-size:21px;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 18px;">
+        
+方案二
+
+    </span>
+</p>
+如果我们R中as.data.frame(table)足够了解,该功能实现将会特别简单,R中的as.data.frame(table)做了我们方案一的大部分工作,它会构造一个每一行为水平元组和该水平元组在table的频数(该频数列名为Freq)的data.frame数据框,为了完成我们的功能,我们知道,只需要将table通过as.data.frame转化,然后按照Freq列排序即可
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h3 id="achieve">Achieve</h3>
+</div>
+<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.table</span>(<span style="color:#e6db74">&#34;ct.txt&#34;</span>, header<span style="color:#f92672">=</span>T)
+
+ct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(ct)
+
+
+tabdom <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(tab)
+{
+	frame <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.data.frame</span>(tab)
+
+	frame <span style="color:#f92672">&lt;-</span> frame<span style="color:#a6e22e">[order</span>(frame<span style="color:#f92672">$</span>Freq, decreasing<span style="color:#f92672">=</span>T), ]
+
+	<span style="color:#a6e22e">return</span>(frame)
+}
+
+
+<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">tabdom</span>(ct))
+</code></pre></div>
+
+</div>
+
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/appendix.png" />&nbsp;<h1 id="appendix">Appendix</h1>
+</div>
+
+
+<a href="/appendix/R/table/ct.txt" download="ct.txt" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>
+ct.txt(数据文件)
+</a>
+
+
+<a href="/appendix/R/table/tabdom.r" download="tabdom.r" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>
+tabdom.r(方案一实现文件)
+</a>
+
+
+<a href="/appendix/R/table/tabdom2.r" download="tabdom2.r" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>
+tabdom.r(方案二实现文件)
+</a></p>
 
   </div>
   
