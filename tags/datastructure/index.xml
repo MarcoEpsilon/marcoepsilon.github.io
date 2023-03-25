@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>datastructure on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/datastructure/</link>
+    <description>Recent content in datastructure on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/datastructure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linear List</title>
+      <link>https://marcoepsilon.github.io/posts/algorithm/linear-list/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/algorithm/linear-list/</guid>
+      <description>注意:下面算法描述是采用go语言编写 完整示例代码 线性表 线性表是一种具有 \(n\) 个相同元素 \((n = 0)\) 的有限序列 $$L = \{a_{1},\ a_{2},\ a_{3}, \ ...,\ a_{n}\}$$ 它们须满足: 存在逻辑上的第</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programing on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/programing/</link>
+    <description>Recent content in Programing on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sat, 31 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/programing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>&amp;lt;&amp;lt;The Art of R Programing&amp;gt;&amp;gt; -- exercise</title>
+      <link>https://marcoepsilon.github.io/posts/r/art-of-r-programing/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/r/art-of-r-programing/</guid>
+      <description>&amp;nbsp;Exercise #1 &amp;nbsp;Target: 图像操作 用户可以使用选取pgm图片对角线的位置,为其打上马赛克(为图片的灰度值增加噪声) &amp;nbsp;Details 运用pixmap读取pgm格式图片,使用pl</description>
+    </item>
+    
+  </channel>
+</rss>

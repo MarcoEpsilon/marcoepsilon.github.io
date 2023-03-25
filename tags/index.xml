@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/</link>
+    <description>Recent content in Tags on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 01 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C&#43;&#43;11</title>
+      <link>https://marcoepsilon.github.io/tags/c&#43;&#43;11/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/c&#43;&#43;11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Declarations</title>
+      <link>https://marcoepsilon.github.io/tags/declarations/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/declarations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://marcoepsilon.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Function</title>
+      <link>https://marcoepsilon.github.io/tags/function/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programing</title>
+      <link>https://marcoepsilon.github.io/tags/programing/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/programing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://marcoepsilon.github.io/tags/r/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Library</title>
+      <link>https://marcoepsilon.github.io/tags/library/</link>
+      <pubDate>Wed, 08 Jan 2020 13:49:32 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/library/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://marcoepsilon.github.io/tags/rust/</link>
+      <pubDate>Wed, 08 Jan 2020 13:49:32 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exercise</title>
+      <link>https://marcoepsilon.github.io/tags/exercise/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/exercise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://marcoepsilon.github.io/tags/go/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://marcoepsilon.github.io/tags/golang/</link>
+      <pubDate>Sat, 07 Dec 2019 14:25:29 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>https://marcoepsilon.github.io/tags/http/</link>
+      <pubDate>Sat, 07 Dec 2019 14:25:29 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>log/syslog</title>
+      <link>https://marcoepsilon.github.io/tags/log/syslog/</link>
+      <pubDate>Sun, 24 Nov 2019 22:45:02 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/log/syslog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>log</title>
+      <link>https://marcoepsilon.github.io/tags/log/</link>
+      <pubDate>Thu, 21 Nov 2019 22:25:04 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/log/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sort</title>
+      <link>https://marcoepsilon.github.io/tags/sort/</link>
+      <pubDate>Wed, 20 Nov 2019 16:25:24 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unsafe</title>
+      <link>https://marcoepsilon.github.io/tags/unsafe/</link>
+      <pubDate>Sat, 09 Nov 2019 23:03:46 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/unsafe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sync/atomic</title>
+      <link>https://marcoepsilon.github.io/tags/sync/atomic/</link>
+      <pubDate>Wed, 06 Nov 2019 22:08:28 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/sync/atomic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sync</title>
+      <link>https://marcoepsilon.github.io/tags/sync/</link>
+      <pubDate>Sat, 02 Nov 2019 22:29:07 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/sync/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>time</title>
+      <link>https://marcoepsilon.github.io/tags/time/</link>
+      <pubDate>Mon, 14 Oct 2019 23:13:49 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/time/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flag</title>
+      <link>https://marcoepsilon.github.io/tags/flag/</link>
+      <pubDate>Sat, 12 Oct 2019 00:14:17 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/flag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>errors</title>
+      <link>https://marcoepsilon.github.io/tags/errors/</link>
+      <pubDate>Fri, 11 Oct 2019 22:54:01 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/errors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concurrent</title>
+      <link>https://marcoepsilon.github.io/tags/concurrent/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/concurrent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby</title>
+      <link>https://marcoepsilon.github.io/tags/ruby/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>net</title>
+      <link>https://marcoepsilon.github.io/tags/net/</link>
+      <pubDate>Mon, 23 Sep 2019 17:16:17 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strings</title>
+      <link>https://marcoepsilon.github.io/tags/strings/</link>
+      <pubDate>Fri, 20 Sep 2019 22:50:47 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/strings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>encoding/binary</title>
+      <link>https://marcoepsilon.github.io/tags/encoding/binary/</link>
+      <pubDate>Thu, 19 Sep 2019 18:28:05 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/encoding/binary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bufio</title>
+      <link>https://marcoepsilon.github.io/tags/bufio/</link>
+      <pubDate>Mon, 16 Sep 2019 22:48:20 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/bufio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>file</title>
+      <link>https://marcoepsilon.github.io/tags/file/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/file/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>system</title>
+      <link>https://marcoepsilon.github.io/tags/system/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>os</title>
+      <link>https://marcoepsilon.github.io/tags/os/</link>
+      <pubDate>Wed, 11 Sep 2019 23:27:39 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>summary</title>
+      <link>https://marcoepsilon.github.io/tags/summary/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/summary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regexp</title>
+      <link>https://marcoepsilon.github.io/tags/regexp/</link>
+      <pubDate>Mon, 19 Aug 2019 22:27:55 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/regexp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dataStructure &amp;&amp; algorithm</title>
+      <link>https://marcoepsilon.github.io/tags/datastructure-algorithm/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/datastructure-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stack &amp;&amp; queue</title>
+      <link>https://marcoepsilon.github.io/tags/stack-queue/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/stack-queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Future</title>
+      <link>https://marcoepsilon.github.io/tags/future/</link>
+      <pubDate>Mon, 22 Jul 2019 22:41:12 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/future/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tokio</title>
+      <link>https://marcoepsilon.github.io/tags/tokio/</link>
+      <pubDate>Mon, 22 Jul 2019 21:02:22 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/tokio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>io</title>
+      <link>https://marcoepsilon.github.io/tags/io/</link>
+      <pubDate>Mon, 22 Jul 2019 18:09:46 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear List</title>
+      <link>https://marcoepsilon.github.io/tags/linear-list/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/linear-list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://marcoepsilon.github.io/tags/algorithm/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datastructure</title>
+      <link>https://marcoepsilon.github.io/tags/datastructure/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/datastructure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linear-algebra</title>
+      <link>https://marcoepsilon.github.io/tags/linear-algebra/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/linear-algebra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>https://marcoepsilon.github.io/tags/math/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>composition</title>
+      <link>https://marcoepsilon.github.io/tags/composition/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/composition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>english</title>
+      <link>https://marcoepsilon.github.io/tags/english/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/english/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reflect</title>
+      <link>https://marcoepsilon.github.io/tags/reflect/</link>
+      <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/reflect/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>template</title>
+      <link>https://marcoepsilon.github.io/tags/template/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>react</title>
+      <link>https://marcoepsilon.github.io/tags/react/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webpack</title>
+      <link>https://marcoepsilon.github.io/tags/webpack/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/webpack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web前端</title>
+      <link>https://marcoepsilon.github.io/tags/web%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/tags/web%E5%89%8D%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

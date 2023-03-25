@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Web前端开发环境的构建 :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="开始之前 先准备一下nodejs,npm(用于安装一些js包,npm一般是nodejs自带的包管理工具),通过官网下载即可 构建工具 先选择一个本"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/20190626/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Web前端开发环境的构建 :: Marco Epsilon — " />
+<meta name="twitter:description" content="开始之前 先准备一下nodejs,npm(用于安装一些js包,npm一般是nodejs自带的包管理工具),通过官网下载即可 构建工具 先选择一个本" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Web前端开发环境的构建 :: Marco Epsilon — ">
+<meta property="og:description" content="开始之前 先准备一下nodejs,npm(用于安装一些js包,npm一般是nodejs自带的包管理工具),通过官网下载即可 构建工具 先选择一个本" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/20190626/" />
+<meta property="og:site_name" content="Web前端开发环境的构建" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-06-26 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/20190626/">Web前端开发环境的构建</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-06-26
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/web%E5%89%8D%E7%AB%AF/">web前端</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/react/">react</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/webpack/">webpack</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h2 id="开始之前">开始之前</h2>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    
+    先准备一下nodejs,npm(用于安装一些js包,npm一般是<a href=https://nodejs.org/en/ style="color:chartreuse; display:inline-block; position:relative">nodejs</a>自带的包管理工具),通过官网下载即可
+    
+</span>
+</code></pre>
+
+<h2 id="构建工具">构建工具</h2>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    先选择一个本地放置项目的目录,执行 
+</span>
+</code></pre>
+
+<pre><code class="language-bash/shell">npm init
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    进入项目目录,此时该目录下会有一个package.json的文件储存着项目中包的信息,
+    通过npm我们可以下载一些构建工具
+    
+</span>
+</code></pre>
+
+<h3 id="webpack-webpack-cli">webpack,webpack-cli</h3>
+
+<pre><code class="language-bash/shell">npm install webpack webpack-cli -g
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    webpack是用于打包文件的工具,可以很方便的帮我们整合资源(js,image,css...etc),接着安装babel(babel在高版本有了一些变化,我在使用babel 7.4.0时一些包换了名字,比如babel-preset-env应该替换为@babel/preset-env)
+    
+</span>
+</code></pre>
+
+<h3 id="babel-core-babel-loader-babel-preset-env-babel-preset-react">@babel/core babel-loader @babel/preset-env @babel/preset-react</h3>
+
+<pre><code class="language-bash/shell">npm install @babel/core babel-loader @babel/preset-env \
+    @babel/preset-react --save-dev
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    
+    @babel/core是使用babel的必需品,babel-loader用于babel和webpack生成js文件,
+    @babel/preset-env用于使浏览器兼容新版本js标准,
+    @babel/preset-react用于将jsx转换为js代码,这些工具之后会在webpack.config.js里用到
+    
+</span>
+</code></pre>
+
+<h3 id="react-react-dom">react react-dom</h3>
+
+<pre><code class="language-bash/shell">npm install react react-dom --save
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    
+    这两个包我们主要用于构建react应用,
+    react是React应用的核心,react-dom主要是用于操作React的虚拟dom,
+    安装上我们要将其保存到包的依赖中,--save参数正是用于此
+    
+</span>
+</code></pre>
+
+<h3 id="webpack-dev-server-optional">webpack-dev-server (Optional)</h3>
+
+<pre><code class="language-bash/shell">npm install webpack webpack-dev-server -save-dev
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    
+    虽然webpack已经全局安装过,但是webpack-dev-server需要使用webapck,
+    所以我们也需要把他添加到npm二进制依赖中,这一步也是可选的,
+    这里使用webpack-dev-server就是为了看到程序的结果,我们也可用nginx等web服务器代替
+    
+</span>
+</code></pre>
+
+<h2 id="构建配置">构建配置</h2>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    
+    至此我们已经差不多完成了工具的安装,接下来我们需要书写一些配置文件,
+    使得工具能够被正确的使用,
+    首先我们需要书写webpack的入口文件webpack.config.js放置于项目根目录下
+    
+</span>
+</code></pre>
+
+<pre><code class="language-js">let path = require('path');
+module.exports = {
+    //程序入口文件
+    entry:&quot;./src/index.js&quot;,
+    //编译输出
+    output: {
+        path:path.resolve(__dirname,&quot;dist&quot;),
+        filename:&quot;index.js&quot;
+    },
+    //如何在打包时进行中间处理
+    //test要是正则表达式对象,写字符串会有意想不到的错误
+    module:{
+        rules:[
+            {
+                test:/\.jsx?$/,
+                exclude:path.resolve(__dirname,&quot;node_modules&quot;),
+                include:path.resolve(__dirname,&quot;src&quot;),
+                use:[
+                    {
+                        loader:&quot;babel-loader&quot;,
+                        options:{
+                            presets:[&quot;@babel/preset-env&quot;,&quot;@babel/preset-react&quot;]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    //设置成生产环境
+    mode:&quot;production&quot;,
+    //设置webpack-dev-server
+    devServer:{
+        //文件根目录
+        contentBase:path.resolve(__dirname,&quot;dist&quot;),
+        //监听端口
+        port:8080,
+        //热更新
+        hot:true,
+        //自动打开浏览器
+        open:true,
+    },
+    performance:{
+        hints:false,
+    }
+};
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    
+    等到下一步构建应用写完src/index.js,我们就可以通过执行webpack,会在dist得到产出文件
+    
+</span>
+</code></pre>
+
+<pre><code class="language-bash/shell">webpack
+</code></pre>
+
+<h2 id="构建应用">构建应用</h2>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    
+    这里只是说明如何搭建,故只需要说明我们的React确实能够使用,
+    我们在编译文件输出目录dist下,新建index.html
+    
+</span>
+</code></pre>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;React&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;index.js&quot;&gt;
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    继续编写我们的src/index.js
+</span>
+</code></pre>
+
+<pre><code class="language-js">import React,{Component} from 'react';
+import ReactDOM from 'react-dom';
+
+class Hello extends Component {
+    constructor() {
+        super();
+    }
+    render() {
+        return &lt;h1&gt;Hello,React!&lt;/h1&gt;;
+    }
+}
+
+ReactDOM.render(&lt;Hello/&gt;,document.getElementById(&quot;container&quot;));
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    这里我们可以执行webpack,看到dist的输出了 
+</span>
+</code></pre>
+
+<pre><code class="language-bash/shell">webpack
+</code></pre>
+
+<pre><code><span style="color:peru; " class="plain_text plain_text_default">
+    
+    我们可以继续修改package.json来使用webpack-dev-server(在scripts里加入添加"dev"那一行) 
+</span>
+</code></pre>
+
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;test&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;description&quot;: &quot;&quot;,
+    &quot;main&quot;: &quot;index.js&quot;,
+    &quot;scripts&quot;: {
+        &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+        &quot;dev&quot;: &quot;webpack-dev-server&quot;
+    },
+    &quot;author&quot;: &quot;&quot;,
+    &quot;license&quot;: &quot;ISC&quot;,
+    &quot;devDependencies&quot;: {
+        &quot;@babel/core&quot;: &quot;^7.4.5&quot;,
+        &quot;@babel/preset-env&quot;: &quot;^7.4.5&quot;,
+        &quot;@babel/preset-react&quot;: &quot;^7.0.0&quot;,
+        &quot;babel-loader&quot;: &quot;^8.0.6&quot;,
+        &quot;webpack&quot;: &quot;^4.35.0&quot;,
+        &quot;webpack-dev-server&quot;: &quot;^3.7.2&quot;
+    },
+    &quot;dependencies&quot;: {
+        &quot;react&quot;: &quot;^16.8.6&quot;,
+        &quot;react-dom&quot;: &quot;^16.8.6&quot;
+    }
+}
+</code></pre>
+
+<p><span style="color:peru; " class="plain_text plain_text_default">
+    
+执行npm run dev就可以自动打开浏览器看到输出了
+
+</span>
+<div style="display: flex; flex-direction: row; justify-content: space-around; margin-top:2rem;">
+    
+    <div style=" vertical-align:middle; margin-bottom:1rem; margin-top:1rem;">
+    <img src=/20190626/dir.png alt="目录图" height="auto" />
+</div>
+    <div style=" vertical-align:middle; margin-bottom:1rem; margin-top:1rem;">
+    <img src=/20190626/effect.png alt="效果图" height="auto" />
+</div>
+
+</div>
+<div style="background-color:#336666; height:50px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:10rem; margin-bottom:1rem; text-align: center;">
+    <span style="display:inline-block; height:50px; line-height: 50px; vertical-align: middle;">
+    一切过往,皆是序章.
+</span>
+</div></p>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/20190706/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Golang Template</span>
+        </a>
+      </span>
+      
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

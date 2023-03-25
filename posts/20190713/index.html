@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Go Reflection :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="何为Reflection Reflection是一种能够窥探类型和值信息的技术,利用该技术我们能在运行时了解,修改类型和值内部结构的信息 interface{} in"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/20190713/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Go Reflection :: Marco Epsilon — " />
+<meta name="twitter:description" content="何为Reflection Reflection是一种能够窥探类型和值信息的技术,利用该技术我们能在运行时了解,修改类型和值内部结构的信息 interface{} in" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Go Reflection :: Marco Epsilon — ">
+<meta property="og:description" content="何为Reflection Reflection是一种能够窥探类型和值信息的技术,利用该技术我们能在运行时了解,修改类型和值内部结构的信息 interface{} in" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/20190713/" />
+<meta property="og:site_name" content="Go Reflection" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-07-13 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/20190713/">Go Reflection</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-07-13
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/reflect/">reflect</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="何为reflection">何为Reflection</h1>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+Reflection是一种能够窥探类型和值信息的技术,利用该技术我们能在运行时了解,修改类型和值内部结构的信息
+
+</span>
+
+<h1 id="interface">interface{}</h1>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+interface{}是一种特殊的Interface,内部没有方法,就导致所有的类型都可以转化为interface{},从而使得go有了泛型的能力,interface{}在底层表示为(Type,Value)的集合,所以在go才会有nil type一说,所以如果我们在将任意值转成interface{}后,我们不会损失有关任意值原来类型和值的信息,reflect库就提供了reflect.Value,reflect.Type来帮助我们获得这一集合,当然使用这些会有一些额外开销,不过我们也有了一些超能力
+
+</span>
+
+<h1 id="reflect-typeof">reflect.TypeOf</h1>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+reflect.TypeOf是reflect库提供的方法,我们能通过该方法获得有关值的类型信息,该方法返回reflect.Type,通过
+
+</span>
+
+<pre><code class="language-bash/shell">    go doc reflect.Type
+</code></pre>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+可知,reflect.Type是一个interface,我们可以看到里面有很多方法,它们便是窥探值类型信息的利器,其中便有一个通用的方法,Kind()能够返回类型的枚举
+
+</span>
+
+<pre><code class="language-go">func explain_kind(variable interface{}) {
+    t := reflect.TypeOf(variable)
+    switch t.Kind() {
+    case reflect.Int,reflect.Int8,reflect.Int16,
+        reflect.Int32,reflect.Int64,
+        reflect.Uint,reflect.Uint8,reflect.Uint16,reflect.Uint32,
+        reflect.Uint64,reflect.Uintptr:
+        // do something
+    case reflect.Float32,reflect.Float64:
+        // do something
+    case reflect.String:
+        // do something
+    case reflect.Bool:
+        // do something
+    case reflect.Complex64,reflect.Complex128:
+        // do something
+    default:
+        /* have reflect.Map,reflect.Slice
+            reflect.Array,reflect.Func,
+            reflect.Ptr,reflect.Interface,
+            reflect.Chan,reflect.UnsafePointer,
+            reflect.Invalid..etc
+        */
+    }
+}
+</code></pre>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+当然,我们还有更多简单易用的方法获得比如reflect.Func的函数名,参数信息,reflect.Struct的字段和方法等等我们想到和意想不到的信息
+
+</span>
+
+<h1 id="reflect-valueof">reflect.ValueOf</h1>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+reflect.ValueOf是reflect的可以窥探和修改值信息的方法,它返回reflect.Value,查询文档可以知道它其实是一个结构体,它提供了一些方法
+
+</span>
+
+<h2 id="reflect-set系">reflect.Set系</h2>
+
+<p><div style="padding-left:2.5rem; color:#980756;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        func (v Value) Set(x Value)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        func (v Value) SetBool(x Value)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        func (v Value) SetCap(n int)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        func (v Value) SetComplex(x complex128)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        func (v Value) Float(x float64)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        ...
+    
+    </span>
+</p>
+
+</div>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+Set系方法只能用于CanAddr可寻址的Value,因为改变副本值毫无意义,此外Set方法参数底层类型必须与调用者底层类型完全匹配,否则会panic,而SetInt,SetFloat有容错性,可以修改能隐式转换的类型比如int64类型的reflect.Value,可以传参int32,但是SetInt,SetFloat等不能修改指向interface{}的reflect.Value,否则会panic,此外,reflect也提供了reflect.CanSet方法来检测值是否能使用Set系方法
+
+</span></p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;reflect&quot;
+)
+
+func main() {
+	var f64 float64 = 12.343
+	value := reflect.ValueOf(f64)
+	// false
+	fmt.Printf(&quot;%v\n&quot;,value.CanSet())
+    value = reflect.ValueOf(&amp;f64).Elem()
+    // true
+	fmt.Printf(&quot;%v\n&quot;,value.CanSet())
+	// panic
+	//value.Set(reflect.ValueOf(12))
+	value.SetFloat(12)
+	value.Set(reflect.ValueOf(12.1))
+	var inter interface{}
+	value = reflect.ValueOf(&amp;inter).Elem()
+	// true
+	fmt.Printf(&quot;%v\n&quot;,value.CanSet())
+	value.Set(reflect.ValueOf(12))
+	// panic
+	//value.SetInt(13)
+}
+</code></pre>
+
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注意下列代码失败和成功的原因,第一个传递的是副本,我们修改它对原来的值毫无影响,第二次传入的是地址,我们reflect.Value拥有了指向原来值地址的指针,当然我们通过reflect.Elem函数获取其指向的指向的值,否则只会获得其地址的reflect.Value
+
+</div>
+
+<pre><code class="language-go">	var f64 float64 = 12.343
+	value := reflect.ValueOf(f64)
+	// false
+	fmt.Printf(&quot;%v\n&quot;,value.CanSet())
+	value = reflect.ValueOf(&amp;f64).Elem()
+	fmt.Printf(&quot;%v\n&quot;,value.CanSet())
+</code></pre>
+
+<h1 id="reflect-can系">reflect.Can系</h1>
+
+<p><div style="padding-left:2.5rem; color:#980756;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        func (v Value) CanAddr() bool
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        func (v Value) CanInterface() bool
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        func (v Value) CanSet() bool
+    
+    </span>
+</p>
+
+</div>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+reflect.Can系很简单,就是检查是否可CanAddr(寻址--调用Addr()),CanInterface(转化为interface{}--调用Interface()),CanSet(修改值---调用Set系函数)
+
+</span>
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注意:reflect.Type和reflect.Value有很多相同的方法,但是二者语义是不同的(尽管有部分效果相同),所以使用时要明确自己是想要类型还是值的信息,当然,知道值自然可以窥探其类型,在reflect.Value上调用reflect.Type()可以获得reflect.Value
+
+</div></p>
+
+<h1 id="more-funcions">More Funcions</h1>
+
+<p><div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+    func MakeFunc(type Type,fn func(args []Value) (results []Value)) Value
+
+</div>
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+顾名思义,这个函数可以帮助我们生成函数,第一个参数是返回(生成)的函数类型,第二个则是生成函数的模板,这个函数可以帮助我们动态的生成函数(它们有相同的原型),下面是官网的一个例子,用来生成int64,float64等的swap函数(与官网相比我有所改动)
+
+</span></p>
+
+<pre><code class="language-go">// example fo reflect.MakeFunc
+package main
+
+import (
+	&quot;reflect&quot;
+	&quot;fmt&quot;
+)
+// swap func prototyope
+func proto_swap(args []reflect.Value) (results []reflect.Value) {
+	// swap
+	return []reflect.Value {
+		args[1],
+		args[0],
+	}
+}
+// case of swap instance
+var int_swap func(int64,int64) (int64,int64)
+var float_swap func(float64,float64) (float64,float64)
+
+func init() {
+	int_swap_fn := reflect.ValueOf(&amp;int_swap).Elem()
+	float_swap_fn := reflect.ValueOf(&amp;float_swap).Elem()
+	new_int_swap_fn := reflect.MakeFunc(int_swap_fn.Type(),proto_swap)
+	new_float_swap_fn := reflect.MakeFunc(float_swap_fn.Type(),proto_swap)
+	int_swap_fn.Set(new_int_swap_fn)
+	float_swap_fn.Set(new_float_swap_fn)
+}
+func main() {
+	i1,i2 := int_swap(1,2)
+	fmt.Printf(&quot;first: %d,second: %d\n&quot;,i1,i2)
+	f1,f2 := float_swap(12.2,13.4)
+	fmt.Printf(&quot;first: %3.2f,second: %3.2f\n&quot;,f1,f2)
+}
+</code></pre>
+
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+这个swap函数用interface{}也能做
+
+</span>
+
+<pre><code class="language-go">// we can do that with this
+package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func swap(x interface{},y interface{}) (interface{},interface{}) {
+	return y,x
+}
+func int_swap(x int64,y int64) (int64,int64) {
+	yi,xi := swap(x,y)
+	return yi.(int64),xi.(int64)
+}
+func float_swap(x float64,y float64) (float64,float64) {
+	yf,xf := swap(x,y)
+	return yf.(float64),xf.(float64)
+}
+func main() {
+	i1,i2 := int_swap(1,2)
+	fmt.Printf(&quot;first: %d,second: %d\n&quot;,i1,i2)
+	f1,f2 := float_swap(12.2,13.4)
+	fmt.Printf(&quot;first: %3.2f,second: %3.2f\n&quot;,f1,f2)
+}
+</code></pre>
+
+<p><div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+func (tag StructTag) Get(key string) string
+
+</div>
+<span style="color:darkorchid; " class="plain_text plain_text_default">
+    
+go提供了结构体标签,比如json库使用的tag json,我们也可以定义自己的标签,该函数会查找结构体标签中的key,没找到就返回empty string,所以如果想要知道结构体标签是否明确指定了empty string,就使用Lookup函数
+
+</span>
+<div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+func (tag StructTag) Lookup(key string) (value string,ok bool)
+
+</div></p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;reflect&quot;
+)
+type Author struct {
+	Name	string		`number:&quot;20163284&quot; unique:&quot;true&quot;`
+	Age		int64		`number:&quot;20189881&quot; unique:&quot;false&quot;`
+}
+func main() {
+	author := Author {
+		Name: &quot;Marco Epsilon&quot;,
+		Age: 22,
+	}
+	as := reflect.ValueOf(author)
+	for i := 0; i &lt; as.NumField(); i++ {
+		number,ok := as.Type().Field(i).Tag.Lookup(&quot;number&quot;)
+		//fmt.Printf(&quot;tag number: %v\n&quot;,as.Type().Field(i).Tag.Get(&quot;number&quot;))
+		if !ok {
+			continue
+		}
+		unique,ok := as.Type().Field(i).Tag.Lookup(&quot;unique&quot;)
+		if !ok {
+			continue
+		}
+		fmt.Printf(&quot;%v %v tag number: %v,tag unique: %v\n&quot;,as.Type().Field(i).Name,as.Field(i).Interface(),number,unique)
+	}
+}
+</code></pre>
+
+<div style="background-color:#336666; height:50px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:10rem; margin-bottom:1rem; text-align: center;">
+    <span style="display:inline-block; height:50px; line-height: 50px; vertical-align: middle;">
+人生如逆旅,我亦是行人   @苏轼
+</span>
+</div>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/english/writing/">
+          <span class="button__icon">←</span>
+          <span class="button__text">English Writing</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/20190706/">
+          <span class="button__text">Golang Template</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

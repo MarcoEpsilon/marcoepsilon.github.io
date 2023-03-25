@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43;11 on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/c&#43;&#43;11/</link>
+    <description>Recent content in C&#43;&#43;11 on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 01 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/c++11/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Attribute specifier sequence</title>
+      <link>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/</guid>
+      <description>Overview Attribute specifier sequence(Since C++11)的引入是为了指定type, object, code等实现定义的属性。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; [[attr]] [[attr1, attr2, attr3(arg)]] [[namespace::attr(arg)]] alignas_specifier 形式化地,语法应该如下: .tmp_note_table { padding:0px 0px; border:none; margin:4px 0px; width:auto; } .tmp_note_row td { border:none; }</description>
+    </item>
+    
+  </channel>
+</rss>

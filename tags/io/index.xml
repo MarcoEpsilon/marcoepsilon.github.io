@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>io on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/io/</link>
+    <description>Recent content in io on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 22 Jul 2019 18:09:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Io</title>
+      <link>https://marcoepsilon.github.io/golib/io/</link>
+      <pubDate>Mon, 22 Jul 2019 18:09:46 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/io/</guid>
+      <description>Io库概述 IO库提供了一些IO操作的原语,主要任务是封装一些存在的实现,比如os库里的,为共享的功能提供抽象的接口,附加一些辅助操作,因为这</description>
+    </item>
+    
+  </channel>
+</rss>

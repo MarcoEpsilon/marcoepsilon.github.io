@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Syslog :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview 包syslog提供系统日志服务,它能够发送消息到系统日志守护进程使用Unix套接字UDP或者TCP. 只需要调用一次Dial,当写入失败时,"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/log/syslog/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Syslog :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview 包syslog提供系统日志服务,它能够发送消息到系统日志守护进程使用Unix套接字UDP或者TCP. 只需要调用一次Dial,当写入失败时," />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Syslog :: Marco Epsilon — ">
+<meta property="og:description" content="Overview 包syslog提供系统日志服务,它能够发送消息到系统日志守护进程使用Unix套接字UDP或者TCP. 只需要调用一次Dial,当写入失败时," />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/log/syslog/" />
+<meta property="og:site_name" content="Syslog" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-11-24 22:45:02 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/log/syslog/">Syslog</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-11-24
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/log/syslog/">log/syslog</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#f283a0; " class="plain_text plain_text_default">
+    
+包syslog提供系统日志服务,它能够发送消息到系统日志守护进程使用Unix套接字UDP或者TCP.
+只需要调用一次Dial,当写入失败时,系统日志客户将会企图重新连接并写入,系统日志包被冻结了,不接受新的特征.
+
+</span>
+
+<h1 id="type-priority">type Priority</h1>
+
+<span style="color:#f283a0; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Priority int
+</code></pre>
+
+<p>Priority是设施性和告警性的结合,比如,LOG_ALERT|LOG_FTP发送一个警示消息从FTP设施.默认的严重程度是LOG_EMERG，默认的设施是LOG_KERN.</p>
+
+<pre><code class="language-go">const (
+    // From /usr/include/sys/syslog.h
+    // There are same on Linux, BSD and OS X.
+    LOG_EMERG Priotity = itoa
+    LOG_ALERT
+    LOG_CRIT
+    LOG_ERR
+    LOG_WARNING
+    LOG_NOTICE
+    LOG_INFO
+    LOG_DEBUG
+)
+</code></pre>
+
+<pre><code class="language-go">const (
+    LOG_KERN Priority = itoa &lt;&lt; 3
+    LOG_USER
+    LOG_MAIL
+    LOG_DAEMON
+    LOG_AUTH
+    LOG_SYSLOG
+    LOG_LPR
+    LOG_NEWS
+    LOG_UUCP
+    LOG_CRON
+    LOG_AUTHPRIV
+    LOG_FTP
+
+    LOG_LOCAL0
+    LOG_LOCAL1
+    LOG_LOCAL2
+    LOG_LOCAL3
+    LOG_LOCAL4
+    LOG_LOCAL5
+    LOG_LOCAL6
+    LOG_LOCAL7
+)
+</code></pre>
+
+
+</span>
+
+<h1 id="type-writer">type Writer</h1>
+
+<span style="color:#f283a0; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Writer struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>Writer是syslog服务器的连接</p>
+
+
+</span>
+
+<h1 id="函数-functions">函数(Functions)</h1>
+
+<span style="color:#f283a0; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Dial(network, raddr string, priority Priority, tag string) (Writer, error)
+
+</p>
+Dial建立一个到系统日志守护进程的连接通过远程连接一个指定网络和地址,每次写入到返回的Writer发送日志消息关于设施和严重程度和tag,如果tag是空的,将会os.Args[0],如果网络是空,Dial连接到本地的日志服务器.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func New(priority Priority, tag string) (Writer, error)
+
+</p>
+New建立一个新连接到守护进程,每次都会写入到返回的Writer发送日志消息关于设施和严重程度及前缀标志,如果tag是空,将会使用os.Args[0]
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Alert(m string) error
+
+</p>
+Alert通过严重程度LOG_ALERT记录消息,忽视传递到New的严重程度.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Close() error
+
+</p>
+关闭到系统守护进程的连接.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Crit(m string) error
+
+</p>
+Crit通过严重程度LOG_CRIT记录消息,忽视传递到New的严重程度.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Debug(m string) error
+
+</p>
+Debug通过严重程度LOG_DEBUG记录消息,忽视传递到New的严重程度.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Emerg(m string) error
+
+</p>
+Emerg通过严重程度LOG_EMERG记录消息,忽视传递到New的严重程度.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Err(m string) error
+
+</p>
+Err通过严重程度LOG_ERR记录消息,忽视传递到New的严重程度.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Info(m string) error
+
+</p>
+Info通过严重程度LOG_INFO记录消息,忽视传递到New的严重程度.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Notice(m string) error
+
+</p>
+Notice通过严重程度LOG_NOTICE记录消息,忽视传递到New的严重程度.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Warning(m string) error
+
+</p>
+Warning通过严重程度LOG_Warning记录消息,忽视传递到New的严重程度.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (w *Writer) Write(b []byte) (int, error)
+
+</p>
+Write发送一个消息到系统日志守护进程.
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/net/http/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Http</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/log/log/">
+          <span class="button__text">Log</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

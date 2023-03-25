@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regexp on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/regexp/</link>
+    <description>Recent content in regexp on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 19 Aug 2019 22:27:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/regexp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regexp</title>
+      <link>https://marcoepsilon.github.io/golib/regexp/</link>
+      <pubDate>Mon, 19 Aug 2019 22:27:55 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/regexp/</guid>
+      <description>正则表达式语法概述(熟悉可跳过) 对于go 正则表达式语法也可以运行下列命令查看 go doc regexp/syntax 单字符集 符号 描述 . 匹配任意字符,可能包含&#39;\n&#39;(当 flag s =</description>
+    </item>
+    
+  </channel>
+</rss>

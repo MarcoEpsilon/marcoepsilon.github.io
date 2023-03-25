@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Function :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview C&#43;&#43;的函数声明介绍了函数的名称和函数的类型,而函数的定义是将函数的声明和函数体关联起来。 Function Declaration 函数声明能够出现在任何.tmp_link a:hover {"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Function :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview C&#43;&#43;的函数声明介绍了函数的名称和函数的类型,而函数的定义是将函数的声明和函数体关联起来。 Function Declaration 函数声明能够出现在任何.tmp_link a:hover {" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Function :: Marco Epsilon — ">
+<meta property="og:description" content="Overview C&#43;&#43;的函数声明介绍了函数的名称和函数的类型,而函数的定义是将函数的声明和函数体关联起来。 Function Declaration 函数声明能够出现在任何.tmp_link a:hover {" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/" />
+<meta property="og:site_name" content="Function" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2021-02-27 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/">Function</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2021-02-27
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/c&#43;&#43;/">C&#43;&#43;</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/function/">Function</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="overview">Overview</h1>
+
+<p>C++的函数声明介绍了函数的名称和函数的类型,而函数的定义是将函数的声明和函数体关联起来。</p>
+
+<h1 id="function-declaration">Function Declaration</h1>
+
+<p>函数声明能够出现在任何<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">Scope</a><sub style="color:greenyellow;"></sub></span>内。如果函数声明出现在<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">class scope</a><sub style="color:greenyellow;"></sub></span>内(除了使用<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">friend specifier</a><sub style="color:greenyellow;"></sub></span>),则该函数称为<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">member functions</a><sub style="color:greenyellow;"></sub></span>,函数类型是由<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">return type</a><sub style="color:greenyellow;"></sub></span>(符合<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">declaration syntax</a><sub style="color:greenyellow;"></sub></span>的<span style="color:gray;">decl-specifier-seq<sub style="color:greenyellow;"></sub></span>)和<span style="color:gray;">function declarator<sub style="color:greenyellow;"></sub></span>组成的。
+<hr color="gray"/>
+<span style="font-size:0.75em;">
+<span style="color:#FFA500; background-color:#1C1C1C;">noptr-declarator<sub style="color:green;">hello</sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">( parameter-list )<sub style="color:green;"></sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">cv<sub style="color:green;">(optional)</sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">ref<sub style="color:green;">(optional)</sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">except<sub style="color:green;">(optional)</sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">attr<sub style="color:green;">(optional)</sub></span> <span style="color:red; background-color:#1C1C1C;">（1）<sub style="color:green;"></sub></span>
+</span>
+<hr color="gray"/>
+<span style="font-size:0.75em;">
+<span style="color:#FFA500; background-color:#1C1C1C;">noptr-declarator<sub style="color:green;"></sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">( parameter-list )<sub style="color:green;"></sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">cv<sub style="color:green;">(optional)</sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">ref<sub style="color:green;">(optional)</sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">attr<sub style="color:green;">(optional)</sub></span> <span style="color:#FFA500; background-color:#1C1C1C;">->trailing<sub style="color:green;"></sub></span> <span style="color:red; background-color:#1C1C1C;">(2)<sub style="color:green;"></sub></span>
+</span>
+<hr color="gray"/>
+<div style="padding-left:2.5rem; color:brown;">
+    
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 0.85em;">
+        
+(1) 普通的函数声明语法
+
+    </span>
+</p>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 0.85em;">
+        
+(2) 尾部返回类型声明:尾部返回类型只允许在函数声明的最外层,这种情况下<span style="color:gray;">decl-specifier-seq<sub style="color:greenyellow;"></sub></span>只能是关键字<span style="color:#FFA500; background-color:#1C1C1C;">
+    auto
+</span>
+
+    </span>
+</p>
+
+</div>
+
+<style type="text/css">
+    .tmp_table_par {
+        border-spacing: 0;
+        border:none;
+        padding:0px;
+        margin:0px;
+        width:auto;
+    }
+    .tmp_table_par tbody {
+        box-sizing: content-box;
+    }
+    .tmp_t_par > td:nth-child(1) {
+        white-space: nowrap;
+        text-align: right;
+        font-weight: bold;
+    }
+    .tmp_t_par > td {
+        padding: 0.5em 1em 0 0;
+        vertical-align: top;
+        border:none;
+    }
+    .tmp_t_par > td:nth-child(3) {
+        width: 100%;
+    }
+
+</style>
+<table class="tmp_table_par"><tbody>
+<tr class="tmp_t_par">
+<td>
+<span style="color:gray;">noptr-declarator<sub style="color:greenyellow;"></sub></span>
+</td>
+<td>
+<span style="">
+-
+</span>
+</td>
+<td>
+任何合理的<span style="color:gray;">declarator<sub style="color:greenyellow;"></sub></span>，但是以<span style="color:gray;">*<sub style="color:greenyellow;"></sub></span>,<span style="color:gray;">&<sub style="color:greenyellow;"></sub></span>或者<span style="color:gray;">&&<sub style="color:greenyellow;"></sub></span>为开头的必须用括号包围
+</td>
+</tr>
+
+<tr class="tmp_t_par">
+<td>
+<span style="color:gray;">parameter-list<sub style="color:greenyellow;"></sub></span>
+</td>
+<td>
+-
+</td>
+<td>
+可能为空,以逗号分隔的函数参数列表
+</td>
+</tr>
+
+<tr class="tmp_t_par">
+<td>
+<span style="color:gray;">attr<sub style="color:greenyellow;">(C&#43;&#43;11)</sub></span> 
+</td>
+<td>
+-
+</td>
+<td>
+可选的<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">attributes</a><sub style="color:greenyellow;"></sub></span>列表，这些属性应用于函数类型,而不是函数本身。函数的属性出现在函数的声明符中的标识符之后,并且和出现在声明开头的属性结合(如果有的话)。
+</td>
+</tr>
+
+<tr class="tmp_t_par">
+<td>
+<span style="color:gray;">cv<sub style="color:greenyellow;"></sub></span>
+</td>
+<td>
+-
+</td>
+<td>
+const/volatile限定,只允许出现在<span style="color:gray;">no-static member function<sub style="color:greenyellow;"></sub></span>声明中
+</td>
+</tr>
+
+<tr class="tmp_t_par">
+<td>
+<span style="color:gray;">ref<sub style="color:greenyellow;">(C&#43;&#43;11)</sub></span> 
+</td>
+<td>
+-
+</td>
+
+<td>
+<span style="color:gray;">ref-qualification<sub style="color:greenyellow;"></sub></span>(引用限定),只允许出现在<span style="color:gray;">no-static member function<sub style="color:greenyellow;"></sub></span>声明中
+</td>
+</tr>
+<tr class="tmp_t_par">
+<td>
+<span style="color:gray;">
+except
+<sub style="color:greenyellow;"></sub></span>
+</td>
+<td>
+-
+</td>
+<td>
+<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">dynamic exception specification</a><sub style="color:greenyellow;">(Until C&#43;&#43;2017)</sub></span>或者<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">noexcept specification</a><sub style="color:greenyellow;">(C&#43;&#43;11)</sub></span>.注意exception specification(异常规范)并不是函数类型的一部分<sub style="color:greenyellow;">(Until C++17)</sub>
+</td>
+</tr>
+<tr class="tmp_t_par">
+<td>
+<span style="color:gray;">
+trailing
+<sub style="color:greenyellow;">(C&#43;&#43;11)</sub></span>
+</td>
+<td>
+-
+</td>
+<td>
+Trailing return type(尾置返回类型),如果返回值依赖于参数名字,将会非常有用,比如<style type="text/css">
+    .tmp_code_inline_highlight {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+        overflow-y: hidden;
+    }
+    .tmp_code_inline_highlight div {
+        display: inline-block;
+        margin:0px auto;
+        padding: 0px;
+    }
+    .tmp_code_inline_highlight pre {
+        margin:0px;
+    }
+    .tmp_code_inline_highlight span {
+        font-size:16px;
+    }
+    span.token.lf::before{
+        content:"";
+    }
+</style>
+<span class="tmp_code_inline_highlight"><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T, <span style="color:#66d9ef">typename</span> U<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">auto</span> add(T t, U u) <span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">decltype</span>(t <span style="color:#f92672">+</span> u);
+</code></pre></td></tr></table>
+</div>
+</div></span>,更复杂的,比如:<style type="text/css">
+    .tmp_code_inline_highlight {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+        overflow-y: hidden;
+    }
+    .tmp_code_inline_highlight div {
+        display: inline-block;
+        margin:0px auto;
+        padding: 0px;
+    }
+    .tmp_code_inline_highlight pre {
+        margin:0px;
+    }
+    .tmp_code_inline_highlight span {
+        font-size:16px;
+    }
+    span.token.lf::before{
+        content:"";
+    }
+</style>
+<span class="tmp_code_inline_highlight"><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="color:#66d9ef">auto</span> fpif(<span style="color:#66d9ef">int</span>) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">int</span>(<span style="color:#f92672">*</span>)<span style="color:#66d9ef">int</span>
+</code></pre></td></tr></table>
+</div>
+</div></span>
+</td>
+</tr>
+</tbody></table></p>
+
+<pre><code class="language-C++">// 声明一个 int, int*, 一个函数,一个指向函数的指针
+int i, *p = NULL, f(), (*pf)(double);
+// decl-specifier-seq 是int
+// 声明符f声明(并非定义)了一个返回值为int,参数列表为空的函数
+
+struct S {
+    virtual int f(char) const, g(int) &amp;&amp;; // 定义了两个 non-static member function
+
+    virtual int f(char), x; // 编译期错误:virtual(in decl-specifier-seq)只允许出现在
+                            // non-static member function的声明中
+};
+</code></pre>
+
+<p><span style="color:#FFA500; background-color:#1C1C1C;">
+    使用volatile-qualified object 作为参数类型或者返回类型已经被废弃<sub style="color:greenyellow;">(Since C++20)</sub> 
+</span>
+<div style="border:1px solid coral; padding:10px 8px;">
+函数的返回类型不能是函数类型或者数组类型(但是可以是它们的指针或者引用)
+和任何declaration(声明)一样,出现在声明之前的属性和随即出现在声明符的标识符之后的属性同时应用于被声明或被定义的实体(比如这种情况下,对于函数)
+<style type="text/css">
+    .tmp_code_inline_highlight {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+        overflow-y: hidden;
+    }
+    .tmp_code_inline_highlight div {
+        display: inline-block;
+        margin:0px auto;
+        padding: 0px;
+    }
+    .tmp_code_inline_highlight pre {
+        margin:0px;
+    }
+    .tmp_code_inline_highlight span {
+        font-size:16px;
+    }
+    span.token.lf::before{
+        content:"";
+    }
+</style>
+<span class="tmp_code_inline_highlight"><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP">
+[[noreturn]] <span style="color:#66d9ef">void</span> f [[noreturn]] (); <span style="color:#75715e">// 两个都应用于 function f
+</span></code></pre></td></tr></table>
+</div>
+</div></span><sub style="color:greenyellow;">(Since C++11)</sub>
+但是,出现在declarator(声明符)之后的属性应用于函数类型而不是函数本身。
+<style type="text/css">
+    .tmp_code_inline_highlight {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+        overflow-y: hidden;
+    }
+    .tmp_code_inline_highlight div {
+        display: inline-block;
+        margin:0px auto;
+        padding: 0px;
+    }
+    .tmp_code_inline_highlight pre {
+        margin:0px;
+    }
+    .tmp_code_inline_highlight span {
+        font-size:16px;
+    }
+    span.token.lf::before{
+        content:"";
+    }
+</style>
+<span class="tmp_code_inline_highlight"><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CPP" data-lang="CPP"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>() [[noreturn]]; <span style="color:#75715e">// 错误:该属性对于类型无效
+</span></code></pre></td></tr></table>
+</div>
+</div></span>
+对于任何declaration(声明),被声明为<span style="color:#FFA500; background-color:#1C1C1C;">
+    ret func(params)
+</span>的函数func的类型为 <span style="color:#FFA500; background-color:#1C1C1C;">
+    ret(params)
+</span>(除了下述说明的参数类型重写外):更多细节看<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">type naming</a><sub style="color:greenyellow;"></sub></span>
+</div></p>
+
+<h1 id="return-type-deduction">Return type deduction</h1>
+
+<p>如果<span style="color:#FFA500; background-color:#1C1C1C;">
+    decl-specifier-seq
+</span>包含了<span style="color:#FFA500; background-color:#1C1C1C;">
+    auto
+</span>关键字,尾部返回类型可能会被忽略,返回类型将会被编译器推断通过返回语句的表达式,如果返回类型并未使用<span style="color:#FFA500; background-color:#1C1C1C;">
+    decltype(auto)
+</span>,则推断将会符合<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">template argument deduction</a><sub style="color:greenyellow;"></sub></span></p>
+
+<pre><code class="language-CPP">int x = 1;
+auto f() { return x; } // return type is int
+const auto&amp; f() { return x; } // return type is const int&amp;
+</code></pre>
+
+<p>如果返回类型是decltype(auto),返回类型应与包装在<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">decltype</a><sub style="color:greenyellow;"></sub></span>的表达式返回的类型相同.</p>
+
+<pre><code class="language-CPP">int x = 1;
+decltype(auto) f() { return x; } // return type is int, is same as decltype(x)
+decltype(auto) f() { return (x); } // return type is int&amp;, is same as decltype((x))
+</code></pre>
+
+<p>
+<div style="background-color:#2C7575; height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:1rem; color:white; ">
+        
+注意: <span style="color:#FFA500; background-color:#1C1C1C;">
+    const decltype(auto)&
+</span>是错误的,<span style="color:#FFA500; background-color:#1C1C1C;">
+    decltype(auto)
+</span>必须单独使用.
+
+</div>
+如果有多条返回语句,它们必须推导成相同的类型</p>
+
+<pre><code class="language-CPP">auto f(bool val)
+{
+    if (val) return 123; // deduces return type int
+    else return 3.14f; // error: deduces return type float
+}
+</code></pre>
+
+<p>如果没有返回语句或者返回语句返回<span style="color:#FFA500; background-color:#1C1C1C;">
+    void expression
+</span>，声明的返回类型必须为<span style="color:#FFA500; background-color:#1C1C1C;">
+    decltype(auto)
+</span>,在这种情况下,则推断返回类型为<span style="color:#FFA500; background-color:#1C1C1C;">
+    void
+</span>,或者(可能<span style="color:#FFA500; background-color:#1C1C1C;">
+    cv-qulified
+</span>)<span style="color:#FFA500; background-color:#1C1C1C;">
+    auto
+</span>,在这种情况下,则推断返回类型为<span style="color:#FFA500; background-color:#1C1C1C;">
+    void
+</span>(相同的<span style="color:#FFA500; background-color:#1C1C1C;">
+    cv-qulified
+</span>)<span style="color:#FFA500; background-color:#1C1C1C;">
+    void
+</span></p>
+
+<pre><code class="language-CPP">auto f() { } // returns void
+auto g() { return f(); } // returns void
+auto* x() { } // error: can't deduce auto* from void
+</code></pre>
+
+<p>一旦函数的返回语句出现,那么返回类型推断能够用于该函数剩余的部分,包括在其他返回语句当中.</p>
+
+<pre><code class="language-CPP">auto sum(int i)
+{
+    if (i == 1)
+    {
+        return i; // sum's return type is int
+    }
+    else
+    {
+        return sum(i - 1) + i; // okay: sum's return type is already known
+    }
+}
+</code></pre>
+
+<p>如果返回语句包含<span style="color:#FFA500; background-color:#1C1C1C;">
+    brace-init-list
+</span>,推断是不被允许的.</p>
+
+<pre><code class="language-CPP">auto func() { return {1, 2, 3}; } // error
+</code></pre>
+
+<p><style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">Virtual functions</a><sub style="color:greenyellow;"></sub></span>和<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">coroutines</a><sub style="color:greenyellow;"></sub></span><sub style="color:greenyellow;">(Since C++20)</sub></p>
+
+<pre><code class="language-CPP">struct F
+{
+    virtual auto f() { return 2; } // error
+}
+</code></pre>
+
+<p>如果一个函数使用return type deduction,那么该函数不能使用推断的类型重新声明或者另一种类型return type deduction的声明即使它推断的是相同的类型.</p>
+
+<pre><code class="language-CPP">auto f(); // declared, not yet defined
+auto f() { return 42; } // defined, return type is int
+int f(); // error: can't use deduced type
+decltype(auto) f(); // error: different kind of deduction
+auto f(); // okay: re-declared
+
+template&lt;typename T&gt;
+struct A { friend T frf(T); }
+auto frf(int i) { return i; } // not a friend of A&lt;int&gt;
+</code></pre>
+
+<p>除了用户自定义的转换函数外的{&lt; better-anchor href=&ldquo;/&rdquo; hint=&ldquo;Function templates&rdquo;&gt;}}都能使用return type deduction.推断发生在实例化,即使在返回语句中的表达式是独立的,该实例化不是即时的上下文对于<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">SFINAE</a><sub style="color:greenyellow;"></sub></span>的期望.</p>
+
+<pre><code class="language-CPP">template&lt;typenmae T&gt; auto f(T t) { return t; }
+typedef decltype(f(1)) fint_t; // instantiates f&lt;int&gt; to deduce return type
+template&lt;typename T&gt; auto f(T* t) { return *t; }
+void g() { int (*p)(int*) = &amp;f; } // instantiates both fs to determine return types.
+                                  // choose second template overload
+</code></pre>
+
+<p>特例化的函数模板使用return type deduction必须使用相同的返回类型占位符</p>
+
+<pre><code class="language-CPP">template&lt;typename T&gt; auto g(T t) { return t; } // #1
+template auto g(int); // okay: return type is int.
+// template char g(char); error: no matching template
+
+template&lt;&gt; auto g(double); // okay: forward declaration with unknown return type
+template&lt;typename T&gt; T g(T t) { return t; } // okay: is not equivalent to #1
+template char g(char); // okay: now is matching template
+template auto g(float); // still matchs #1
+// void h() { return g(42); } // error: ambiguous
+</code></pre>
+
+<p>显式化声明本身不会实例化使用return type deduction的函数模板.</p>
+
+<pre><code class="language-CPP">template&lt;typename T&gt; auto f(T t) { return t; }
+extern template auto f(int t); // does not instantiates f&lt;int&gt;
+int (*p)(int) = f; // instantiates f&lt;int&gt; to determine its return type,
+                   // but an explicit instantiation definition
+                   // is still required somewhere in the program
+</code></pre>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Attribute specifier sequence</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/r/art-of-r-programing/">
+          <span class="button__text">&amp;lt;&amp;lt;The Art of R Programing&amp;gt;&amp;gt; -- exercise</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

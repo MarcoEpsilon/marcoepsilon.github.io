@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Flag :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview flag包实现了命令行的解析 使用说明(Usage) 定义flags使用flag.Bool(),String(),Int()等 这个声明一个整型"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/flag/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Flag :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview flag包实现了命令行的解析 使用说明(Usage) 定义flags使用flag.Bool(),String(),Int()等 这个声明一个整型" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Flag :: Marco Epsilon — ">
+<meta property="og:description" content="Overview flag包实现了命令行的解析 使用说明(Usage) 定义flags使用flag.Bool(),String(),Int()等 这个声明一个整型" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/flag/" />
+<meta property="og:site_name" content="Flag" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-10-12 00:14:17 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/flag/">Flag</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-10-12
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/flag/">flag</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#944718; " class="plain_text plain_text_default">
+    
+flag包实现了命令行的解析
+
+</span>
+
+<h2 id="使用说明-usage">使用说明(Usage)</h2>
+
+<span style="color:#944718; " class="plain_text plain_text_default">
+    
+定义flags使用flag.Bool(),String(),Int()等
+这个声明一个整型flag,-flagname存储在类型为*int的整型指针ip中
+<br/>
+<pre><code class="language-go">import &quot;flag&quot;
+var ip = flag.Int(&quot;flagname&quot;, 1234, &quot;help message for flagname&quot;)
+</code></pre>
+
+<p>可以将值绑定到变量中,使用Var()函数</p>
+
+<pre><code class="language-go">import &quot;flag&quot;
+var flagint int
+func init() {
+    flag.IntVar(&amp;flagvar, &quot;flagname&quot;, 1234, &quot;help message for flagname&quot;)
+}
+</code></pre>
+
+<p>或者可以创建满足值接口(接受者为指针)的自定义flag,并可以通过flag词法分析联合</p>
+
+<pre><code class="language-go">flag.Var(&amp;flagVar, &quot;name&quot;, &quot;help message for flagname&quot;)
+</code></pre>
+
+<p>对于这种flags,默认值是变量的初始值,在定义完所有flags,调用</p>
+
+<pre><code class="language-go">flag.Parse()
+</code></pre>
+
+解析命令行参数到定义的flags
+在解析完flags后,参数在flag.Args()返回的切片中可用或使用个体flag.Arg(i),参数索引从0到flag.NArg()-1
+
+</span>
+
+<h1 id="命令行flag语法">命令行flag语法</h1>
+
+<span style="color:#944718; " class="plain_text plain_text_default">
+    
+允许的格式如下:
+<br/>
+<pre><code class="language-plaintext">-flag
+-flag=x
+-flag x // 只有non-boolean flag允许
+</code></pre>
+
+<p>可以使用一个或两个负号,它们是等价的,最后一种形式对于boolean flag是不被允许的,因为下列命令行的意义:</p>
+
+<pre><code class="language-bash/shell">cmd -x*
+</code></pre>
+
+<p>*是Unix Shell的通配符,如果这是个0,false等命名的文件,则会造成歧义,所有,必须使用-flag=false来关闭boolean flag
+Falg停止解析直到出现non-flag参数(&ldquo;-&ldquo;是一种non-flag参数)或在&rdquo;&ndash;&ldquo;终结
+Integer flag接受1234,0664,0x1234和负数,Boolean flag接受如下:</p>
+
+<pre><code class="language-plaintext">1,0,t,f,true,false,TRUE,FALSE,True,False
+</code></pre>
+
+<p>Duration flag接受对于time.ParseDuration合理的输入
+默认的命令行的flag集合是由高层函数控制,FlagSet类型允许定义独立的flag集合,比如实现命令行接口的子命令,FlagSet方法和默认命令行flag集合的高层函数是类似的</p>
+
+
+</span>
+
+<h1 id="变量-variables">变量(Variables)</h1>
+
+<span style="color:#944718; " class="plain_text plain_text_default">
+    
+CommandLine是默认命令行flags集合,由os.Args解析,顶层的函数比如:BoolVar,Arg等都是CommandLine方法的封装
+<br/>
+<pre><code class="language-go">var CommandLine = NewFlagSet(os.Args[0], ExitOnError)
+</code></pre>
+
+<p>ErrHelp是-h或-help flag触发,但是没有定义这种flag返回的错误</p>
+
+<pre><code class="language-go">var ErrHelp = errors.New(&quot;flag: help requestd&quot;)
+</code></pre>
+
+<p>Usage打印一个关于所用flag用法的用法消息到命令行输出,默认是os.Stderr,当解析flag发生错误时会被调用,该函数是一个变量可以指向自定义函数,默认是打印简单的头部和调用PrintDefaults
+关于输出格式的细节和如何控制它,查看PrintDefaults的文档,自定义的usage函数可能选择退出程序,默认情况下,退出无论如何都会发生,因为命令行错误处理策略是ExitOnError</p>
+
+<pre><code class="language-go">var Usage = func() {
+    fmt.Fprintf(CommandLine.Output(), &quot;Usage of %s:\n&quot;, os.Args[0])
+    PrintDefaults()
+}
+</code></pre>
+
+
+</span>
+
+<h1 id="函数-functions">函数(Functions)</h1>
+
+<span style="color:#944718; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Arg(i int) string
+
+</p>
+Arg返回第i个命令行参数,Arg(0)在flags处理后返回第一个剩下的参数,Arg返回空字符串,如果要求的元素不存在
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Args() []string
+
+</p>
+Args返回non-flag命令行参数
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Bool(name string, value bool, usage string) *bool
+
+</p>
+Bool定义一个指定名称的boolean flag,默认值和usage,返回值是储存flag value的地址
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func BoolVar(p *bool, name string, value bool, usage string)
+
+</p>
+BoolVar定义一个指定名称的boolean flag,默认值和usage,flag value存储在传递的p中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Duration(name string, value time.Duration, usage string) *time.Duration
+
+</p>
+Duration定义一个指定名称的duration flag,默认值和usage,返回值是储存flag value的地址
+flag接受time.ParseDuration可接受的值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func DurationVar(p *time.Duration, name string, value time.Duration, usage string)
+
+</p>
+DurationVar定义一个指定名称的duration flag,默认值和usage,flag value存储在p中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Float64(name string, value float64, usage string) *float64
+
+</p>
+Float64定义一个指定名称的float64 flag,默认值和usage,返回存储flag value的地址
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Float64Var(p *float64, name string, value float64, usage string) 
+
+</p>
+Float64Var定义一个指定名称的float64 flag,默认值和usage,flag value存储在p中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Int(name string, value int, usage string) *int
+
+</p>
+Int定义一个指定名称的int flag,默认值和usage,返回存储flag value的地址
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Int64(name string, value int64, usage string) *int64
+
+</p>
+Int64定义一个指定名称的int64 flag,默认值和usage,返回存储flag value的地址
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func IntVar(p *int, name string, value int, usage string)
+
+</p>
+IntVar定义一个指定名称的int flag,默认值和usage,flag value存储在p中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Int64Var(p *int64, name string, value int64, usage string)
+
+</p>
+Int64Var定义一个指定名称的int64 flag,默认值和usage,flag value存储在p中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NArg() int
+
+</p>
+NArg返回flag处理后剩下的参数数量
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NFlag() int
+
+</p>
+NFlag返回command-line设置的flag数量
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Parse()
+
+</p>
+Parse解析命令行从os.Args[1:],必须在所有flags定义之后,flags能够被访问之前调用
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Parsed() bool
+
+</p>
+调查是否Parse过
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func PrintDefaults()
+
+</p>
+PrintDefaults打印到标准错误输出一个默认设置由定义的command-line flag展示usage message,除非另行配置,对于一个整型flag x,默认有以下形式:
+<br/>
+<pre><code class="language-plaintext">-x int
+    usage-message-for-x (default 7)
+</code></pre>
+
+<p>描述信息将会出现在分割的行除了一个字节名称的bool flag,对于bool flags,这种类型将会被忽略且如果名称是一个字节,usage message出现在同一行,括号默认被忽略如果默认是该类型的零值,被列出的类型,这int能够被改变通过放置反引号名称在flags的usage string中,第一个这种项目在message中被带到参数名展示在消息中且反引号在展示时会被去掉
+比如,给出:</p>
+
+<pre><code class="language-go">flag.String(&quot;l&quot;, &quot;&quot;, &quot;search `directory` for include files&quot;)
+</code></pre>
+
+<p>输出将会是:</p>
+
+<pre><code class="language-plaintext">-l directory
+    search directory for include files
+</code></pre>
+
+<p>为了改变flag messages的目的地,调用CommandLine.SetOutput</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Set(name string, value string) error
+
+</p>
+设置command-lien flag值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func String(name string, value string, usage string) *string
+
+</p>
+String定义一个指定名字的string flag,默认值和usage,返回flag value的地址
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StringVar(p *string, name string, value string, usage string)
+
+</p>
+StringVar定义一个指定名字的string flag,默认值和usage,flag value存储在p中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Uint(name string, value uint, usage string) *uint
+
+</p>
+Uint定义一个指定名字的uint flag,默认值和usage,返回flag value的地址
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Uint64(name string, value uint64, usage string) *uint64
+
+</p>
+Uint64定义一个指定名字的uint64 flag,默认值和usage,返回flag value的地址
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Uint64Var(p *uint64, name string, value string, usage string)
+
+</p>
+Uint64Var定义一个指定名字的uint64 flag,默认值和usage,flag value存储
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func UintVar(p *uint, name string, value uint, usage string)
+
+</p>
+UintVar定义一个指定名字的uint flag,默认值和usage,flag value存储在p中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func UnquoteUsage(flag *Flag) (name string, usage string)
+
+</p>
+UnquoteUsage提取反引号名称从flag的usage string并且返回未反引的usage.给出"a `name` to show"返回("name", "a name to show"),如果不存在反引号,名称是对flag value类型的有根据猜测或者是空字符串,如果flag是boolean
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Var(value Value, name string, usage string)
+
+</p>
+Var定义一个指定名字的flag和usage string,类型通过第一个参数呈现,value类型,典型是用户定义Value的实现,比如,调用者能够创建一个flag转换逗号分隔的字符串成分割的切片,通过给出Value的slice方法,特别是,Set能分割逗号分隔的字符串到切片中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Visit(fn func(*Flag))
+
+</p>
+Visit以字典序访问命令行flag,对其调用fn,只访问被设置的flag
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func VisitAll(fn func(*Flag))
+
+</p>
+VisitAll以字典序遍历所有flag,对其调用fn,包括未被设置的flag
+<br/>
+<p>ErrorHandling定义了如果FlagSet.Parse出错的行为</p>
+
+<pre><code class="language-go">type ErrorHandling int
+</code></pre>
+
+<p>如果FlagSet解析失败,这些常量将会描述其行为</p>
+
+<pre><code class="language-go">const (
+    ContinueOnError ErrorHandling = itoa // 返回描述性错误
+    ExitOnError // 调用os.Exit(2)
+    PanicError // 通过描述性错误调用panic
+)
+</code></pre>
+
+<h2 id="type-flag">type Flag</h2>
+
+<p>Flag用于呈现flag的状态</p>
+
+<pre><code class="language-go">type Flag struct {
+    Name string //出现在命令行中的名字
+    Usage string // 帮助信息
+    Value Value // 设置的值
+    DefValue string // 为usage message,default value(as text)
+}
+</code></pre>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Lookup(name string) *Flag
+
+</p>
+返回命名的命令行flag的Flag结构体,返回空如果不存在
+
+</span>
+
+<h1 id="type-flagset">type FlagSet</h1>
+
+<span style="color:#944718; " class="plain_text plain_text_default">
+    
+FlagSet呈现一个定义的flags集合,FlagSet的零值是没有名字且有ContinueOnError错误处理
+<br/>
+<pre><code class="language-go">type FlagSet struct {
+    /*
+        Usage当flag解析错误时调用,默认错误处理是ExitOnError
+    */
+    Usage() func()
+    // contains filtered or unexported fields
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
+
+</p>
+NewFlagSet返回一个新的指定名字和错误处理属性的FlagSet,如果name非空,默认将会被打印在usage message和错误消息中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*FlagSet) ErrorHandling() ErrorHandling
+
+</p>
+返回FlagSet的ErrorHandling
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*FlagSet) Init(name string, errorhanding ErrorHandling)
+
+</p>
+设置FlagSet的名称和错误处理
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*FlagSet) Name() string
+
+</p>
+返回FlagSet的名称
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (f *FlagSet) Output() io.Writer
+
+</p>
+返回usage message和错误信息的目的地,如果Output未被设置或设为ni,返回os.Stderr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (f *FlagSet) Parse(arguments []string)
+
+</p>
+Parse解析不应该包含命令名称的flag定义,必须在FlagSet定义之后,程序访问flags之前调用,如果-help或-h被设置但没被定义,将会返回ErrHelp
+
+</span>
+
+<h1 id="type-getter">type Getter</h1>
+
+<span style="color:#944718; " class="plain_text plain_text_default">
+    
+Getter是一个接口允许值的内容能够被取回,它封装了Value接口,而不是成为其一部分,是由于兼容的原因,该包提供的所有Value类型都符合Getter接口
+<br/>
+<pre><code class="language-go">type Getter interface {
+    Value
+    Get() interface{}
+}
+</code></pre>
+
+</span>
+
+<h1 id="type-value">type Value</h1>
+
+<span style="color:#944718; " class="plain_text plain_text_default">
+    
+Value是一个接口对于储存在flag的动态值(默认值被呈现为string)
+如果Value有IsBoolFlag() bool 方法返回true,则命令行解析器使得-name和-name=true等价,而不是下一个命令行参数
+Set被调用一次,命令行参数顺序对于每个存在的flag,flag包可能调用String()使用nil pointer接收者
+<br/>
+<pre><code class="language-go">type Value interface {
+    String() string
+    Set(string) error
+}
+</code></pre>
+
+</span>
+
+<h1 id="example">Example</h1>
+
+<br/>
+<pre><code class="language-go">// var.go
+// example run by: go run var.go -species=hello -g=smart -deltaT=10s,15s
+package main
+
+import (
+	&quot;flag&quot;
+	&quot;fmt&quot;
+	&quot;time&quot;
+	&quot;errors&quot;
+	&quot;strings&quot;
+)
+// a single flag with name &quot;species&quot;, default value: &quot;gopher&quot; and usage message
+var species = flag.String(&quot;species&quot;, &quot;gopher&quot;, &quot;the species we are studying&quot;)
+// a variable shared with two flag to support multi name flag
+var gopherType string
+// use-defined type used to flag value
+type interval []time.Duration
+func (i *interval) String() string {
+	return fmt.Sprint(*i)
+}
+func (i *interval) Set(value string) error {
+	if len(*i) &gt; 0 {
+		return errors.New(&quot;interval flag already set&quot;)
+	}
+	for _, dt := range strings.Split(value, &quot;,&quot;) {
+		duration, err := time.ParseDuration(dt)
+		if err != nil {
+			return err
+		}
+		*i = append(*i, duration)
+	}
+	return nil
+}
+var intervalFlag interval
+func init() {
+	flag.Var(&amp;intervalFlag, &quot;deltaT&quot;, &quot;comma-spreaded list of intervals to use between events&quot;)
+}
+func init() {
+	const (
+		defaultGopher = &quot;pocket&quot;
+		usage = &quot;the variety of gopher&quot;
+	)
+	flag.StringVar(&amp;gopherType, &quot;gopher_type&quot;, defaultGopher, usage)
+	flag.StringVar(&amp;gopherType, &quot;g&quot;, defaultGopher, usage)
+}
+func main() {
+	flag.Parse()
+	fmt.Println(*species)
+	fmt.Println(gopherType)
+	fmt.Println(intervalFlag.String())
+}
+</code></pre>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/time/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Time</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/errors/">
+          <span class="button__text">Errors</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

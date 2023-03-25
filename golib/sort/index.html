@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Sort :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview 包sort提供排序切片和用户自定义集合的原语 函数(Functions) func Float64s(a []float64) Float64s以升序排序切片,NaN(not a number)"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/sort/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Sort :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview 包sort提供排序切片和用户自定义集合的原语 函数(Functions) func Float64s(a []float64) Float64s以升序排序切片,NaN(not a number)" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Sort :: Marco Epsilon — ">
+<meta property="og:description" content="Overview 包sort提供排序切片和用户自定义集合的原语 函数(Functions) func Float64s(a []float64) Float64s以升序排序切片,NaN(not a number)" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/sort/" />
+<meta property="og:site_name" content="Sort" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-11-20 16:25:24 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/sort/">Sort</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-11-20
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/sort/">sort</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#FF6A00; " class="plain_text plain_text_default">
+    
+包sort提供排序切片和用户自定义集合的原语
+
+</span>
+
+<h1 id="函数-functions">函数(Functions)</h1>
+
+<span style="color:#FF6A00; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Float64s(a []float64)
+
+</p>
+Float64s以升序排序切片,NaN(not a number)被视为小于其它值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Float64sAreSorted(a []float64) bool
+
+</p>
+检查float64s的切片是否已升序排序,NaN(not a number)被视为小于其它值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Ints(a []int)
+
+</p>
+以升序排序整型切片
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func IntsAreSorted(a []int) bool
+
+</p>
+检查整型切片是否是由升序排序
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func IsSorted(data Interface) bool
+
+</p>
+IsSorted检查data是否已排序
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Search(n int, f func(int) bool) int
+
+</p>
+Search使用二分查找并返回最小的索引[0, n)符合f(i)是true,确保f(i) == true暗示着f(i + 1) == true,就是说,Search要求返回false对于一些输入[0,n)前缀(可能是空),剩下的为true，可能为空,Search返回第一个满足f(i) == true的索引,如果没有这样的索引,返回n.一个共同的使用Search是在已排序的集合,可索引的数据结构切片或数组
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SearchFloat64s(a []float64, x float64) int
+
+</p>
+SearchFloat64s在已升序排序的切片a中搜索符合插入x的位置
+(可能为len(a)),该切片必须以升序排序.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SearchInts(a []int, x int) int
+
+</p>
+SearchInts在已升序排序的切片a中搜索符合插入x的位置
+(可能为len(a)),该切片必须以升序排序.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SerachStrings(a []string, x string) int
+
+</p>
+SearchStrings在已升序排序的切片a中搜索符合插入x的位置
+(可能为len(a)),该切片必须以升序排序.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Slice(slice interface{}, less func(i, j int) bool)
+
+</p>
+Slice提供了给slice排序按指定的less function.
+该函数不保证排序是稳定的,对于需要排序稳定的,使用SliceStable.
+该函数panic,如果提供的slice不是切片
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SliceSorted(slice interface{}, less func(i, j int) bool) bool
+
+</p>
+SliceSorted检查slice是否已排序
+如果slice不是切片,将会导致panic.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SliceStable(slice interface{}, less func(i, j int) bool)
+
+</p>
+SliceStable以稳定排序算法排序slice
+如果slice不是切片,将会导致panic
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Sort(data Interface)
+
+</p>
+Sort根据data实现的sort.Interface提供的接口方法进行排序,由data.Len提供终止的n,data.Less实现O(n*logn)复杂度的排序,data.Swap进行交换
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Stable(data Interface)
+
+</p>
+Stable提供了Sort的稳定排序形式
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Strings(a []string)
+
+</p>
+Strings以升序排序字符串切片.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StringsAreSorted(a []string) bool
+
+</p>
+StringsAreSorted检查字符串切片是否以升序排序.
+
+</span>
+
+<h1 id="type-float64slice">type Float64Slice</h1>
+
+<span style="color:#FF6A00; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Float64Slice []float64
+</code></pre>
+Float64Slice实现了sort.Interface，以升序的排序切片,NaN(not a number)被视为小于其他值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p Float64Slice) Len() int
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p Float64Slice) Less(i, j int) bool
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p Float64Slice) Swap(i, j int) bool
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p Float64Slice) Search(x float64)
+
+</p>
+返回接收者为p的SerachFloat64s的结果
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p Float64Slice) Sort()
+
+</p>
+
+</span>
+
+<h1 id="type-intslice">type IntSlice</h1>
+
+<span style="color:#FF6A00; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type IntSlice []int
+</code></pre>
+IntSlice实现了sort.Interface接口,以升序排序整型切片
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p IntSlice) Len() int
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p IntSlice) Less(i, j int) bool
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p IntSlice) Swap(i, j int)
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p IntSlice) Search(x int) int
+
+</p>
+Search返回应用SearchInts到接收者p和x
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p IntSlice) Sort()
+
+</p>
+Sort是sort.Sort(p)的简单表示
+
+</span>
+
+<h1 id="type-interface">type Interface</h1>
+
+<span style="color:#FF6A00; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Interface interface {
+    Less(i, j int) bool
+    Len() int
+    Swap(i, j int)
+}
+</code></pre>
+为了排序定义的接口,通常集合会实现它,这些方法要求集合能够被整数索引
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Reverse(data Interface) Interface
+
+</p>
+Reverse返回data的逆序
+
+</span>
+
+<h1 id="type-stringslice">type StringSlice</h1>
+
+<span style="color:#FF6A00; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type StringSlice []string
+</code></pre>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p StringSlice) Len() int
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p StringSlice) Less(i, j int) bool
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p StringSlice) Swap(i, j int) bool
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p StringSlice) Search(x string) int
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p StringSlice) Sort()
+
+</p>
+
+
+</span>
+
+<h1 id="examples">Examples</h1>
+
+<span style="color:#FF6A00; " class="plain_text plain_text_default">
+    
+<br/>
+<p>两种方法排序</p>
+
+<pre><code class="language-go">package sort_test
+
+import (
+	&quot;sort&quot;
+	&quot;fmt&quot;
+)
+
+type Person struct {
+	Name string
+	Age int
+}
+func (p Person) String() string {
+	return fmt.Sprintf(&quot;%s: %d&quot;, p.Name, p.Age)
+}
+type ByAge []Person
+
+func (ba ByAge) Len() int {
+	return len(ba)
+}
+
+func (ba ByAge) Less(i, j int) bool {
+	return ba[i].Age &lt; ba[j].Age
+}
+
+func (ba ByAge) Swap(i, j int) {
+	ba[i], ba[j] = ba[j], ba[i]
+}
+
+func Example() {
+	people := []Person {
+		{&quot;Bob&quot;, 31},
+		{&quot;John&quot;, 42},
+		{&quot;Michael&quot;, 17},
+		{&quot;Jenny&quot;, 26},
+	}
+	fmt.Println(people)
+	// 第一种方法: 通过实现sort.Interface接口进行排序
+	sort.Sort(ByAge(people))
+	fmt.Println(people)
+	// 第二种方法: 如果原生类型是切片,可以直接提供Less函数排序
+	sort.Slice(people, func(i, j int) bool {
+		return people[i].Age &gt; people[j].Age
+	})
+	fmt.Println(people)
+	// Output:
+	// [Bob: 31 John: 42 Michael: 17 Jenny: 26]
+	// [Michael: 17 Jenny: 26 Bob: 31 John: 42]
+	// [John: 42 Bob: 31 Jenny: 26 Michael: 17]
+}
+</code></pre>
+
+<p>按照指定key排序</p>
+
+<pre><code class="language-go">package sort_test
+
+import (
+	&quot;sort&quot;
+	&quot;fmt&quot;
+)
+
+type earthMass float64
+type au float64
+
+type Planet struct {
+	name string
+	mass earthMass
+	distance au
+}
+
+type By func(p1, p2 *Planet) bool
+func (by By) Sort(planets []Planet) {
+	ps := &amp;PlanetSorter {
+		planets: planets,
+		by: by,
+	}
+	sort.Sort(ps)
+}
+type PlanetSorter struct {
+	planets []Planet
+	by func(p1, p2 *Planet) bool
+}
+
+func (ps *PlanetSorter) Len() int {
+	return len(ps.planets)
+}
+func (ps *PlanetSorter) Less(i, j int) bool {
+	return ps.by(&amp;ps.planets[i], &amp;ps.planets[j])
+}
+func (ps *PlanetSorter) Swap(i, j int) {
+	ps.planets[i], ps.planets[j] = ps.planets[j], ps.planets[i]
+}
+
+var planets = []Planet {
+	{&quot;Mercury&quot;, 0.055, 0.4},
+	{&quot;Venus&quot;, 0.815, 0.7},
+	{&quot;Earth&quot;, 1.0, 1.0},
+	{&quot;Mars&quot;, 0.107, 1.5},
+}
+
+func Example_sortkeys() {
+	name := func(p1, p2 *Planet) bool {
+		return p1.name &lt; p2.name
+	}
+	mass := func(p1, p2 *Planet) bool {
+		return p1.mass &lt; p2.mass
+	}
+	distance := func(p1, p2 *Planet) bool {
+		return p1.distance &lt; p2.distance
+	}
+	decreasingDistance := func(p1, p2 *Planet) bool {
+		return distance(p2, p1)
+	}
+	By(name).Sort(planets)
+	fmt.Println(&quot;By name:&quot;, planets)
+	By(mass).Sort(planets)
+	fmt.Println(&quot;By mass:&quot;, planets)
+	By(distance).Sort(planets)
+	fmt.Println(&quot;By distance:&quot;, planets)
+	By(decreasingDistance).Sort(planets)
+	fmt.Println(&quot;By decreasing distance:&quot;, planets)
+	// Output: By name: [{Earth 1 1} {Mars 0.107 1.5} {Mercury 0.055 0.4} {Venus 0.815 0.7}]
+	// By mass: [{Mercury 0.055 0.4} {Mars 0.107 1.5} {Venus 0.815 0.7} {Earth 1 1}]
+    // By distance: [{Mercury 0.055 0.4} {Venus 0.815 0.7} {Earth 1 1} {Mars 0.107 1.5}]
+    // By decreasing distance: [{Mars 0.107 1.5} {Earth 1 1} {Venus 0.815 0.7} {Mercury 0.055 0.4}]
+}
+</code></pre>
+
+<p>组合多个key进行排序</p>
+
+<pre><code class="language-go">package sort_test
+
+
+import (
+	&quot;sort&quot;
+	&quot;fmt&quot;
+)
+
+type Change struct {
+	user string
+	language string
+	line int
+}
+type lessFunc func(p1, p2 *Change) bool
+type MultiSorter struct {
+	changes []Change
+	less []lessFunc
+}
+
+func OrderBy(less ...lessFunc) *MultiSorter {
+	return &amp;MultiSorter {
+		less: less,
+	}
+}
+
+func (ms *MultiSorter) Sort(changes []Change) {
+	ms.changes = changes
+	sort.Sort(ms)
+}
+func (ms MultiSorter) Len() int {
+	return len(ms.changes)
+}
+
+func (ms MultiSorter) Swap(i, j int) {
+	ms.changes[i], ms.changes[j] = ms.changes[j], ms.changes[i]
+}
+func (ms MultiSorter) Less(i, j int) bool {
+	for _, less := range ms.less {
+		switch {
+		case less(&amp;ms.changes[i], &amp;ms.changes[j]) :
+			return true
+		case less(&amp;ms.changes[j], &amp;ms.changes[i]):
+			return false
+		}
+	}
+	return ms.less[len(ms.less) - 1](&amp;ms.changes[i], &amp;ms.changes[j])
+}
+var changes = []Change{
+    {&quot;gri&quot;, &quot;Go&quot;, 100},
+    {&quot;ken&quot;, &quot;C&quot;, 150},
+    {&quot;glenda&quot;, &quot;Go&quot;, 200},
+    {&quot;rsc&quot;, &quot;Go&quot;, 200},
+    {&quot;r&quot;, &quot;Go&quot;, 100},
+    {&quot;ken&quot;, &quot;Go&quot;, 200},
+    {&quot;dmr&quot;, &quot;C&quot;, 100},
+    {&quot;r&quot;, &quot;C&quot;, 150},
+    {&quot;gri&quot;, &quot;Smalltalk&quot;, 80},
+}
+func Example_sortMultiKeys() {
+	user := func(c1, c2 *Change) bool {
+		return c1.user &lt; c2.user
+	}
+	language := func(c1, c2 *Change) bool {
+		return c1.language &lt; c2.language
+	}
+	increasingLines := func(c1, c2 *Change) bool {
+		return c1.line &lt; c2.line
+	}
+	decreasingLines := func(c1, c2 *Change) bool {
+		return increasingLines(c2, c1)
+	}
+	OrderBy(user).Sort(changes)
+	fmt.Println(&quot;By user:&quot;, changes)
+	OrderBy(user, increasingLines).Sort(changes)
+	fmt.Println(&quot;By user,&lt;lines:&quot;, changes)
+	OrderBy(user, decreasingLines).Sort(changes)
+	fmt.Println(&quot;By user,&gt;lines:&quot;, changes)
+	OrderBy(language, increasingLines).Sort(changes)
+	fmt.Println(&quot;By language,&lt;lines:&quot;, changes)
+	OrderBy(language, increasingLines, user).Sort(changes)
+	fmt.Println(&quot;By language,&lt;lines,user:&quot;, changes)
+	// Output:
+    // By user: [{dmr C 100} {glenda Go 200} {gri Go 100} {gri Smalltalk 80} {ken C 150} {ken Go 200} {r Go 100} {r C 150} {rsc Go 200}]
+    // By user,&lt;lines: [{dmr C 100} {glenda Go 200} {gri Smalltalk 80} {gri Go 100} {ken C 150} {ken Go 200} {r Go 100} {r C 150} {rsc Go 200}]
+    // By user,&gt;lines: [{dmr C 100} {glenda Go 200} {gri Go 100} {gri Smalltalk 80} {ken Go 200} {ken C 150} {r C 150} {r Go 100} {rsc Go 200}]
+    // By language,&lt;lines: [{dmr C 100} {ken C 150} {r C 150} {r Go 100} {gri Go 100} {ken Go 200} {glenda Go 200} {rsc Go 200} {gri Smalltalk 80}]
+    // By language,&lt;lines,user: [{dmr C 100} {ken C 150} {r C 150} {gri Go 100} {r Go 100} {glenda Go 200} {ken Go 200} {rsc Go 200} {gri Smalltalk 80}]
+}
+</code></pre>
+
+<p>组合封装成sort.Interface接口</p>
+
+<pre><code class="language-go">package sort_test
+
+
+import (
+	&quot;sort&quot;
+	&quot;fmt&quot;
+)
+type Grams int
+func (g Grams) String() string {
+	return fmt.Sprintf(&quot;%dg&quot;, int(g))
+}
+type Organ struct {
+	Name string
+	Weight Grams
+}
+
+type Organs []*Organ
+func (s Organs) Len() int {
+	return len(s)
+}
+
+func (s Organs) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+type ByName struct { Organs }
+func (s ByName) Less(i, j int) bool {
+	return s.Organs[i].Name &lt; s.Organs[j].Name
+}
+
+type ByWeight struct { Organs }
+func (s ByWeight) Less(i, j int) bool {
+	return s.Organs[i].Weight &lt; s.Organs[j].Weight
+}
+func printOrgans(s []*Organ) {
+	for _, v := range s {
+		fmt.Printf(&quot;%-8s (%v)\n&quot;, v.Name, v.Weight)
+	}
+}
+func Example_sortWrapper() {
+	s := []*Organ {
+		{&quot;brain&quot;, 1340},
+        {&quot;heart&quot;, 290},
+        {&quot;liver&quot;, 1494},
+        {&quot;pancreas&quot;, 131},
+        {&quot;prostate&quot;, 62},
+        {&quot;spleen&quot;, 162},
+	}
+	sort.Sort(ByWeight{ s })
+	fmt.Println(&quot;Organs by weight:&quot;)
+	printOrgans(s)
+	sort.Sort(ByName{ s })
+	fmt.Println(&quot;Organs by name:&quot;)
+	printOrgans(s)
+	// Output:
+    // Organs by weight:
+    // prostate (62g)
+    // pancreas (131g)
+    // spleen   (162g)
+    // heart    (290g)
+    // brain    (1340g)
+    // liver    (1494g)
+    // Organs by name:
+    // brain    (1340g)
+    // heart    (290g)
+    // liver    (1494g)
+    // pancreas (131g)
+    // prostate (62g)
+    // spleen   (162g)
+}
+</code></pre>
+
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/log/log/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Log</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/unsafe/">
+          <span class="button__text">Unsafe</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

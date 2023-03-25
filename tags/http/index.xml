@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>http on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/http/</link>
+    <description>Recent content in http on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sat, 07 Dec 2019 14:25:29 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Http</title>
+      <link>https://marcoepsilon.github.io/golib/net/http/</link>
+      <pubDate>Sat, 07 Dec 2019 14:25:29 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/net/http/</guid>
+      <description>Overview 包http提供了HTTP客户和服务端的实现. Get,Head,Post,PostForm用于HTTP(或者HTTPS)请求: resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) ... resp, err</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>time on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/time/</link>
+    <description>Recent content in time on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 14 Oct 2019 23:13:49 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/time/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Time</title>
+      <link>https://marcoepsilon.github.io/golib/time/</link>
+      <pubDate>Mon, 14 Oct 2019 23:13:49 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/time/</guid>
+      <description>Overview time包提供了展示和测量时间的功能 日历始终采用公历没有闰秒 单调时间(Monotonic Clocks) 单调时间意指绝对时间,手动修改修改时间不会对其影</description>
+    </item>
+    
+  </channel>
+</rss>

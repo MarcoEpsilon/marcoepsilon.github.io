@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="673.30457"
+   height="672.70288"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="Smiling_Star_by_Merlin2525.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4013">
+      <stop
+         style="stop-color:#808000;stop-opacity:1;"
+         offset="0"
+         id="stop4015" />
+      <stop
+         style="stop-color:#808000;stop-opacity:0;"
+         offset="1"
+         id="stop4017" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4005">
+      <stop
+         style="stop-color:#808000;stop-opacity:1;"
+         offset="0"
+         id="stop4007" />
+      <stop
+         style="stop-color:#808000;stop-opacity:0;"
+         offset="1"
+         id="stop4009" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3997">
+      <stop
+         style="stop-color:#808000;stop-opacity:1;"
+         offset="0"
+         id="stop3999" />
+      <stop
+         style="stop-color:#808000;stop-opacity:0;"
+         offset="1"
+         id="stop4001" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3969">
+      <stop
+         style="stop-color:#808000;stop-opacity:1;"
+         offset="0"
+         id="stop3971" />
+      <stop
+         style="stop-color:#808000;stop-opacity:0;"
+         offset="1"
+         id="stop3973" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3961">
+      <stop
+         style="stop-color:#808000;stop-opacity:1"
+         offset="0"
+         id="stop3963" />
+      <stop
+         style="stop-color:#ffff00;stop-opacity:0"
+         offset="1"
+         id="stop3965" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3851">
+      <stop
+         id="stop3861"
+         offset="0"
+         style="stop-color:#808080;stop-opacity:1" />
+      <stop
+         id="stop3859"
+         offset="0.92597389"
+         style="stop-color:#000000;stop-opacity:1" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3855" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3811">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0"
+         id="stop3813" />
+      <stop
+         id="stop3821"
+         offset="0.31749704"
+         style="stop-color:#cccccc;stop-opacity:1" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3815" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       id="filter3981"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.6076755"
+         id="feGaussianBlur3983" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3993"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.437023"
+         id="feGaussianBlur3995" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4051"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="18.502972"
+         id="feGaussianBlur4053" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4249"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.4072714"
+         id="feGaussianBlur4251" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4257"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2099683"
+         id="feGaussianBlur4259" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3872"
+       x="-0.12804414"
+       width="1.2560883"
+       y="-0.31346059"
+       height="1.6269212"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.351255"
+         id="feGaussianBlur3874" />
+    </filter>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3811"
+       id="radialGradient3905"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.37096951,-1.5118473,1.9704591,-0.13533186,-421.91812,1121.0591)"
+       cx="381.42856"
+       cy="479.50504"
+       fx="381.42856"
+       fy="479.50504"
+       r="55.714287" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3851"
+       id="radialGradient3907"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.3478622,0.02977125,-0.02907392,1.3162916,-121.22357,-163.07864)"
+       cx="388.51804"
+       cy="479.02631"
+       fx="388.51804"
+       fy="479.02631"
+       r="21.171085" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3811"
+       id="radialGradient3909"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.37096951,-1.5118473,1.9704591,-0.13533186,-421.91812,1121.0591)"
+       cx="381.42856"
+       cy="479.50504"
+       fx="381.42856"
+       fy="479.50504"
+       r="55.714287" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3851"
+       id="radialGradient3911"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.3478622,0.02977125,-0.02907392,1.3162916,-121.22357,-163.07864)"
+       cx="388.51804"
+       cy="479.02631"
+       fx="388.51804"
+       fy="479.02631"
+       r="21.171085" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4005"
+       id="linearGradient3096"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-20.790798,-345.79075)"
+       x1="176.85187"
+       y1="916.85229"
+       x2="280.20685"
+       y2="741.1488" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3997"
+       id="linearGradient3106"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99994291,0.01068544,-0.01068544,0.99994291,-10.140765,-351.81838)"
+       x1="670.65906"
+       y1="823.83282"
+       x2="594.86536"
+       y2="698.65845" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3961"
+       id="linearGradient3111"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-17.131928,-344.87603)"
+       x1="424.90381"
+       y1="1009.8718"
+       x2="401.9361"
+       y2="811.20056" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4013"
+       id="linearGradient3114"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99986966,0.01614492,-0.01614492,0.99986966,-9.500025,-354.86425)"
+       x1="500.69751"
+       y1="559.70343"
+       x2="426.05222"
+       y2="656.16803" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3969"
+       id="linearGradient3117"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-18.961363,-344.87603)"
+       x1="471.98779"
+       y1="989.20081"
+       x2="552.375"
+       y2="876.65869" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.64"
+     inkscape:cx="286.92953"
+     inkscape:cy="441.0478"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="972"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showborder="false"
+     inkscape:showpageshadow="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-88.509753,-104.58586)">
+    <path
+       sodipodi:type="star"
+       style="fill:#000000;fill-opacity:0.34745765;stroke:none;filter:url(#filter4051)"
+       id="path4091"
+       sodipodi:sides="5"
+       sodipodi:cx="234.28571"
+       sodipodi:cy="300.93362"
+       sodipodi:r1="289.08017"
+       sodipodi:r2="144.54008"
+       sodipodi:arg1="0.82034896"
+       sodipodi:arg2="1.4486675"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 431.42856,512.36219 251.89437,444.39711 94.12568,553.76264 103.2852,362.01311 -49.480808,245.76198 135.71428,195.21934 199.06838,14.006657 304.36572,174.51912 l 191.921,4.25553 -120.11776,149.7448 z"
+       inkscape:transform-center-x="11.54685"
+       inkscape:transform-center-y="-18.245999"
+       transform="matrix(1.0610209,0,0,1.0702111,188.12682,137.12079)"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       transform="translate(183.95906,134.65906)"
+       inkscape:transform-center-y="-17.048975"
+       inkscape:transform-center-x="10.882752"
+       d="M 431.42856,512.36219 251.89437,444.39711 94.12568,553.76264 103.2852,362.01311 -49.480808,245.76198 135.71428,195.21934 199.06838,14.006657 304.36572,174.51912 l 191.921,4.25553 -120.11776,149.7448 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="1.4486675"
+       sodipodi:arg1="0.82034896"
+       sodipodi:r2="144.54008"
+       sodipodi:r1="289.08017"
+       sodipodi:cy="300.93362"
+       sodipodi:cx="234.28571"
+       sodipodi:sides="5"
+       id="path4095"
+       style="fill:#ffff00;fill-opacity:1;stroke:none"
+       sodipodi:type="star"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       style="fill:url(#linearGradient3117);fill-opacity:1;stroke:none;filter:url(#filter3993)"
+       d="m 420.46234,439.02089 17.90449,140.67813 176.48716,68.20758 z"
+       id="path4097"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       style="fill:url(#linearGradient3114);fill-opacity:1;stroke:none"
+       d="M 415.41481,437.33763 488.27701,308.05013 381.77447,144.31632 z"
+       id="path4099"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       style="fill:url(#linearGradient3111);fill-opacity:1;stroke:none;filter:url(#filter3981)"
+       d="M 419.84816,436.68972 281.39315,686.40327 437.15504,578.44127 z"
+       id="path4101"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       transform="matrix(0.99990093,-0.01407599,0.01407599,0.99990093,-35.613182,-326.50478)"
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4103"
+       d="m 342.72981,727.54803 c 8.27078,-30.21107 34.54917,-44.05158 64.08545,-54.93038 6.14034,-3.65317 -1.87776,-15.12424 -13.7326,-10.29945 -27.37789,11.10745 -50.00811,27.25929 -61.79668,54.93039 -4.49896,11.04286 7.53158,18.48359 11.44383,10.29944 z"
+       style="fill:#808000;stroke:none;filter:url(#filter4249)"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       style="fill:#808000;stroke:none;filter:url(#filter4257)"
+       d="m 512.91036,370.10527 c -16.23176,-26.78889 -45.29669,-32.8998 -76.68337,-35.26971 -6.90629,-1.831 -2.33795,-15.05997 10.38517,-13.6679 29.37353,3.18119 55.56318,12.51454 74.48219,35.89682 7.35241,9.38762 -2.17908,19.83984 -8.18399,13.04079 z"
+       id="path4105"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       style="fill:url(#linearGradient3106);fill-opacity:1;stroke:none"
+       d="m 420.31235,437.83736 138.68259,27.91392 120.9508,-147.92011 z"
+       id="path4123"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <g
+       transform="translate(-12.07103,-334.07319)"
+       id="g4107"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297">
+      <g
+         id="g4109">
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#radialGradient3905);fill-opacity:1;stroke:none"
+           id="path4111"
+           sodipodi:cx="381.42856"
+           sodipodi:cy="479.50504"
+           sodipodi:rx="55.714287"
+           sodipodi:ry="35.714287"
+           d="m 437.14285,479.50504 c 0,19.72445 -24.94414,35.71428 -55.71429,35.71428 -30.77015,0 -55.71429,-15.98983 -55.71429,-35.71428 0,-19.72446 24.94414,-35.71429 55.71429,-35.71429 30.77015,0 55.71429,15.98983 55.71429,35.71429 z"
+           transform="matrix(0.68162679,0,0,1.2883845,210.08234,119.4713)" />
+        <path
+           transform="translate(83.850216,259.37475)"
+           sodipodi:type="arc"
+           style="fill:url(#radialGradient3907);fill-opacity:1;stroke:none"
+           id="path4113"
+           sodipodi:cx="388.51804"
+           sodipodi:cy="479.02631"
+           sodipodi:rx="21.171085"
+           sodipodi:ry="19.454512"
+           d="m 409.68912,479.02631 c 0,10.74443 -9.47862,19.45451 -21.17108,19.45451 -11.69247,0 -21.17109,-8.71008 -21.17109,-19.45451 0,-10.74443 9.47862,-19.45452 21.17109,-19.45452 11.69246,0 21.17108,8.71009 21.17108,19.45452 z" />
+      </g>
+      <g
+         id="g4115">
+        <path
+           transform="matrix(0.68162679,0,0,1.2883845,130.47001,125.4585)"
+           d="m 437.14285,479.50504 c 0,19.72445 -24.94414,35.71428 -55.71429,35.71428 -30.77015,0 -55.71429,-15.98983 -55.71429,-35.71428 0,-19.72446 24.94414,-35.71429 55.71429,-35.71429 30.77015,0 55.71429,15.98983 55.71429,35.71429 z"
+           sodipodi:ry="35.714287"
+           sodipodi:rx="55.714287"
+           sodipodi:cy="479.50504"
+           sodipodi:cx="381.42856"
+           id="path4117"
+           style="fill:url(#radialGradient3909);fill-opacity:1;stroke:none"
+           sodipodi:type="arc" />
+        <path
+           d="m 409.68912,479.02631 c 0,10.74443 -9.47862,19.45451 -21.17108,19.45451 -11.69247,0 -21.17109,-8.71008 -21.17109,-19.45451 0,-10.74443 9.47862,-19.45452 21.17109,-19.45452 11.69246,0 21.17108,8.71009 21.17108,19.45452 z"
+           sodipodi:ry="19.454512"
+           sodipodi:rx="21.171085"
+           sodipodi:cy="479.02631"
+           sodipodi:cx="388.51804"
+           id="path4119"
+           style="fill:url(#radialGradient3911);fill-opacity:1;stroke:none"
+           sodipodi:type="arc"
+           transform="translate(4.4765789,265.62081)" />
+      </g>
+    </g>
+    <path
+       style="fill:url(#linearGradient3096);fill-opacity:1;stroke:none"
+       d="m 135.30989,379.9928 281.35626,57.12385 -130.44699,58.82903 z"
+       id="path4121"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path4125"
+       d="m 305.49206,464.23807 c 126.86305,89.0589 184.38743,1.93834 244.62865,-67.92648 -42.74389,37.56998 -88.85796,238.93452 -244.62865,67.92648 z"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.08449757px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       style="fill:#800000;stroke:none"
+       d="m 399.94947,525.00484 c 8.39893,-18.72093 9.04209,-16.35492 25.32895,-6.33224 4.45631,-22.8089 13.07249,-10.56191 29.12829,-1.26644 -2.76928,5.48082 -46.04372,22.77401 -54.45724,7.59868 z"
+       id="path4261"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+    <path
+       style="fill:#ff0000;stroke:none;filter:url(#filter3872)"
+       d="m 402.51699,521.62883 c 4.19323,-11.84771 12.74883,-9.29963 22.93943,-1.35603 2.33254,-2.99504 1.76569,-23.53252 21.1314,-5.1981 -7.31871,0.008 -17.72011,-9.32467 -18.50827,10.47328 -8.70094,-7.9696 -17.29047,-11.81699 -25.56256,-3.91915 z"
+       id="path4263"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/merlin2525/Pictures/OpenClipArtDonations/Smiling_Star_by_Merlin2525.png"
+       inkscape:export-xdpi="89.959297"
+       inkscape:export-ydpi="89.959297" />
+  </g>
+</svg>

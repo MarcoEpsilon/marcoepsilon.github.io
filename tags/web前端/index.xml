@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web前端 on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/web%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in web前端 on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/web%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web前端开发环境的构建</title>
+      <link>https://marcoepsilon.github.io/posts/20190626/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190626/</guid>
+      <description>开始之前 先准备一下nodejs,npm(用于安装一些js包,npm一般是nodejs自带的包管理工具),通过官网下载即可 构建工具 先选择一个本</description>
+    </item>
+    
+  </channel>
+</rss>

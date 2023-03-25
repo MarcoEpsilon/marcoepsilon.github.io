@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>&amp;lt;&amp;lt;The Art of R Programing&amp;gt;&amp;gt; -- exercise :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="&amp;nbsp;Exercise #1 &amp;nbsp;Target: 图像操作 用户可以使用选取pgm图片对角线的位置,为其打上马赛克(为图片的灰度值增加噪声) &amp;nbsp;Details 运用pixmap读取pgm格式图片,使用pl"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/r/art-of-r-programing/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="&amp;lt;&amp;lt;The Art of R Programing&amp;gt;&amp;gt; -- exercise :: Marco Epsilon — " />
+<meta name="twitter:description" content="&amp;nbsp;Exercise #1 &amp;nbsp;Target: 图像操作 用户可以使用选取pgm图片对角线的位置,为其打上马赛克(为图片的灰度值增加噪声) &amp;nbsp;Details 运用pixmap读取pgm格式图片,使用pl" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="&amp;lt;&amp;lt;The Art of R Programing&amp;gt;&amp;gt; -- exercise :: Marco Epsilon — ">
+<meta property="og:description" content="&amp;nbsp;Exercise #1 &amp;nbsp;Target: 图像操作 用户可以使用选取pgm图片对角线的位置,为其打上马赛克(为图片的灰度值增加噪声) &amp;nbsp;Details 运用pixmap读取pgm格式图片,使用pl" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/r/art-of-r-programing/" />
+<meta property="og:site_name" content="&amp;lt;&amp;lt;The Art of R Programing&amp;gt;&amp;gt; -- exercise" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2020-10-31 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/r/art-of-r-programing/">&lt;&lt;The Art of R Programing&gt;&gt; &ndash; exercise</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-10-31
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/r/">R</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/programing/">Programing</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-1">Exercise #1</h1></div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-图像操作">Target: 图像操作</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+用户可以使用选取pgm图片对角线的位置,为其打上马赛克(为图片的灰度值增加噪声)
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+运用pixmap读取pgm格式图片,使用plot绘制该图片,通过locator函数返回用户通过鼠标在图片选取的区域(注:图片原点在左上方,locator返回的点原点在左下角,所以要进行转换),然后通过改变read.pnm()返回的图片对象的灰度值,然后通过plot重新绘制该对象
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h2 id="achieve">Achieve</h2></div></p>
+
+<pre><code class="language-R"># 导入 pixmap library 用于操作图像数据
+if (&quot;pixmap&quot; %in% .packages(all.available = TRUE)) {
+	library(pixmap)
+} else {
+	install.packages(pixmap)
+	library(pixmap)
+}
+
+
+img &lt;- read.pnm(&quot;test.pgm&quot;)
+
+
+plot(img)
+
+loc &lt;- locator()
+
+if (length(loc$x) == 0) {
+	quit()
+}
+
+area &lt;- list()
+
+
+area$rows &lt;- seq(from = ifelse(length(loc$y) &lt; 1, 0,
+    img@size[1] - loc$y[1]), to = ifelse(length(loc$y) &lt; 2, 
+    img@size[1], img@size[1] - loc$y[2]), by = 1)
+
+area$columns &lt;- seq(from = ifelse(length(loc$x) &lt; 1, 0,
+    loc$x[1]), to = ifelse(length(loc$x) &lt; 2,
+    img@size[2], loc$x[2]), by = 1)
+
+print(area)
+#根据 locator得到的像素区域进行增加噪声
+
+blurImgArea &lt;- function(img, area, noise)
+{
+	nRows &lt;- length(area$rows)
+	nCols &lt;- length(area$columns)
+
+	randomNoiseMatrix &lt;- matrix(data = runif(nRows * nCols, min = 0, max = 1),
+        nrow = nRows, ncol = nCols)
+	
+	img@grey[area$rows, area$columns] &lt;- (1 - noise) *
+        img@grey[area$rows, area$columns] + noise * randomNoiseMatrix
+
+	return(img)
+}
+
+plot(blurImgArea(img, area, 0.75))
+</code></pre>
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-2">Exercise #2</h1></div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-求距离矩阵最小值">Target：求距离矩阵最小值</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+输入一个距离矩阵,返回最小距离的行号和列号(假设最小距离只有一个,且矩阵对角线为0并舍弃该值)
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+根据距离矩阵dis[i, j] == dis[j, i],我们可以避免多次重复比较,通过R的apply函数对矩阵的行扫描,当扫描到某i行就表示该行的前i列已经参与了比较,无需重复比较.
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h2 id="achieve">Achieve</h2></div></p>
+
+<pre><code class="language-R"># 通过输入一个距离矩阵,找出最小距离及其行列号(舍弃mat[i, i] == 0的结果)
+# 通过对距离矩阵进行遍历进行两两比较我们可以很快就能得到答案
+# ,但这种方法效率不高,没有利用到距离矩阵mat[i, j] == mat[j, i]的有效信息
+
+# 我们先对每行处理 找出每行的最小元素,然后综合所有行结果找出解集
+# 利用mat[i, j] == mat[j, i]的信息我们可以舍弃
+# 每行的行号之前的列元素进行求解
+
+# 由于apply函数会丢弃行号的信息,所以我们可以重新构造矩阵为其添加上
+
+addRowTag &lt;- function(mat)
+{
+	return(cbind(mat, 1:nrow(mat)))
+}
+
+rowMin &lt;- function(rVec)
+{
+	n &lt;- length(rVec)
+	currRow &lt;- rVec[n]
+	minColIndex &lt;- which.min(rVec[(currRow + 1):(n - 1)])
+	return(c(currRow + minColIndex, rVec[currRow + minColIndex]))
+}
+
+# 返回值为 [行号, 列号, 最小元素值]
+getDistanceInfo &lt;- function(mat)
+{
+	mat &lt;- addRowTag(mat)
+
+	n &lt;- nrow(mat)
+	
+	# 返回2xn矩阵 每列包含最小元素的列和该最小元素值
+	rowsMinInfo &lt;- apply(mat[-n, ], 1, rowMin)
+
+	# 综合所有元素值找出最小元素值
+	i &lt;- which.min(rowsMinInfo[2, ]) #行号
+	j &lt;- rowsMinInfo[1, i] # 列号
+	return(c(i, j, rowsMinInfo[2, i]))
+}
+
+testMat &lt;- matrix(c(0, 12, 13, 8, 20,
+	12, 0, 15, 28, 88,
+	13, 15, 0, 6, 9,
+	8, 28, 6, 0, 33,
+	20, 88, 9, 33, 0), nrow = 5)
+
+
+print(getDistanceInfo(testMat))
+
+</code></pre>
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-3">Exercise #3</h1></div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-获取单词的索引列表">Target：获取单词的索引列表</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+读取文本文件test.txt，首先进行预处理，将文本中非单词字符替换为空格得到所有的单词,然后根据得到的单词集合进行处理，得到单词的索引列表
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+读取文件使用scan函数,其中what要使用""，表示要读取的是字符串集合,scan会返回一个字符串向量,然后我们使用gsub函数通过合理的正则表达式将所有非单词字符替换为空格,然后使用strsplit将所有单词提取处理,此时strsplit返回的列表还包含了空字符串""和包含大写的单词,我们通过向量的筛选和toupper提取到最终想要的单词表
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h2 id="achieve">Achieve</h2></div></p>
+
+<pre><code class="language-R"># 读取文件 为文件出现的单词创建索引
+indexWords &lt;- function(file)
+{
+	# 读取文件内容
+	contents &lt;- scan(file, what=&quot;&quot;)
+
+	#将所有非单词字符替换为空格
+	contents &lt;- gsub(&quot;[^a-zA-Z]&quot;, &quot; &quot;, contents)
+	# 得到所有单词的列表
+	words &lt;- strsplit(contents, split=&quot; &quot;)
+
+	# 快捷函数 
+	# 将字符串向量内容转换为小写
+	words &lt;- lapply(words, function(strs) {
+		# 移除空字符串
+		strs &lt;- strs[strs != &quot;&quot;]
+		return(sapply(strs, tolower))
+	})
+
+	# 将列表转换为向量
+	words &lt;- unlist(words)
+	
+	indexs &lt;- list()
+	for (i in 1:length(words))
+	{
+		indexs[[words[i]]] &lt;- c(indexs[[words[i]]], i)
+	}
+
+	return(indexs)
+}
+
+
+sortListByAplpha &lt;- function(wrdList)
+{
+	keys &lt;- names(wrdList)
+	index &lt;- order(keys)
+	return(wrdList[index])
+}
+
+sortListByRate &lt;- function(wrdList)
+{
+	rates &lt;- sapply(wrdList, length)
+	return(wrdList[order(rates)])
+}
+
+
+print(indexWords(&quot;test.txt&quot;))
+</code></pre>
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-4">Exercise #4</h1></div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-鲍鱼数据-关于性别的logistic回归模型分析">Target: 鲍鱼数据-关于性别的Logistic回归模型分析</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+读取csv格式的包含鲍鱼数据的文件,通过R中提供的glm函数,对鲍鱼数据中除性别外的有关列对性别进行Logistic回归分析,并返回结果集(练习中用到的鲍鱼数据文件在附件中)
+
+</span></p>
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+练习中用到的鲍鱼数据文件中性别使用字符串表示的,类型是charcter，而使用Logistic回归分析时,随机变量Y的取值范围是 0<=Y <=1,所以使用read.csv时需要通过stringsAsFactors=T来使得Gender列映射为0-1
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h1 id="achieve">Achieve</h1></div></p>
+
+<pre><code class="language-R"># 读取鲍鱼数据
+# 鲍鱼数据每一行表示:
+# Gender,Length,Diameter,Height,WholeWt,ShuckedWt,ViscWt,ShellWt,Rings
+# 中文解释:	 		
+#  性别  	长度	直径	 高度	实际重量 去壳重量 脏器重量 壳重  年龄
+# 附加描述:	
+# in（'M', 'F', 'I'）
+# 对鲍鱼数据每一列(除性别)用Logistic模型进行回归分析,对鲍鱼性别Gender进行预测
+
+logisticPredict &lt;- function(dataFile)
+{
+	# 读取鲍鱼数据
+	data &lt;- read.csv(dataFile, header=T, stringsAsFactors=T)
+	
+	# 鲍鱼数据包含(M, F, I),分别表示 公 母 幼儿(暂时无性别特征)
+	# 去除性别为幼儿的数据
+	data &lt;- data[data$Gender != &quot;I&quot;, ] 
+	
+	print(data)	
+	# 对鲍鱼数据的某列进行Logistic回归分析
+	predictResult &lt;- function(cData)
+	{
+		return (glm(data$Gender ~ cData, family=binomial)$coefficient)
+	}
+
+	# 对鲍鱼数据除性别列外所以列进行Logistic回归分析,并返回结果集
+	return(sapply(data[, -1], predictResult))	
+}
+
+print(logisticPredict('AbaloneWithHeader.data'))
+</code></pre>
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/appendix.png" />&nbsp;<h2 id="appendix">Appendix</h2></div>
+
+
+<a href="/appendix/R/AbaloneWithHeader.data" download="AbaloneWithHeader.data" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>鲍鱼数据(带头部)</a>
+
+
+<a href="/appendix/R/Abalone.data" download="Abalone.data" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>鲍鱼数据(无头部)</a></p>
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-5">Exercise #5</h1></div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-提取子表">Target: 提取子表</h2></div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="details">Details</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+对于R中的table类型通过给出各个维度的子向量,提取出和这些子向量有关的表数据,通过此次练习,可以更清楚的意识到R中关于table的数据结构
+<div style="padding-left:2.5rem; color:#1296db;">
+    
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+初识table的构造
+
+    </span>
+</p>
+R中的table由一个表示因子水平频数的向量或矩阵,表示因子组合的向量或列表构成,通过传参任何能够提取因子组合的数据结构给table函数就能构造一个table
+<br/>
+<pre><code class="language-R">&gt; ct &lt;- table(c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;I&quot;))
+&gt; print(ct)
+
+F I M 
+2 1 1
+&gt; ct &lt;- table(c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;I&quot;), c(20, 22, 19, 22))
+&gt; print(ct)
+   
+    19 20 22
+  F  1  0  1
+  I  0  0  1
+  M  0  1  0
+
+&gt; ct &lt;- table(list(sex=c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;I&quot;), age=c(20, 22, 19, 22)))
+&gt; print(ct)
+   age
+sex 19 20 22
+  F  1  0  1
+  I  0  0  1
+  M  0  1  0
+
+&gt; ct &lt;- table(data.frame(sex=c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;I&quot;), age=c(20, 22, 19, 22)))
+&gt; print(ct)
+   age
+sex 19 20 22
+  F  1  0  1
+  I  0  0  1
+  M  0  1  0
+
+&gt; ct &lt;- table(c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;I&quot;), c(20, 22, 19))
+Error in table(c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;I&quot;), c(20, 22, 19)) : 
+  所有参数的长度都应一致
+
+&gt; ct &lt;- table(data.frame(sex=c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;I&quot;), age=c(20, 22, 19)))
+Error in data.frame(sex = c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;I&quot;), age = c(20, 22, 19)) : 
+  参数值意味着不同的行数: 4, 3
+
+</code></pre>
+通过以上输出,我们不难发现,其实table内部只是维护了可转化为data.frame的数据结构,然后可以通过该data.frame的列(去重)计算所有列正交后的频数,所有列的水平
+所以我们能推出R中得到一个table数据结构的一般步骤:
+<div style="padding-left:2.5rem; color:brown;">
+    
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+将维度相同所有因子作为输入(可转化为data.frame的数据结构)
+
+    </span>
+</p>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+内部计算因子水平频数矩阵或数组
+
+    </span>
+</p>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+内部计算得到因子水平的向量或列表
+
+    </span>
+</p>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+组合二者得到table
+
+    </span>
+</p>
+
+</div>
+
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+提取子表
+
+    </span>
+</p>
+通过以上知识我们知道,table由不同空间的水平(包含该水平的标识)和由该数据结构计算的组合水平频数构成，我们通过提供水平元组(level1, level2, level3, ...)来提取它的频数,比如:
+<br/>
+<pre><code class="language-R">&gt; ct &lt;- table(name=c(&quot;Marry&quot;, &quot;Lisa&quot;, &quot;Jack&quot;), sex=c(&quot;F&quot;, &quot;F&quot;, &quot;M&quot;), age=c(18, 21, 19))
+&gt; ct[&quot;Lisa&quot;, &quot;F&quot;, &quot;21&quot;]
+[1] 1
+</code></pre>
+假如我们编写了subtable函数,那么输出应该符合下面的代码:
+<br/>
+<pre><code class="language-R">&gt; ct &lt;- table(name=c(&quot;Marry&quot;, &quot;Lisa&quot;, &quot;Jack&quot;), sex=c(&quot;F&quot;, &quot;F&quot;, &quot;M&quot;), age=c(18, 21, 19))
+&gt; subtable(ct, list(name=c(&quot;Marry&quot;, &quot;Lisa&quot;), sex=c(&quot;F&quot;, &quot;M&quot;), age=c(&quot;18&quot;, &quot;21&quot;)))
+$name
+[1] 2
+
+$sex
+[1] 2
+
+$age
+[1] 2
+
+ 'table' int [1:2, 1:2, 1:2] 1 0 0 0 0 1 0 0
+ - attr(*, &quot;dimnames&quot;)=List of 3
+  ..$ name: chr [1:2] &quot;Marry&quot; &quot;Lisa&quot;
+  ..$ sex : chr [1:2] &quot;F&quot; &quot;M&quot;
+  ..$ age : chr [1:2] &quot;18&quot; &quot;21&quot;
+NULL
+, , age = 18
+
+       sex
+name    F M
+  Marry 1 0
+  Lisa  0 0
+
+, , age = 21
+
+       sex
+name    F M
+  Marry 0 0
+  Lisa  1 0
+
+
+</code></pre>
+通过以上样例可知,我们的subtable应该能够接受多个水平向量(可变参数),subtable需要一个函数能够对table内部的频数矩阵进行不定水平向量个数的"["进行提取调用,此时R中提供的do.call将派上用场,能够对提供的表进行诸如 ct[level1, level2, level3, ...]之类的调用
+
+</div>
+
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h2 id="achieve">Achieve</h2></div></p>
+
+<pre><code class="language-R">ct &lt;- read.table(&quot;ct.txt&quot;, header=T)
+
+cttab &lt;- table(ct)
+# 提取 table的子集
+subtable &lt;- function(tab, subDims)
+{
+	tabArray &lt;- unclass(tab)
+	
+	# 获取每个维度的因子
+	dcargs &lt;- list(tabArray)
+	nDims &lt;- length(subDims)
+	for (i in 1:nDims)
+	{
+		dcargs[[i+1]] &lt;- subDims[[i]]
+	}
+
+	subArray &lt;- do.call(&quot;[&quot;, dcargs)
+	
+	dim &lt;- lapply(subDims, length)
+	subArray &lt;- array(subArray, dim=dim, subDims)
+
+	class(subArray) &lt;- &quot;table&quot;
+	return(subArray)
+}
+
+print(subtable(cttab, list(Vote.for.X=c(&quot;No&quot;, &quot;Yes&quot;), Vote.for.Last.Time=c(&quot;No&quot;, &quot;Yes&quot;))))
+</code></pre>
+
+<p><div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/exercise.png" />&nbsp;<h1 id="exercise-6">Exercise #6</h1></div>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/target.png" />&nbsp;<h2 id="target-在表中找寻频数最大的单元格">Target: 在表中找寻频数最大的单元格</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+R中table是有关一个元组(多个空间的水平组成的)的频数对照表,比如存在table tab,我们通过tab[level1, level2, ...]可以很快的访问元组(level1, level2, ...)的频数,寻找在表中频数最大的单元格,我们可以扩展以下,将问题转化为将表table转化为一个可以快速访问表中升序/降序排序频数的数据结构,此时,不难想到用一个行为水平元组外加上一个元组的频数构成的data.frame能够表示这种数据结构
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/more.png" />&nbsp;<h2 id="more">More</h2></div>
+<span style="color:#F08080; " class="plain_text plain_text_default">
+    
+<div style="padding-left:2.5rem; color:#1296db;">
+    
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+方案一
+
+    </span>
+</p>
+如果我们对R中as.data.frame(tab)的行为一无所知的话,我们可以通过table的数据结构,自行编写代码构造上述data.frame,首先我们需要获取table中所有空间的水平,构造所有可能的水平元组(通过"向量"的积构造),将该水平元组集合构造为data.frame，然后通过所有元组访问table获取频数,构造频数向量,最后将该频数向量增加到data.frame中,最后通过order函数排序
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h3 id="achieve">Achieve</h3></div>
+<br/>
+<pre><code class="language-R">ct &lt;- read.table(&quot;ct.txt&quot;, header=T)
+ct &lt;- table(ct)
+# 获取&quot;向量&quot;积的集合
+combineVec &lt;- function(m, v)
+{
+	if (!is.vector(v))
+	{
+		return(NA)
+	}
+
+	if (is.null(m))
+	{
+		return(v)
+	}
+	nCol &lt;- ifelse(is.vector(m), length(m), ncol(m))
+	print(nCol)
+	nFrame &lt;- NULL
+	for (i in 1:nCol)
+	{
+		for (j in 1:length(v))
+		{
+			nFrame &lt;- cbind(nFrame, c(ifelse(is.vector(m), m[i], m[, i]), v[j]))
+		}
+	}
+	return(nFrame)
+}
+
+tabdom &lt;- function(tab)
+{
+	if (&quot;Freq&quot; %in% dimnames(tab))
+	{
+		# 简单处理 如果有&quot;Freq&quot;列冲突直接返回
+		return(NA)
+	}
+		
+	# 将tab转为data.frame	
+	levels &lt;- dimnames(tab)
+	frame &lt;- levels[[1]]
+	for (i in 2:length(levels))
+	{
+		frame &lt;- combineVec(frame, levels[[i]])
+	}
+	# 转置:使得行向量为水平元组
+	frame &lt;- t(frame)
+	colnames(frame) &lt;- names(levels)
+	frame &lt;- data.frame(frame)
+	freqs &lt;- NULL
+	
+	# 构造频数向量
+	for (i in 1:nrow(frame))
+	{
+		
+		doArgs &lt;- list(tab)
+		for (j in 1:ncol(frame))
+		{
+			doArgs[[j+1]] &lt;- as.character(frame[i, j])
+		}
+		freqs &lt;- c(freqs, do.call(&quot;[&quot;, doArgs))
+	}
+	frame$Freq &lt;- freqs
+	frame &lt;- frame[order(freqs, decreasing=T), ]	
+	return(frame)
+}
+
+print(tabdom(ct))
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+方案二
+
+    </span>
+</p>
+如果我们R中as.data.frame(table)足够了解,该功能实现将会特别简单,R中的as.data.frame(table)做了我们方案一的大部分工作,它会构造一个每一行为水平元组和该水平元组在table的频数(该频数列名为Freq)的data.frame数据框,为了完成我们的功能,我们知道,只需要将table通过as.data.frame转化,然后按照Freq列排序即可
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/code.png" />&nbsp;<h3 id="achieve">Achieve</h3></div>
+<br/>
+<pre><code class="language-R">ct &lt;- read.table(&quot;ct.txt&quot;, header=T)
+
+ct &lt;- table(ct)
+
+
+tabdom &lt;- function(tab)
+{
+	frame &lt;- as.data.frame(tab)
+
+	frame &lt;- frame[order(frame$Freq, decreasing=T), ]
+
+	return(frame)
+}
+
+
+print(tabdom(ct))
+</code></pre>
+
+</div>
+
+
+</span>
+<div style="display: flex; flex-direction: row; align-items:center;"><img width="28px" style="display: block; line-height: 1.3; vertical-align: middle; margin-top: 20px;" src="/emoji/description/appendix.png" />&nbsp;<h1 id="appendix">Appendix</h1></div>
+
+
+<a href="/appendix/R/table/ct.txt" download="ct.txt" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>
+ct.txt(数据文件)
+</a>
+
+
+<a href="/appendix/R/table/tabdom.r" download="tabdom.r" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>
+tabdom.r(方案一实现文件)
+</a>
+
+
+<a href="/appendix/R/table/tabdom2.r" download="tabdom2.r" style="display:inline-block; z-index: 30000; position:relative; color:#1296db;">
+    <svg style="vertical-align: middle; display: inline; z-index:10000;" width="20" height="18" fill="#1296db" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href='/vendor/appendix.svg#appendix' x='0' y='0' width="20" height="18"/></svg>
+tabdom.r(方案二实现文件)
+</a></p>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Function</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/exercise/go/url-shortener/">
+          <span class="button__text">Go Exercise Url-Shortener</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

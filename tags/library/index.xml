@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Library on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/library/</link>
+    <description>Recent content in Library on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Wed, 08 Jan 2020 13:49:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/library/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Serde</title>
+      <link>https://marcoepsilon.github.io/rustlib/serde/</link>
+      <pubDate>Wed, 08 Jan 2020 13:49:32 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/rustlib/serde/</guid>
+      <description>Overview serde是为rust数据结构高效的序列化和反序列化的框架,其他的大部分语言使用运行时的反射技术来序列化数据,Serde是建立在Rust高</description>
+    </item>
+    
+    <item>
+      <title>Http</title>
+      <link>https://marcoepsilon.github.io/golib/net/http/</link>
+      <pubDate>Sat, 07 Dec 2019 14:25:29 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/net/http/</guid>
+      <description>Overview 包http提供了HTTP客户和服务端的实现. Get,Head,Post,PostForm用于HTTP(或者HTTPS)请求: resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) ... resp, err</description>
+    </item>
+    
+    <item>
+      <title>Syslog</title>
+      <link>https://marcoepsilon.github.io/golib/log/syslog/</link>
+      <pubDate>Sun, 24 Nov 2019 22:45:02 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/log/syslog/</guid>
+      <description>Overview 包syslog提供系统日志服务,它能够发送消息到系统日志守护进程使用Unix套接字UDP或者TCP. 只需要调用一次Dial,当写入失败时,</description>
+    </item>
+    
+    <item>
+      <title>Log</title>
+      <link>https://marcoepsilon.github.io/golib/log/log/</link>
+      <pubDate>Thu, 21 Nov 2019 22:25:04 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/log/log/</guid>
+      <description>Overview 包log实现简单的日志包,它定义的类型Logger,包含一些格式化输出的方法,它还有预定义的易访问的标准&#34;Logger&#34;,通过帮助函数 Pr</description>
+    </item>
+    
+    <item>
+      <title>Sort</title>
+      <link>https://marcoepsilon.github.io/golib/sort/</link>
+      <pubDate>Wed, 20 Nov 2019 16:25:24 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/sort/</guid>
+      <description>Overview 包sort提供排序切片和用户自定义集合的原语 函数(Functions) func Float64s(a []float64) Float64s以升序排序切片,NaN(not a number)</description>
+    </item>
+    
+    <item>
+      <title>Unsafe</title>
+      <link>https://marcoepsilon.github.io/golib/unsafe/</link>
+      <pubDate>Sat, 09 Nov 2019 23:03:46 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/unsafe/</guid>
+      <description>Overview unsafe包含了绕过go类型安全的方法,导入unsafe包可能是不可移植的. type ArbitraryType type ArbitraryType int ArbitraryType在包中的目的仅仅是为了文</description>
+    </item>
+    
+    <item>
+      <title>Atomic</title>
+      <link>https://marcoepsilon.github.io/golib/sync/atomic/</link>
+      <pubDate>Wed, 06 Nov 2019 22:08:28 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/sync/atomic/</guid>
+      <description>Overview 包atomic提供了底层原子atomic memory原语,用于实现同步算法. 这些函数要求格外的小心才能正确使用.除了特别的底层应用,同步最</description>
+    </item>
+    
+    <item>
+      <title>Sync</title>
+      <link>https://marcoepsilon.github.io/golib/sync/sync/</link>
+      <pubDate>Sat, 02 Nov 2019 22:29:07 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/sync/sync/</guid>
+      <description>Overview sync提供了同步原语比如互斥锁,以及Once,WaitGroup类型.大多都供底层例层使用,高级同步更好地的使用通过通道和交流,该包包含</description>
+    </item>
+    
+    <item>
+      <title>Time</title>
+      <link>https://marcoepsilon.github.io/golib/time/</link>
+      <pubDate>Mon, 14 Oct 2019 23:13:49 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/time/</guid>
+      <description>Overview time包提供了展示和测量时间的功能 日历始终采用公历没有闰秒 单调时间(Monotonic Clocks) 单调时间意指绝对时间,手动修改修改时间不会对其影</description>
+    </item>
+    
+    <item>
+      <title>Flag</title>
+      <link>https://marcoepsilon.github.io/golib/flag/</link>
+      <pubDate>Sat, 12 Oct 2019 00:14:17 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/flag/</guid>
+      <description>Overview flag包实现了命令行的解析 使用说明(Usage) 定义flags使用flag.Bool(),String(),Int()等 这个声明一个整型</description>
+    </item>
+    
+    <item>
+      <title>Errors</title>
+      <link>https://marcoepsilon.github.io/golib/errors/</link>
+      <pubDate>Fri, 11 Oct 2019 22:54:01 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/errors/</guid>
+      <description>Overview errors包实现了处理错误函数的实现 New函数用于创建带文本消息上下文的错误 Unwrap,Is,As函数工作于封装了其他错误的error</description>
+    </item>
+    
+    <item>
+      <title>Net</title>
+      <link>https://marcoepsilon.github.io/golib/net/net/</link>
+      <pubDate>Mon, 23 Sep 2019 17:16:17 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/net/net/</guid>
+      <description>Overview net包提供了可移植的网络I/O接口,包括TCP/IP,UDP,域名解析,Unix域socket,尽管包提供了接近底层网络原语的方法,但是</description>
+    </item>
+    
+    <item>
+      <title>Strings</title>
+      <link>https://marcoepsilon.github.io/golib/strings/</link>
+      <pubDate>Fri, 20 Sep 2019 22:50:47 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/strings/</guid>
+      <description>Overview strings包提供了简单的函数操作UTF-8编码的字符串 Functions func Compare(a, b string) int 以字典序比较两个字符串并返回结果,如果结果大于0,说明a大于b,结果</description>
+    </item>
+    
+    <item>
+      <title>Binary</title>
+      <link>https://marcoepsilon.github.io/golib/encoding/binary/</link>
+      <pubDate>Thu, 19 Sep 2019 18:28:05 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/encoding/binary/</guid>
+      <description>Overview 包binary实现了简单数字和字节序列的转换,以及各种编码和解码 数字由读取和写入固定大小的值转化,固定大小值是算术类型(bool,int8</description>
+    </item>
+    
+    <item>
+      <title>Bufio</title>
+      <link>https://marcoepsilon.github.io/golib/bufio/</link>
+      <pubDate>Mon, 16 Sep 2019 22:48:20 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/bufio/</guid>
+      <description>bufio Overview bufio实现了带缓冲的io操作,提供了对io.Reader,io.Write封装对象Reader,Writer,不仅实现了这些接口,而</description>
+    </item>
+    
+    <item>
+      <title>Os</title>
+      <link>https://marcoepsilon.github.io/golib/os/</link>
+      <pubDate>Wed, 11 Sep 2019 23:27:39 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/os/</guid>
+      <description>Os Os库提供了平台无关的通用接口实现操作系统底层操作,功能设计风格是Unix-Like的,但是错误处理不像Unix提供简单的数字,而是Go-</description>
+    </item>
+    
+    <item>
+      <title>Regexp</title>
+      <link>https://marcoepsilon.github.io/golib/regexp/</link>
+      <pubDate>Mon, 19 Aug 2019 22:27:55 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/regexp/</guid>
+      <description>正则表达式语法概述(熟悉可跳过) 对于go 正则表达式语法也可以运行下列命令查看 go doc regexp/syntax 单字符集 符号 描述 . 匹配任意字符,可能包含&#39;\n&#39;(当 flag s =</description>
+    </item>
+    
+    <item>
+      <title>Future</title>
+      <link>https://marcoepsilon.github.io/rustlib/future/</link>
+      <pubDate>Mon, 22 Jul 2019 22:41:12 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/rustlib/future/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tokio</title>
+      <link>https://marcoepsilon.github.io/rustlib/tokio/</link>
+      <pubDate>Mon, 22 Jul 2019 21:02:22 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/rustlib/tokio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Io</title>
+      <link>https://marcoepsilon.github.io/golib/io/</link>
+      <pubDate>Mon, 22 Jul 2019 18:09:46 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/io/</guid>
+      <description>Io库概述 IO库提供了一些IO操作的原语,主要任务是封装一些存在的实现,比如os库里的,为共享的功能提供抽象的接口,附加一些辅助操作,因为这</description>
+    </item>
+    
+  </channel>
+</rss>

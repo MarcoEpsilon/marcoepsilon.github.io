@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Http :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview 包http提供了HTTP客户和服务端的实现. Get,Head,Post,PostForm用于HTTP(或者HTTPS)请求: resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) ... resp, err"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/net/http/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Http :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview 包http提供了HTTP客户和服务端的实现. Get,Head,Post,PostForm用于HTTP(或者HTTPS)请求: resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) ... resp, err" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Http :: Marco Epsilon — ">
+<meta property="og:description" content="Overview 包http提供了HTTP客户和服务端的实现. Get,Head,Post,PostForm用于HTTP(或者HTTPS)请求: resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) ... resp, err" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/net/http/" />
+<meta property="og:site_name" content="Http" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-12-07 14:25:29 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/net/http/">Http</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-12-07
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/http/">http</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+包http提供了HTTP客户和服务端的实现.
+Get,Head,Post,PostForm用于HTTP(或者HTTPS)请求:
+<br/>
+<pre><code class="language-go">resp, err := http.Get(&quot;http://example.com/&quot;)
+...
+resp, err := http.Post(&quot;http://example.com/upload&quot;, &quot;image/jpeg&quot;, &amp;buf)
+...
+resp, err := http.PostForm(&quot;http://example.com/form&quot;,
+ url.Values{&quot;key&quot;:{&quot;Value&quot;}, &quot;id&quot;: {&quot;123&quot;}})
+</code></pre>
+
+<p>客户端必须关闭响应体当完成时:</p>
+
+<pre><code class="language-go">resp, err := http.Get(&quot;http://example.com/&quot;)
+if err != nil {
+    // handle error
+}
+defer resp.Body.Close()
+body, err := ioutil.ReadAll(resp.Body)
+// ...
+</code></pre>
+
+<p>为了控制HTTP客户头部,重定向策略,和其他设置,创建一个客户:</p>
+
+<pre><code class="language-go">client := &amp;http.Client {
+    CheckRedirect: redirectPolicyFunc,
+}
+resp, err := client.Get(&quot;http://example.com/&quot;)
+// ....
+req, err := http.NewRequest(&quot;GET&quot;, &quot;http://example.com&quot;, nil)
+req.Header.Add(&quot;If-None-Match&quot;, `W/&quot;wyzzy&quot;`)
+resp, err := client.Do(req)
+</code></pre>
+
+<p>为了控制代理,TLS配置,keep-alives,压缩,其他设置,创建一个Transport</p>
+
+<pre><code class="language-go">tr := &amp;http.Transport {
+    MaxIdleConns: 10,
+    IdleConnTimeout: 30 * time.Second,
+    DisableCompression: true,
+}
+client := &amp;http.Client {Transport: tr}
+resp, err := client.Get(&quot;http://example.com/&quot;)
+// ,,,
+</code></pre>
+
+<p>Clients和Transports都是goruoutine并发安全的,为了高效应该只创建一次和重复利用
+ListenAndServe开始一个HTTP服务器通过给定的地址和处理器,处理器通常是nil,意味着使用DefaultServeMux，Handle和HandleFunc添加处理器到DefaultServeMux.</p>
+
+<pre><code class="language-go">http.Handle(&quot;/foo&quot;, fooHandler)
+http.HandleFunc(&quot;/bar&quot;, func(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, &quot;Hello, %q&quot;, html.EscapeString(r.URL.Path))
+})
+log.Fatal(http.ListenAndServe(&quot;:8080&quot;, nil))
+</code></pre>
+
+<p>更多控制服务器的行为由自定义服务器实现.</p>
+
+<pre><code class="language-go">s := &amp;http.Server {
+    Addr: &quot;:8080&quot;,
+    Handler: myHandler,
+    ReadTimeout: 10 * time.Second,
+    WriteTimeout: 10 * time.Second,
+    MaxHeaderBytes: 1 &lt;&lt; 20,
+}
+log.Fatal(s.ListenAndServe())
+</code></pre>
+
+<p>从Go 1.6开始,包http透明的支持HTTP/2协议,当使用HTTPS.
+程序必须禁用HTTP/2通过设置Transport.TLSNextProto(对于客户)或Server.TLSNextProto(对于服务器)到non-nil,一个空map,或者,如下的GODEBUG环境变量目前被支持.</p>
+
+<pre><code class="language-env">GODEBUG=http2client=0 # disable HTTP/2 client support
+GODEBUG=http2server=0 # disable HTTP/2 server support
+GODEBUG=http2debug=1 # enable verbose HTTP/2 debug logs
+GODEBUG=http2debug=2 # even more verbose, with frame dumps
+</code></pre>
+
+<p>GODEBUG环境变量不被Go API兼容性覆盖,请先调查问题在禁用HTTP/2之前.
+包http的Transport和Server都自动启用HTTP/2支持为了简单的配置,为了启用HTTP/2更复杂的配置去使用更低层的特征,或者使用Go更新版本的包http2,直接导入&rdquo;golang.org/x/net/http2&rdquo;,使用其ConfigureTransport和或ConfigureServer函数,手动的配置&rdquo;golang.org/x/net/http2&rdquo;包优先于net/http内建的HTTP/2支持</p>
+
+
+</span>
+
+<h1 id="常量-constants">常量(Constants)</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">const (
+    MethodGet = &quot;GET&quot;
+    MethodHead = &quot;HEAD&quot;
+    MethodPost = &quot;POST&quot;
+    MethodPut = &quot;PUT&quot;
+    MethodPatch = &quot;PATCH&quot;
+    MethodDelete = &quot;DELETE&quot;
+    MethodConnect = &quot;CONNECT&quot;
+    MethodOptions = &quot;OPTIONS&quot;
+    MethodTrace = &quot;TRACE&quot;
+)
+</code></pre>
+
+<p>公有的HTTP方法.
+除非另外注释,否则这些被定义于RFC 7231，4.3节</p>
+
+<pre><code class="language-go">const (
+    StatusContinue = 100 // RFC 7231, 6.2.1
+    StatusSwitchingProtocols = 101 // RFC 7321, 6.2.2
+    StatusProcessing = 102 // RFC 2518, 10.1
+    StatusEarlyHints = 103 // RFC 8297
+
+    StatusOK = 200 // RFC 7231 6.3.1
+    StatusCreated = 201 // RFC 7231 6.3.2
+    StatusAccepted = 202 // RFC 7231 6.3.3
+    StatusNoAuthoritativeInfo = 203 // RFC 7231 6.3.4
+    StatusNoContent = 204 // RFC 7231 6.3.5
+    StatusResetContent = 205 // RFC 7231 6.3.6
+    StatusPartialContent = 206 // RFC 7233, 4.1
+    StatusMultiStatus = 207 // RFC 4918, 11.1
+    StatusAlreadyReported = 208 // RFC 5842, 7.1
+    StatusIMUsed = 226 // RFC 3229, 10.4.1
+
+    StatusMultipleChoices = 300 // RFC 7231, 6.4.1
+    StatusMovePermanently = 301 // RFC 7231, 6.4.2
+    StatusFound = 302 // RFC 7231, 6.4.3
+    StatusSeeOther = 303 // RFC 7231, 6.4.4
+    StatusNotModified = 304 // RFC 7232, 4.1
+    StatusUseProxy = 305 // RFC 7231, 6.4.5
+
+    StatusTemporaryRedirect = 307 // RFC 7231, 6.4.7
+    StatusPermanentRedirect = 308 // RFC 7538, 3
+
+    StatusBadRequest = 400 // RFC 7231, 6.5.1
+    StatusUnauthorized = 401 // RFC 7235, 3.1
+    StatusPaymentRequired = 402 // RFC 7231, 6.5.2
+    StatusForbidden = 403 // RFC 7231, 6.5.3
+    StatusNotFound = 404 // RFC 7231, 6.5.4
+    StatusMethodNotAllowed = 405 // RFC 7231, 6.5.5
+    StatusNotAcceptable = 406 // RFC 7231, 6.5.6
+    StatusProxyAutRequired = 407 // RFC 7235, 3.2
+    StatusRequestTimeout = 408 // RFC 7231, 6.5.7
+    StatusConflict = 409 // RFC 7231, 6.5.8
+    StatusGone = 410 // RFC 7231, 6.5.9
+    StatusLengthRequired = 411 // RFC 7231, 6.5.10
+    StatusPreconditionFailed = 412 // RFC 7232, 4.2
+    StatusRequestEntityTooLarge = 413 // RFC 7231, 6.5.11
+    StatusRequestURITooLong = 414 // RFC 7231, 6.5.12
+    StatusUnsupportedMediaType = 415 // RFC 7231, 6.5.13
+    StatusRequestedRangeNotSatisfiable = 416 // RFC 7233, 4.4
+    StatusExpectationFailed = 417 // RFC 7231, 6.5.14
+    StatusTeapot = 418 // RFC 7168, 2.3.3
+    StatusMisdirectedRequest = 421 // RFC 7540, 9.1.2
+    StatusUnprocessableEntity = 422 // RFC 4918, 11.2
+    StatusLocked = 423 // RFC 4918, 11.3
+    StatusFailedDependency = 424 // RFC 4918, 11.4
+    StatusTooEarly = 425 // RFC 8470, 5.2.
+    StatusUpgradeRequired = 426 // RFC 7231, 6.5.15
+    StatusPreconditionRequired = 428 // RFC 6585, 3
+    StatusTooManyRequests = 429 // RFC 6585, 4
+    StatusRequestHeaderFieldsTooLarge = 431 // RFC 6585, 5
+    StatusUnavailableForLegalReasons = 451 // RFC 7725, 3
+
+    StatusInternalServerError = 500 // RFC 7231, 6.6.1
+    StatusNotImplemented = 501 // RFC 7231, 6.6.2
+    StatusBadGateway = 502 // RFC 7231, 6.6.3
+    StatusServiceUnavailable = 503 // RFC 7231, 6.6.4
+    StatusGatewayTimeout = 504 // RFC 7231, 6.6.5
+    StatusHTTPVersionNotSupported = 505 // RFC 7231, 6.6.6
+    StatusVariantAlsoNegotiates = 506 // RFC 2295, 8.1
+    StatusInsufficientStorage = 507 // RFC 4918, 11.5
+    StatusLoopDetected = 508 // RFC 5842, 7.2
+    StatusNotExtended = 510 // RFC 2774, 7
+    StatusNetworkAuthenticationRequired = 511 // RFC 6585, 6
+)
+</code></pre>
+
+<p>向IANA注册HTTP状态码.</p>
+
+<pre><code class="language-go">const DefaultMaxHeaderBytes = 1 &lt;&lt; 20 // 1MB
+</code></pre>
+
+<p>DefaultMaxHeaderBytes是http请求头部最大的合法的大小,这个可以通过Server.MaxHeaderBytes重新设置.</p>
+
+<pre><code class="language-go">const DefaultMaxIdleConnsPerHost = 2
+</code></pre>
+
+<p>DefaultMaxIdleConnsPerHost是Transport.MaxIdleConnsPerHost的默认值</p>
+
+<pre><code class="language-go">const TimeFormat = &quot;Mon, 02, Jan 2006 15:04:05 GMT&quot;
+</code></pre>
+
+<p>TimeFormat是时间格式用于当在HTTP头部产生，它和RFC1113很像,但是这里使用GMT作为时区.时间被格式化必须使用UTC格式生成正确的格式.
+为了解析时间格式,查看ParseTime.</p>
+
+<pre><code class="language-go">const TrailerPrefix = &quot;Trailer: &quot;
+</code></pre>
+
+<p>TrailerPrefix是一个幻数前缀,对于ResponseWriter.Header映射键值,如果存在,表明映射入口实际上为了响应追踪,而不是响应的头部,前缀被剔除在ServeHTTP调用完成，且值被发送给追踪器.
+此机制只适用于在写入标头之前未知的预告,如果追踪点集合固定或者熟知在头部写入之前,首选GO的锚点机制:</p>
+
+<pre><code class="language-go">https://golang,org/pkg/net/http/#ResponseWriter
+https://golang.org/pkg/net/http/#example_ResponseWriter_trailers
+</code></pre>
+
+
+</span>
+
+<h1 id="变量-variables">变量(Variables)</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">var (
+    // ErrNotSupported是由推送者的Push方法返回的,实现表明
+    // HTTP/2的Push支持不被提供
+    ErrNotSupported = &amp;ProtocolError{&quot;feature not supported&quot;}
+    // 已废弃:包net/http任何操作都不会返回
+    // ErrUnexpectedTrailer，不应该再把返回的错误和其比较
+    ErrUnexpectedTrailer = &amp;ProtocolError{&quot;trailer 
+    header without chunked transfer encoding&quot;}
+    // ErrMissingBoundary是由Request.MultipartReader
+    // 返回当请求的Content-Type不包含&quot;boundary&quot;参数
+    ErrMissingBoundary = &amp;ProtocolError{&quot;no 
+    multipart boundary param in Content-Type&quot;}
+    // ErrNoMultipart是由Request.MultipartReader
+    // 返回当请求的Content-Type不是multipart/form-data
+    ErrNoMultipart = &amp;ProtocolError{&quot;request 
+    Content-Type isn't multipart/form-data&quot;}
+    // 已废弃:ErrHeaderTooLong不再由net/http包中任何操作
+    // 返回,所以不应该再把返回的错误与其比较
+    ErrHeaderTooLong = &amp;ProtocolError{&quot;header too 
+    long&quot;}
+    // 已废弃: ErrShortBody不再由net/http包中任何操作
+    // 返回,所以不应该再把返回的错误与其比较
+    ErrShortBody = &amp;ProtocolError{&quot;entity body too 
+    short&quot;}
+    // 已废弃: ErrMissingContentLength不再由net/http包
+    // 中任何操作返回，所以不应该再把返回的错误与其比较
+    ErrMissingContentLength = &amp;ProtocolError
+    {&quot;missing ContentLength in HEAD response&quot;}
+)
+</code></pre>
+
+<pre><code class="language-go">var (
+    // ErrBodyNotAllowed是由ResponseWriter.Write返回
+    // 当HTTP方法或者响应码不允许一个body
+    ErrBodyNotAllowed = errors.New(&quot;http: request 
+    method or response status code does not allow body&quot;)
+    // ErrHijacked是由ResponseWriter.Write返回
+    // 当底层的连接已经被劫持使用Hijacker接口,未写入的连接将
+    // 会没有副作用的返回ErrHijacked
+    ErrHijacked = errors.New(&quot;http: connection has 
+    been hijacked&quot;)
+    // ErrContentLength是由ResponseWriter调用返回
+    // 当一个处理器设置Content-Length响应头部通过一个
+    // 声明的大小而企图写入超过声明的大小
+    ErrContentLength = errors.New(&quot;http: wrote more 
+    than the declared Content-Length&quot;)
+    // 已废弃:ErrWriteAfterFlush已不再由net/http任何方法
+    // 返回，调用者不应该再比较错误变量
+    ErrWriteAfterFlush = errors.New(&quot;unused&quot;)
+)
+</code></pre>
+
+<p>Errors使用通过HTTP Server</p>
+
+<pre><code class="language-go">var (
+    // ServerContextKey是一个context key,它能够被
+    // Context.Value使用访问服务器由开始的处理器.
+    // 相关联的值类型属于*Server
+    ServerContextKey = &amp;contextKey{&quot;http-server&quot;}
+    // LocalAddrContextKey是一个context key,它能够
+    // 被Context.Value使用访问本地地址访问的连接
+    // 相关联的值类型属于*net.Addr
+    LocalAddrContextKey = &amp;contextKey{&quot;local-addr&quot;}
+)
+</code></pre>
+
+<pre><code class="language-go">var DefaultClient = &amp;Client{}
+</code></pre>
+
+<p>DefaultClient是一个默认的客户,被用于Get,Head,Post.</p>
+
+<pre><code class="language-go">var DefaultServeMux = &amp;defaultServerMux
+</code></pre>
+
+<p>DefaultServeMux是由Serve使用的默认的ServeMux</p>
+
+<pre><code class="language-go">var ErrAbortHandler = errors.New(&quot;net/http: abort Handler&quot;)
+</code></pre>
+
+<p>ErrAbortHandler是一个哨兵值为了中止一个处理器,当任何panic从ServeHTTP中止到客户端的响应,ErrAbortHandler的panic还会记录栈的跟踪到服务器的错误日志.</p>
+
+<pre><code class="language-go">var ErrBodyReadAfterClose = errors.New(&quot;http: invalid Read on closed Body&quot;)
+</code></pre>
+
+<p>ErrBodyReadAfterClose在读取request或者response的Body部分在主体已经关闭.这典型的发生读取主体在一个HTTP处理器在ResponseWriter上调用WriteHeader或Write.</p>
+
+<pre><code class="language-go">var ErrHandlerTimeout = errors.New(&quot;http: Handler timeout&quot;)
+</code></pre>
+
+<p>ErrHandlerTimeout是由ResponseWriter的Write调用超时返回</p>
+
+<pre><code class="language-go">var ErrLineTooLong = internal.ErrLineTooLong
+</code></pre>
+
+<p>ErrLineTooLong是由读取请求或响应主体的异常编码返回.</p>
+
+<pre><code class="language-go">var ErrMissingFile = errors.New(&quot;http: no such file&quot;)
+</code></pre>
+
+<p>ErrMissingFile是由FormFile返回当提供的文件字段在请求中不存在或者不是一个文件字段</p>
+
+<pre><code class="language-go">var ErrNoLocation = errors.New(&quot;http: no Location header in response&quot;)
+</code></pre>
+
+<p>ErrNoLocation是由Response.Location返回当Location头部不存在</p>
+
+<pre><code class="language-go">var ErrServerClosed = errors.New(&quot;http: Server closed&quot;)
+</code></pre>
+
+<p>ErrServeClosed是由Server的Serve,ServeTLS,ListenAndServe,ListenAndServeTLS在调用Shutdown或Close之后调用返回</p>
+
+<pre><code class="language-go">var ErrSkipAltProtocol = errors.New(&quot;net/http: skip alternate protocol&quot;)
+</code></pre>
+
+<p>ErrSkipAltProtocol是一个哨兵错误值通过Transport.RegisterProtocol定义</p>
+
+<pre><code class="language-go">var ErrUseLastResponse = errors.New(&quot;net/http: use last response&quot;)
+</code></pre>
+
+<p>ErrUseLastResponse能够被返回通过Client.CheckRedirect用于控制重定向是如何被处理的,如果被返回,下次请求将不会被发送且最近的响应将会返回和它的未关闭的主体.</p>
+
+<pre><code class="language-go">var NoBody = noBody{}
+</code></pre>
+
+<p>NoBody是一个io.ReadCloser且没有字节,Read总是返回EOF,Close总是返回nil,它能够被用于外部客户请求为了明确地表明请求零字节,另一种方法是将Request.Body设为nil</p>
+
+
+</span>
+
+<h1 id="type-request">type Request</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Request struct {
+    // Method指定HTTP的方法(GET, POST, PUT, ..etc)
+    // 对于客户端请求,客户端请求意味着GET
+    //
+    // Go的HTTP客户端不支持CONNECT方法,查看Transport文档
+    // 更多细节
+    Method string
+    // URL指定被请求的URI(对于服务器的请求)或者访问的URL
+    // (对于客户端的请求)
+    //
+    // 对于服务端请求,URI从URL解析在Request-Line提供,
+    // 储存在RequestURI,对于大多数请求,Path和RawQuery其他
+    // 以外字段将为空(See RFC 7230, Section 5.3)
+    //
+    // 对于客户端请求，URL的Host指定要连接的服务器,而
+    // Request的Host字段可选的要发送的Host头部值
+    // 在HTTP请求中
+    URL *url.URL
+    // 协议版本对于服务器进入的请求
+    //
+    // 对于客户的请求,这些字段将被忽视,HTTP客户码总是
+    // 使用HTTP/1.1或者HTTP/2
+    // 查看Transport文档更多细节
+    Proto string // &quot;HTTP/1.0&quot;
+    ProtoMajor int // 1
+    ProtoMinor int // 0
+    // Header包含了请求头部字段,被服务器接收的或者被客户端
+    // 发送的
+    //
+    // 如果服务器接收到请求通过下面的头部行,
+    //
+    // Host: example.com
+    // accept-encoding: gzip, deflate
+    // Accept-Language: en-us
+    // fOO: Bar
+    // foo: two
+    //
+    // then
+    // Header = map[string][]string {
+    //  &quot;Accept-Encoding&quot;: {&quot;gzip&quot;, &quot;deflate&quot;},
+    //  &quot;Accept-Language&quot;: {&quot;enus&quot;},
+    //  &quot;FOO&quot;: {&quot;Bar&quot;, &quot;two&quot;}
+    // }
+    //
+    // 对于进入的请求,Host的header将被提升为Request.Host
+    // 字段且被从Header map中移除.
+    // HTTP定义头部名字是大小写不敏感的.请求解析实现这个通过
+    // CanonicalHeaderKey使得首字符和任何跟连字符的大写其
+    // 余的小写
+    //
+    // 对于客户端的请求，某些头部Content-Length
+    // 和Connection都自动写入当被需要并且头部的值可能被忽略.
+    // 查看Request,Write方法文档.
+    Header Header
+    // Body是请求的主体
+    //
+    // 对于客户端的请求,一个nil body意味着请求没有主体
+    // ,比如一个GET请求,HTTP的客户端的Transport
+    // 负责调用Close方法.
+    //
+    // 对于服务器的请求,请求的主体总是非空的但是将会
+    // 立即返回EOF当没有主体存在
+    // 服务器将会关闭请求主体,ServeHTTP处理器必须如此
+    Body io.ReadCloser
+    // GetBody定义了一个函数可选的返回新的Body的副本
+    // 它被用于客户请求当一个重定向要求读取主体超过一次
+    // GetBody仍要求设置主体.
+    //
+    // 对于服务端的请求,它是无用的.
+    GetBody func() (io.ReadCloser, error)
+    // ContentLength记录相关联内容的长度
+    // 当值是-1，表明长度是未知的
+    // 当值&gt;=0，表明可能给出的字节数可能读取自Body
+    //
+    // 对于客户端请求,值为0且主体部分非空仍被视为未知
+    ContentLength int64
+    // TransferEncoding列出传输编码,从最外层到
+    // 最内层,空列表意味着&quot;identity&quot;编码
+    // TransferEncoding通常被忽视,chunk encoding自动被
+    // 添加和移除有必要的,当发送和接收请求.
+    TransferEncoding []string
+    // Close表明是否关闭连接在回复这个请求(对于服务器)
+    // 或者在发送这个请求后和读取响应时(对于客户端)
+    //
+    // 对于服务端请求,HTTP服务器自动处理这个,这个字段
+    // 不被处理器需要
+    // 对于客户端请求,设置这个字段阻止重复利用到相同服务器
+    // 的TCP连接，仿佛Transport.DisableKeepAlives被设置
+    Close bool
+    // 对于服务器请求，Host指定URL寻求的主机
+    // 对于RFC 7230,Section 5.4,这个是“Host”头部的值
+    // 或者URL本身给出的主机名,它可能是&quot;host:port&quot;的格式
+    // 对于国际域名,Host可能使用Punycode(域名代码)或者
+    // Unicode形式，使用golang.org/x/net/idna去转换
+    // 两者需要的格式
+    // 为了阻止DNS重新绑定攻击,服务器处理器应该验证Host头部
+    // 值的权威性
+    // 被包含的ServeMux支持注册的模板指定特定的host name
+    // 因此保护它已注册的处理器
+    //
+    // 对于客户的请求,Host可选的重写发送的Host头部
+    // 如果为空,请求的Write方法将会使用URL.Host的值
+    // Host可能包含国际域名
+    Host string
+    // Form包含解析过的表单数据,同时包含URL字段
+    // 的请求参数和PATCH,POST,PUT的表单数据
+    // 这个只有在ParseForm被调用后才会提供
+    // HTTP客户端忽视Form而是使用Body
+    Form url.Values
+    // PostForm包含解析的数据从PATCH,POST,PUT
+    // 的主体参数
+    //
+    // 这个字段只有在调用ParseForm被调用后才提供
+    // HTTP客户忽视PostForm而是使用Body
+    PostForm url.Values
+    // MultipartForm是解析过的多部分表单,包含上传的文件
+    // 这个字段只有在ParseMultipartForm被调用后才可提供
+    // HTTP客户端忽视MultipartForm而是使用Body
+    MultipartForm *multipart.Form
+    // Trailer指定附加的头部在请求主体后被发送
+    //
+    // 对于服务器的请求,Trailer映射原来只包含锚点的键和nil 
+    // values(客户端声明的锚点它之后将会发送),当处理器从
+    // Body读取，它必须不引用Trailer,当读取Body返回EOF,
+    // Trailer能够再次被读取，将会包含非空值,如果曾经被
+    // 客户发送
+    //
+    // 对于客户端的请求,Trailer必须被初始化包含之后发送
+    // 的Trailer keys的map,这些值必须为nil或者最终的值
+    // ContentLength必须为-1或0,为了发送被分块的请求
+    // 在HTTP请求被发送后,map的值能够被更新,当请求的主体
+    // 被读.当主体返回EOF,调用者必须不能修改Trailer
+    // 少数的HTTP客户，服务器,代理支持HTTP trailers
+    Trailer Header
+    // RemoteAddr允许HTTP服务器和其他软件记录被发送请求网络
+    // 的地址,通常用于日志.这个字段不是由ReadRequest填充
+    // 且含有未定义的格式. 该包中的HTTP Server在触发处理器
+    // 前设置RemoteAddr为&quot;IP:port&quot;
+    // 这个字段被HTTP客户端忽视
+    RemoteAddr string
+    // RequestURI是Request-Line未被修改的request-target
+    // (RFC 7230 3.1.1)当由客户端发送给服务端.通常应该
+    // 使用URL字段
+    // 在HTTP 客户端设置这个字段是错误.
+    RequestURI string
+    // TLS允许HTTP服务器和其他软件记录接收到的请求
+    // 关于TLS连接的信息.这个字段不是由ReadRequest
+    // 填充。该包中的HTTP Server设置该字段对于
+    // TLS-enabled 连接会在处理器触发前设置
+    //
+    // 这个字段被HTTP客户端忽视
+    TLS *tls.ConnectionState
+    // Cancel是一个可选的通道它的关闭表明客户端
+    // 的请求被视为已取消.不是所有的RoundTripper
+    // 实现可能支持Cancel
+    //
+    // 对于服务端的请求,这个字段是不可用的.
+    // 已废弃: 设置Request的context而是通过
+    // NewRequestWithContext,如果Request的
+    // Cancel字段和context字段都设置,不确定
+    // Cancel是否被遵守.
+    Cancel &lt;-chan struct{}
+    // Response是重定向的响应造成该请求被创建
+    // 这个字段只有在客户重定向时被填充.
+    Response *Response
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>对于Request呈现一个HTTP服务端接收的或者被客户端接收的.
+这个字段的语义客户端和服务端略有不同.</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewRequest(method, url string, body io.Reader) (*Request, error)
+
+</p>
+NewRequest是NewRequestWithContext使用后端上下文的封装
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewRequestWithContext(ctx context.Context, method, url string, body io.Reader) (*Request, error)
+
+</p>
+NewRequestWithContext返回一个给定方法,URL和可选的主体.
+如果提供的主体也是io.Closer,返回的Request.Body由body设置且将会被Client的Do,Post,PostForm且Transport.RoundTrip
+方法关闭.
+NewRequestWithContext返回一个合适的Request用于Client.Do或者Transport.RoundTrip.为了创建一个请求用于测试Server Handler，或者使用NewRequest函数在net/http/httptest,ReadRequest或者手动的更新Request字段.对于外出的客户请求,
+context控制请求和其响应的生命周期:获得连接,发送请求且读取响应头部和主体.
+如果body是*bytes.Buffer,*bytes.Reader,*strings.Reader,返回的请求ContentLength被设置为它精确的值(而不是-1.GetBody被填充(因此307,308重定向能够重播主体),并且Body被设置为NoBody,如果ContentLength为0
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadRequest(b *bufio.Reader) (*Request, error)
+
+</p>
+ReadRequest读取和解析Request从b
+<br/>
+ReadRequest是一个底层函数应该被用于特定的应用,大多数代码应该使用Server读取请求且处理它们通过Handler接口,ReadRequest只支持HTTP/1.x请求,对于HTTP/2,使用golang.org/x/net/http2
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) BasicAuth() (usename, password string, ok bool)
+
+</p>
+BasicAuth返回请求的Authorization头部提供的username,password.如果请求使用HTTP的基本认证,查看RFC 2617 Section 2.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) Clone(ctx context.Context) *Request
+
+</p>
+Clone返回一个r的深复制,同时它的上下文修改为ctx,提供的ctx必须为非空.
+对于外部的客户请求,context控制其请求和响应的完全的生命周期,获得连接,发送请求,读取响应的头部和主体.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) Context() context.Context 
+
+</p>
+Context返回Request的context,为了改变这个context,使用WithContext.
+返回的context总是non-nil的,它是默认的background context.
+对于出口的客户端请求,context控制取消.
+对于进入的服务器请求,当客户端的连接关闭,context被取消,请求被取消(对于HTTP/2)或ServeHTTP方法返回.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) Cookie() (*Cookie, error)
+
+</p>
+Cookie返回请求中被提供名字的Cookie或返回ErrNoCookie,如果Cookie没有找到,如果多个Cookie匹配这个名字,将只会返回一个Cookie.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) Cookies() []Cookie
+
+</p>
+Cookies解析且返回请求中的Cookies
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) FormFiles(key string) (multipart.File, multipart.FileHeader, error)
+
+</p>
+FormFile返回对于提供的表单键值的第一个文件.FormFile调用ParseMultiForm和ParseForm如果需要的话.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) FormValue(key string) string
+
+</p>
+FormValue返回请求中命名的第一个关于key的元件.POST和PUT主体参数掌管URL字符串请求的优先权.FormValue调用ParseMultiForm和ParseForm如果需要并且忽略这些函数返回的错误.如果key不存在,FormValue返回空字符串.为了访问相同key的多个值，调用ParseForm然后直接检查Request.Form.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) MultipartReader() (*multipart.Reader, error)
+
+</p>
+MultipartReader返回一个MIME多部分的reader,如果这是一个multipart/form-data或者multipart-mixed的POST请求,否则返回一个nil和一个error,使用这个函数而不是ParseMultiForm为了将请求当作流处理.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) ParseForm() error
+
+</p>
+ParseForm填充r.Form和r.PostForm.
+对于所有请求,ParseForm从原始的URL解析请求并更新r.Form.
+对于PUT,POST和PATCH请求,它也将请求主体当作表单解析且将结果填充到r.Form和r.PostForm,请求主体参数掌管r.Form中的URL请求值.对于其他HTTP方法或当Content-Type不是application/x-www-urlencoded,请求主体不被读,且r.PostForm被初始化为一个非空，非空值.
+如果请求的主体大小已经不被MaxBytesReader限制，大小被限制为10MB.
+ParseMultipartForm自动调用ParseForm.ParseForm是幂等的.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) ParseMultipartForm(maxMemory int64) error
+
+</p>
+ParseMultipartForm解析一个请求主体当作multipart/form-data.整个请求主体被解析且取决于被存储在内存中的文件的最大内存字节的合计,使用磁盘临时文件剩下的内存存储.ParseMultipartForm如果需要调用ParseForm,在调用一次ParseMultipartForm，随后的调用没有影响.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) PostFormValue(key string) string
+
+</p>
+PostFormValue返回POST,PUT,PATCH请求主体第一个命名的组件.URL请求被忽略,PostFormValue如果需要调用ParseForm和ParseMultipartForm并且忽略这些函数返回的错误.如果key不存在,PostFormValue返回空字符串.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) ProtoAtLeast(major, minor int) bool
+
+</p>
+ProtoAtLeast调查请求中使用的HTTP版本是否至少是major.minor.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) Referer() string
+
+</p>
+Referer返回URL的指向,如果该请求是被发送的.
+Referer在请求中是拼写错误,一个错误形式在早期的HTTP.这个value同样能够在Header当作Header["Referer"]取出,提供其作为一个方法的益处是编译器能够诊断程序使用可选(正确的英语拼写)req.Referrer但是不能诊断程序使用Header["Referrer"].
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) SetBasicAuth(username, password string)
+
+</p>
+SetBasicAuth设置请求的Authorization头部为了使用HTTP基本的认证通过提供的username和password.
+通过HTTP基本认证提供的username和password不被加密.
+一些协议可能强加附加的要求在预逃逸的username和password.比如,当使用OAuth2.两个参数必须被URL编码首先使用url.QueryEscape.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) UserAgent() string
+
+</p>
+UserAgent返回客户的User-Agent，如果在请求中被发送.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) WithContext(ctx context.Context) (*Request) 
+
+</p>
+WithContext返回r的一个浅复制通过改变它的ctx到context.提供的ctx必须是non-nil.
+对于出口的客户请求,context控制其请求和响应完整的生命周期：获得连接,发送请求,读取响应头部和主体.
+为了创建一个新的请求通过context,使用NewRequestWithContext,为了改变请求的context(比如进入的),你想要修改并发送,使用Request.Clone，在这两个使用之间,很少需要WithContext.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) Write(io.Writer) error
+
+</p>
+Write写入一个HTTP/1.1请求,这个方法协商请求的如下字段:
+<br/>
+<pre><code class="language-HTTP/1.1">Host
+URL
+Method(defaults to &quot;GET&quot;)
+Header
+ContentLength
+TransferEncoding
+Body
+</code></pre>
+如果Body存在,Content-Length是<=0且TransferEncoding没有被设置为"identity",Write添加“Transfer-Encoding:chunked”到头部,主体被关闭在被发送完.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Request) WriteProxy(writer io.Writer) error
+
+</p>
+WriteProxy像Write但是写入符合HTTP代理的格式.特别的是,WriteProxy写入请求最初的Request-URI通过一个绝对的URI,RFC 7230的section 5.3，包括scheme和host.在另一种情况下,WriteProxy也写入Host头部,使用r.Host或r.URL.Host.
+
+</span>
+
+<h1 id="type-response">type Response</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Response struct {
+    Status string // eg. &quot;OK 200&quot;
+    StatusCode int // eg. 200
+    Proto string // eg. &quot;HTTP/1.1&quot;
+    ProtoMajor int // eg. 1
+    ProtoMinor int // eg. 1
+    Header Header
+    Body io.ReadCloser
+    ContentLength int64
+    TransferEncoding []string
+    Close bool
+    Uncompressed bool
+    Trailer Header
+    Request *Request
+    TLS *tls.ConnectionState
+}
+</code></pre>
+Response呈现HTTP请求的响应.
+Client和Transport返回Responses一旦服务器接收到响应头部.响应主体要求是流当Body字段被读.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Get(url string) (resp *Response, err error)
+
+</p>
+Get发出一个GET到指定的URL.如果响应是如下的重定向码,Get跟随重定向,直到最大10个重定向.
+<br/>
+<pre><code class="language-HTTP">301(Move Permanently)
+302(Found)
+303(See Other)
+307(Temporary Redirect)
+309(Permanently Redirect)
+</code></pre>
+
+<p>如果这里有太多重定向或者发生HTTP协议错误将会返回错误.一个non-2xx响应不会造成一个错误.任何返回的错误类型将是*url.Error.这个*url.Error的值的Timeout方法可以调查是否是由请求超时或被取消.
+当err是nil,resp总是包含一个非空的resp.Body,调用者应该关闭它当它读取完毕.
+Get是一个DefaultClient.Get的封装.为了使得请求是定制的,使用NewRequest和DefaultClient.Do.</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Head(url string) (resp *Response, err error)
+
+</p>
+Head发送一个HEAD到指定的URL.如果其中一个响应跟随着一个重定向码,Head跟随重定向,直到最大10个重定向.
+<br/>
+<pre><code class="language-HTTP">301(Move Permanently)
+302(Found)
+303(See Other)
+307(Temporary Redirect)
+308(Permanently Redirect)
+</code></pre>
+
+<p>Head是DefaultClient.Head的封装.</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Post(url, contentType string, body io.Reader) (resp *Response, err error)
+
+</p>
+Post发送一个POST到指定的URL.
+调用者应该在读取完resp.Body关闭它.
+如果提供的body是一个io.Closer，它将会在请求后被关闭.
+Post是DefaultClient.Post的封装.
+为了设置定制的头部,使用NewRequest和DefaultClient.Do.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func PostForm(url string, data url.Values) (resp *Response, err error)
+
+</p>
+Post发送一个POST请求到指定的URL,通过URL-encoded的data的keys和values当作请求的body.
+Content-Type头部被设置为application/x-www-form-urlencoded.为了设置其他头部,使用NewRequest和DefaultClient.Do.
+当err是nil,resp总是包含一个非空的resp.Body.调用者应该关闭resp.Body当从其读取完.
+PostForm是Default.PostForm的封装.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadResponse(r *bufio.Reader, req *Request) (*Response, error)
+
+</p>
+ReadResponse读取且返回一个HTTP响应从r,req参数可选的指定响应对应的请求,如果为nil，假定为一个GET请求,当完成了resp.Body的读取,调用者必须调用resp.Body.Close关闭.在调用之后,客户能够检查resp.Trailer去发现包含在响应锚点的key/value对.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Response) Cookies() []Cookie
+
+</p>
+Cookies解析且返回在Set-Cookie头部的cookies
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Response) Location() (*url.URL, error)
+
+</p>
+Location返回Response的"Location"头部中的URL.如果存在,相对重定向被解析为相对到Response的Request，如果Location头部不存在,将会返回ErrNoLocation.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Response) ProtoAtLeast(major, minor int) bool
+
+</p>
+ProtoAtLeast调查Response的HTTP协议版本是否至少是major.minor.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (r *Response) Write(w io.Writer) error
+
+</p>
+Write写入r到w使用HTTP/1.x服务器的格式.包括状态行,头部,主体,和可选的锚点.
+这个方法协商响应r的如下字段.
+<br/>
+<pre><code class="language-HTTP">StatusCode
+ProtoMajor
+ProtoMinor
+Request.Method
+TransferEncoding
+Trailer
+Body
+ContentLength
+Header, values for non-canonical keys will have unpredictable behavior
+</code></pre>
+Response的主体将在请求被发送后关闭.
+
+</span>
+
+<h1 id="type-responsewriter">type ResponseWriter</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type ResponseWriter interface {
+    // Header返回将通过WriteHeader发送的header map
+    // Header map同样是Handlers能够设置HTTP锚点的机制.
+    // 在调用WriteHeader(or Write)之后改变header map
+    // 没有作用,除非修改的头部都是锚点.
+    //
+    // 这里有两种方法设置Trailers,首选的方式是在头部前置
+    // 声明设置&quot;Trailer&quot;头部键值的名字,在这种情况下,这些
+    // header map的键被认为似乎它们是trailers,查看示例.
+    // 第二种方法,对于trailers,键值不被Handler所知直到在第
+    // 一次写入之后,是通过header map键值的前缀
+    // TrailerPrefix进行设置，查看TrailerPrefix
+    //
+    // 为了取代自动设置的响应头部(比如&quot;Date&quot;),设置它们
+    // 的值为nil
+    Header() Header
+    // Write数据到连接作为HTTP答复的一部分.
+    // 如果WriteHeader至今未调用,Write会在写入数据
+    // 之前调用WriteHeader(http.StatusOK).
+    // 如果写入行不包含Content-Type行,Write添加一个
+    // Content-Type设置为传递的写入的数据最初的512 byte
+    // 检测到的类型.此外,如果写入的数据大小在较少的KB之下
+    // 且没有调用Flush，Content-Length自动添加.
+    //
+    // 取决于HTTP协议版本和客户,调用Write或者WriteHeader
+    // 可能会阻止未来在Request.Body读取.对于HTTP/1.x,
+    // handler应该在写入响应之前可以读取所有需要的请求主体
+    // 一旦头部已经被刷新(由于一个明确的Flusher,调用Flush
+    // 或者写入足够多的数据触发刷新),请求主体可能不能使用.
+    // 对于HTTP/2请求,GO HTTP服务器允许handler继续读取
+    // 请求主体,尽管同时正在写入响应.但是,这样的行为不被所有
+    // 的HTTP/2客户支持.如果可能最大化兼容性,Handlers应该
+    // 在写入之前读取.
+    Write([]byte) (int, error)
+    // WriteHeader通过提供的状态码发送HTTP响应头部.
+    //
+    // 如果WriteHeader不被明确地调用,第一次调用Write将会
+    // 隐含地调用WriteHeader(http.StatusOK).因此明确的
+    // WriteHeader主要用于发送错误代码.
+    //
+    // 提供的状态码必须是合理的HTTP 1xx-5xx状态码.
+    //只有一个头部能被写入.Go目前不支持用户自定义 1xx提示
+    // 头部,通过100-continue响应头部的例外
+    // Server自动发送当Request,Body被读取.
+    WriteHeader(statusCode int)
+}
+</code></pre>
+
+<p>一个ResponseWriter接口用于HTTP handler构造一个HTTP响应.
+在Handler.ServeHTTP方法返回后,ResponseWriter可能不被使用.</p>
+
+
+</span>
+
+<h1 id="type-servemux">type ServeMux</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type ServeMux struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>ServeMux是一个HTTP请求多路复用器,它匹配每个入口请求的URL针对一个列表已注册的模式和调用最接近的匹配URL的处理器调用.
+模式名称是固定的,比如&rdquo;/favicon.ico&rdquo;或有根子树&rdquo;/images/&ldquo;(注意斜杠).较长的模式优先于较短的模式,以至于如果handlers同时被注册用于&rdquo;/images/&ldquo;和&rdquo;/images/thumbnails/&ldquo;,之后的handlers将会调用路径&rdquo;/images/thumbnails/&ldquo;开始和开始接受&rdquo;/images/&ldquo;子树的形式.注意以斜杠结束的模式会命名有根的子树,模式&rdquo;/&ldquo;将会匹配所有其他注册模式不匹配的，不仅仅是URL的路径是&rdquo;/&ldquo;.
+如果一个子树已经被注册并且一个请求被接收以一个没有尾部斜杠的该子树名称命名的请求,ServeMux重定向该请求到子树根(增加尾部的斜杠),这个行为能够被覆盖通过一个路径单独的注册,不带斜杠.比如,注册&rdquo;/images/&ldquo;导致ServeMux重定向一个&rdquo;/images&rdquo;请求到&rdquo;/images/&ldquo;,除非&rdquo;/images&rdquo;已经被单独注册.
+模式可能可选的由主机名开始，强制URL只匹配那个主机,指定主机模式优先于普通的模式,因此handlers可能注册用于两种模式&rdquo;/codesearch&rdquo;和&rdquo;codesearch.google.com/&ldquo;而不是接受&rdquo;<a href="http://www.google.com/&quot;的请求,ServeMux还负责清理URL请求路径和Host头部.去掉端口号和重定向任何请求包含.或..元素或者重复的斜杠到等效项,更简洁的URL">http://www.google.com/&quot;的请求,ServeMux还负责清理URL请求路径和Host头部.去掉端口号和重定向任何请求包含.或..元素或者重复的斜杠到等效项,更简洁的URL</a>.</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewServeMux() *ServeMux
+
+</p>
+NewServeMux分配并且返回一个ServeMux
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (mux *ServeMux) Handle(pattern string, handler Handler)
+
+</p>
+Handle由给定的模式注册handler,如果对于给定的模式早就存在handler，将会panic.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (mux *ServeMux) HandleFunc(pattern string, handler func(ResponseWriter, *Request))
+
+</p>
+HandleFunc由给定的模式注册handler.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (mux *ServeMux) Handler(r *Request) (h Handler, p string)
+
+</p>
+Handler返回给定请求的handler,通过咨询r.Method,r.Host,r.URL.Path.它总是返回一个non-nil handler.如果path不是规范的形式,handler将会内部产生一个重定向到规范path的handler.如果host包含端口号,当匹配handler将被忽视.
+path和host未更改用于CONNECT请求.
+Handler也返回匹配请求的模式,或者,在内部产生重定向的情况下，模式将会匹配之后的重定向.
+如果这里没有注册的handler匹配请求,Handler将会返回"page not found"的handler和空的模式.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
+
+</p>
+ServeHTTP分发请求到最接近匹配的handler.
+
+</span>
+
+<h1 id="type-server">type Server</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Server struct {
+    // TCP地址，如果为空，&quot;:http&quot;
+    Addr string
+    // 如果http.DefaultServeMux为nil,触发的handler
+    Handler Handler
+    // TLSConfig可选的为ServeTLS和ListenAndServeTLS
+    // 提供TLS配置.注意这个值是通过ServeTLS和
+    // ListenAndServeTLS复制,因此它不可能修改配置通过
+    // 方法比如tls.Config.SetSessionTicketKeys.为了
+    // 使用SetSessionTicketKeys,使用Server.Serve和一个
+    // TLS Listener.
+    TLSConfig *tls.Config
+    // ReadTimeout是最大的时间段对于读取完整的请求,包括
+    // 请求主体.
+    //
+    // 因为ReadTimeout没有让Handlers作接收请求主体截止时间
+    // 或上传速率的决策,大多数用户更倾向使用
+    // ReadTimeoutHeader，同时使用两个是合理的.
+    ReadTimeout time.Duration
+    // ReadHeaderTimeout是允许读取请求头部允许的时间,
+    // 在读取头部和Handler能够决定导致读取主体缓慢的原因
+    // 之后连接的读取截止时间.如果ReadHeaderTimeout是零
+    // ,将使用ReadTimeout的值.如果都为零,这将没超时.
+    ReadHeaderTimeout time.Duration
+    // WriteTimeout是写入响应超时最大的时间段,无论何时
+    // 新请求的头部被读,它将被重置.比如ReadTimeout,它没有
+    // 在每个请求的基础上做决策.
+    WriteTimeout time.Duration
+    // IdleTimeout是在keep-alive激活的状态下,等待下次请求的
+    // 的最多时间.如果IdleTimeout为0,将使用ReadTimeout
+    // 如果同时为0,则将不会超时.
+    IdleTimeout time.Duration
+    // MaxHeaderBytes控制服务器解析和读取请求头部
+    // 键和值的最大的字节数,包括请求行.它不会限制请求
+    // 主体,如果它的值为0,将会使用DefaultMaxHeaderBytes
+    MaxHeaderBytes int
+    // TLSNextProto可选的指定一个函数掌管被提供的TLS连接
+    // 的所有权,当出现一个NPN/ALPN协议升级.键值是协商的名称
+    // ,Handler参数应该被用来HTTP请求并且将会初始化Request
+    // 的TLS和RemoteAddr,如果没有被设置.当函数返回时,连接将
+    // 自动关闭,如果TLSNextProto非空,HTTP/2将不会被自动激活
+    TLSNextProto map[string]func(*Server, *tls.Conn, Handler)
+    // ConnState指定一个回调函数当一个客户连接改变了状态,查看
+    // type ConnState和一些常量更多细节.
+    ConnState func(net.Conn, ConnState)
+    // ErrorLog可选的指定一个记录错误连接接受,Handler的不正常的行为
+    // 底层文件系统错误的日志器,如果为nil,日志记录将由log包中标准
+    // 日志器完成.
+    ErrorLog *log.Logger
+    // BaseContext可选的指定函数返回对于服务器进入的请求基本的context
+    // ,被提供的Listener是指定的开始接受请求的Listener.
+    // 如果BaseContext为nil,将会使用context.Background()
+    // 如果BaseContext非空,将会返回一个非空的context.
+    BaseContext func(net.Listener) context.Context
+    // ConnContext可选的用于一个新连接c的context,被提供的ctx从
+    // BaseContext派生并且拥有一个ServerContextKey值.
+    ConnContext func(ctx context.Context, c net.Conn) context.Context
+    // contains filtered or unexported fields
+}
+</code></pre>
+Server定义了运行HTTP Server的参数,Server的零值是合理的配置.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (srv *Server) Close() error
+
+</p>
+Close将会关闭所有激活的net.Listener和在状态StateNew,StateActive,StateIdle的连接.
+为了优雅的关闭,使用Shutdown.Close不会关闭被劫持(甚至都不知道)的连接,比如WebSockets.
+Close返回由关闭底层Listener返回的错误.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (srv *Server) ListenAndServe() error
+
+</p>
+ListenAndServe将会监听srv.Addr提供的地址的TCP连接且将会调用Serve处理连接入口的请求,被接受的连接将会被配置为激活TCP keep-alives.如果srv.Addr为空白将会使用":http".ListenAndServe总是返回一个非空error,在Shutdown或Close返回后,将会返回ErrServerClosed.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ListenAndServeTLS(certFile, keyFile string) error
+
+</p>
+ListenAndServeTLS将会监听src.Addr提供地址的TCP连接并且调用ServeTLS处理连接入口的请求,被接受的连接将会激活TCP keep-alives.文件名包含服务器必须提供的证书和私匙,如果Server的TLSConfig.Certificates和TLSConfig.GetCertificate都未被填充.如果证书是由权威证书机构签发,certFile应该是服务器证书的串联,任何中间体,CA的证书.如果src.Addr是空白,将会使用":https".ListenAndServeTLS总是返回非空错误,在Shutdown或Close返回后,将会返回ErrServerClosed.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (srv *Server) RegisterOnShutdown(f func())
+
+</p>
+RegisterOnShutdown注册一个函数在Shutdown时调用,此函数可以优雅的关闭连接当经历
+NPN/ALPN协议升级或者已经被劫持.函数应该开始于指定协议优雅的关闭,而不是等待关闭完成.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (srv *Server) Serve(l net.Listener) error
+
+</p>
+Serve接受由l进入的连接,为每个连接创建一个goroutinue.服务goroutine读取请求然后调用src.Handler回复它们.
+HTTP/2支持被激活如果Listener返回*tls.Conn连接并且它们在TLSConfig.TLSNextProtos被配置为"h2".Serve总是返回非空错误并且关闭Listener,在Shutdown或Close之后,返回ErrServerClosed.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (srv *Server) ServeTLS(l net.Listener, certFile, keyFile string) error
+
+</p>
+ServeTLS接受l进入的连接,并且为每个连接创建一个新的goroutine.该服务实施TLS建立,读取请求,调用srv.Handler回复它们.
+文件包含证书和服务器必须提供的匹配的私钥,如果TLSConfig.Certificates或TLSConfig.GetCertificate都未被填充,如果证书由权威结构签发,certFile必须是服务器证书的串联,任何中间体,CA的证书.ServeTLS总是返回非空error,在Shutdown和Close返回后,返回ErrServerClosed.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (srv *Server) SetKeepAlivesEnabled(v bool)
+
+</p>
+SetKeepAlivesEnabled控制HTTP keep-alives是否被激活.默认的keep-alives总是被激活的.只有资源非常有限的环境或服务器在关闭的进程应该禁用它们.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (srv *Server) Shutdown(ctx context.Context) error
+
+</p>
+Shutdown优雅地关闭服务器不会中断任何连接,Shutdown工作在首先关闭所有打开的监听者,然后关闭所有空闲的连接,然后无限期的等待连接空闲然后关闭.如果context在关闭完成前过期了,Shutdown返回context的错误,否则,它返回由关闭Server依赖的监听者返回的错误.
+当Shutdown调用时,ListenAndServe,ListenAndServeTLS,Serve,ServeTLS将会立即返回ErrServerClosed.
+Shutdown不会关闭也没有等待被劫持的连接,比如WebSockets,Shutdown的调用者应该单独地通知长连接关闭并且等待它们关闭,如果需要,可以查看RegisterOnShutdown用于注册关闭通知函数.
+一旦在服务器上调用过Shutdown,它可能将不会被重用,以后调用Serve这样的方法将会返回ErrServerClosed.
+
+</span>
+
+<h1 id="type-client">type Client</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+Client是一个HTTP客户,它的零值(DefaultClient)是使用DefaultTransport的可用客户.Client的Transport通常拥有内部的状态(被缓存的TCP连接),因此,Clients应该被重新使用而不是按照需要创建新客户.Clients多个并发goroutine使用是安全的.Client是一个高级的RoundTripper(比如Transport)并且附带处理HTTP的细节比如cookies和redirects.当跟随重定向时,Client将会转发所有初始Request设置的头部,除了:
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    当转发敏感的头部比如"Authorization","WWW-Authenticate","Cookie"到不信任的目标.这些头部将会被忽视,当跟随一个域名不是匹配子域名或精确地是初始的域名的请求.比如重定向"foo.com"到"foo.com"或"sub.foo.com"将会转发敏感的头部,但是重定向到"bar.com"则不会.
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    当转发头部"Cookie"通过非空的cookie Jar,因为每次重定向都可能改变cookie jar的状态,一次重定向可能改变初始请求的cookies集合,当转发"Cookie"头部,任何变异的cookie将会被忽略,通过Jar将会插入这些变异的cookies通过更新值(假设起始匹配).如果Jar是nil,初始的cookies将不做改变的转发.
+    
+    </span>
+</p>
+
+</div>
+
+<br/>
+<pre><code class="language-go">type Client struct {
+    // Transport指定每个HTTP请求的机制
+    // 如果为nil,使用DefaultTransport
+    Transport RoundTripper
+    // CheckRedirect指定处理重定向的策略
+    // 如果CheckRedirect非空,客户跟随重定向前
+    // 将会调用它,参数req,via都是即将来临的请求
+    // 并且请求都早已发出,更旧的优先.如果
+    // CheckRedirect返回错误,Client的Get方法
+    // 将会返回以前的Response(它的主体已关闭)和
+    // CheckRedirect的错误(被url.Error封装)
+    // 而不是请求 Request req的问题.
+    // 作为一个特例,CheckRedirect返回ErrUseLastResponse
+    // ,然后最近的Response被返回且其主体未关闭,随同一个nil error
+    CheckRedirect func(req *Request, via []*Request) 
+    // Jar指定cookie jar
+    //
+    // Jar用于向每个出站的请求插入cookie,并且被更新
+    // 通过入站的响应,Jar被每个跟随的重定向的客户协商.
+    //
+    // 如果Jar为nil,Cookie只会在请求明确设置时被发送
+    Jar CookieJar
+    // Timeout指定该客户发出请求的时间限制,超时包括连接时间
+    // ,任何重定向和读取响应主体,定时器任会运行在Get,Head,Post
+    // 或者Do返回,将会中断读取Response.Body.
+    //
+    // Timeout为0,意味着不会超时.
+    // 
+    // 客户取消请求到底层的Transport,即使Request的Context
+    // 已经结束
+    // 为了兼容性,Client将会使用废弃的CancelRequest方法在
+    // Transport如果找到的话,新的RoundTripper应该使用
+    // 请求Context的取消,而不是CancelRequest的实现.
+    Timeout time.Duration
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Client) CloseIdleConnections()
+
+</p>
+CloseIdleConnections关闭任何在它的Transport的连接以前被连接通过以前的请求,但是现在保持空闲的"keep-alive"状态,它不会中断任何目前正在使用的连接.如果Client的Transport没有CloseIdleConnections方法,将不会做任何事.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Client) Do(req *Request) (*Response, error)
+
+</p>
+Do发送一个HTTP请求并返回一个HTTP响应,跟随客户配置的策略(比如cookies,redirects,auth).如果客户策略造成错误(比如CheckRedirect),或者HTTP通信失败(比如网络连接问题)将会被返回.一个非2xx的状态码不会造成错误.如果返回的错误为nil,将会返回一个Response包含用户期待关闭的非空主体,如果Body没有被同时读完和关闭,客户底层的RoundTripper(通常是Transport)可能不能使用到服务器的持续TCP连接对于随后的"keep-alive"请求.
+请求的主体如果非空,即使在发生错误的情况下也会被底层的Transport关闭.在发生错误的情况下,任何响应都将被忽视.通常使用Get,Post,Head而不是Do.如果服务器回应一个重定向,Client首先使用CheckRedirect决定是否跟随重定向.如果被允许,一个301,302或者303重定向造成后续的请求使用HTTP方法 GET(或者HEAD,如果原始请求是HEAD),和没有主体.一个307或308重定向保护原始的HTTP方法和主体,被定义的Request.GetBody函数提供.NewRequest自动为标准库共有的body类型设置GetBody函数.任何被返回的错误类型为*url.Error.url.Error的Timeout方法将会调查请求是否超时或被取消.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Client) Get(url string) (*Response, error)
+
+</p>
+Get发出一个GET请求到指定,如果响应是如下的状态码,Client在调用CheckRedirect后跟随重定向:
+<br/>
+<pre><code class="language-text">301(Moved Permanently)
+302(Found)
+303(See Other)
+307(Temporary Redirect)
+308(Permanent Redirect)
+</code></pre>
+
+<p>错误被返回如果Client的CheckRedirect调用失败或者HTTP协议错误,一个non-2xx的响应不会返回错误,任何返回的错误将为*url.Error类型,url.Error值的Timeout方法可以调查请求是超时或被取消.当err是nil,resp总是包含非空的resp.Body,调用必须在读取完Body关闭它.
+为了定制化请求的头部,使用NewRequest和Client.Do.</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Client) Head(url string) (*Response, error)
+
+</p>
+Head发出一个HEAD请求到指定的URL,如果响应是以下重定向码中的一个,Head将会跟随重定向在调用Client的CheckRedirect函数之后
+<br/>
+<pre><code class="language-HTTP">301(Moved Permanently)
+302(Found)
+303(See Other)
+307(Temporary Redirect)
+308(Permanently Redirect)
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Client) PostForm(url string, data *url.Values) (resp *Response, err error)
+
+</p>
+PostForm发出一个POST请求到指定的URL,通过URL-encoded的键和值作为请求主体.Content-Type被设置为application/x-www-form-urlencoded,为了设置其它头部,使用NewRequest和Client.Do.当err是空,resp总是包含一个非空的resp.Body,调用者应该关闭它,在读取完毕它.
+
+</span>
+
+<h1 id="type-handler">type Handler</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+Handler回应HTTP请求.
+ServeHTTP应该写应答头部和数据到ResponseWriter并且返回,返回表明请求已经完成,在ServeHTTP完成后使用ResponseWriter或之后或并发读取请求主体是不合理的.取决于HTTP客户端软件,HTTP协议版本,和任何客户与Go服务器之间的媒介,可能不可能在写入ResponseWriter之后读取请求主体,谨慎的handlers应该先读取请求主体然后回应.除了被读取的主体,handlers不应该修改被提供的请求.如果ServeHTTP发生了panic,服务器(ServeHTTP的调用者)假定panic发生的影响被活跃的请求孤立,它回收panic,记录栈的跟踪信息到服务器的错误日志,并且要么关闭网络连接或发送一个HTTP/2 RST_STREAM,取决于HTTP协议,终止handler为了让客户看到被中断的响应,但是服务器不会记录一个错误,通过ErrAbortHandler panic
+<br/>
+<pre><code class="language-go">type Handler interface {
+    ServeHTTP(ResponseWriter, *Request)
+}
+</code></pre>
+
+</span>
+
+<h1 id="type-handlerfunc">type HandlerFunc</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+HandlerFunc是一个适配器,允许普通的函数当做HTTP handlers,如果函数f有一个恰当的函数签名,HandlerFunc(f)是一个调用f的处理器.
+<br/>
+<pre><code class="language-go">type HandlerFunc func(ResponseWriter,*Request)
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
+
+</p>
+ServeHTTP调用f(w, r)
+
+</span>
+
+<h1 id="type-header">type Header</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+Header表示HTTP头部的key-value键值对,键应该是规范的格式,通过CanoncialHeaderKey返回.
+<br/>
+<pre><code class="language-go">type Header map[string][]string
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (h Header) Add(key, value string)
+
+</p>
+Add增加key和value键值对到头部,它追加存在的值到关联的键中,key是大小写敏感的,它通过CanonicalHeaderKey被规范化.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (h Header) Clone() Header
+
+</p>
+Clone返回h的一个复制.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (h Header) Del(key string)
+
+</p>
+Del删除关联键的值,它是大小写敏感的,它被CanonicalHeaderKey规范化.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (h Header) Set(key, value string)
+
+</p>
+Set设置头部关联的key的一个值,它替换任何key存在的关联值,key是大小写敏感的,它规范化通过textproto.CanonicalMIMEHeaderKey,为了使用非规范化的key,直接对map赋值.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (h Header) Write(w io.Writer) error
+
+</p>
+Write写入头部使用wire format.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
+
+</p>
+WriteSubset写入头部使用wire format,如果exclude是非空的,exclude[key]为true的键值不会被写入.
+
+</span>
+
+<h1 id="type-cookie">type Cookie</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+Cookie表示一个HTTP cookie,作为一个HTTP 响应的Set-Cookie头部,或者HTTP头部的Cookie头部,查看<br/><a href=https://tools.ietf.org/html/rfc6265 style="color:chartreuse; display:inline-block; position:relative">https://tools.ietf.org/html/rfc6265</a>有更多细节.
+<br/>
+<pre><code class="language-go">type Cookie struct {
+    Name string
+    Value string
+    Path string //可选的
+    Domain string //可选的
+    Expires time.Time //可选的
+    RawExpires string // 只用于读取cookie
+    MaxAge int
+    Secure bool
+    HttpOnly bool
+    SameSite SameSite //Go 1.11
+    Raw string
+    Unparsed []string // 原始文本未解析的键值对
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (c *Cookie) String() string
+
+</p>
+String返回序列化的cookie用于Cookie头部(如果只有Name和Value被设置)或者一个Set-Cookie头部(如果其他字段被设置),如果c是nil或者c.Name不合理,将会返回空字符串.
+
+</span>
+
+<h1 id="函数-functions">函数(Functions)</h1>
+
+<span style="color:#fd9466; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Serve(l net.Listener, handler Handler) error
+
+</p>
+Serve接受监听者l的入口HTTP请求,为每个请求创建一个服务goroutine,服务goroutine读取请求然后调用handler回复它,handler通常是空的,在这种情况下将会使用DefaultServeMux.
+如果Listener返回*tls.Conn连接并且它们在TLS Config.NextProtos被配置为"h2",Serve总是返回非空error.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ServeContent(w ResponseWriter, req *Request, name string, modtime time.Time,content io.ReadSeeker)
+
+</p>
+ServeContent使用被提供的ReadSeeker的内容回复请求,ServeContent比io.Copy的好处主要是恰当地处理范围的请求,设置MIME类型并且处理If-Match,If-Unmodified-Since,If-None-Match,If-Modified-Since和If-Range请求.
+如果响应的Content-Type没有被设置,ServeContent首先试图由文件扩展名推断类型,并且如果失败,后退到读取内容第一块并且传递到DetectContentType.name不然是无用的,并且它可以为空并且从不被响应发送.如果modtime非零值或者Unix纪元,ServeContent包括它在响应的Last-Modified头部,如果请求包含一个If-Modified-Since头部,ServeContent根据modtime决定是否完全需要发送内容,content的Seek方法必须起作用:ServeContent使用定位到它的尾部来决定大小.
+如果调用者设置w's ETag头部被格式化每个RFC 7232 Section 2.3,ServeContent使用它处理请求使用If-Match,If-None-Match或者If-Range.
+注意*os.File实现了io.ReadSeeker接口.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ServeFile(w ResponseWriter, r *Request, name string)
+
+</p>
+ServeFile回复请求通过命名的文件或目录,如果提供的文件名或目录名是相对路径,它被解释通过当前路径并且可能上升到父级目录,如果被构造的名字是用户的输入,它应该在调用ServeFile之前进行防止注入.作为一个防护措施,ServeFile将会拒绝请求中r.URL.Path包含".."路径元素,这防止调用者可能不安全的使用filepath.Join在r.URL.Path没有消毒,然后使用filepath.Join的结果作为name参数.作为另一种特别的情况,ServeFile重定向任何请求以"/index.html"结尾到没有后面"/index.html"同样的路径,为了避免这样的重定向可以修改路径或使用ServeContent.除了这两种情况,ServeFile不会使用r.URL.Path用于选择文件和目录去服务,只有被提供的文件名或目录名被使用.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ServeTLS(l net.Listener, handler Handler, certFile, keyFile string) error
+
+</p>
+ServeTLS接受在Listener l上的入口HTTPS连接,为每个连接创建新的服务goroutine,服务goroutine读取请求然后调用handler回复它们,handler通常为空,这种情况下使用DefaultMux.此外,文件包含证书和匹配的私钥对于服务器必须被提供,如果证书是由权威机构签发的,certFile必须是服务器证书的级联,任何中间媒介,和CA的证书.ServeTLS总是返回非空TLS.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SetCookie(w ResponseWriter, cookie *Cookie)
+
+</p>
+SetCookie增加一个Set-Cookie到被提供的ResponseWriter头部,被提供的Cookie必须有合理的名称,不合理的Cookie可能会被默默的处理掉.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StatusText(code int) string
+
+</p>
+StatusText返回HTTP状态码的文本,如果状态码未知将会返回空字符串.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NotFound(w ResponseWriter, r *Request)
+
+</p>
+NotFound通过HTTP 404(Not Found)错误应答请求
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ParseHTTPVersion(vers string) (major, minor int, ok bool)
+
+</p>
+ParseHTTPVersion解析HTTP版本字符串,比如HTTP/1.1返回(1, 1, true).
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ParseTime(text string) (t time.Time, err error)
+
+</p>
+ParseTime解析时间头部(比如:Date: header),尝试HTTP/1.1允许的三种时间格式:TimeFormat, time.RFC853, time.ANSIC.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ProxyFromEnvironment(req *Request) (*url.URL, error)
+
+</p>
+ProxyFromEnvironment返回代理的URL用于给定的请求,如环境变量HTTP_PROXY,HTTPS_PROXY和NO_PROXY指示的那样(或其中的小写版本),对于https请求,HTTPS_PROXY优先于HTTP_PROXY,环境变量值可能是完整的URL或者一个"host[:port]",这种情况下"http"方案是被假定的,如果值是不同的形式将会返回错误.如果没有代理定义在环境变量中,或者代理不应该用于给定的请求,如NO_PROXY定义将会返回空的URL和空的错误.作为特殊情况,如果req.Host是"localhost"(存在或不存在端口号),然后空的URL和错误将返回.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ProxyFunc(fixedURL *url.URL) func (*Request) (*url.URL, error)
+
+</p>
+ProxyFunc返回一个代理函数(为了在Transport使用)总是返回同样的URL.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Redirect(w ResponseWriter, r *Request, url string, code int)
+
+</p>
+Redirect回复请求通过重定向到url,它可能是相对请求路径的一条路径.被提供的code应该是在3xx的范围,通常是StatusMovedPermanently,StatusFound,或者StatusSeeOther.如果Content-Type没有被设置,重定向设置它到"text/html;charset=utf-8"并且写入一个简略的HTML body,设置Content-Type到任何值,包括nil,将会禁用该行为.
+
+</span>
+
+<h1 id="more-are-added-in-the-future">More are added in the future &hellip;</h1>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/log/syslog/">
+          <span class="button__text">Syslog</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

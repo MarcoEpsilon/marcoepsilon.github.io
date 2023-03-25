@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Net :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview net包提供了可移植的网络I/O接口,包括TCP/IP,UDP,域名解析,Unix域socket,尽管包提供了接近底层网络原语的方法,但是"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/net/net/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Net :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview net包提供了可移植的网络I/O接口,包括TCP/IP,UDP,域名解析,Unix域socket,尽管包提供了接近底层网络原语的方法,但是" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Net :: Marco Epsilon — ">
+<meta property="og:description" content="Overview net包提供了可移植的网络I/O接口,包括TCP/IP,UDP,域名解析,Unix域socket,尽管包提供了接近底层网络原语的方法,但是" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/net/net/" />
+<meta property="og:site_name" content="Net" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-09-23 17:16:17 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/net/net/">Net</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-09-23
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/net/">net</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+net包提供了可移植的网络I/O接口,包括TCP/IP,UDP,域名解析,Unix域socket,尽管包提供了接近底层网络原语的方法,但是大多数客户只需要由Dial, Listen, Accept函数和相关的Conn和Listener接口提供的基础的设施,crypto/tls包提供相同的函数和相似的Dial和Listen函数
+
+</span>
+
+<h2 id="域名解析">域名解析</h2>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+解析域名的方法,不论是间接的使用函数比如Dial,或直接的使用函数LookupHost和LookupAddr,因系统而异
+对于Unix系统,解析器有两种方法解析名字,直接发送DNS请求到在/etc/resolv.conf的服务器能够使用go的原生解析器,或使用调用c library routines比如getaddrinfo,getaddrinfo的cgo-based的解析器
+默认使用原生的解析器,因为一个阻塞的DNS请求只需要消费一个goroutine,但是一个阻塞的C调用消费一个操作系统线程,当cgo可用时,cgo-based resolver使用在各种条件之下:操作系统不允许程序直接发送DNS请求(OS X),当LOCALDOMAIN环境存在的话(即使是空),当RES_OPTION或HOSTALIASES环境变量是非空的,当ASR_CONFIG环境变量是非空的(OpenBSD only),当/etc/resolv.conf或者/etc/nsswitch.conf指定使用的特征,GO resolver 没有实现,当名字查找以.local结尾或是一个组播DNS名字
+解析器的决定能够被设置GODEBUG环境变量值netdns,可以查看go or cgo (package runtime),比如
+<br/>
+<pre><code class="language-bash">export GODEBUG=netdns=go // force pure go resolver
+export GODEBUG=netdns=cgo // force cgo resolver
+</code></pre>
+也可以在go编译时设定netgo或netcgo build tag
+当netdns被设定为一个数字,比如GODEBUG=netdns=1,将会造成解析器打印关于决定的调试信息,为了强迫一个特定的解析器也打印调试信息,汇总两个设置通过添加一个符号,比如GODEBUG=netdns=go+1
+对于Plan 9,解析器总是通过/net/cs和/net/dns
+对于Windows,总是使用C Functions,如GetAddrInfo,DnsQuery
+
+</span>
+
+<h1 id="常量-constants">常量(Constants)</h1>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+IP地址长度(bytes)
+<br/>
+<pre><code class="language-go">const (
+    IPv4len = 4
+    IPv6len = 16
+)
+</code></pre>
+
+</span>
+
+<h1 id="变量-variables">变量(Variables)</h1>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+<br/>
+<p>众所周知的IPv4地址</p>
+
+<pre><code class="language-go">var (
+    IPv4bcast = IPv4(255, 255, 255, 255) // limited broadcast
+    IPv4allsys = IPv4(224, 0, 0, 1) // all systems
+    IPv4allrouter = IPv4(224, 0, 0, 2) // all routers
+    IPv4zero = IPv4(0, 0, 0, 0) // all zeros
+)
+</code></pre>
+
+众所周知的IPv6地址
+<br/>
+<pre><code class="language-go">var (
+    IPv6zero = IP{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    IPv6unspecified = IP{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    IPv6loopback = IP{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    IPv6interfacelocalallnodes = IP{0xff, 0x11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x01}
+    IPv6linklocalallnodes = IP{0xff, 0x02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x01}
+    IPv6linklocalallrouters = IP{0xff, 0x02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x02}
+)
+</code></pre>
+默认的解析器是被包级的package-level的Lookup函数和没有指定解析器的Dialer使用
+<br/>
+<pre><code class="language-go">var DefaultResolver = &amp;Resolver{}
+</code></pre>
+被OpError包含的各种错误
+<br/>
+<pre><code class="language-go">var (
+    ErrWriteToConnected = errors.New(&quot;use of WriteTo with pre-connected connection&quot;)
+)
+</code></pre>
+
+</span>
+
+<h1 id="函数-functions">函数(Functions)</h1>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func JoinHostPort(host, port string) string
+
+</p>
+JoinHostPort结合host和post到网络地址"host:port"格式,如果host包含冒号,如IPv6地址所示,它将会返回"[host]:port"
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SplitHostPort(hostport string) (host string, port string, err error)
+
+</p>
+SplitHostPort分割网络地址格式"host:port", "host%zone:port", "[host]:port","[host%zone]:port"成host或host%zone和port
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LookupAddr(addr string) (name []string, err error)
+
+</p>
+LookupAddr反向查找给出的地址,返回映射到地址的名字列表
+当使用本地的C library解析器,最多一个结果将会被返回,为了绕过本地解析器,使用定制的解析器
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LookupCNAME(host string) (cname string, err error)
+
+</p>
+LookupCNAME返回给出host的规范名字,调用者不必关心规范名称能够直接调用LookupHost,LookupIP直接,两者都将解析规范名称作为查找的一部分
+规范名称是遵循零个或多个CNAME记录,LookupCNAME不会返回错误,如果host不包含DNS"CNMAE"记录,只要解析器解析地址记录
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LookupHost(host string) (addr []string, err error)
+
+</p>
+LookupHost查找给出的主机名使用本地的解析器,返回主机地址的切片
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LookupPort(network, service string) (port int, err error)
+
+</p>
+LookupPort查找关于network和service的port
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LookupTXT(name string) ([]string, error)
+
+</p>
+返回给出域名的DNS TXT记录
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;net&quot;
+)
+
+func main() {
+	addr := net.JoinHostPort(&quot;localhost&quot;, &quot;8080&quot;)
+	fmt.Println(addr)
+	baiduAddrs, err := net.LookupHost(&quot;www.baidu.com&quot;)
+	if err != nil {
+		panic(err)
+	}
+	for _, addr := range baiduAddrs {
+		fmt.Println(addr)
+	}
+	baiduNames, err := net.LookupAddr(&quot;8.8.8.8&quot;)
+	if err != nil {
+		panic(err)
+	}
+	for _, name := range baiduNames {
+		fmt.Println(name)
+	}
+	cname, err := net.LookupCNAME(&quot;www.baidu.com&quot;)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(cname)
+	port, err := net.LookupPort(&quot;tcp&quot;, &quot;smtp&quot;)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(port)
+	txts, err := net.LookupTXT(&quot;segmentfault.com&quot;)
+	if err != nil {
+		panic(err)
+	}
+	for _, txt := range txts {
+		fmt.Println(txt)
+	}
+}
+</code></pre>
+
+</span>
+
+<h1 id="conn">Conn</h1>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+Conn是一个面向流的网络连接,多个goroutine可以在Conn上同时调用方法
+<br/>
+<pre><code class="language-go">type Conn interface {
+	// Read从连接上读取数据
+	// Read可以设置超时并且返回一个错误Timeout() == true在固定的时间限制后
+	Read(b []byte) (n int, err error)
+	
+	// Write写入数据到连接
+	// Write可以设置超时并返回一个错误Timeout() == true在固定的时间限制后
+	Write(b []byte) (n int, err error)
+
+	// Close关闭连接
+	// 所有的Read或Write阻塞操作将会非阻塞和返回错误
+	Close() error
+
+	// LocalAddr返回本地网络地址
+	LocalAddr() Addr
+
+	// RemoteAddr返回远程网络地址
+	RemoteAddr() Addr
+
+	// SetDeadline设置读和写的关联连接的截止时间
+	// 它等同于同时调用SetReadDeadline和SetWriteDeadline
+	// SetDeadline时间是I/O操作后的绝对时间,以timeout错误失败而不是阻塞
+	// deadline应用于所有未来和未决定的I/O操作
+	// 不仅是接下来的Read或Write操作
+	// 当超过了deadline,连接能够被刷新通过以后设置deadline
+	// 一个空闲的timeout能够被重复的扩展实现截止时间
+	// 在成功的调用Write和Read后
+	// 零值的t意味着I/O不会超时
+	// 注意:如果TCP连接keep-alive选项开启
+	// 默认是这样除非重写通过Dialer.KeepAlive或ListenConfig.KeepAlive
+	// keep-alive失败可能会造成timeout error,对于Unix系统keep-alive在I/O失败能
+	// 够被检测到,通过 errors.Is(syscall.ETIMEOUT)
+	SetDeadline(t time.Time) error
+	SetWriteDeadline(t time.Time) error
+	SetReadDeadline(t time.Time) error
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Dial(network, address string) (Conn, error)
+
+</p>
+Dial连接地址通过指定的网络
+众所周知的网络有:"tcp","tcp4"(IPv4 only), "tcp6"(IPv6 only), "udp", "udp4"(IPv4 only), "udp6"(IPv6 only), "ip", "ip4"(IPv4 only), "ip6"(IPv6 only),
+"unix", "unixgram", "unixpacket"
+<br/>
+对于TCP和UDP,地址有"host:port"的格式,host必须是IP地址字面量或是能够被解析成IP地址的主机名,port必须是端口的数值或服务名,如果地址是IPv6地址的字面量,则必须使用"[host]"将其包围,比如"[2001:db8::1]:80",当使用TCP,解析host有多个IP 地址,Dial将会尝试所有地址,直到成功
+Examples:
+<br/>
+<pre><code class="language-go">Dial(&quot;tcp&quot;, &quot;golang.org:http&quot;)
+Dial(&quot;tcp&quot;, &quot;192.0.2.1:http&quot;)
+Dial(&quot;tcp&quot;, &quot;198.51.100.1:80&quot;)
+Dial(&quot;udp&quot;, &quot;[2001:db8::1]:domain&quot;)
+Dial(&quot;udp&quot;, &quot;[fe80::1%lo0]:53&quot;)
+Dial(&quot;tcp&quot;, &quot;:80&quot;)
+</code></pre>
+对于IP网络,网络必须是"ip","ip4", "ip6"紧接着冒号和一个原生的协议号或协议名,host必须是一个IPv4或带zone的IPv6地址字面量,操作系统对于不是众所周知的协议号的行为比如"0"和"255"取决于操作系统
+Examples:
+<br/>
+<pre><code class="language-go">Dial(&quot;ip4:1&quot;, &quot;192.0.2.1&quot;)
+Dial(&quot;ip6:ipv6-icmp&quot;, &quot;2001:db8::1&quot;)
+Dial(&quot;ip6:58&quot;, &quot;fe80::1%lo0&quot;)
+</code></pre>
+对于TCP,UDP,IP网络,不正确的地址将会被假定为本地地址
+对于Unix网络,地址必须是文件系统的路径
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
+
+</p>
+DialTiemout和Dial行为类似但是需要超时
+超时包括名字解析,如果需要的话,当使用TCP,主机地址被解析成多个网络地址,timeout将会被分割到每个连续的dial,因此每个都有适当的连接时间
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func FileConn(f *os.File) (c Conn, err error)
+
+</p>
+FileConn返回一个连接的复制通过打开一个文件,调用负责关闭文件当完成时,关闭c不起作用,关闭文件不会影响c
+
+</span>
+
+<h1 id="listener">Listener</h1>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+Listener是通用的面向流协议的网络监听者
+多个goroutine可以同时在Listener上调用方法
+<br/>
+<pre><code class="language-go">type Listener interface {
+	// Accept等待和返回下一个连接到Listener
+	Accept() (Conn, error)
+	// Close关闭监听者
+	// 任何阻塞的Accept操作变为非阻塞且返回错误
+	Close() error
+	// Addr返回监听者的网络地址
+	Addr() error
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func FileListener(f os.File) (ln Listener, err error)
+
+</p>
+FileListener返回网络监听者的副本通过打开文件f,调用者负责关闭文件,关闭文件不影响ln,关闭ln不影响文件
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Listen(network, address string) (Listenr, error)
+
+</p>
+在本地网络地址监听
+network必须是"tcp", "tcp4", "tcp6", "unix" or "unixpacket"
+<br/>
+<h2 id="example">Example</h2>
+<p style="color:#8470FF; font-size:21px; margin-bottom: 5px;">
+
+server.go
+
+</p>
+<br/>
+<pre><code class="language-go">package main
+import (
+	&quot;net&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	listener, err := net.Listen(&quot;tcp&quot;, net.JoinHostPort(&quot;127.0.0.1&quot;, &quot;16000&quot;))
+	if err != nil {
+		panic(err)
+	}
+	for {
+		conn, err := listener.Accept()
+		if err != nil {
+			break
+		}
+		go func() {
+			buf := make([]byte, 1024)
+			n, _ := conn.Read(buf)
+			fmt.Println(string(buf[:n]))
+			conn.Write([]byte(&quot;hello, i am your server&quot;))
+			defer conn.Close()
+		}()
+	}
+}
+</code></pre>
+<p style="color:#8470FF; font-size:21px; margin-bottom: 5px;">
+
+client.go
+
+</p>
+<br/>
+<pre><code class="language-go">package main
+import (
+	&quot;net&quot;
+	&quot;fmt&quot;
+	&quot;strings&quot;
+	&quot;bytes&quot;
+)
+
+func main() {
+	conn, err := net.Dial(&quot;tcp&quot;, net.JoinHostPort(&quot;127.0.0.1&quot;, &quot;16000&quot;))
+	if err != nil {
+		panic(err)
+	}
+	r := strings.NewReader(&quot;hello, i'm your client&quot;)
+	_, err = r.WriteTo(conn)
+	if err != nil {
+		panic(err)
+	}
+	buf := new(bytes.Buffer)
+	_, err = buf.ReadFrom(conn)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(buf.String())
+	fmt.Println(&quot;bye, bye!&quot;)
+	defer conn.Close()
+}
+</code></pre>
+
+</span>
+
+<h1 id="pipe">Pipe</h1>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Pipe() (Conn, Conn)
+
+</p>
+Pipe创建一个同步,基于内存的全双工网络连接,两端都实现了Conn接口,Read操作匹配另一端的写操作,直接在二者拷贝数据而不经过缓冲区
+
+</span>
+
+<h1 id="buffers">Buffers</h1>
+
+<span style="color:#00CED1; " class="plain_text plain_text_default">
+    
+Buffers包含零个或多个要写入的bytes
+对于明确的机器,对于明确的连接类型,这是理想化的操作系统特定写操作批处理(比如"writev")
+<br/>
+<pre><code class="language-go">type Buffers [][]byte
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*Buffers) Read(p []byte) (n int, err error)
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*Buffers) WriteTo(w io.Writer) (n int64, err error)
+
+</p>
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/errors/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Errors</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/strings/">
+          <span class="button__text">Strings</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Os :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Os Os库提供了平台无关的通用接口实现操作系统底层操作,功能设计风格是Unix-Like的,但是错误处理不像Unix提供简单的数字,而是Go-"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/os/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Os :: Marco Epsilon — " />
+<meta name="twitter:description" content="Os Os库提供了平台无关的通用接口实现操作系统底层操作,功能设计风格是Unix-Like的,但是错误处理不像Unix提供简单的数字,而是Go-" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Os :: Marco Epsilon — ">
+<meta property="og:description" content="Os Os库提供了平台无关的通用接口实现操作系统底层操作,功能设计风格是Unix-Like的,但是错误处理不像Unix提供简单的数字,而是Go-" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/os/" />
+<meta property="og:site_name" content="Os" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-09-11 23:27:39 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/os/">Os</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-09-11
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">Golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">Library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/os/">os</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="os">Os</h1>
+
+<p>
+
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+Os库提供了平台无关的通用接口实现操作系统底层操作,功能设计风格是Unix-Like的,但是错误处理不像Unix提供简单的数字,而是Go-Like的错误处理,error自身提供了足够的错误信息,os库使得操作平台接口一致,如果有特定平台接口,可以在syscall特定包里找到
+
+</span></p>
+
+<h1 id="常量-constants">常量(Constants)</h1>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+为OpenFile封装底层系统的Flags,并不是所有flags都可能被给定系统实现
+<br/>
+<pre><code class="language-go">const (
+    // O_RDONLY,O_WRONLY,O_RDWR必须指定一个
+    O_RDONLY int = syscall.O_RDONLY // 仅以读模式打开文件
+    O_WRONLY int = syscall.O_WRONLY // 仅以写模式打开文件
+    O_RDWR int = syscall.O_RDWR // 以读和写模式打开文件
+    // 下面的用于控制行为
+    O_APPEND int = syscall.O_APPEND // 以追加模式打开文件
+    O_CREATE int = syscall.O_CREAT // 如果文件不存在,则创建文件
+    O_EXCL int = syscall.O_EXCL // 配合O_CREATE模式使用,文件必须不存在
+    O_SYNC int = syscall.O_SYNC // 以同步I/O模式打开文件
+    O_TRUNC int = syscall.O_TRUNC // 打开文件但会截断常规可写文件
+)
+</code></pre>
+
+<pre><code class="language-go">const (
+    PathSeparator = '/' // 特定OS的目录路径分隔符
+    PathListSeparator = ':' // 特定OS的list目录分割符
+)
+</code></pre>
+
+DevNull是操作系统'null device'的名字,在Unix-Like的系统上,它是"/dev/null",在windows上,它是"NUL"
+<br/>
+<pre><code class="language-go">const DevNull  = &quot;/dev/null&quot;
+</code></pre>
+
+</span>
+
+<h1 id="变量-variables">变量(Variables)</h1>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+便携式的操作系统常见错误通用模拟
+<br/>
+<pre><code class="language-go">var (
+// ErrInvalid表明一个无效的参数
+// File Methods将会在接收者为nil返回这个错误
+ErrInvalid = errInvalid()
+
+ErrPermission = errPermission() // 没有权限
+ErrExist = errExist() // 文件已经存在
+ErrNotExist = errNotExist() // 文件不存在
+ErrClosed = errClosed() // 文件已经关闭
+ErrNoDeadline = errNoDeadline() // 文件类型不支持截止日期
+)
+</code></pre>
+Stdout,Stdin,Stderr是打开的文件分别指向标准输出,标准输入,标准错误文件描述符
+注意Go Runtime会将程序的panic和crashes写入标准错误,所以关闭标准输出将会造成这些信息写往别处
+<br/>
+<pre><code class="language-go">var (
+    Stdin = NewFile(uintptr(syscall.Stdin), &quot;/dev/stdin&quot;)
+    Stdout = NewFile(uintptr(syscall.Stdout), &quot;/dev/stdout&quot;)
+    Stderr = NewFile(uintptr(syscall.Stderr), &quot;/dev/stderr&quot;)
+)
+</code></pre>
+Args持有命令行程序的参数,以程序名开始
+<br/>
+<pre><code class="language-go">var Args []string
+</code></pre>
+
+</span>
+
+<h1 id="函数-functions">函数(Functions)</h1>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Chdir(dir string) error
+
+</p>
+改变当前工作目录,如果发生错误将会产生*PathError
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Chmod(name string, mode FileMode) error
+
+</p>
+Chmod改变指定文件名称模式为mode,如果文件类型是符号,Chmod将会改变符号指向的文件模式
+<br/>
+<br/>
+根据操作系统的不同,选用不同的子位集合
+<br/>
+<br/>
+对于Unix,使用权限模式位集合,<span style="color:#FFA500; background-color:#1C1C1C;">
+     ModeSetuid, ModeSetgid, ModeSticky
+</span> <br/> <br/>
+对于Windows,只有 <span style="color:#FFA500; background-color:#1C1C1C;">
+     0200 
+</span>(owner writable)被使用,它控制文件readonly属性是否被设置或清除,其他位暂时未用到
+对于Plan 9,权限位模式有 ModeAppend, ModeExecutable, ModeTemporary被使用
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Chown(name string, uid, gid int) error
+
+</p>
+Chown改变以name为名的文件数字化的uid,gid,如果文件是符号链接,则会改变指向的文件,如果uid或gid为-1,则表示不改变当前值,如果发生错误,将会返回*PathError
+<br/>
+对于Windows和Plan 9,Chown总是返回syscall.EWINDOWS或者EPLAN9错误,封装于*PathError
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Chtimes(name string, atime time.Time, mtime time.Time) error
+
+</p>
+改变以name为名的文件访问时间和修改时间,和Unix utime(),utimes()函数相似
+<br/>
+系统底层可能会截断或取整值到有一点不精确的值,如果发生错误,将会返回*PathError类型错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Clearenv()
+
+</p>
+清除所有环境变量
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Environ()
+
+</p>
+返回以"key=value"的形式的环境变量列表
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	environments := os.Environ()
+	for _, environ := range environments {
+		fmt.Println(environ)
+	}
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Executable() (string, error)
+
+</p>
+Executable返回当前进程可执行文件路径,这里不保证返回的路径名仍指向正确的可执行文件,如果是一个符号链接启动的进程,这取决于操作系统,可能返回链接路径或链接指向的路径,如果需要一个确定的结果,path/filepath.EvalSymlinks可能会有帮助
+<br/>
+Executable返回一个绝对路径,除非有错误发生
+<br/>
+Executable主要作用于寻找相对程序执行路径资源
+<br/>
+Executable不支持nacl
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;os&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	execPath, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(execPath)
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Exit(code int)
+
+</p>
+Exit会导致程序伴随着错误码code退出程序,按照惯例,code为0表明程序成功执行,否则，表明错误,程序会立即终止,defer函数不会执行
+为了移植性,状态码应该是[0, 125]
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	defer func() {
+		fmt.Println(&quot;not exec if you use os.Exit&quot;)
+	}()
+	os.Exit(0)
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Expand(s string, mapping func(string) string) string
+
+</p>
+Expand替换${var}或$var为mapping函数返回值,举例来说:os.ExpandEnv(s)和os.Expand(s, os.GetEnv)是等价的
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	text := &quot;作词:${wordAuthor} 作曲: ${tuneAuthor}&quot;
+	mapping := func(s string) string {
+		switch s {
+		case &quot;wordAuthor&quot;:
+			return &quot;方文山&quot;
+		case &quot;tuneAuthor&quot;:
+			return &quot;Jay Chou&quot;
+		default:
+			return s
+		}
+	}
+	replaced := os.Expand(text, mapping)
+	fmt.Println(replaced)
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ExpandEnv(s string) string
+
+</p>
+将s中${var}或$var替换为以var为名的环境变量键值,未定义的变量将会被置换为空字符串
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	text := &quot;GOPATH: ${GOPATH}\nPATH: ${PATH}&quot;
+	replaced := os.ExpandEnv(text)
+	fmt.Println(replaced)
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Geteuid() int
+
+</p>
+返回调用者的有效用户ID,对于Windows,返回-1
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Getegid() int
+
+</p>
+返回调用者的有效组ID,对于Windows,返回-1
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Getuid() int
+
+</p>
+返回调用者的用户ID,对于Windows,返回-1
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Getgid() int
+
+</p>
+返回调用者的组ID,对于Windows,返回-1
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Getgroups() ([]int, error)
+
+</p>
+Getgroups返回调用者所属的组ID列表,对于Windows,返回EWINDOWS,可以查看os/user包寻找可能可替代的接口
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Getpagesize() int
+
+</p>
+Getpagesize返回底层操作系统的内存页大小
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Getpid() int
+
+</p>
+返回调用者的进程ID
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Getppid() int
+
+</p>
+返回调用者父进程ID
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Getwd() (dir string, err error)
+
+</p>
+返回当前工作目录(绝对路径),由于符号链接的原因,当前工作目录可以有多个路径,所以可能返回其中的任意一个
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Hostname() (string, error)
+
+</p>
+返回由内核报告的主机名称
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func IsExist(err error) bool
+
+</p>
+IsExist返回一个boolean表明err是否是文件或目录存在导致的,ErrExist以及一些syscall errors符合
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func IsNotExist(err error) bool
+
+</p>
+IsNotExist返回一个boolean指示错误err是否是由ErrNotExist导致的,ErrNotExist以及一些syscall error符合
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func IsPathSeparator(c uint8) bool
+
+</p>
+返回c是否是目录分隔符
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func IsPermission(err error) bool
+
+</p>
+IsPermission返回一个boolean指示错误是否是由没有权限导致的,ErrPermission以及一些syscall error导致的
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func IsTimeout(err error) bool
+
+</p>
+IsTimeout返回boolean指示错误err是否是由超时导致的
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Lchown(name string, uid, gid int) error
+
+</p>
+Lchown改变以name为名文件的用户Id,组Id,如果文件是符号链接,那么它将直接修改符号链接文件本身
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Link(oldname, newname string) error
+
+</p>
+Link创建一个newname到oldname的硬链接,如果发生错误,将会返回类型为*LinkError的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LookupEnv(key string) (string, bool)
+
+</p>
+取出以key为关键字的环境变量值,如果key在环境变量中存在将会返回true(即使其值为空字符串),反之,则返回false,表明该环境变量不存在
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;os&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	gopath, exist := os.LookupEnv(&quot;GOPATH&quot;)
+	if exist {
+		fmt.Println(&quot;GOPATH&quot;, gopath)
+	} else {
+		fmt.Println(&quot;GOPATH IsNotExist&quot;)
+	}
+	goroot, exist := os.LookupEnv(&quot;GOROOT&quot;)
+	if exist {
+		fmt.Println(&quot;GOROOT: &quot;,goroot)
+	} else {
+		fmt.Println(&quot;GOROOT IsNotExist&quot;)
+	}
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Mkdir(name string, perm FileMode) error
+
+</p>
+Mkdir创建特定名字和权限的目录,如果发生错误,将会返回*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func MkdirAll(path string, perm FileMode) error
+
+</p>
+MkdirAll创建path中所有目录,所有新创建的目录都使用perm权限,如果path已经是一个目录,将会返回nil且什么事也不做
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewSyscallError(syscall string, err error) error
+
+</p>
+NewSyscallError返回一个给出系统调用名称和错误细节的SyscallError错误,为了方便起见,如果给出nil,将会返回nil
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Pipe() (r *File, w *File, err error)
+
+</p>
+Pipe用于返回被联系的一对文件,r读从w写入的数据,如果发生错误,将被返回
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Readlink(name string) (string, error)
+
+</p>
+返回符号链接指向的目的地名字,如果发生错误,将会发生*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Remove(name string) error
+
+</p>
+删除名称为name的文件或空目录,如果发生错误,将会返回类型*PathError的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func RemoveAll(path string) error
+
+</p>
+RemoveAll删除path所有内容以及其孩子内容,如果path不存在,将会返回*PathError类型错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Rename(oldpath, newpath string) error
+
+</p>
+重命名或移动oldpath到newpath,如果newpath存在,将会替换它,特定平台可能会应用其限制在oldpath和newpath不在同一个目录时,如果发生错误,将会返回*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SameFile(f1, f2 FileInfo) bool
+
+</p>
+返回一个boolean指示f1,f2是否指向同一个文件,SameFile仅适用此包Stat返回的结果,其他结果返回false
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Setenv(key, value string) error
+
+</p>
+设置key关键字的环境变量,发生错误将会返回
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	err := os.Setenv(&quot;MARCO_TEMP&quot;, &quot;marcoepsilon&quot;)
+	if err != nil {
+		panic(err)
+	}
+	err = os.Setenv(&quot;MARCO_NEXT&quot;, &quot;hello&quot;)
+	if err != nil {
+		panic(err)
+	}
+	temp, exist := os.LookupEnv(&quot;MARCO_TEMP&quot;)
+	if exist {
+		fmt.Println(&quot;MARCO_TEMP&quot;, temp)
+	}
+	next, exist := os.LookupEnv(&quot;MARCO_NEXT&quot;)
+	if exist {
+		fmt.Println(&quot;MARCO_NEXT&quot;, next)
+	}
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Symlink(oldname, newname string) error
+
+</p>
+创建一个newname指向oldname的符号链接,如果发生错误,则返回*LinkError类型错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func TempDir() string
+
+</p>
+返回系统默认临时目录路径,该函数既不保证该目录存在和有访问权限
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Truncate(name string, size int64) error
+
+</p>
+Truncate改变name文件大小,如果文件是符号链接,那么将改变指向的符号链接大小
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Unsetenv(key string) error
+
+</p>
+Unsetenv取消一个以key为键的环境变量
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func UserCacheDir() (string, error)
+
+</p>
+UserCacheDir返回一个用户缓存目录的默认根目录,如果位置是未定义的,那么将会返回错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func UserConfigDir() (string, error)
+
+</p>
+UserConfigDir返回用户配置目录的默认根目录,如果位置是未定义的，那么将会返回错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func UserHomeDir() (string, error)
+
+</p>
+UserHomeDir返回当前用户主目录,如果位置是未定义的,那么将会返回错误
+<br/>
+<pre><code class="language-go">package main
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	cacheDir, err := os.UserCacheDir()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(cacheDir)
+	configDir, err := os.UserConfigDir()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(configDir)
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(homeDir)
+}
+</code></pre>
+
+</span>
+
+<h2 id="file">File</h2>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+File结构体用于表示打开文件的描述符
+<br/>
+<pre><code class="language-go">type File struct {
+	// contains filtered or unexported fields
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Create(name string) (*File, error)
+
+</p>
+创建一个命名文件,如果文件存在,将会被截断,如果文件不存在,将会创建一个模式为0666的文件(before umask),如果成功,将会返回一个用于I/O的File,关联的文件描述符具有O_RDWR模式,如果存在错误,将会返回*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewFile(fd uintptr, name string) *File
+
+</p>
+NewFile根据文件描述符和名字返回一个新*File,如果文件描述符不是合理值,将会返回nil,如果文件描述符在Unix系统上是非阻塞的,将会试图返回一个可轮询的*File(其中SetDeadline起作用)
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Open(name string) (*File, error)
+
+</p>
+Open打开一个用于读取的文件,如果成功返回,文件描述符将会是O_RDONLY模式,如果发生错误,将会返回*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func OpenFile(name string, flag int, perm FileMode) (*File, error)
+
+</p>
+OpenFile是open调用的一般化,打开文件以flag模式,如果文件不存在,且出现O_CREATE标志,将会以perm(before umask)创建文件,如果发生错误,将会返回*PathError类型错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Chdir() error
+
+</p>
+改变当前工作目录到*File指向的目录,File必须是目录,若发生错误,返回类型*PathError的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Chmod(perm FileMode) error
+
+</p>
+改变File的模式,如果发生错误,返回*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Chown(uid, gid int) error
+
+</p>
+改变文件所属用户ID,所属组ID,如果发生错误,将会返回*PathError错误
+<br/>
+对于Windows,总是返回syscall.EWINDOWS,封装于*PathError
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Close() error
+
+</p>
+Close用于关闭文件,将文件I/O置为不可用,对于支持SetDeadline的文件,任何等待的I/O操作将会被取消,并返回错误,如果关闭一个已关闭的文件,将会返回错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Fd() uintptr
+
+</p>
+Fd用于返回Unix的文件描述符指向打开的文件,文件描述符一直到文件被关闭和被gc之前都可用,对于Unix系统,SetDeadline将会停止工作
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Name() string
+
+</p>
+返回打开的文件名字
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Read(p []byte) (n int, err error)
+
+</p>
+从文件中读取len(p)到p中,返回读取的文件字节和遇到的错误,如果读到文件结尾,将会返回0,io.EOF
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) ReadAt(p []byte, offset int64) (n int, err error)
+
+</p>
+从文件描述符起始offset读取文件中len(p)字节到p中,返回读取的文件字节和遭遇到的错误,如果n < len(p),则ReadAt总是会返回错误,到达文件结尾,将会返回io.EOF
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Readdir(n int) ([]FileInfo, error)
+
+</p>
+Readdir返回File指向目录的内容,如果n > 0,最多返回n个,如果返回一个空切片,err将会解释原因,如果读到目录结尾,将会返回io.EOF
+如果n <= 0将会返回所有内容,如果读到目录结尾将会返回切片和nil,如果发生错误,将会返回遇到的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Readdirnames(n int) (names []string, err error)
+
+</p>
+Readdirnames返回File指向目录内容的名字,如果n > 0,则最多返回n个,如果返回空切片,将会返回err解释原因,如果读到目录结尾,将会返回io.EOF
+如果n <=0,将会返回所有名字,若读到结尾,将返回nil,否则返回遭遇的错误
+<br/>
+<pre><code class="language-go">package main
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		panic(err)
+	}
+	homeEntry, err := os.Open(homeDir)
+	if err != nil {
+		panic(err)
+	}
+	names, err := homeEntry.Readdirnames(-1)
+	if err != nil {
+		panic(err)
+	}
+	for _, name := range names {
+		fmt.Println(name)
+	}
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Seek(offset int64, whence int) (ret int64, err error)
+
+</p>
+Seek用于定位下次读写的位置,whence为0时代表相对文件开始位置,whence为1时代表相对文件当前位置,whence为2时代表相对文件结尾位置,返回新的偏移位置和可能发生的错误,如果是以O_APPEND打开文件,则该行为是未定义的
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) SetDeadline(t time.Time) error
+
+</p>
+SetDeadline用于设置文件读写的截止时间,它相当于同时调用SetReadDeadline和SetWriteDeadline
+只有一些文件支持SetDeadline,对于不支持SetDeadline的文件将会返回ErrNoDeadline,对于大部分系统的普通文件都不支持SetDeadline,但是Pipe文件支持
+deadline是一个绝对的时间在I/O操作失败,而不是阻塞,deadline应用于所有的未来和未操作的I/O,而是不紧接着的Read/Write调用,timeout失败将会返回一个实现了Timeout方法的error,调用Timeout方法将会返回true,SyscallError和PathError都实现了Timeout方法,通常我们会调用IsTimeout方法测试是否是由timeout导致的失败,t的零值将表明I/O不超时
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) SetReadDeadline(t time.Time) error
+
+</p>
+SetReadDeadline用于设置读操作的deadline,t的零值表明读操作不超时
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SetWriteDeadline(t time.Time) error
+
+</p>
+SetWriteDeadline用于设置写操作的deadline,t的零值表明写操作不超时
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Stat() (FileInfo, error)
+
+</p>
+返回描述文件的FileInfo,如果发生错误,将会返回*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Sync() error
+
+</p>
+Sync将会提交最近的写入到稳定的存储区域,通常是指将内存中数据写入磁盘
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) SyscallConn() (syscall.RawConn, err error)
+
+</p>
+返回原生文件,实现了syscall.Conn接口
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Truncate(size int64) error
+
+</p>
+Truncate改变文件大小,不改变文件偏移量,如果发生错误,将会返回*PathError
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) Write(b []byte) (n int, err error)
+
+</p>
+Write向文件写入len(b)字节,返回写入的字节和发生的错误,如果n != len(b)将会返回non-nil错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) WriteAt(b []byte, off int64) (n int, err error)
+
+</p>
+WriteAt从文件开始处偏移off位置写入len(b),如果 n != len(b),则将会返回non-nil错误
+如果文件以 O_APPEND标志打开,则会返回错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*File) WriteString(s string) (n int, err error)
+
+</p>
+和Write类似,但是该函数写入的内容是字符串
+
+</span>
+
+<h2 id="fileinfo">FileInfo</h2>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+通过Stat或Lstat返回FileInfo用于描述文件信息
+<br/>
+<pre><code class="language-go">type FileInfo interface {
+	Name() string // 文件的基本名称
+	Size() int64 // 以byte为单位的普通文件长度,其它类型取决于系统
+	Mode() FileMode // 文件模式bits
+	ModTime() time.Time // 修改时间
+	IsDir() bool // Mode().IsDir()的缩写
+	Sys() interface{} // 底层数据源(可以返回nil)
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Lstat(name string) (FileInfo, error)
+
+</p>
+返回以name为名文件的信息FileInfo,如果文件是符号链接,则将直接返回链接的文件信息,而不是指向的目的地,如果发生错误,将会返回*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Stat(name string) (FileInfo, error)
+
+</p>
+返回以name为名文件的信息FileInfo,如果文件是符号链接,则将返回链接指向的目标文件信息,如果发生错误,将会返回*PathError类型的错误
+
+</span>
+
+<h2 id="filemode">FileMode</h2>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+FileMode用于描述文件的模式和权限位,它们在所有系统都有着相同的定义,所以是兼容所有系统的,不是所有的位都应用于所有系统,唯一的要求是对于目录的ModeDir
+<br/>
+<pre><code class="language-go">type FileMode uint32
+</code></pre>
+定义的最高位与文件模式有关,而最低的九位适用于表示Unix系统的rwxrwxrwx权限位,尽管新的权限位可能会被增加,但不能改变原有位的值
+<br/>
+<pre><code class="language-go">const (
+	//单字符缩写用于String format方法
+	ModeDir FileMode = 1 &lt;&lt; (32 - 1 - iota) // d:is a directory
+	ModeAppend	// a:append-only
+	ModeExecutable // l:exclusive use
+	ModeTemporary // T:temporary file Plan 9 only
+	ModeSymlink // L: symbol link
+	ModeDevice // D: device file
+	ModeNamedPipe // p: named pipe (FIFO)
+	ModeSocket // S: Unix domain socket
+	ModeSetuid // u:setuid
+	ModeSetgid // g:setgid
+	ModeCharDevice // c:Unix char device, when ModeDevice is set
+	ModeSticky // sticky
+	ModeIrregular // ?:non-regular file,nothing else is known about this file
+	// mask for type bits, For regular file, none will be set
+	ModeType = ModeDir | ModeSymlink | ModeNamedPipe | ModeSocket |ModeDevice | ModeCharDevice | ModeIrregular
+	ModePerm = 0777 // Unix permission bits
+)
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m FileMode) IsDir() bool
+
+</p>
+判断文件是否是目录
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m FileMode) IsRegular() bool
+
+</p>
+判断文件是否是普通文件
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m FileMode) Perm() FileMode
+
+</p>
+返回在m中的Unix Perm Mode bits
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m FileMode) String() string
+
+</p>
+返回m的格式化字符串
+
+</span>
+
+<h2 id="linkerror">LinkError</h2>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+LinkError记录造成link或者symlink或者rename错误的系统调用和路径
+<br/>
+<pre><code class="language-go">type LinkError struct {
+	Op string
+	Old string
+	New string
+	Err error
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (e *LinkError) Error() string
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (e *LinkError) Unwrap() error
+
+</p>
+
+</span>
+
+<h2 id="patherror">PathError</h2>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+PathError记录文件路径造成的错误和操作
+<br/>
+<pre><code class="language-go">type PathError struct {
+	Op string
+	Path string
+	Err error
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (e *PathError) String() string
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (e *PathError) Timeout() bool
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (e *PathError) Unwrap() error
+
+</p>
+
+</span>
+
+<h2 id="process">Process</h2>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+Process存储StartProcess创建的进程信息
+<br/>
+<pre><code class="language-go">type Process struct {
+	Pid int
+	// contains filtered or unexported fields
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func FindProcess(pid int) (*Process, error)
+
+</p>
+通过进程ID,寻找一个正在运行的进程,通过Process可以获得系统底层进程的信息
+对于Unix系统,FindProcess总是成功且会返回一个Process,无论进程是否存在
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StartProcess(name string, argv []string, attr *ProcessAttr) (*Process, error)
+
+</p>
+StartProcess开启一个指定name,arguments,attribute的新进程，args将会变成新进程的os.Args
+如果调用的goroutine调用了runtime.LockOSThread,且修改了任何可继承的OS-level线程state(For example, Linux or Plan 9 name spaces),新进程将会继承调用者的继承状态
+StartProcess是一个底层的接口,os/exec package提供了更高级别的接口
+如果发生错误,将会是*PathError类型的错误
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *Process) Kill() error
+
+</p>
+Kill将会造成进程立即退出,Kill不会等待直到进程实际退出,只会杀死自身的进程,不会杀死其他开始的进程
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *Process) Release() error
+
+</p>
+Release会释放进程p所持有的资源,如果进程不需要Wait,则需要调用Release
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *Process) Signal(sig Signal) error
+
+</p>
+发送信号给该进程,对于Windows,发送Interrupt没有被实现
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *Process) Wait() (*ProcessState, error)
+
+</p>
+Wait等待进程退出,然后返回一个ProcessState描述状态和错误,Wait和进程关联的资源,对于大多数操作系统,进程必须是当前进程的孩子或者将返回的错误
+
+</span>
+
+<h3 id="processstate">ProcessState</h3>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+ProcessState存储了关于进程的信息
+<br/>
+<pre><code class="language-go">type ProcessState struct {
+	 // contains filtered or unexported fields
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) ExitCode() int
+
+</p>
+ExitCode返回退出进程的退出码,如果进程没有终止或者被信号终止,返回-1
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) Exited() bool
+
+</p>
+Exited判断进程是否退出
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) Pid() int
+
+</p>
+返回已退出进程的进程号
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) String() string
+
+</p>
+返回状态的字符串格式
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) Success() bool
+
+</p>
+判断进程是否成功退出,例如对于Unix,成功会返回状态码0
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) Sys() interface{}
+
+</p>
+Sys返回关于系统底层进程的退出消息,为了得到其内容,需要转换为恰当的类型,例如,syscall.WaitStatus对于Unix
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) SysUsage() interface{}
+
+</p>
+SysUsage返回系统底层的退出进程资源使用信息,为了获得其内容,需要转换为恰当的内容,例如,*syscall.Rusage对于Unix(对于Unix,*syscall.Rusage匹配结构体rusage定义在getrusage(2) manual page)
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) SystemTime() time.Duration
+
+</p>
+SystemTime返回退出进程及其子进程的system cpu time
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (p *ProcessState) UserTime() time.Duration
+
+</p>
+UserTime返回退出进程及其子进程的user cpu time
+
+</span>
+
+<h2 id="signal">Signal</h2>
+
+<span style="color:#B03060; " class="plain_text plain_text_default">
+    
+Signal表示系统的信号,这通常依赖操作系统的实现,对于Unix,它是syscall.Signal
+<br/>
+<pre><code class="language-go">type Signal interface {
+	String() string
+	Signal() //为了区别于其他Stringers
+}
+</code></pre>
+只有os.Interrupt(Send process a interrupt)和os.Kill(force the process to exit)保证呈现在os package中,对于Windows,发送一个os.Interrupt到os.Process.Signal是未实现的,它将会返回错误,而不是发送信号
+<br/>
+<pre><code class="language-go">var (
+	Interrupt Signal = syscall.SIGINT
+	Kill Signal = syscall.SIGKILL
+)
+</code></pre>
+
+</span>
+
+<h2 id="syscallerror">SyscallError</h2>
+
+<p><span style="color:#B03060; " class="plain_text plain_text_default">
+    
+SyscallError记录特定系统调用的错误
+<br/>
+<pre><code class="language-go">type SyscallError struct {
+	Syscall string
+	Err error
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*SyscallError) Error() string
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*SyscallError) Timeout() bool
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (*SyscallError) Unwrap() error
+
+</p>
+
+</span>
+</p>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/bufio/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Bufio</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/regexp/">
+          <span class="button__text">Regexp</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

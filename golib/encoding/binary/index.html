@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Binary :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview 包binary实现了简单数字和字节序列的转换,以及各种编码和解码 数字由读取和写入固定大小的值转化,固定大小值是算术类型(bool,int8"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/encoding/binary/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Binary :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview 包binary实现了简单数字和字节序列的转换,以及各种编码和解码 数字由读取和写入固定大小的值转化,固定大小值是算术类型(bool,int8" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Binary :: Marco Epsilon — ">
+<meta property="og:description" content="Overview 包binary实现了简单数字和字节序列的转换,以及各种编码和解码 数字由读取和写入固定大小的值转化,固定大小值是算术类型(bool,int8" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/encoding/binary/" />
+<meta property="og:site_name" content="Binary" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-09-19 18:28:05 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/encoding/binary/">Binary</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-09-19
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/encoding/binary/">encoding/binary</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#32CD32; " class="plain_text plain_text_default">
+    
+包binary实现了简单数字和字节序列的转换,以及各种编码和解码
+数字由读取和写入固定大小的值转化,固定大小值是算术类型(bool,int8,uint8,int16,uint16,float32, complex64, ...)或数组或包含固定大小值的结构体
+varint函数编码和解码单整型值使用可变长度编码,较小的值占用的字节较小
+<br/>
+该包有利于简单而非高效,用户要求较高性能的序列化,特别是对于较大的数据结构,应该选择更先进的方案,比如encoding/gob或protocol buffers
+
+</span>
+
+<h1 id="常量-constants">常量(Constants)</h1>
+
+<span style="color:#32CD32; " class="plain_text plain_text_default">
+    
+MaxVarintLenN是N-bit整型可变编码的最大长度
+<br/>
+<pre><code class="language-go">const (
+    MaxVarintLen16 = 3
+    MaxVarintLen32 = 5
+    MaxVarintLen64 = 10
+)
+</code></pre>
+
+</span>
+
+<h1 id="变量-variables">变量(Variables)</h1>
+
+<span style="color:#32CD32; " class="plain_text plain_text_default">
+    
+BigEndian是ByteOrder的大端实现,LittleEndian是ByteOrder的小端实现
+<br/>
+<pre><code class="language-go">var BigEndian bigEndian
+var LittleEndian littleEndian
+</code></pre>
+
+</span>
+
+<h1 id="functions">Functions</h1>
+
+<span style="color:#32CD32; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func PutUvarint(buf []byte, x uint64) int
+
+</p>
+将x放入缓冲区,返回写入的字节,如果缓冲区太小,将会panic
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func PutVarint(buf []byte, x int64) int
+
+</p>
+将x放入缓冲区,返回写入的字节,如果缓冲区太小,将会panic
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Read(r io.Reader, order ByteOrder, data interface{}) error
+
+</p>
+Read从r读取二进制结构数据到data,Data必须是固定大小值的指针或固定大小值的切片,Bytes从r读取使用指定字节序解码写入连续的数据字段,当解码boolean时,0被解码为false,非0值被解码为true,当读取到结构中,数据字段带"_"的字段名会被跳过,例如,带blank(_)的名字字段可能会被用来填充,当读取到结构体时,所有的非空白字段必须导出否则Read panic
+EOF error当无数据可读,如果未读取所有bytes出现EOF,返回ErrUnexpectedEOF
+<br/>
+<pre><code class="language-go">package main
+import (
+	&quot;encoding/binary&quot;
+	&quot;fmt&quot;
+	&quot;bytes&quot;
+	&quot;math&quot;
+)
+type Constants struct {
+	Pi float64
+	E float64
+}
+func (c Constants) String() string {
+	return fmt.Sprintf(&quot;Pi: %1.5f, E: %1.9f&quot;, c.Pi, c.E)
+}
+func main() {
+	buf := new(bytes.Buffer)
+	err := binary.Write(buf, binary.BigEndian, Constants {
+		Pi: math.Pi,
+		E: math.E,
+	})
+	if err != nil {
+		fmt.Println(err)
+	}
+	var constants Constants
+	err = binary.Read(buf, binary.BigEndian, &amp;constants)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(constants.String())
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadUvarint(r io.ByteReader) (uint64, error)
+
+</p>
+从r读取一个编码的无符号整型并返回
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadVarint(r io.ByteReader) (int64, error)
+
+</p>
+从r读取一个编码的整型并返回
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Size(v interface{}) int
+
+</p>
+Size返回编码v需要多少字节,v必须是一个固定大小的值,或固定大小值的切片,或这种数据的指针,如果v不是这些,Size返回-1
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Uvarint(buf []byte) (uint64, int)
+
+</p>
+Uvarint解码buf并返回数据和读取的数据大小,如果错误发生,返回值value为0和大小n <= 0(n ==0表示buf太小, n < 0表示value超过了64位,-n表示读取的数据大小)
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Varint(buf []byte) (int64, int)
+
+</p>
+Varint解码buf并返回数据和读取的数据大小,如果错误发生,返回值value为0且大小 <= 0(n ==0表示buf太小,n < 0表示value超过了64位,-n表示读取的数据大小)
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Write(w io.Writer, order ByteOrder, data interface{}) error
+
+</p>
+Write写入data的二进制数据到w,Data必须是固定大小的值或固定大小值的切片,或者指向以上的切片,Boolean编码为1 byte,1表示true,0表示false,Bytes使用指定字节序编码进w,当写入结构体时,带blanl(_)的字段名被写入zero value
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;encoding/binary&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	var udata uint64 = 1998
+	var idata int64 = -300
+	buf := make([]byte, binary.Size(&amp;udata))
+	_ = binary.PutUvarint(buf, udata)
+	uvalue, _ := binary.Uvarint(buf)
+	fmt.Println(uvalue)
+	buf = make([]byte, binary.Size(&amp;idata))
+	_ = binary.PutVarint(buf, idata)
+	ivalue, _ := binary.Varint(buf)
+	fmt.Println(ivalue)
+}
+</code></pre>
+
+</span>
+
+<h1 id="byteorder">ByteOrder</h1>
+
+<span style="color:#32CD32; " class="plain_text plain_text_default">
+    
+ByteOrder指定了如何转换字节序列到16-,32-,64-bit无符号整型
+<br/>
+<pre><code class="language-go">type ByteOrder interface {
+    Uint16([]byte) uint16
+    Uint32([]byte) uint32
+    Uint64([]byte) uint64
+    PutUint16([]byte, uint16)
+    PutUint32([]byte, uint32)
+    PutUint64([]byte, uint64)
+    String() string
+}
+</code></pre>
+
+<h2 id="example">Example</h2>
+
+<pre><code class="language-go">package main
+import (
+	&quot;encoding/binary&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	var udata uint16 = 257
+	buf := make([]byte, binary.Size(&amp;udata))
+	binary.BigEndian.PutUint16(buf, udata)
+	value := binary.BigEndian.Uint16(buf)
+	fmt.Println(value)
+	udata = 322
+	binary.LittleEndian.PutUint16(buf,udata)
+	value = binary.LittleEndian.Uint16(buf)
+	fmt.Println(value)
+}
+</code></pre>
+
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/strings/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Strings</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/bufio/">
+          <span class="button__text">Bufio</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

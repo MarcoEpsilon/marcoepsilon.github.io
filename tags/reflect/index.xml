@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reflect on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/reflect/</link>
+    <description>Recent content in reflect on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sat, 13 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/reflect/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Reflection</title>
+      <link>https://marcoepsilon.github.io/posts/20190713/</link>
+      <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190713/</guid>
+      <description>何为Reflection Reflection是一种能够窥探类型和值信息的技术,利用该技术我们能在运行时了解,修改类型和值内部结构的信息 interface{} in</description>
+    </item>
+    
+  </channel>
+</rss>

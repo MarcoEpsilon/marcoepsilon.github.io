@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rustlibs on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/rustlib/</link>
+    <description>Recent content in Rustlibs on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Wed, 08 Jan 2020 13:49:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/rustlib/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Serde</title>
+      <link>https://marcoepsilon.github.io/rustlib/serde/</link>
+      <pubDate>Wed, 08 Jan 2020 13:49:32 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/rustlib/serde/</guid>
+      <description>Overview serde是为rust数据结构高效的序列化和反序列化的框架,其他的大部分语言使用运行时的反射技术来序列化数据,Serde是建立在Rust高</description>
+    </item>
+    
+    <item>
+      <title>Future</title>
+      <link>https://marcoepsilon.github.io/rustlib/future/</link>
+      <pubDate>Mon, 22 Jul 2019 22:41:12 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/rustlib/future/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tokio</title>
+      <link>https://marcoepsilon.github.io/rustlib/tokio/</link>
+      <pubDate>Mon, 22 Jul 2019 21:02:22 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/rustlib/tokio/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

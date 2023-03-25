@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ruby on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/ruby/</link>
+    <description>Recent content in ruby on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Wed, 25 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ruby Concurrent Programing</title>
+      <link>https://marcoepsilon.github.io/posts/ruby/ruby_thread/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/ruby/ruby_thread/</guid>
+      <description>Thread Threads用于实现Ruby并发编程模型,使用Thread Class是开发者的完美候选 比如,我们可以创建一个与主线程分离的新线程,通过:</description>
+    </item>
+    
+    <item>
+      <title>Ruby Basic Summary</title>
+      <link>https://marcoepsilon.github.io/posts/ruby/basic_summary/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/ruby/basic_summary/</guid>
+      <description>Ruby Ruby是一门通用面向对象脚本语言,此外ruby还对函数式编程提供很好的支持,元编程也是这门语言的强大之处,编写DSL(Domain Specific Language) 也</description>
+    </item>
+    
+  </channel>
+</rss>

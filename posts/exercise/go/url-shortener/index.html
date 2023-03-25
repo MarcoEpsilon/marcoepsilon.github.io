@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Go Exercise Url-Shortener :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Exercise Requirement Go语言的语法及基本概念 包net/http的一些基本函数其含义和功能 一些JSON,YAML,TOML等格式数据的序列化和反序列化 命令行的"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/exercise/go/url-shortener/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Go Exercise Url-Shortener :: Marco Epsilon — " />
+<meta name="twitter:description" content="Exercise Requirement Go语言的语法及基本概念 包net/http的一些基本函数其含义和功能 一些JSON,YAML,TOML等格式数据的序列化和反序列化 命令行的" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Go Exercise Url-Shortener :: Marco Epsilon — ">
+<meta property="og:description" content="Exercise Requirement Go语言的语法及基本概念 包net/http的一些基本函数其含义和功能 一些JSON,YAML,TOML等格式数据的序列化和反序列化 命令行的" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/exercise/go/url-shortener/" />
+<meta property="og:site_name" content="Go Exercise Url-Shortener" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2020-01-07 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/exercise/go/url-shortener/">Go Exercise Url-Shortener</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-01-07
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/go/">go</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/exercise/">exercise</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="exercise-requirement">Exercise Requirement</h1>
+
+<span style="color:#f82d2d; " class="plain_text plain_text_default">
+    
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    Go语言的语法及基本概念
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    包net/http的一些基本函数其含义和功能
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    一些JSON,YAML,TOML等格式数据的序列化和反序列化
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    命令行的参数处理
+    
+    </span>
+</p>
+
+</div>
+
+
+</span>
+
+<h1 id="external-package">External Package</h1>
+
+<span style="color:#f82d2d; " class="plain_text plain_text_default">
+    
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    <a href=https://github.com/go-yaml/yaml style="color:chartreuse; display:inline-block; position:relative">gopkg.in/yaml.v2</a>
+    
+    </span>
+</p>
+
+</div>
+
+
+</span>
+
+<h1 id="exercise-goal">Exercise Goal</h1>
+
+<span style="color:#f82d2d; " class="plain_text plain_text_default">
+    
+通过实现http.Handler接口完成将请求重定向到键值对应的URL,比如JSON数据:
+<br/>
+<pre><code class="language-json">[
+    {
+        &quot;path&quot;: &quot;http&quot;,
+        &quot;url&quot;: &quot;https://marcoepsilon.site/golib/net/http/&quot;,
+    },
+    {
+        &quot;path&quot;: &quot;os&quot;,
+        &quot;url&quot;: &quot;https://marcoepsilon.site/golib/sort/&quot;
+    }
+]
+</code></pre>
+
+<p>通过读取JSON数据增加http.Handler,在用户输入&rdquo;localhost:port/path&rdquo;时,能够重定向到JSON数据path对应的url</p>
+
+
+</span>
+
+<h1 id="exercise-details">Exercise Details</h1>
+
+<span style="color:#f82d2d; " class="plain_text plain_text_default">
+    
+在实现时我们要解决可能来自用户输入,指定文件,JSON,YAML,TOML等格式数据来源能够被统一处理,比如所有的输入数据可以被统一为Go中的map[string]string,然后将其重定向到请求中URL的Path映射的URL,如果未发现映射,默认用http.NotFound处理,我们可以很快速的写出处理map[string]string的原型
+<br/>
+<pre><code class="language-go">type Source map[string]string
+func MapHandler(source Source) http.HandlerFunc {
+	return http.HandlerFunc(
+		func(w http.ResponseWriter, r *http.Request) {
+			if url, ok := source[strings.TrimPrefix(r.URL.Path, &quot;/&quot;)]; ok {
+				http.Redirect(w, r, url, http.StatusFound)
+			} else {
+				http.NotFound(w, r)
+			}
+		},
+	)
+}
+</code></pre>
+
+<p>这样对于YAML,JSON等数据类型我们只需要写出其解析的函数和将其转化为MapHandler处理即可</p>
+
+<pre><code class="language-go">/*
+    import (
+        yaml &quot;gopkg.in/yaml.v2&quot;
+    )
+*/
+func parseYAMLToSource(data []byte) (Source, error) {
+	type pathUrl struct {
+		Path string `yaml:&quot;path&quot;`
+		URL string	`yaml:&quot;url&quot;`
+	}
+	var pathUrls []pathUrl
+	err := yaml.Unmarshal(data, &amp;pathUrls)
+	if err != nil {
+		return nil, err
+	}
+	source := make(map[string]string)
+	for _, value := range pathUrls {
+		source[value.Path] = value.URL
+	}
+	return source, nil
+}
+func YAMLHandler(data []byte) http.HandlerFunc {
+	source, err := parseYAMLToSource(data)
+	if err != nil {
+		log.Fatalf(&quot;Reason: %s&quot;, err.Error())
+	}
+	return MapHandler(source)
+}
+</code></pre>
+
+<a href=https://github.com/MarcoEpsilon/codingExercise style="color:chartreuse; display:inline-block; position:relative">完整代码</a>
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/r/art-of-r-programing/">
+          <span class="button__icon">←</span>
+          <span class="button__text">&amp;lt;&amp;lt;The Art of R Programing&amp;gt;&amp;gt; -- exercise</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/ruby/ruby_thread/">
+          <span class="button__text">Ruby Concurrent Programing</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

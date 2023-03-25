@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sat, 27 Feb 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Function</title>
+      <link>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/</guid>
+      <description>Overview C++的函数声明介绍了函数的名称和函数的类型,而函数的定义是将函数的声明和函数体关联起来。 Function Declaration 函数声明能够出现在任何.tmp_link a:hover {</description>
+    </item>
+    
+  </channel>
+</rss>

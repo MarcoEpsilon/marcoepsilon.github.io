@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Attribute specifier sequence :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview Attribute specifier sequence(Since C&#43;&#43;11)的引入是为了指定type, object, code等实现定义的属性。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; [[attr]] [[attr1, attr2, attr3(arg)]] [[namespace::attr(arg)]] alignas_specifier 形式化地,语法应该如下: .tmp_note_table { padding:0px 0px; border:none; margin:4px 0px; width:auto; } .tmp_note_row td { border:none; }"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Attribute specifier sequence :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview Attribute specifier sequence(Since C&#43;&#43;11)的引入是为了指定type, object, code等实现定义的属性。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; [[attr]] [[attr1, attr2, attr3(arg)]] [[namespace::attr(arg)]] alignas_specifier 形式化地,语法应该如下: .tmp_note_table { padding:0px 0px; border:none; margin:4px 0px; width:auto; } .tmp_note_row td { border:none; }" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Attribute specifier sequence :: Marco Epsilon — ">
+<meta property="og:description" content="Overview Attribute specifier sequence(Since C&#43;&#43;11)的引入是为了指定type, object, code等实现定义的属性。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; [[attr]] [[attr1, attr2, attr3(arg)]] [[namespace::attr(arg)]] alignas_specifier 形式化地,语法应该如下: .tmp_note_table { padding:0px 0px; border:none; margin:4px 0px; width:auto; } .tmp_note_row td { border:none; }" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/" />
+<meta property="og:site_name" content="Attribute specifier sequence" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2021-03-01 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/">Attribute specifier sequence</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2021-03-01
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/declarations/">Declarations</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="overview">Overview</h1>
+
+<p>Attribute specifier sequence<sub style="color:greenyellow;">(Since C++11)</sub>的引入是为了指定type, object, code等实现定义的属性。
+<br/>
+<span style="font-size:0.75em;">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:#FFA500; background-color:#1C1C1C;">
+[[attr]] [[attr1, attr2, attr3(arg)]] [[namespace::attr(arg)]] alignas_specifier
+<sub style="color:green;"></sub></span>
+</span>
+<br/>
+形式化地,语法应该如下:
+<style type="text/css">
+    .tmp_note_table {
+        padding:0px 0px;
+        border:none;
+        margin:4px 0px;
+        width:auto;
+    }
+    .tmp_note_row > td {
+        border:none;
+    }
+    .tmp_note_row > td:nth-child(1) {
+        padding:0px;
+        white-space: nowrap;
+    }
+    .tmp_note_row > td:last-child {
+        padding-left:2em;
+    }
+</style>
+<table class="tmp_note_table"><tbody>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    
+<span style="color:#FFA500; background-color:#1C1C1C;">[[ attribute-list ]]<sub style="color:green;"></sub></span>
+
+</td>
+<td >
+    <sub style="color:greenyellow;">(Since C++11)</sub>
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    
+<span style="color:#FFA500; background-color:#1C1C1C;">[[ using attribute-namespace:attribute-list ]]<sub style="color:green;"></sub></span>
+
+</td>
+<td >
+    <sub style="color:greenyellow;">(Since C++17)</sub>
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+</tbody></table>
+<span style="color:gray;">attribute-list<sub style="color:greenyellow;"></sub></span>应该为以&rdquo;,&ldquo;分隔的零个或多个属性序列(可以以&rdquo;&hellip;&ldquo;(ellipsis))结尾,表示<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">pack expansion</a><sub style="color:greenyellow;"></sub></span>)
+<style type="text/css">
+    .tmp_note_table {
+        padding:0px 0px;
+        border:none;
+        margin:4px 0px;
+        width:auto;
+    }
+    .tmp_note_row > td {
+        border:none;
+    }
+    .tmp_note_row > td:nth-child(1) {
+        padding:0px;
+        white-space: nowrap;
+    }
+    .tmp_note_row > td:last-child {
+        padding-left:2em;
+    }
+</style>
+<table class="tmp_note_table"><tbody>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    
+<span style="color:gray;">identifier<sub style="color:greenyellow;"></sub></span>
+
+</td>
+<td >
+    (1)
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+     <span style="color:gray;">attribute-namespace::attribute-list<sub style="color:greenyellow;"></sub></span>
+</td>
+<td >
+    (2)
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    
+<span style="color:gray;">identifier (attribute-list)<sub style="color:greenyellow;"></sub></span>
+
+</td>
+<td >
+    (3)
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    <span style="color:gray;">attribute-namespace::identifier(argument-list)<sub style="color:greenyellow;"></sub></span>
+</td>
+<td >
+    (4)
+</td>
+</tr>
+</tbody></table>
+<div style="padding-left:2.5rem; color:brown;">
+    
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 0.85em;">
+        
+1) 简单的属性,比如<span style="color:#FFA500; background-color:#1C1C1C;">
+    [[noreturn]]
+</span>
+
+    </span>
+</p>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 0.85em;">
+        
+2) 带命名空间的属性:比如<span style="color:#FFA500; background-color:#1C1C1C;">
+    [[gnu::unused]]
+</span> 
+
+    </span>
+</p>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; ">
+    <span style="font-size: 0.85em;">
+        
+3) 带参数的属性:比如<span style="color:#FFA500; background-color:#1C1C1C;">
+    [[deprecated("because")]]
+</span>
+
+    </span>
+</p>
+
+</div>
+
+<div style="border:1px solid coral; padding:10px 8px;">
+如果using:namespace出现在attribute-list的开头,那么attribute-list中其他属性将不能指定namespace(命名空间),并且using:namespace将会应用到attribute-list的其他属性
+<style type="text/css">
+    .tmp_note_table {
+        padding:0px 0px;
+        border:none;
+        margin:4px 0px;
+        width:auto;
+    }
+    .tmp_note_row > td {
+        border:none;
+    }
+    .tmp_note_row > td:nth-child(1) {
+        padding:0px;
+        white-space: nowrap;
+    }
+    .tmp_note_row > td:last-child {
+        padding-left:2em;
+    }
+</style>
+<table class="tmp_note_table"><tbody>
+<tr class="tmp_note_row">
+<td >
+    
+<span class="tmp_code"><pre><code class="language-CPP">[[using CC:opt(1), debug]] //和[[CC:opt(1), CC:debug]]相同
+[[using CC: CC::opt(1)]] //错误:不能结合 using和scoped属性
+</code></pre></span>
+<style type="text/css">
+    .tmp_code pre {
+        border-radius: 0.45em;
+        word-wrap: normal;
+        font-size: 0.75em;
+        overflow: hidden;
+    }
+</style>
+
+</td>
+<td >
+    <sub style="color:greenyellow;">(Since C++17)</sub>
+</td>
+</tr>
+</tbody></table>
+</div></p>
+
+<h1 id="explanation">Explanation</h1>
+
+<p>Attributes提供了统一的实现定义的语言扩展。比如GNU和IBM提供的语言拓展<strong>attribute</strong>((&hellip;)),Mircosoft extension __declspec()等。
+属性能用于C++程序的几乎任何地方.并且几乎能应用于每个地方:类型,变量,函数,名字,代码块,全部的翻译单元,尽管每个特别的属性只在实现允许的情形下有效:<span style="color:#FFA500; background-color:#1C1C1C;">
+    [[expect_true]]
+</span>属性只能应用于<span style="color:#FFA500; background-color:#1C1C1C;">
+    if
+</span>,而不能用于类声明,<span style="color:#FFA500; background-color:#1C1C1C;">
+    [[omp::parallel]]
+</span>能够应用于code block(代码块)或者<span style="color:#FFA500; background-color:#1C1C1C;">
+    for
+</span>loop,而不能应用于type int等.(注意这两个属性是虚构的例子,关于更多standard 或 non-standard attributes,请查看下面更多细节)。
+在declaration(声明)中,属性可能同时出现在整个声明的前面和声明实体名字的后面,这种情况下,它们将结合,在大多数其他情境下,属性直接应用于在前的实体。
+<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">alignas specifier</a><sub style="color:greenyellow;"></sub></span>是<span style="color:gray;">attribute specifier seq<sub style="color:greenyellow;"></sub></span>的一部分,它可能出现在<span style="color:#FFA500; background-color:#1C1C1C;">
+    [[...]]
+</span>属性出现的地方,并且可能与它们混合(只要在允许使用<span style="color:#FFA500; background-color:#1C1C1C;">
+    alignas
+</span>的地方使用)。</p>
+
+<p>两个连续的方括号([[)可能只出现在引进一个<span style="color:#FFA500; background-color:#1C1C1C;">
+    attribute-specifier
+</span>或者在<span style="color:#FFA500; background-color:#1C1C1C;">
+    attribute-argument
+</span>内部中.
+<span class="tmp_code"><pre><code class="language-CPP">void f()
+{
+    int y[3];
+    y[[ ] { return 0; }()] = 1; // error
+    int i [[ cats::meow([[]])]]; // OK
+}
+</code></pre></span>
+<style type="text/css">
+    .tmp_code pre {
+        border-radius: 0.45em;
+        word-wrap: normal;
+        font-size: 0.75em;
+        overflow: hidden;
+    }
+</style>
+此外,<span style="color:gray;">standard attributes<sub style="color:greenyellow;"></sub></span>(标准属性)如下表所列,这些属性可能支持任意的良好定义行为的<span style="color:gray;">non-standard attributes<sub style="color:greenyellow;"></sub></span>(非标准属性).
+<div style="border:1px solid coral; padding:10px 8px;">
+任意对于实现未知的属性将被忽略,而不会造成错误.<sub style="color:greenyellow;">(Since C++17)</sub>
+</div></p>
+
+<h1 id="standard-attributes">Standard Attributes</h1>
+
+<p>只有如下的属性被C++ standard定义
+<style type="text/css">
+    .tmp_note_table {
+        padding:0px 0px;
+        border:none;
+        margin:4px 0px;
+        width:auto;
+    }
+    .tmp_note_row > td {
+        border:none;
+    }
+    .tmp_note_row > td:nth-child(1) {
+        padding:0px;
+        white-space: nowrap;
+    }
+    .tmp_note_row > td:last-child {
+        padding-left:2em;
+    }
+</style>
+<table class="tmp_note_table"><tbody>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    
+[[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">noreturn</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++11)</sub>
+
+</td>
+<td >
+    表明该函数不会返回
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    
+[[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">carries_dependency</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++11)</sub>
+
+</td>
+<td >
+    表明在release-consume<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">std::memory_order</a><sub style="color:greenyellow;"></sub></span>下可以传播进和出函数
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    [[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">deprecated</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++14)</sub><br/>[[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">deprecated(&#34;reason&#34;)</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++14)</sub>
+</td>
+<td >
+    表明该名称的使用或者实体的声明是被允许的,但是由于某些<span style="color:gray;">reason<sub style="color:greenyellow;"></sub></span>不推荐使用
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    [[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">fallthrough</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++17)</sub>
+</td>
+<td >
+    
+</td>表明前一条case标签没有break是故意的,编译器不应该把fall-through诊断为警告
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    [[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">nodiscard</a><sub style="color:greenyellow;"></sub></span><sub style="color:greenyellow;">(Since C++17)</sub><br/>[[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">nodiscard(&#34;reason&#34;)</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++20)</sub>
+</td>
+<td >
+    鼓励编译器发出警告,如果返回值被废弃
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    [[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">maybe_unused</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++17)</sub>
+</td>
+<td >
+    禁止编译器对任何未使用的实体发出警告(如果有)
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    [[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">likely</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++20)</sub><br/>[[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">unlikely</a><sub style="color:greenyellow;"></sub></span>]]<sub style="color:greenyellow;">(Since C++20)</sub>
+</td>
+<td >
+    表明编译器应该优化执行某种情况下的路径更可能/不可能多于其他路径
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    [[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">no_unique_address</a><sub style="color:greenyellow;"></sub></span>]]
+</td>
+<td >
+    表明non-static data member不必需要一个地址来和该类其他 non-static data member区分 
+</td>
+</tr>
+<style type="text/css">
+    .tmp_t_separate {
+        border:none;
+    }
+    .tmp_t_separate > td {
+        border:none;
+        border-top:1px solid gray;
+        padding:0px;
+    }
+</style>
+<tr class="tmp_t_separate"><td colspan="10"></td></tr>
+<tr class="tmp_note_row">
+<td >
+    [[<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">optimize_for_synchronized</a><sub style="color:greenyellow;"></sub></span>]]
+</td>
+<td >
+    表明函数定义不应该被<style type="text/css"> .tmp_link a:hover { text-decoration: underline;} .tmp_link a { text-decoration: none; }</style><span class="tmp_link" style="display:inline-block;"><a href=/ style="color:#87CEFA; display:inline-block; position:relative;">synchronized statement</a><sub style="color:greenyellow;"></sub></span>调用优化<sub style="color:greenyellow;">(Since C++20)</sub>
+</td>
+</tr>
+</tbody></table></p>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/">
+          <span class="button__text">Function</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

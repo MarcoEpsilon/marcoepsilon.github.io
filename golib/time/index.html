@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Time :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview time包提供了展示和测量时间的功能 日历始终采用公历没有闰秒 单调时间(Monotonic Clocks) 单调时间意指绝对时间,手动修改修改时间不会对其影"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/time/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Time :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview time包提供了展示和测量时间的功能 日历始终采用公历没有闰秒 单调时间(Monotonic Clocks) 单调时间意指绝对时间,手动修改修改时间不会对其影" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Time :: Marco Epsilon — ">
+<meta property="og:description" content="Overview time包提供了展示和测量时间的功能 日历始终采用公历没有闰秒 单调时间(Monotonic Clocks) 单调时间意指绝对时间,手动修改修改时间不会对其影" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/time/" />
+<meta property="og:site_name" content="Time" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-10-14 23:13:49 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/time/">Time</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-10-14
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/time/">time</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+time包提供了展示和测量时间的功能
+日历始终采用公历没有闰秒
+
+</span>
+
+<h2 id="单调时间-monotonic-clocks">单调时间(Monotonic Clocks)</h2>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+单调时间意指绝对时间,手动修改修改时间不会对其影响,反之也存在相对时间(wall clock)
+通常情况下,monotonic clock用于测量时间,而wall clock用于告知时间,对于此包,由time.Now返回的Time,同时包含wall clock和monotonic clock的读取,而不是分割API,以后的计时操作使用wall clock读取,但以后的测量操作,尤其是比较和减法操作,使用monotonic clock
+比如,下面的代码总是计算一个正的经过时间大约20秒,即使在操作期间,wall clock改变了
+<br/>
+<pre><code class="language-go">start := time.Now()
+// ... operation that take 20 milliseconds ...
+t := time.Now()
+elapsed = t.Sub(start) 
+</code></pre>
+其他惯用用法,比如time.Since(start), time.Util(deadline),和time.Now().Before(deadline),都能稳定的防御wall clock重置
+Time.Now()返回的Time包含一个monotonic clock的读取.如果Time t包含一个monotonic clock,则t.Add增加相同的duration到monotonic clock和wall clock计算结果.由于t.AddDate(y, m, d),t.Round(d)和t.Truncate(d)都是由wall clock计算,它们总是丢弃从monotonic clock读取的结果,因为t.Ln,t.Local,t.UTC总是影响wall clock的解释,它们同样也总是丢弃从monotonic clock读取的结果,规范的方法丢弃从monotonic clock读取的结果是使用 t = t.Round(0)
+如果Time t和u,同时包含monotonic clock,t.After(u), t.Before(u),t.Equal(u), t.Sub(u)操作被执行只使用monotonic clock,忽视wall clock的读取.如果t或u不包含monotonic clock，将会退化使用wall clock读取
+如果计算机进入睡眠,在一些系统中,monotonic clock将会停止,在这样的系统中,t.Sub(u)可能不会精确的反映t和u传递的时间
+因为monotonic clock读取在当前进程外无意义,由t.GobEncode,t.MarshalBinary,t.MarshalJSON,t.MarshalText产生的序列化形式忽略monotonic clock读取,且t.Format不提供任何格式,类似地,time.Date,time.Parse,time.ParseLnLocation和time.Unix的构造,以及t.GobDecode,t.UnmarshalBinary,t.UnmarshalJSON,t.UnmarshalText的解码总是创建时间忽略monotonic clock
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注意:Go的 == 操作符不仅仅比较时间片刻,还包括位置和monotonic clock读取
+
+</div>
+对于Debug,这次t.String包含monotonic clock结果,如果t != u,由于monotonic clock读取的不同,这些不同在打印t.String()和u.String将会可见
+
+</span>
+
+<h1 id="常量-constants">常量(Constants)</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+对于使用time.Parse,time.Format这里有预定义的布局,参考时间被使用在布局中是特定时间:
+<br/>
+<pre><code class="language-time">Mon Jan 2 15:04:05 MST 2006
+</code></pre>
+
+<p>这是Unix time 1136239445,因为MST是GMT-0700,参考时间能够被认为是:</p>
+
+<pre><code class="language-time">01/02 03:04:05PM '06 -0700
+</code></pre>
+
+为了定义自己的格式,写下像自己格式的参考时间,例如可以查看 ANSIC,StampMicro或Kitchen常量,这个模型是参考时间的样例以便Parse和Format翻译成同样,对于一个普通时间值.对于time.Parse,一些布局有效的时间,时间值是无效的.由于比如_用于空白填充和Z用于地区信息
+在字符串格式内部,一个下划线表示空格以至于可能被一个数字替换,如果随后的数据有两位数,与固定宽度Unix time格式兼容.被一个或多个0尾随的小数点表示小数秒,被打印到数字的小数位,被一个或多个9尾随的小数点表示一个小数秒,打印到数字的小数位,尾部的零将会被去掉,当解析时(only),输入可能在秒字段会包含小数秒字段,即使布局没有表示它的存在,在那种情况下,小数点后面的最大数列被解析为小数秒
+数值时区格式偏移如下:
+<br/>
+<pre><code class="language-time">-0700  ±hhmm
+-07:00 ±hh:mm
+-07    ±hh
+</code></pre>
+
+<p>用Z替换格式中的符号会触发ISO 8601打印Z的行为,而不是UTC区域的偏移量</p>
+
+<pre><code class="language-time">Z0700  Z or ±hhmm
+Z07:00 Z or ±hh:mm
+Z07    Z or ±hh
+</code></pre>
+
+公认的星期几的格式是"Mon"和"Monday".公认的月格式是"Jan"和"January".2,_2,02格式分别是月中某天的无填充,空格填充,零填充,__2,002格式分别是年中某天三个字符的空格填充,零填充,没有一年中某天未填充的格式
+Text是逐字回显的在Format和在输入中期待出现逐字解析,在字符串中,不被公认为参考时间
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注意:在RFC822,RFC850,RFC1123格式应该只被用于本地时间
+
+</div>
+将它们用于UTC时间,将会使用"UTC"作时区缩写,严格来说,此时RFC应该使用"GMT",通常使用RFC1123Z格式而不是服务器坚持使用的RFC1123,RFC3339应该是新协议的首选,对于格式化,RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z是很有用的.当使用time.Parse时,它们不接受所有RFCs允许的格式,RFC3339Nano格式移除秒字段尾部的0,因此格式化后不能正确的排序
+<br/>
+<pre><code class="language-go">const (
+    ANSIC = &quot;Mon Jan _2 15:04:05 2006&quot;
+    UnixDate = &quot;Mon Jan _2 15:04:05 MST 2006&quot;
+    RubyDate = &quot;Mon Jan 02 15:04:05 -0700 2006&quot;
+    RFC822 = &quot;02 Jan 06 15:04 MST&quot;
+    RFC822Z = &quot;02 Jan 06 15:04 -0700&quot;// RFC822 with numeric zone
+    RFC850      = &quot;Monday, 02-Jan-06 15:04:05 MST&quot;
+    RFC1123     = &quot;Mon, 02 Jan 2006 15:04:05 MST&quot;
+    RFC1123Z    = &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot;// RFC1123 with numeric zone
+    RFC3339     = &quot;2006-01-02T15:04:05Z07:00&quot;
+    RFC3339Nano = &quot;2006-01-02T15:04:05.999999999Z07:00&quot;
+    Kitchen     = &quot;3:04PM&quot;
+    // Handy time stamps.
+    Stamp      = &quot;Jan _2 15:04:05&quot;
+    StampMilli = &quot;Jan _2 15:04:05.000&quot;
+    StampMicro = &quot;Jan _2 15:04:05.000000&quot;
+    StampNano  = &quot;Jan _2 15:04:05.000000000&quot;
+)
+</code></pre>
+
+<p>常见的持续时间,对于天或者更大的单位没有定义,避免在夏令时造成歧义.为了计数Duration单元,使用除法:</p>
+
+<pre><code class="language-go">second := time.Second
+fmt.Println(int64(second / time.Millisecond)) // print 1000
+</code></pre>
+
+<p>为了转换一个整数单元到Duration,使用乘法:</p>
+
+<pre><code class="language-go">seconds := 10
+fmt.Println(time.Duration(seconds) * time.Second) // print 10s
+</code></pre>
+
+<pre><code class="language-go">const (
+    Nanosecond Duration = 1
+    Microsecond = 1000 * Nanosecond
+    Millisecond = 1000 * Microsecond
+    Second = 1000 * Millisecond
+    Mintue = 60 * Second
+    Hour = 60 * Minute
+)
+</code></pre>
+
+
+</span>
+
+<h1 id="函数-functions">函数(Functions)</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func After(d Duration) <-chan Time
+
+</p>
+After等待一段时间,然后发送当前时间到返回的通道,它等价于NewTimer(d).C,在垃圾收集器启动之前,底层垃圾计时器不会被回收,如果关心效率,如果timer不再使用,使用NewTimer而不是调用Timer.Stop
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Sleep(d Duration)
+
+</p>
+Sleep停止当前goroutine至少渡过d,负值或零值会造成Sleep立即返回
+<br/>
+<pre><code class="language-go">time.Sleep(100 * time.Millisecond)
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Tick(d Duration) <- chan Time
+
+</p>
+Tick是NewTicker简单的封装只提供对tick channel的访问,虽然Tick不必关闭Ticker对客户有用,但请注意没有关闭它的方式,底层Ticker不可能垃圾收集器恢复,它"泄漏"了,不像NewTicker,Tick将会返回nil如果d <= 0
+
+</span>
+
+<h1 id="type-duration">type Duration</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+Duration表示两段瞬时时间经过的时间,用int64表示纳秒数,表示最大的持续时间最大为290年
+<br/>
+<pre><code class="language-go">type Duration int64
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ParseDuration(s string) (Duration, error)
+
+</p>
+ParseDuration解析一个持续时间字符串,持续时间字符串可能是带符号的十进制数字序列,每个都有可选的分数和单位后缀,比如,"300ms", "-1.5h"或"2h45m".合理的时间单位为"ns","us","ms","s","m","h"
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Since(t Time) Duration
+
+</p>
+Since返回从t到现在的时间,它是time.Now().Sub(t)的简写
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Until(t Time) Duration
+
+</p>
+Until返回从现在到t的时间,它是t.Sub(time.Now())的简写
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) Hours() float64
+
+</p>
+将持续时间作为浮点数表示的小时返回
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) Microseconds() int64
+
+</p>
+Microseconds返回持续时间的microsecond形式
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) Milliseconds() int64
+
+</p>
+Milliseconds返回持续时间的millisecond形式
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) Minutes() float64
+
+</p>
+Mintutes返回持续时间浮点数分钟形式返回
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) Nanoseconds() int64
+
+</p>
+Nanoseconds返回持续时间的nanosecond形式
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) Round(m Duration) Duration
+
+</p>
+返回将d舍入到与m倍数最接近的结果,中间值的舍入是从零舍入,如果结果超出了能够在Duration储存的(最大或最小)值,Round返回最大或最小的值,如果m小于0,Round返回不变的d
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) Seconds() float64
+
+</p>
+Seconds返回秒的浮点数形式
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) String() string
+
+</p>
+String返回Duration以"72h3m0.5s"的形式表示的字符串,前导零单位被忽略,作为一种特殊情况,持续少于1秒的格式,使用更小的单位(milli-,micro-, nanoseconds),确保前导数字非0,零值的Duration使用0s
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Duration) Truncate(m Duration) Duration
+
+</p>
+Truncate返回将d朝0舍入到m的倍数的结果,如果m<=0,将返回不变的d
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;time&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	start, err := time.ParseDuration(&quot;7h20m3s&quot;)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	end, err := time.ParseDuration(&quot;8h3m20s&quot;)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(start)
+	fmt.Println(end)
+	fmt.Println(end - start)
+	fmt.Printf(&quot;hours in start: %f, end: %f\n&quot;, start.Hours(), end.Hours())
+	fmt.Printf(&quot;minutes in start: %f, end: %f\n&quot;, start.Minutes(), end.Minutes())
+	fmt.Printf(&quot;seconds in start: %f, end: %f\n&quot;, start.Seconds(), end.Seconds())
+	fmt.Printf(&quot;milliseconds in start: %d, end: %d\n&quot;, start.Milliseconds(), end.Milliseconds())
+	fmt.Printf(&quot;microseconds in start: %d, end: %d\n&quot;, start.Microseconds(), end.Microseconds())
+	fmt.Printf(&quot;nanoseconds in start: %d, end: %d\n&quot;, start.Nanoseconds(), end.Nanoseconds())
+}
+</code></pre>
+<br/>
+<pre><code class="language-go">package main
+import (
+	&quot;time&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	d, err := time.ParseDuration(&quot;1h15m30.918273645s&quot;)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	rounds := []time.Duration {
+		time.Nanosecond,
+		time.Microsecond,
+		time.Millisecond,
+		time.Second,
+		2 * time.Second,
+		3 * time.Second,
+		time.Minute,
+		10 * time.Minute,
+		time.Hour,
+	}
+	for _, r := range rounds {
+		round := d.Round(r)
+		truncate := d.Truncate(r)
+		fmt.Println(round)
+		fmt.Println(truncate)
+	}
+}
+</code></pre>
+
+</span>
+
+<h1 id="type-location">type Location</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+Location映射瞬时时间到特定地区的时间,通常,位置表示多个地区使用的时间偏移集合,比如中欧的CEST和CET
+<br/>
+<pre><code class="language-go">type Location struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+
+<p>Local表示系统的本地时区</p>
+
+<pre><code class="language-go">var Local *Location = &amp;localLoc
+</code></pre>
+
+<p>UTC表示世界协调时间(Universal Coordinated Time)</p>
+
+<pre><code class="language-go">var UTC *Location = &amp;utcLoc
+</code></pre>
+
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:中国没有夏令时,它使用与UTC固定的8小时偏移,如果系统存在时区数据库,则可以加载它
+
+</div>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func FixedZone(name string, offset int) *Location
+
+</p>
+FixedZone返回总是给定名字和偏移的(UTC以东的秒钟)
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LoadLocation(name string) (*Location, error)
+
+</p>
+LoadLocation返回给定名称的Location,如果name为""或"UTC",返回UTC,如果name为"Local",返回Local.
+否则名字被视为对应于IANA时区数据库中的文件的位置名称,比如"America New_York"
+LoadLocation需要的数据库可能不是在所有系统上都存在,尤其是non-Unix系统.LoadLocation在环境变量ZONEINFO对应的目录或未压缩的zip文件中寻找,如果有,则在Unix系统的已知安装位置寻找,最后在$GOROOT/lib/time/zoneinfo.zip
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LoadLocationFromTZData(name string, data []byte) (*Location, error)
+
+</p>
+LoadLocationFromTZData返回以name命名由IANA时区数据库格式初始化的Location,data应该使用IANA标准时区文件的格式(比如,Unix系统的/etc/localtime)
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (l *Location) String() strimg
+
+</p>
+String返回时区信息的描述性名称,对应于FixedZone和LoadLocation名称参数
+
+</span>
+
+<h1 id="type-month">type Month</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+Month指定一年中的月份(January = 1, ...)
+<br/>
+<pre><code class="language-go">type Month int
+</code></pre>
+
+<pre><code class="language-go">const (
+    January Month = 1 + itoa
+    February
+    March
+    April
+    Mar
+    June
+    July
+    August
+    September
+    October
+    November
+    December
+)
+</code></pre>
+
+<pre><code class="language-go">package main
+import (
+	&quot;fmt&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	_, month, day := time.Now().Date()
+	if month == time.October &amp;&amp; day == 17 {
+		fmt.Println(&quot;Happy day&quot;)
+	}
+}
+</code></pre>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (m Month) String() string
+
+</p>
+返回月份的英语名称
+
+</span>
+
+<h1 id="type-parseerror">type ParseError</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+ParseError描述解析时间字符串的错误
+<br/>
+<pre><code class="language-go">type ParseError struct {
+    Layout string
+    Value string
+    LayoutElem string
+    ValueElem string
+    Message string
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (e *ParseError) Error() string
+
+</p>
+Error返回ParseError的字符串表示
+
+</span>
+
+<h1 id="type-ticker">type Ticker</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+Ticker拥有"ticks"的发送通道,每隔一段时间发送
+<br/>
+<pre><code class="language-go">type Ticker struct {
+    C &lt;-chan // ticks递送通道
+    // contains filtered or unexported fields
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewTicker(d Duration) *Ticker
+
+</p>
+NewTicker返回一个包含通道的新Ticker,通过d指定发送时期,它会调整间隔和丢弃ticks弥补缓慢接收者的问题
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t *Ticker) Stop()
+
+</p>
+Stop关闭ticker,在Stop之后,不再有ticks发送,Stop不会关闭通道,防止从通道并发读取时看到错误的"ticks"
+
+</span>
+
+<h1 id="type-time">type Time</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+Time通过纳秒精度表示瞬时时间
+程序使用时间应该通过值传递而不是指针,这表明,时间变量和结构体字段应该是time.Time,不是*time.Time
+Time值能够被多个goroutines同时地使用,除了GobDecode,UnmarshalBinary,UnmarshalJSON,UnmarshalText都是非并发安全的
+Time瞬时能够被比较通过Before,After,Equal方法,Sub方法使得两个瞬时时间相减,产生一个Duration,Add方法使得一个瞬时时间增加Duration,得到一个新的瞬时时间
+Time的零值是 January 1, Year 1, 00:00:00, 0000:00000 UTC.由于这个值在实践中不太可能实现,IsZero可以用来检查值是否被明确的初始化
+每个Time都有关联的Location,计算时间表示时被参考,比如在 Format,Hour和Year方法.Local,UTC,Ln方法返回一个指定Location的Time,用这种方式改变位置只是改变表示,它不会改变时间,所以不会对前面的描述造成影响.被GobEncode,MarshalBinary,MarshalJSON,MarshalText保存的Time的值储存Time.Location的偏移而不是Location的名字,因此,它们失去了有关夏令时的信息
+除了"wall clock"读取,Time可能包含一个可选当前进程的monotonic clock读取,为了提供可选的精度给比较和相减
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注意:GO == 操作符比较不仅仅是瞬时时间,还包括位置信息,以及monotonic clock读取,因此时间值不应该被用于map或database keys没有保证对于所有的值Location都是相同的,可以通过UTC或Local方法设置且monotonic clock被使用t = t.Round(0)忽略掉.通常,宁可是t.Equal(u)而不是t == u,因为t.Equal提供更精确的比较且正确的处理只有一个参数含有monotonic clock读取
+
+</div>
+<br/>
+<pre><code class="language-go">type Time struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Date(year int, month Month, day, hour, min, sec, nsec int, loc *Location) Time
+
+</p>
+Date返回对应的Time
+<br/>
+<pre><code class="language-go">yyyy-mm-dd hh:mm:ss + nsec nanoseconds
+</code></pre>
+在给定的区域那段时间
+month, day, hour, min, sec, nsec可能会超出它们的范围,将在转换过程中被标准化,比如,October 32将会被转换为November 1
+夏令时保存时间的过度跳过或重复的时间.比如,在美国,March 13, 2011 2:15am从不出现,但November 6, 2011 1:15am出现两次,在这种情况下,时区的选择,时间不是良定义的,Date返回的Time在过渡涉及两个的区域之一是正确的,但不保证哪个是正确的.
+如果loc是nil,Date将会panic
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Now() Time
+
+</p>
+返回当前本地时间
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Parse(layout, value string) (Time, error)
+
+</p>
+Parse解析格式化的字符串且返回呈现的时间,layout定义了参考时间格式,定义
+<br/>
+<pre><code class="language-time">Mon Jan 2 15:04 -0700 MST 2006
+</code></pre>
+
+<p>将会被解释,如果它是value.它提供了输入格式的范例,同样的解释将会被应用于输入字符串.
+预定义格式ANSIC, UnixDate, RFC3339和其他标准的格式和方便的表示参考时间
+当value中元素被忽略时,假定其为0，当其不可能为0时,比如解析&rdquo;3:04pm&rdquo;返回时间对应于 Jan 1, year 0, 15:04:00 UTC(注意:year为0,时间先于Time的零值),Year必须是0000 &hellip; 9999的范围,星期几的语法是被检查的
+缺少时间区域的指示,Parse返回时间使用UTC.
+当解析携带zone offset 时间,比如 -0700,如果偏移对应于time zone通过当前位置(Local),Parse使用位置和偏移在返回的时间,否则,将会返回伪位置和其固定的位置偏移
+如果解析时间携带区域缩写,比如MST,如果区域的缩写拥有定义的偏移在当前位置,然后该偏移使用.&ldquo;UTC&rdquo;的缩写会被视为UTC,无论位置,如果区域缩写是未知的,Parse记录时间作为伪时间和给定的区域缩写和偏移,这个选择意味着时间能够被解析和无损地格式化为同样的布局,但是精确的时刻表示可能区别于实际的区域偏移,为了避免这个问题,宁愿使用数字化的区域偏移或使用ParseLnLocation.</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ParseInLocation(layout, value string, loc * Location) (Time, error)
+
+</p>
+ParseInLocation和Parse相似,但是和其有两个重要的方面不同,第一点,对于缺少时间区域时,Parse解释其为UTC,ParseLnLocation解释为给定的loc,第二点,当给出时间偏移或缩写,Parse试图与本地位置匹配,ParseLnLocation使用给定的location
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Unix(sec, nsec int64) Time
+
+</p>
+Unix返回从January 1 1997 UTC开始经过的秒和纳秒的本地Unix Time,传递纳秒[0, 999999999]范围内是合理的,不是所有的秒都有对应的时间值,其中有1 << 63 - 1(最大的int64值)
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Add(d Duration) Time
+
+</p>
+返回时间t + d
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) AddDate(years int, months int, days int) Time 
+
+</p>
+AddDate返回t增加参数所表示日期的时间,比如,AddDate(-1, 2, 3)应用于January,2011 1会返回 March 4, 2010
+AddDate会和Date一样进行正交化,比如对October 31增加一个月会会产生December 1,November 31的正交化形式
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) After(u Time) bool
+
+</p>
+After调查t是否在时刻u之后
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) AppendFormat(b []byte, layout string) []byte
+
+</p>
+AppendFormat和Format类似,但是AppendFormat添加上下文表示到b,并返回扩展的缓冲区
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Before(u Time) bool
+
+</p>
+Before调查t是否在时刻u之前
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Clock() (hour, min, sec int)
+
+</p>
+Clock返回由t指定天的hour, minute, second
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Date() (year int, month Month, day int)
+
+</p>
+Date返回t中指示的year, month, day
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Day() int
+
+</p>
+Day返回月中的某天
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Equal(u Time) bool
+
+</p>
+Equal调查t和u呈现同样的时刻,两个时间能够相等,即使是在不同的位置,比如,6:00 +0200 CEST和 4:00 UTC是相等的
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Format(layout string) string
+
+</p>
+Format返回根据layout表示的时间字符串,其是表示参考时间的格式:
+<br/>
+<pre><code class="language-time">Mon January 2 15:04:05 -0700 MST 2006
+</code></pre>
+通过在秒部分后面添加小数点和零来表示小数的秒,比如"15:04:05.000"以毫秒精度设置时间戳
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t *Time) GobDecode(data []byte) error
+
+</p>
+GobDecode实现了gob.GobDecoder接口
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) GobEncode() ([]byte, error)
+
+</p>
+GobEncode实现了gob.GobEncoder接口
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Hour() int
+
+</p>
+返回t指定的hour,范围在[0,23]
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) ISOWeek() (year, week int)
+
+</p>
+ISOWeek返回在t中出现的ISO 8601 year和week数字,Week范围是1到53,year n中的Jan 01到Jan 03可能属于year n-1中的week 52或53,且Dec 29到Dec 31可能属于year n+1的week 1
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) In(loc *Location) Time
+
+</p>
+返回和t相同的时间,但是位置信息被设置为loc,loc为nil将会panic
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) IsZero() bool
+
+</p>
+IsZero调查t是否是时间的零值,Jau 1 year 1, 00:00:00 UTC.
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Local() Time
+
+</p>
+返回t的local time
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Location() *Location
+
+</p>
+返回t的时区
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) MarshalBinary() ([]byte, error)
+
+</p>
+MarshalBinary实现了encoding.BinaryMarshaler接口
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) MarshalJSON() ([]byte, error)
+
+</p>
+MarshalJSON实现了json.Marshaler接口,时间使用REF3339格式,和若存在的亚秒精度
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) MarshalText() ([]byte, error)
+
+</p>
+MarshalText实现了encoding.TextMarshaler接口,时间使用REC3339格式和若存在的亚秒精度
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Minute() int
+
+</p>
+返回t中的minutes,范围为[0, 59]
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Month() Month
+
+</p>
+返回t指定的年中月份
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Nanosecond() int
+
+</p>
+返回由t中秒偏移的nanosecond，范围为[0, 999999999]
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Round(d Duration) Time 
+
+</p>
+Round返回t四舍五入到d(从时间的零值)的倍数最靠近的值,对于一半的值是向上取整,如果d <= 0,Round会去除monotonic clock读取,而不是不变
+Round操作于d相对于时间的零值的绝对时间段,它不会按当前时间的形式运行,因此 t.Round(Hour)可能会返回non-minute的时间,取决于时区
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Second() int
+
+</p>
+返回t中相对于minute偏移的second,范围是[0, 59]
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) String() string
+
+</p>
+String返回时间的字符串格式,使用如下格式:
+<br/>
+<pre><code class="language-time">&quot;2006-01-02 15:04:05.999999999  -0700 MST&quot;
+</code></pre>
+
+<p>如果时间存在monotonic clock读取,则返回的字符串包含最后的字段&rdquo;m±<value>&rdquo;,表示秒的小数
+该结果字符串是用于调试,对于稳定的序列化,使用t.MarshalText,t.MarshalBinary,或t.Format指定一个明确的字符串</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Sub(u Time) Duration
+
+</p>
+计算t-u并返回其Duration,如果结果超过了最大或最小值,结果将会返回最大值或最小值,为了计算t-d(duration),使用t.Add(-d)
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Truncate(u Duration) Time 
+
+</p>
+Truncate返回将t向下舍入到最接近u的倍数的时间,如果d <= 0,结果将会去掉monotonic clock读取
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) UTC() Time
+
+</p>
+返回t时区为UTC的形式
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Unix() int64
+
+</p>
+Unix返回t的Unix时间,表示从Jau 1 1970 UTC经过的秒数,结果不依赖于时区
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) UnixNano() int64
+
+</p>
+UnixNano以unix time返回t,从Jau 1 1970 UTC经过的纳秒,如果不能用int64表示其数据,结果是未定义的(1678之前或2262之后),这意味着在Time零值上调用UnixNano是未定义的,结果不依赖时区
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t *Time) UnmarshalBinary(data []byte) error
+
+</p>
+UnmarshalBinary实现了encoding.BinaryUnmarshaler接口
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t *Time) UnmarshalJSON(data []byte) error
+
+</p>
+UnmarshalJSON实现了json.BinaryUnmarshaler接口,实现使用RFC 3339格式的引用字符串
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t *Time) UnmarshalText(data []byte) error
+
+</p>
+UnmarshalText实现了encoding.TextUnmarshaler接口,实现使用RFC 3339格式字符串
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Year() int
+
+</p>
+year返回t出现的year
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) YearDay() int
+
+</p>
+YearDay返回t中年的某天,非闰年的范围是[1,365],闰年的范围是[0,366]
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t Time) Zone() (name string, offset int)
+
+</p>
+Zone计算t作用的时区,返回时区的缩写(比如"CET")和UTC以东秒的偏移
+
+</span>
+
+<h1 id="type-timer">type Timer</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Timer struct {
+	C &lt;-chan Time
+	// contains filtered or unexported fields
+}
+</code></pre>
+
+<p>Timer呈现一个单独的事件,当Timer过期时,当前时间将会被发送到C,除非Timer是由AfterFunc创建的,一个Timer只能由NewTimer或AfterFunc创建</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func AfterFunc(d Duration, f func()) *Timer
+
+</p>
+AfterFunc等待d,调用f在自己的goroutinue,并返回一个Timer用于取消使用Stop方法
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewTimer(d Duration) *Timer
+
+</p>
+NewTimer经过至少d将会发送当前时间到通道C中
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t *Timer) Reset(d Duration) bool
+
+</p>
+Reset将会重置定时器的过期时间,返回ture,如果定时器已经激活,false,如果定时器已经过期或者停止
+Reset只能在耗尽的通道里停止或过期的定时器,如果程序早已接收到通道的值(表示定时器已过期和通道已耗尽),因此Reset能够被直接使用,如果程序还没收到通道的值,但是定时器必须被停止,可以在调查定时器是否被停止后,明确的耗尽通道
+<br/>
+<pre><code class="language-go">if !t.Stop() {
+	&lt;- t.C
+}
+t.Reset(d)
+</code></pre>
+但这种操作不能并发进行,注意不可能正确的使用t.Reset的返回值，这里存在竟态条件在耗尽通道,Reset应该总是在过期的定时器上调用,返回值的存在只是为了兼容现有的程序
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (t *Timer) Stop() bool
+
+</p>
+Stop可以防止定时器触发,如果停止了定时器,将会返回true,如果定时器已经停止或过期返回false,Stop不会关闭通道，为了防止不正确地在通道里读取，为了确保调用Stop后,通道是空的,检查返回值和耗尽通道,比如为了确保不会再从通道里接收值:
+<br/>
+<pre><code class="language-go">if !t.Stop() {
+	&lt;- t.C
+}
+</code></pre>
+
+<p>这个不能并发调用接收通道的值
+对于AfterFunc(d, f)创建了定时器,如果t.Stop()返回false,定时器过时并且f在自己的goroutine中调用,在Stop返回之前不会等待f调用完成</p>
+
+
+</span>
+
+<h1 id="type-weekday">type Weekday</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Weekday int
+</code></pre>
+
+<p>Weekday指示了一周的某天(Sunday 0, &hellip;)</p>
+
+<pre><code class="language-go">const (
+	Sunday Weekday = itoa
+	Monday
+	Tuesday
+	Wednesday
+	Thurday
+	Friday
+	Saturday
+)
+</code></pre>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (d Weekday) String() string
+
+</p>
+String返回Weekday的英文名字("Sunday", "Saturday" ...)
+
+</span>
+
+<h1 id="example">Example</h1>
+
+<span style="color:#e93a68; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;time&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	d, err := time.ParseDuration(&quot;50ms100us&quot;)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	ticker := time.NewTicker(d)
+	defer ticker.Stop()
+	done := make(chan struct{})
+	go func() {
+		time.Sleep(2 * time.Second)
+		done &lt;- struct{}{}
+	}()
+	counter := 0
+	for {
+		select {
+		case t := &lt;- ticker.C:
+			counter++
+			fmt.Println(t)
+		case &lt;- done:
+			fmt.Println(&quot;Done with counter: &quot;, counter)
+			return
+		}
+	}
+</code></pre>
+
+<h1 id="example">Example</h1>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;time&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	customLoc := time.FixedZone(&quot;customZone&quot;, 2 * 60 * 60)
+	now := time.Now().In(time.UTC)
+	customNow := now.In(customLoc)
+	fmt.Println(&quot;Infact now: &quot;, now)
+	fmt.Println(&quot;Custom now: &quot;, customNow)
+}
+</code></pre>
+
+<h1 id="example-1">Example</h1>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;time&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	const longForm = &quot;Jan 2, 2006 at 15:04:05pm (MST)&quot;
+	t, err := time.Parse(longForm, &quot;Nov 1, 2019 at 22:37:58pm (PST)&quot;)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(t)
+	const shortForm = &quot;2006-Jan-2&quot;
+	t, err = time.Parse(shortForm, &quot;2019-Nov-1&quot;)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(t)
+	t, err = time.Parse(time.RFC3339, &quot;2019-11-01T22:53:28+03:00&quot;)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(t.In(time.UTC))
+}
+</code></pre>
+
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/sync/sync/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Sync</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/flag/">
+          <span class="button__text">Flag</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

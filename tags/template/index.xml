@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>template on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/template/</link>
+    <description>Recent content in template on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/template/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang Template</title>
+      <link>https://marcoepsilon.github.io/posts/20190706/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190706/</guid>
+      <description>Get Started 初识模板 模板是go编程里一项重要的技术,模板是进行生成代码(类似于其他语言的宏编程),web页面后端渲染,文件批量生成与替换等应用的高效</description>
+    </item>
+    
+  </channel>
+</rss>

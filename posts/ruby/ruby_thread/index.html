@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Ruby Concurrent Programing :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Thread Threads用于实现Ruby并发编程模型,使用Thread Class是开发者的完美候选 比如,我们可以创建一个与主线程分离的新线程,通过:"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/ruby/ruby_thread/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Ruby Concurrent Programing :: Marco Epsilon — " />
+<meta name="twitter:description" content="Thread Threads用于实现Ruby并发编程模型,使用Thread Class是开发者的完美候选 比如,我们可以创建一个与主线程分离的新线程,通过:" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Ruby Concurrent Programing :: Marco Epsilon — ">
+<meta property="og:description" content="Thread Threads用于实现Ruby并发编程模型,使用Thread Class是开发者的完美候选 比如,我们可以创建一个与主线程分离的新线程,通过:" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/ruby/ruby_thread/" />
+<meta property="og:site_name" content="Ruby Concurrent Programing" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-09-25 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/ruby/ruby_thread/">Ruby Concurrent Programing</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-09-25
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/ruby/">ruby</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/concurrent/">concurrent</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="thread">Thread</h1>
+
+<span style="color:#FF82AB; " class="plain_text plain_text_default">
+    
+Threads用于实现Ruby并发编程模型,使用Thread Class是开发者的完美候选
+<br/>
+比如,我们可以创建一个与主线程分离的新线程,通过::new
+<br/>
+<pre><code class="language-ruby">thr = Thread.new { puts &quot;What's the big deal&quot; }
+</code></pre>
+然后我们可以停止主线程执行,等待新线程结束,通过::join
+<br/>
+<pre><code class="language-ruby">thr.join #=&gt; &quot;What's the big deal&quot;
+</code></pre>
+如果不在主线程结束前使用thr.join,那么包括thr在内的所有线程都会被kill
+此外,可以通过数组储存线程实例
+<br/>
+<pre><code class="language-ruby">threads = []
+threads &lt;&lt; Thread.new { puts &quot;What's the big deal&quot; }
+threads &lt;&lt; Thread.new { 3.times { puts &quot;Threads are fun!&quot; } }
+</code></pre>
+然后陆续的等它们完成
+<br/>
+<pre><code class="language-ruby">threads.each { |thr| thr.join }
+</code></pre>
+<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+Thread的初始化
+
+</p>
+为了创建新线程,Ruby提供了::new,::start,::fork,所有的方法必须提供block,否则会导致出现ThreadError
+<br/>
+当继承Thread Class时,::start,::fork将会忽视子类的initialize方法,此外,确保子类initialize中调用super方法
+<br/>
+<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+Thread的终止
+
+</p>
+对于终止线程,Ruby提供了多种方法实现它
+class method ::kill意味着kill掉给出的进程
+<br/>
+<pre><code class="language-ruby">thr = Thread.new { ... }
+Thread.kill(thr)
+</code></pre>
+同样可以使用其实例方法#exit或其别名#kill或#terminate
+<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+Thread的状态
+
+</p>
+Ruby提供了几个方法查询线程的状态,为了得到以字符串表示的状态,使用#status
+<br/>
+<pre><code class="language-ruby">thr = Thread.new { sleep }
+thr.status #=&gt; sleep
+thr.exit
+thr.status #=&gt; false
+</code></pre>
+也可以使用#alive?方法辨别线程是否运行或睡眠中,#stop?辨别线程是否dead或睡眠中
+<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+Thread变量及作用域
+
+</p>
+因为创建线程伴随着block,所以对于block的规则,同样应用于线程,block内的变量只属于线程
+<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+Fiber-local vs. Thread-local
+
+</p>
+每个Fiber拥有自己的Thread#[]储存,当设置一个Fiber-local,只能在Fiber内访问,为了证明它:
+<br/>
+<pre><code class="language-ruby">def main()
+    Thread.new {
+        Thread.current[:foo] = &quot;bar&quot;
+        Fiber.new {
+            p Thread.current[:foo] # =&gt; nil
+        }.resume
+    }.join
+end
+main()
+</code></pre>
+这个例子使用#[]来得到和#[]=使用fiber-locals,也可以使用#keys列出给出线程的fiber-local和使用#key?来检查fiber-local是否存在,当来源于thread-locals时,线程能够完全访问作用域
+<br/>
+<pre><code class="language-ruby">def main()
+    Thread.new {
+        Thread.current.thread_variable_set(:foo, 1)
+        p Thread.current.thread_variable_get(:foo) # =&gt; 1
+        Fiber.new {
+            Thread.current.thread_variable_set(:foo, 2)
+            p Thread.current.thread_variable_get(:foo) # =&gt; 2
+        }.resume
+        p Thread.current.thread_variable_get(:foo) # =&gt; 2
+    }.join
+end
+main()
+</code></pre>
+可以看到thread-local:foo转到fiber变成2在线程结束,这个例子使用#thread_variable_set创建新的thread-local,而thread_variable_get得到其引用
+这里也有thread_variables列出存在的thread-local,也有thread_variable?判断变量是否存在
+<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+异常处理
+
+</p>
+任何线程都能引发异常,使用实例方法#raise,它和Kenerl#raise是相似的,但是注意到除主线程外异常发生取决于#abort_on_exception,这个值默认是false,意味着,任何未处理的异常将会造成线程静默的终止当被#join或#value等待,可以设置abort_on_exception = true或$DEBUG = true,加上类方法::handle_interrupt,可以异步处理线程的异常
+<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+调度
+
+</p>
+Ruby提供了几种方法调度线程,第一种方法是使用::stop,使得当前线程sleep,使得另一个线程得到调度
+一旦线程被睡眠,可以调用#wakeup使得线程能够得到合理的调度,也可以使用::pass,使得跳过当前线程执行另一个线程,但是这取决于操作系统,运行中的线程是否转换,还有#priority可以提示调度器线程调度的优先级,同样是平台相关的,可能会被忽略
+
+</span>
+
+<h1 id="mutex">Mutex</h1>
+
+<span style="color:#FF82AB; " class="plain_text plain_text_default">
+    
+Mutex实现了简单的信号量正确访问共享的多线程变量
+<br/>
+<pre><code class="language-ruby">def main
+    semaphore = Mutex.new
+    a = Thread.new { 
+        semaphore.synchronize do
+            100.times { |index| puts &quot;Thread a: #{index}&quot; }
+        end
+    }
+    b = Thread.new {
+        semaphore.synchronize do
+            100.times { |index| puts &quot;Thread b: #{index}&quot; }
+        end
+    }
+    a.join
+    b.join
+end
+main()
+</code></pre>
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="30%">
+    
+实例方法
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+lock
+
+</td>
+<td >
+    
+试图获得锁并等待如果不能提供,当前线程重复lock会引发ThreadError
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+locked?
+
+</td>
+<td >
+    
+判断Mutex是否某个线程lock了
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+owned?
+
+</td>
+<td >
+    
+如果当前线程lock了,返回true
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+try_lock
+
+</td>
+<td >
+    
+试图获得锁并立即返回,如果获得锁返回true
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+unlock
+
+</td>
+<td >
+    
+解锁,如果当前线程不持有锁,将会引发ThreadError
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+synchronize
+
+</td>
+<td >
+    
+获得锁,并且运行block,block完成后释放锁
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+sleep(timeout = nil)
+
+</td>
+<td >
+    
+释放锁,并sleep timeout,下次唤醒时将重新要求锁
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h1 id="conditionvariable">ConditionVariable</h1>
+
+<span style="color:#FF82AB; " class="plain_text plain_text_default">
+    
+条件变量参数是Mutex对象,使用条件变量可以停止等待正忙的关键部分,直到资源可供
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="35%">
+    
+实例方法
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+wait(mutex, timeout = nil)
+
+</td>
+<td >
+    
+释放mutex的锁并且等待,重新唤醒时获得锁(超时会重新获得锁)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+signal
+
+</td>
+<td >
+    
+唤醒第一个等待的thread
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+broadcast
+
+</td>
+<td >
+    
+唤醒所有等待的线程
+
+</td>
+ 
+</tr>
+
+</table>
+<br/>
+<pre><code class="language-ruby">def main
+    mutex = Mutex.new
+    condition = ConditionVariable.new
+    a = Thread.new do
+        mutex.synchronize do
+            2.times { puts &quot;Thread a first two times&quot;}
+            condition.wait(mutex)
+            10.times { |index| puts &quot;Thread a: seq #{index} is random&quot; }
+        end
+    end
+    b = Thread.new do
+        Thread.pass # let a first
+        mutex.synchronize do 
+            puts &quot;start to wakeup thread a&quot;
+            condition.signal
+            10.times { |index| puts &quot;Thread b: seq #{index} is random&quot; }
+        end
+    end
+    a.join
+    b.join
+end
+main()
+</code></pre>
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/exercise/go/url-shortener/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Go Exercise Url-Shortener</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/system/file/">
+          <span class="button__text">File &amp;&amp; Directory</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linear-algebra on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/linear-algebra/</link>
+    <description>Recent content in linear-algebra on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Thu, 18 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linear-Algebra</title>
+      <link>https://marcoepsilon.github.io/posts/math/linear-algebra/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/math/linear-algebra/</guid>
+      <description>逆序数 考虑一个长度为n的偏序序列 \(a_{1}a_{2}a_{3}{\cdots}a_{n}\) 首先我们需要对这个序列规定标准次序,比如规定序列升序是升序排列的,而若序列中前面与后面的元素违反了标准次序</description>
+    </item>
+    
+  </channel>
+</rss>

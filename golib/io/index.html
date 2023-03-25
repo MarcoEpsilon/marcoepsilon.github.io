@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Io :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Io库概述 IO库提供了一些IO操作的原语,主要任务是封装一些存在的实现,比如os库里的,为共享的功能提供抽象的接口,附加一些辅助操作,因为这"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/io/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Io :: Marco Epsilon — " />
+<meta name="twitter:description" content="Io库概述 IO库提供了一些IO操作的原语,主要任务是封装一些存在的实现,比如os库里的,为共享的功能提供抽象的接口,附加一些辅助操作,因为这" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Io :: Marco Epsilon — ">
+<meta property="og:description" content="Io库概述 IO库提供了一些IO操作的原语,主要任务是封装一些存在的实现,比如os库里的,为共享的功能提供抽象的接口,附加一些辅助操作,因为这" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/io/" />
+<meta property="og:site_name" content="Io" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-07-22 18:09:46 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/io/">Io</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-07-22
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/io/">io</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="io库概述">Io库概述</h1>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+IO库提供了一些IO操作的原语,主要任务是封装一些存在的实现,比如os库里的,为共享的功能提供抽象的接口,附加一些辅助操作,因为这些操作都是底层的调用,如若无特别声明,都不是并发安全的
+
+</span>
+
+<h1 id="常量">常量</h1>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+IO库提供了三个常量,用于文件定位:
+<br/>
+<pre><code class="language-go">const (
+    SeekStart = 0 //定位到文件开始位置
+    SeekCurrent = 1 //定位到文件当前位置
+    SeekEnd = 2 //定位到文件结束位置
+)
+</code></pre>
+
+</span>
+
+<h1 id="错误处理">错误处理</h1>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/pikaqiu.png"/>IO提供里几个错误变量,可以很方便的处理读写错误
+<br/>
+<br/>
+EOF错误用于应对处理文件读到结尾的情况,通常是由Read函数返回,提示用户已没有更多数据可读
+<br/>
+<pre><code class="language-go">var EOF = errors.New(&quot;EOF&quot;)
+</code></pre>
+ErrClosedPipe用于提示在已经关闭的Pipe(管道)进行读写操作的错误
+<br/>
+<pre><code class="language-go">var ErrClosedPipe = errors.New(&quot;io:read/write on closed pipe&quot;)
+</code></pre>
+ErrNoProgress主要用于标识用户提供的io.Reader实现违反了Read函数的要求,也就是说用户实现的io.Reader接口不符合规格
+<br/>
+<pre><code class="language-go">var ErrNoProgress = errors.New(&quot;multiple Read calls return no data or error&quot;)
+</code></pre>
+ErrShortBuffer意味着读操作要求的Buffer(缓存区)长度大于用户提供的
+<br/>
+<pre><code class="language-go">var ErrShortBuffer = errors.New(&quot;short buffer&quot;)
+</code></pre>
+ErrShortWrite意味者实际写入的数据比要求的少,但没能返回明确的错误
+<br/>
+<pre><code class="language-go">var ErrShortWrite = errors.New(&quot;short write&quot;)
+</code></pre>
+ErrUnexpectedEOF意味着出现了EOF错误,但是没能读到要求的Fix-Size Block或数据结构
+<br/>
+<pre><code class="language-go">var ErrUnexpectedEOF = errors.New(&quot;unexpected EOF&quot;)
+</code></pre>
+
+</span>
+
+<h1 id="io-reader-io-writer">io.Reader &amp;&amp; io.Writer</h1>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+前面说过io库是对os的读写原语进一步抽象,所以让我们先了解一下io库提供的两个接口,只要我们实现了它们,就可以很方便的复用
+<div style="padding-left:2.5rem; color:#FFD700;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    io.Reader
+    
+    </span>
+</p>
+    实现建议:
+    <div style="padding-left:2.5rem; color:#FFF68F;">
+    
+        
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        读取时,如果有数据提供(即使 0 < n < len(buf)),也要立即返回(不要等到缓冲区读满)
+        
+    </span>
+</p>
+        
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        读完数据后,如果n>0,则可以返回n,nil或者n,EOF,但下次调用必须返回0,EOF
+        
+    </span>
+</p>
+        
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        不建议返回0,nil除非len(buf) == 0,否则都应该返回0,EOF,表明没数据可读,调用者应该把0,nil看出什么事都没发生,不表明已经EOF
+        
+    </span>
+</p>
+    
+</div>
+
+    <br/>
+    接口定义:
+    <br/>
+<pre><code class="language-go">type Reader interface {
+    Read(buf []byte) (n int, err error)
+}
+</code></pre>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    io.Writer
+    
+    </span>
+</p>
+    io.Writer是写操作接口的封装,Write函数将缓冲区buf中len(buf)字节写入底层数据流,返回写入的数据字节(0<= n <= len(buf))和造成Write函数过早结束的错误
+    <br/>
+    实现建议:
+    <div style="padding-left:2.5rem; color:#FFF68F;">
+    
+        
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        当写入的字节小于len(buf),应该返回non-nil错误
+        
+    </span>
+</p>
+        
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        不要修改写入缓冲区,即使是临时缓冲区
+        
+    </span>
+</p>
+    
+</div>
+
+    <br/>
+    接口定义:
+    <br/>
+<pre><code class="language-go">type Writer interface {
+    Write(buf []byte) (n int, err error)
+}
+</code></pre>
+
+</div>
+
+
+</span>
+
+<h2 id="相关函数">相关函数</h2>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Copy(dst Writer, src Reader) (written int64, err error)
+
+</p>
+复制src到dst直到遇到EOF或者遇到其他错误,返回读取的字节数和复制时出现的错误,如果读取成功的话便会返回err==nil而不是err == EOF,因为内部会调用Read直到遇到EOF或错误,并不将EOF视为错误
+<br/>
+<br/>
+如果src实现了WriteTo接口,Copy实现将会调用src.WriteTo(dst),否则,如果dst实现了ReadFrom接口,Copy实现将会直接调用dst.ReadFrom(src)
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/firebrid.png"/>
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;strings&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;hello, go language&quot;)
+	if _, err := io.Copy(os.Stdout, r); err != nil {
+		panic(err)
+	}
+	// Output: hello, go language
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)
+
+</p>
+CopyBuffer和Copy相同,除了CopyBuffer需要提供缓冲区,而不是分配临时缓冲区,如果buf是nil,将会分配一个缓冲区,如果len(buf) == 0将会导致panic
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;strings&quot;
+	&quot;os&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;hello, copybuffer from io library&quot;)
+	buf := make([]byte, 8)
+	//buf used here
+	if _, err := io.CopyBuffer(os.Stdout, r, buf); err != nil {
+		panic(err)
+	}
+	// still 8
+	fmt.Println(len(buf))
+	r = strings.NewReader(&quot;copybuffer i want used once again&quot;)
+	//buf used again, avoid allocate once again
+	if _, err := io.CopyBuffer(os.Stdout, r, buf); err != nil {
+		panic(err)
+	}
+	// still 8
+	fmt.Println(len(buf))
+	// panic if give len(buf) == 0
+	/*
+	if _, err := io.CopyBuffer(os.Stdout, r, make([]byte, 0)); err != nil {
+		panic(err)
+	}
+	*/
+}
+</code></pre>
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:CopyBuffer内部会对len(buf) > 0的缓冲区重复调用Read函数知道遇到EOF或错误,所以如果提供的缓冲区过小,会导致Read函数被调用多次,如果buf为nil,则会分配很大的缓冲区进行读操作,当然len(buf) == 0则会直接panic
+
+</div>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func CopyN(dst Writer, src Reader, n int64) (written int64, err error)
+
+</p>
+由src向dst复制直到n字节或出现错误,复制n字节成功,当且仅当 err == nil(内部会通过转化为LimitReader调用Copy)
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;strings&quot;
+	&quot;io&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;hello, copyn from io library&quot;)
+	if _, err := io.CopyN(os.Stdout, r, 5); err != nil {
+		panic(err)
+	}
+	// Output: hello
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadAtLeast(src Reader, buf []byte, min int) (n int, err error)
+
+</p>
+读取src到buf至少min字节,如果len(buf) < min将会返回ErrShortBuffer,如果 n < min将会返回ErrUnexpectedEOF,n >= min 当且仅当 err == nil(已经读完 n >= min时Read恰好出现错误的话,错误将会内部被丢弃)
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;strings&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;hello, readatleast from io library&quot;)
+	buf := make([]byte, 30)
+	if _, err := io.ReadAtLeast(r, buf, 20); err != nil {
+		panic(err)
+	}
+	fmt.Println(string(buf))
+	if _, err := io.ReadAtLeast(r, buf, 60); err != nil {
+		fmt.Println(err)
+	}
+	if _, err := io.ReadAtLeast(r, buf, 5); err != nil {
+		fmt.Println(err)
+	}
+	// Output: 
+	// hello, readatleast from io lib
+	// short buffer
+	// unexpected EOF
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadFull(r Reader, buf []byte) (n int, err error)
+
+</p>
+精确地读取len(buf)字节,如果没有填充完buf就遇到EOF,将返回ErrUnexpectedEOF, n == len(buf)当且仅当 err == nil
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;strings&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;hello, readfull from io library&quot;)
+	buf := make([]byte, 5)
+	if _, err := io.ReadFull(r, buf); err != nil {
+		panic(err)
+	}
+	fmt.Println(string(buf))
+	// Output: hello
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func WriteString(w Writer, s string) (n int, err error)
+
+</p>
+将s的内容写入w,如果w实现了StringWriter,将会直接调用w.WriteString(s),否则将会调用w.Write一次
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	text := &quot;hello, WriteString from io library&quot;
+	if _, err := io.WriteString(os.Stdout, text); err != nil {
+		panic(err)
+	}
+	// Output: hello, WriteString from io library
+}
+</code></pre>
+
+</span>
+
+<h1 id="more-reader-writer">More Reader &amp;&amp; Writer</h1>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+通过对Reader和Writer进行限制和组合,能够得到更多种类的Reader和Writer,这也比较符合go组合编程的思想
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LimitReader(r Reader, n int) Reader
+
+</p>
+将r转化为读n字节后就返回EOF的Reader(底层具体类型是*LimitedReader)
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;strings&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;hello, LimitReader from io library&quot;)
+	lr := io.LimitReader(r, 5)
+	if _, err := io.Copy(os.Stdout, lr); err != nil {
+		panic(err)
+	}
+	// Output: hello
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func MultiReader(readers ...Reader) Reader
+
+</p>
+串联所有的Reader,返回的Reader调用Read读时会遍历所有Reader进行读操作知道遇到EOF或错误,如若遇到err != nil && err != EOF,则返回err
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;os&quot;
+	&quot;io&quot;
+	&quot;strings&quot;
+)
+
+func main() {
+	r1 := strings.NewReader(&quot;I'm first reader\n&quot;)
+	r2 := strings.NewReader(&quot;I'm second reader\n&quot;)
+	r3 := strings.NewReader(&quot;I'm third reader\n&quot;)
+	r := io.MultiReader(r1, r2, r3)
+	if _, err := io.Copy(os.Stdout, r); err != nil {
+		panic(err)
+	}
+	// Output:
+	/*
+	I'm first reader
+	I'm second reader
+	I'm third reader
+	*/
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func TeeReader(r Reader, w Writer) Reader
+
+</p>
+将一个Reader和Writer关联返回一个新的Reader,当读时会在内部将读到数据写入Writer,然后返回数据,数据会在w里,所以没有内部缓冲区,所有内部写操作的错误会被报告成外部读错误
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;strings&quot;
+	&quot;bytes&quot;
+	&quot;io/ioutil&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;some data read from here&quot;)
+	buf := new(bytes.Buffer)
+	teeReader := io.TeeReader(r, buf)
+	printbuf := func (r io.Reader) {
+		data, err := ioutil.ReadAll(r)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println(string(data))
+	}
+	printbuf(teeReader)
+	printbuf(buf)
+	// Output:
+	/*
+	some data read from here
+	some data read from here
+	*/
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func MultiWriter(writers ...Writer) Writer
+
+</p>
+与MultiReader类似,MultiWriter返回一个将writers串联的Writer,写操作时会遍历writer对所有Writer进行Write操作,只要其中一个Writer出现错误,将会停止遍历,并返回错误
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;bytes&quot;
+	&quot;strings&quot;
+	&quot;os&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;some data will be read\n&quot;)
+	buf := new(bytes.Buffer)
+	w := io.MultiWriter(os.Stdout, buf)
+	if _, err := io.Copy(w, r); err != nil {
+		panic(err)
+	}
+	fmt.Print(buf.String())
+	// Output:
+	/*
+	some data will be read
+	some data will be read
+	*/
+}
+</code></pre>
+
+</span>
+
+<h1 id="more-abstract">More Abstract</h1>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/greenly.png"/>
+除了Reader,Writer,io库还提供了更多操作的抽象,不过它们还是和Reader和Writer有关
+<div style="padding-left:2.5rem; color:#FFD700;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ReadWriter
+    
+    </span>
+</p>
+    Reader和Writer接口的组合
+    <br/>
+<pre><code class="language-go">type ReadWriter interface {
+    Reader
+    Writer
+}
+</code></pre>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    Closer
+    
+    </span>
+</p>
+    Closer接口主要是用来组合那些需要在读写正确关闭操作的接口,使得资源能够被正确释放,Close调用后再调用是未定义的,特别的实现需要文档说明
+    <br/>
+<pre><code class="language-go">type Closer interface {
+    Close() error
+}
+</code></pre>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ReadCloser
+    
+    </span>
+</p>
+    主要用来组合基本的Read和Close操作
+    <br/>
+<pre><code class="language-go">type ReadCloser interface {
+    Reader
+    Closer
+}
+</code></pre>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    WriteCloser
+    
+    </span>
+</p>
+主要用来组合基本的Write和Close操作
+<br/>
+<pre><code class="language-go">type WriteCloser interface {
+    Writer
+    Closer
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+ReadWriteCloser
+
+    </span>
+</p>
+Reader,Writer,Closer接口的组合
+<br/>
+<pre><code class="language-go">type ReadWriteCloser interface {
+    Reader
+    Writer
+    Closer
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+Seeker
+
+    </span>
+</p>
+whence参数,SeekStart会调整相对文件开头的偏移量,SeekCurrent会定位到相对当前位置的偏移量,SeekEnd会定位到相对文件结束位置的偏移量,定位到文件开头之前会发生错误,任何offset都是合法的,但具体操作依赖于底层实现
+<br/>
+<pre><code class="language-go">type Seeker interface {
+    Seek(offset int64, whence int) (int64, error)
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+ReadSeeker
+
+    </span>
+</p>
+Reader和Seeker接口的组合
+<br/>
+<pre><code class="language-go">type ReadSeeker interface {
+    Reader
+    Seeker
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+WriteSeeker
+
+    </span>
+</p>
+Writer和Seeker接口的组合
+<br/>
+<pre><code class="language-go">type WriteSeeker interface {
+    Writer
+    Seeker
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+ReadWriteSeeker
+
+    </span>
+</p>
+Reader,Writer,Seeker接口的组合
+<br/>
+<pre><code class="language-go">type ReadWriteSeeker interface {
+    Reader
+    Writer
+    Seeker
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+ReadAt
+
+    </span>
+</p>
+ReadAt是底层ReadAt方法的封装,ReadAt会读取底层输入源的偏移位置len(p)字节数据,如果读取的数据少于len(p),方法会返回错误报告原因(这点要比Read方法严格),如果有数据可供读取,而读取的数据没有len(p),将会阻塞读到len(p)或直到出现错误(这点和Read函数不同),如果读取到len(p) == n,则err == nil或 err == EOF,ReadAt实现不应该影响或不被影响底层数据源的seek offset,客户的调用或实现应该能够并发的在同一个数据源调用ReatAt
+<br/>
+<pre><code class="language-go">type ReadAt interface {
+    ReadAt(p []byte, off int64) (n int, err error)
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+ReadFrom
+
+    </span>
+</p>
+基础方法ReadFrom的封装接口,对r调用Read直到出现EOF或其他错误,返回读到的数据和错误(不将EOF视为错误,遇到EOF会返回nil)
+<br/>
+<pre><code class="language-go">type ReadFrom interface {
+	ReadFrom(r Reader) (n int64, err error)
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+WriteAt
+
+    </span>
+</p>
+WriteAt是底层WriteAt方法封装的接口,WriteAt会往底层数据流其偏移off处写入len(p)字节数据,如果写入数据小于len(p)将会返回non-nil错误,只要写入出现错误就会停止写入并立即返回,客户可以并发的调用写往同一个数据流,只要其范围不重叠
+<br/>
+<pre><code class="language-go">type WriteAt interface {
+	WriteAt(p []byte, off int64) (n int, err error)
+}
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+WriteTo方法的封装接口,WtiteTo进行写操作直到没有数据可写,当写完数据或发生错误时会返回,返回写入的数据和写入时遇到的错误
+<br/>
+<pre><code class="language-go">type WriteTo interface {
+	WriteTo(w Writer) (n int64, err error)
+}
+</code></pre>
+
+    </span>
+</p>
+
+</div>
+
+
+</span>
+
+<h1 id="more-combination">More Combination</h1>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+通过对读写的数据的分类,读写来源的不同,我们能得到更多的组合
+<div style="padding-left:2.5rem; color:#FFD700;">
+    
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	ByteReader
+	
+    </span>
+</p>
+	ByteReader是ReadByte方法的封装接口,通过调用该方法可以获得输入源下一个字节或者遇到的错误,发生错误时,返回的字节是未定义的
+	<br/>
+<pre><code class="language-go">type ByteReader interface {
+	ReadByte() (byte, error)
+}
+</code></pre>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	ByteScanner
+	
+    </span>
+</p>
+	ByteScanner在ByteReader接口增加了UnreadByte方法,UnreadByte用于下次调用ReadBye会返回相同的字节,同时如果调用UnreadByte两次而没有调用ReadByte可能会发生错误
+	<br/>
+<pre><code class="language-go">type ByteScanner interface {
+	ByteReader
+	UnreadByte() error
+}
+</code></pre>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	ByteWriter
+	
+    </span>
+</p>
+	WriteByte方法的封装接口
+	<br/>
+<pre><code class="language-go">type ByteWriter interface {
+	WriteByte(c byte) error
+}
+</code></pre>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	RuneReader
+	
+    </span>
+</p>
+	RuneReader是ReadRune方法的封装接口,ReadRune会读取一个单UTF-8编码的Unicode字符,并返回Rune值和字节大小,如果字符不可用,将会返回错误
+	<br/>
+<pre><code class="language-go">type RuneReader interface {
+	ReadRune() (r rune, size int, err error)
+}
+</code></pre>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	RuneScanner
+	
+    </span>
+</p>
+	RuneScanner是RuneReader接口和UnreadRune方法的组合,UnreadRune用于下次调用ReadRune和上次调用返回同样的结果,如果调用两次UnreadRune而没调用ReadRune可能会发生错误
+	<br/>
+<pre><code class="language-go">type RuneScanner interface {
+	RuneReader
+	UnreadRune() error
+}
+</code></pre>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	StringWriter
+	
+    </span>
+</p>
+	StringWriter是封装WriteString方法的接口
+	<br/>
+<pre><code class="language-go">type StringWriter interface {
+	WriteString(s string) (n int, err error)
+}
+</code></pre>
+
+</div>
+
+<br/>
+<h2 id="pipe-管道">Pipe(管道)</h2>
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/yellowman.png"/>
+管道是io库提供的一种基于内存的同步IO设施,它用于在期望读写的两端构建联系,这两端分别是PipeReader和PipeWriter,每次PipeWriter写操作都会阻塞到数据全部被读取(消费),所以它是一种即时的操作,内部不会缓存数据,同时它的操作也是并发安全的,可以通过下面函数创建管道:
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Pipe() (PipeReader, PipeWriter)
+
+</p>
+对于PipeReader有关于读,关闭的方法
+<div style="padding-left:2.5rem; color:#FFD700;">
+    
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	func (r *PipeReader) Read(data []byte) (n int, err error)
+	
+    </span>
+</p>
+	<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+	Read函数实现了标准的Reader接口,Read函数会在Write数据到来之前一直阻塞或写端已经关闭时返回,如果写端关闭给出错误信息,将会返回err,否则返回EOF
+	
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	func (r *PipeReader) Close() error
+	
+    </span>
+</p>
+	<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+	关闭读端,接下来的的写入端写入将会返回ErrClosedPipe
+	
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	func (r *PipeReader) CloseWithError(err error) error
+	
+    </span>
+</p>
+	<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+	关闭读端,同时给出错误信息,接下来的写入端写入将会返回给出的err(主要用于用户定制化错误信息让写入端进行定制处理)
+	
+</p>
+
+</div>
+
+<br/>
+对于PipeWriter也提供了写和关闭的方法:
+<div style="padding-left:2.5rem; color:#FFD700;">
+    
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	func (w *PipeWriter) Write(data []byte) (n int, err error)
+	
+    </span>
+</p>
+	<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+	写入数据,直到data的数据全部被读取或读端关闭,如果读端关闭时给出错误信息,则返回错误信息,否则返回ErrClosedPipe
+	
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	func (w *PipeWriter) Close() error
+	
+    </span>
+</p>
+	<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+	关闭写端,接下来读端读取数据时会返回EOF
+	
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	func (w *PipeWriter) CloseWithError(err error) error
+	
+    </span>
+</p>
+	<p style="color:#FF8C69; font-size:21px; margin-bottom: 5px;">
+
+	关闭写端,同时给出错误信息,接下来读端读取数据将会返回错误信息,如果err == nil将会返回EOF
+	<br/>
+	CloseWithError始终返回nil
+	
+</p>
+
+</div>
+
+<br/>
+<h3 id="example">Example</h3>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;errors&quot;
+	&quot;bytes&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	r, w := io.Pipe()
+	CustomErrEOF := errors.New(&quot;CustomErrEOF&quot;)
+	go func() {
+		text := &quot;i have some data want to be read ...&quot;
+		_, err := w.Write([]byte(text))
+		if err != nil {
+			panic(err)
+		}
+		w.CloseWithError(CustomErrEOF)
+	}()
+	for {
+		buf := new(bytes.Buffer)
+		_, err := buf.ReadFrom(r)
+		if err != CustomErrEOF {
+			panic(err)
+		} else {
+			fmt.Println(buf.String())
+			break
+		}
+	}
+}
+</code></pre>
+
+</span>
+
+<h2 id="sectionreader">SectionReader</h2>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+SectionReader实现了Seek,ReadAt,ReadAt底层ReadAt的一部分,它提供了如下函数:
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NewSectionReader(r ReadAt, off int64, n int64) *SectionReader
+
+</p>
+NewSectionReader返回的*SectionReader是读操作从r偏移off开始读取n个byte以EOF停止
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (s *SectionReader) Read(p []byte) (n int, err error)
+
+</p>
+实现Reader接口的读取函数
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (s *SectionReader) ReadAt(p []byte, off int64) (n int, err error)
+
+</p>
+实现的ReadAt接口的ReadAt函数
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (s *SectionReader) Seek(offset int64, whence int) (int64, error)
+
+</p>
+实现的Seek接口的Seek函数
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (s *SectionReader) Size() int64
+
+</p>
+返回section的字节大小
+<br/>
+<h3 id="example">Example</h3>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;io&quot;
+	&quot;strings&quot;
+	&quot;os&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;some io.Reader stream to be read\n&quot;)
+	s := io.NewSectionReader(r, 5, 9)
+	if _, err := io.Copy(os.Stdout, s); err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println()
+	s.Seek(3, io.SeekStart)
+	if _, err := io.Copy(os.Stdout, s); err != nil {
+		fmt.Println(err)
+		return
+	}
+	// Output:
+	/*
+	io.Reader
+	Reader
+	*/
+}
+</code></pre>
+
+</span>
+
+<h1 id="io-ioutil">io/ioutil</h1>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+接下来顺便介绍一下io/ioutil库,里面提供了对于使用io库更高效实用的功能
+
+</span>
+
+<h2 id="变量-variables">变量(Variables)</h2>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+Discard是一个io.Writer接口变量用于实现将数据丢弃并成功返回<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/bind.png"/>
+<br/>
+<pre><code class="language-go">var Discard io.Writer = devNull(0)
+</code></pre>
+
+</span>
+
+<h2 id="函数-functions">函数(Functions)</h2>
+
+<span style="color:#40E0D0; " class="plain_text plain_text_default">
+    
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func NopCloser(r io.Reader) io.ReadCloser
+
+</p>
+将Reader接口r封装成一个Close方法不执行任何操作的ReadCloser
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadAll(r io.Reader) ([]byte, error)
+
+</p>
+从r中读取数据直到出现错误或io.EOF,成功调用会返回err == nil而不是EOF
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;strings&quot;
+	&quot;io/ioutil&quot;
+)
+
+func main() {
+	r := strings.NewReader(&quot;some data will be to read by ioutil.ReadAll&quot;)
+	all, err := ioutil.ReadAll(r)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(all))
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadDir(dirname string) ([]os.FileInfo, error)
+
+</p>
+读取dirname目录下的所有文件(包括目录),并以文件名排序成列表返回
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io/ioutil&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	files, err := ioutil.ReadDir(&quot;/bin&quot;)
+	if err != nil {
+		panic(err)
+	}
+	for _, file := range files {
+		fmt.Println(file.Name())
+	}
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func ReadFile(filename string) ([]byte, error)
+
+</p>
+读取filename文件的所有数据,成功调用将EOF转换为nil返回nil,错误将返回err
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io/ioutil&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	filename := &quot;readfile.go&quot;
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(content))
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func TempDir(dir, prefix string) (name string, err error)
+
+</p>
+在目录名dir下创建以prefix为前缀的临时目录,并返回目录名和错误报告,调用者有责任在不需要时自行清理该临时目录(如果dir是空字符串,程序将会使用默认临时目录)
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;os&quot;
+	&quot;io/ioutil&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	tempDir, err := ioutil.TempDir(&quot;.&quot;, &quot;marcoepsilon&quot;)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(tempDir)
+	defer os.Remove(tempDir)
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func TempFile(dir, pattern string) (f *os.File, err error)
+
+</p>
+在目录名dir下创建一个临时文件,如果pattern中存在"*",则程序会以随机字符串代替最后的"*"，如果目录dir为空字符串,将在默认临时目录创建,返回一个以读写模式打开的文件句柄
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io/ioutil&quot;
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	pattern := &quot;marcoepsilon*.txt&quot;
+	file, err := ioutil.TempFile(&quot;.&quot;, pattern)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(file.Name())
+	defer os.Remove(file.Name())
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func WriteFile(filename string, p []byte, perm os.FileMode) error
+
+</p>
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;io/ioutil&quot;
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	text := &quot;some data will be write by ioutil.WriteFile&quot;
+	filename := &quot;./tempuse.txt&quot;
+	err := ioutil.WriteFile(filename, []byte(text), os.ModePerm)
+	if err != nil {
+		panic(err)
+	}
+	defer os.Remove(filename)
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(content))
+}
+</code></pre>
+向filename文件写入字节序列p,如果文件不存在,则会以perm创建文件并写入,如果文件存在,则在写入之前先截断文件
+
+</span>
+
+<div style="display: flex; flex-direction: row; justify-content: space-between; margin-top:2rem;">
+    
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/yellowcute.png"/>
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/turle.png"/>
+
+</div>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/regexp/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Regexp</span>
+        </a>
+      </span>
+      
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

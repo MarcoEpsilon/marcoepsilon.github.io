@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Stack &amp;&amp; Queue :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="注:以下解释代码均是由go语言编写 完整示例代码 开始之前 栈(Stack)和队列(Queue)的逻辑结构都是线性表,而且其存储结构均可用顺序表和"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/algorithm/stack_queue/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Stack &amp;&amp; Queue :: Marco Epsilon — " />
+<meta name="twitter:description" content="注:以下解释代码均是由go语言编写 完整示例代码 开始之前 栈(Stack)和队列(Queue)的逻辑结构都是线性表,而且其存储结构均可用顺序表和" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Stack &amp;&amp; Queue :: Marco Epsilon — ">
+<meta property="og:description" content="注:以下解释代码均是由go语言编写 完整示例代码 开始之前 栈(Stack)和队列(Queue)的逻辑结构都是线性表,而且其存储结构均可用顺序表和" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/algorithm/stack_queue/" />
+<meta property="og:site_name" content="Stack &amp;&amp; Queue" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-08-09 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/algorithm/stack_queue/">Stack &amp;&amp; Queue</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-08-09
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/stack-queue/">stack &amp;&amp; queue</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/datastructure-algorithm/">dataStructure &amp;&amp; algorithm</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<p>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<div style="background-color:#7CCD7C; height:auto; color:#27408B; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:以下解释代码均是由go语言编写
+<a href=https://github.com/MarcoEpsilon/GoAlgorithm/tree/master/linear-list style="color:#1E90FF; display:inline-block; position:relative">完整示例代码</a>
+
+</div></p>
+
+<h1 id="开始之前">开始之前</h1>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+栈(Stack)和队列(Queue)的逻辑结构都是线性表,而且其存储结构均可用顺序表和链表实现,但是栈和队列都是一种受限的线性表,比如栈的输入和输出只能在一端进行,故其中的元素拥有后进先出的特性,队列只能在一端输出,一端输入,故其元素拥有先进先出的特性
+
+</span>
+
+<h1 id="栈-stack">栈(Stack)</h1>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+前面已经说过栈中元素拥有后进先出的特性,我们把栈进出的一端叫做栈顶,另一端叫做栈底,栈顶的元素进出可以通过修改栈顶top指针完成
+<div style="display: flex; flex-direction: row; justify-content: center; margin-top:2rem;">
+    
+<div style=" vertical-align:middle; margin-bottom:1rem; margin-top:1rem;">
+    <img src=/20190810/stack.svg alt="" height="auto" />
+</div>
+
+</div>
+故我们可以写下如下代码来定义栈的结构体:
+
+</span>
+
+<pre><code class="language-go">const (
+	stackMaxSize = 2 &lt;&lt; 10
+)
+type Stack = *stack_inner
+type stack_inner struct {
+	elems [stackMaxSize]interface{}
+	top   int
+}
+</code></pre>
+
+<p><div style="background-color:#7CCD7C; height:auto; color:#27408B; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:这里的描述代码使用的是顺序表存储结构,源代码包含顺序表和链表的代码
+
+</div>
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+在编写栈的基本操作之前,我们先定义一下栈的错误处理(变量名说明一切,不多做解释,也可看具体操作的运用):
+
+</span></p>
+
+<pre><code class="language-go">var (
+	StackIsEmpty   = errors.New(&quot;StackIsEmpty&quot;)
+	StackIsFull    = errors.New(&quot;StackIsFull&quot;)
+	TypeError      = errors.New(&quot;TypeError&quot;)
+	UnExpectedType = errors.New(&quot;UnExceptedType&quot;)
+	OperationInvalid = errors.New(&quot;OperationInvalid&quot;)
+	NotSupportCompare = errors.New(&quot;NotSupportCompare&quot;)
+)
+</code></pre>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+为了保证栈中元素类型相同,我们定义一个辅助函数用于检查类型
+
+</span>
+
+<pre><code class="language-go">func (stack Stack) checkType(elem interface{}) (err error) {
+	if stack.IsEmpty() {
+		return nil
+	}
+	leftKind := reflect.TypeOf(stack.elems[stack.top])
+	rightKind := reflect.TypeOf(elem)
+	if leftKind == rightKind {
+		return nil
+	} else {
+		return UnExpectedType
+	}
+}
+</code></pre>
+
+<h2 id="栈的基本操作">栈的基本操作</h2>
+
+<h5 id="创建栈">创建栈</h5>
+
+<pre><code class="language-go">func New() Stack {
+	return &amp;stack_inner{
+		elems: [stackMaxSize]interface{}{},
+		top:   -1,
+	}
+}
+
+func NewWith(elems interface{}) (Stack, error) {
+	value := reflect.ValueOf(elems)
+	stack := New()
+	switch reflect.TypeOf(elems).Kind() {
+	case reflect.Slice, reflect.Array:
+		for i := 0; i &lt; value.Len(); i++ {
+			stack.top++
+			stack.elems[i] = value.Index(i).Interface()
+		}
+	default:
+		return nil, UnExpectedType
+	}
+	return stack, nil
+}
+</code></pre>
+
+<h5 id="添加元素">添加元素</h5>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+添加元素只需要修改栈顶top指针即可,故其时间复杂度和空间复杂度都是 <span style="color:#FFB90F;">
+    
+\(O(1)\)
+
+</span>
+
+</span>
+
+<pre><code class="language-go">func (stack Stack) Push(elem interface{}) (err error) {
+	if stack.IsFull() {
+		return StackIsFull
+	}
+	err = stack.checkType(elem)
+	if err != nil {
+		return err
+	}
+	stack.top += 1
+	stack.elems[stack.top] = elem
+	return nil
+}
+</code></pre>
+
+<h5 id="删除元素">删除元素</h5>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+删除元素也只需要修改栈顶指针即可,同样时间复杂度和空间复杂度也都是 <span style="color:#FFB90F;">
+    
+\(O(1)\)
+
+</span>
+
+</span>
+
+<pre><code class="language-go">func (stack Stack) Pop() (elem interface{}, err error) {
+	if stack.IsEmpty() {
+		return nil, StackIsEmpty
+	}
+	elem = stack.elems[stack.top]
+	stack.top--
+	return elem, nil
+}
+</code></pre>
+
+<h5 id="其他基本操作">其他基本操作</h5>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+编写判空,判满(顺序表未进行动态分配内存时),获取长度,窥探栈顶元素也很简单,时间复杂度和空间复杂度均为 <span style="color:#FFB90F;">
+    
+\(O(1)\)
+
+</span>
+
+</span>
+
+<pre><code class="language-go">func (stack Stack) IsEmpty() bool {
+	return stack.top == -1
+}
+
+func (stack Stack) IsFull() bool {
+	return stack.top == stackMaxSize-1
+}
+
+func (stack Stack) Length() int {
+	return stack.top + 1
+}
+
+func (stack Stack) Top() (elem interface{}, err error) {
+	if stack.IsEmpty() {
+		return nil, StackIsEmpty
+	}
+	return stack.elems[stack.top], nil
+}
+</code></pre>
+
+<h1 id="栈的算法">栈的算法</h1>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+由于栈是受限的线性表,故其操作只能针对其基本操作进行,所以接下来的算法在编写上没有了原生线性表的灵活
+
+</span>
+
+<h5 id="栈的逆序">栈的逆序</h5>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+栈的逆序关键就是将栈顶之下的一半和栈底之上的一半对换,而我们使用栈,只能获取栈顶元素,故我们可以通过遍历栈顶元素并保存来获得所有元素的视图,第一种逆序方法就是用一个新栈保存操作栈不断弹出的元素,这样得到的栈便是一个逆序栈,第二种就是使用递归,通过递归我们可以通过函数栈保存当前栈顶元素,递归到栈底元素时,通过回朔,使得栈底元素与上层函数栈当前栈顶元素互换,最终使得栈底元素冒泡到栈顶元素之上,接着对除新栈顶元素之外的子栈重复上述算法,最终完成栈的逆序,下面给出第二种算法的代码,通过以上分析我们知道第一种算法时间复杂度和空间复杂度均为 <span style="color:#FFB90F;">
+    
+\(O(n)\)
+
+</span>,而第二种算法时间复杂度为 <span style="color:#FFB90F;">
+    
+\(O(n^{2})\)
+
+</span>,空间复杂度为 <span style="color:#FFB90F;">
+    
+\(O(1)\)
+
+</span>
+<div style="display: flex; flex-direction: row; justify-content: center; margin-top:2rem;">
+    
+<div style=" vertical-align:middle; margin-bottom:1rem; margin-top:1rem;">
+    <img src=/20190810/reverse.svg alt="" height="auto" />
+</div>
+
+</div>
+<div style="display: flex; flex-direction: row; justify-content: center; margin-top:2rem;">
+    
+<div style=" vertical-align:middle; margin-bottom:1rem; margin-top:1rem;">
+    <img src=/20190810/back.svg alt="" height="auto" />
+</div>
+
+</div>
+
+</span>
+
+<pre><code class="language-go">func (stack Stack) moveBottomToTop() {
+	if stack.IsEmpty() {
+		return
+	}
+	// get the current function's stack element
+	top, _ := stack.Pop()
+	if !stack.IsEmpty() {
+		//deeply
+		stack.moveBottomToTop()
+		//get the stack bottom element
+		bottom, _ := stack.Pop()
+		// reverse bottom and top
+		_ = stack.Push(top)
+		_ = stack.Push(bottom)
+	} else {
+		// return the last element of stack
+		stack.Push(top)
+	}
+}
+
+func (stack Stack) reverse() {
+	if stack.IsEmpty() {
+		return
+	}
+	stack.moveBottomToTop()
+	top, _ := stack.Pop()
+	stack.reverse()
+	_ = stack.Push(top)
+}
+
+func (stack Stack) Reverse() {
+	stack.reverse()
+}
+</code></pre>
+
+<h5 id="栈的排序">栈的排序</h5>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+如果不借助辅助空间且采用递归的算法,我们同样也可以用上述的逆序算法的第二种实现思路去完成它,通过完成这两个算法,我们会发现这个算法和冒泡排序不仅形似还神似(前面链表的排序和插入排序也很雷同哦),这里我们只需要在第二种逆序算法加个比较判断,然后决定进栈顺序即可
+
+</span>
+
+<pre><code class="language-go">func (stack Stack) SortWithBubble() (err error) {
+	if stack.IsEmpty() {
+		return nil
+	}
+	err = stack.bottomBubble()
+	if err != nil {
+		return err
+	}
+	top, _ := stack.Pop()
+	err = stack.SortWithBubble()
+	if err != nil {
+		return err
+	}
+	stack.Push(top)
+	return nil
+}
+
+func (stack Stack) bottomBubble() (err error) {
+	if stack.IsEmpty() {
+		return
+	}
+	top, _ := stack.Pop()
+	if !stack.IsEmpty() {
+		waitErr := stack.bottomBubble()
+		bottom, _ := stack.Pop()
+		status, err := compare(top,bottom)
+		if err != nil {
+			return err
+		}
+		if status == LessThan {
+			stack.Push(bottom)
+			stack.Push(top)
+		} else {
+			stack.Push(top)
+			stack.Push(bottom)
+		}
+		return waitErr
+	} else {
+		stack.Push(top)
+		return nil
+	}
+}
+</code></pre>
+
+<h4 id="栈的弹出与压入">栈的弹出与压入</h4>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+对于一个指定要压入的栈序列,我们可以通过改变压入和删除的顺序,来获得不同的弹出序列,但是弹出序列并不是压入栈序列的全排序,而是其子集,所以我们需要设计一种算法来判断某弹出序列是否是某栈压入序列的合法输出
+
+</span>
+
+<pre><code class="language-go">func IsResult(push []int,pop []int) (is bool, err error) {
+	help := New()
+	if len(push) != len(pop) || len(push) == 0 {
+		return false, OperationInvalid
+	}
+	j := 0
+	for i := 0; i &lt; len(pop); i++ {
+		if !help.IsEmpty() {
+			top, err := help.Top()
+			if err != nil {
+				return false, err
+			}
+			status, err := compare(top,pop[i])
+			if err != nil {
+				return false,err	
+			}
+			if status == Eq {
+				_, err = help.Pop()
+				if err != nil {
+					return false, err
+				}
+				continue
+			}
+		}
+		for ; j &lt; len(push); j++ {
+			status,err := compare(pop[i],push[j])
+			if err != nil {
+				return false, err
+			}
+			if status != Eq {
+				_ = help.Push(push[j])
+			} else {
+				j = j + 1
+				break
+			}
+		}
+	}
+	if help.IsEmpty() {
+		return true, nil
+	} else {
+		return false, nil
+	}
+}
+</code></pre>
+
+<h1 id="栈的应用">栈的应用</h1>
+
+<h5 id="括号匹配">括号匹配</h5>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+栈可以缓存一些暂时不需要的数据等待特定条件时才使用(比如经历了某些过程使得当前栈顶元素就是立刻处理的元素),栈一个重要的应用就是在括号匹配判断括号表达式括号是否合理,即表达式中每个左括号 <span style="color:#FFB90F;">
+    
+\((\{[\)
+
+</span>是否都有一个最近的右括号与之匹配 <span style="color:#FFB90F;">
+    
+\()\}]\)
+
+</span>,栈能够很好处理匹配问题,是由于栈能够缓存最急切需要匹配的左括号,而在扫描括号表达式过程中找到与栈顶括号匹配的元素,就直接弹出栈顶元素,使得栈顶邻近元素成为栈顶元素(最急切匹配的左括号),如此进行要保证栈为空时没有多余的右括号,扫描完括号表达时后栈为空(没有多余的右括号),此时括号表达式中括号才算匹配,否则不匹配.
+
+</span>
+
+<pre><code class="language-go">// judge whether is matched ()[]{}
+func IsMatchedParentheses(checked string) bool {
+	st := stack.New();
+	matched := func(s string, e string) (bool) {
+		switch s {
+		case &quot;(&quot;:
+			return e == &quot;)&quot;
+		case &quot;[&quot;:
+			return e == &quot;]&quot;
+		case &quot;{&quot;:
+			return e == &quot;}&quot;
+		default:
+			return false
+		}
+	}
+	for _, r := range checked {
+		s := string(r)
+		if strings.ContainsAny(s, &quot;([{&quot;) {
+			st.Push(r)
+		} else if strings.ContainsAny(s, &quot;)]}&quot;) {
+			if !st.IsEmpty() {
+				ti, _ := st.Pop()
+				top := string(ti.(rune))
+				if !matched(top, s) {
+					return false
+				}
+			} else {
+				return false
+			}
+		}
+	}
+	if st.IsEmpty() {
+		return true
+	} else {
+		return false
+	}
+}
+</code></pre>
+
+<h5 id="表达式求值">表达式求值</h5>
+
+<span style="color:#EE2C2C; " class="plain_text plain_text_default">
+    
+栈在表达式求值有很大的作用,由于中缀表达式不仅依赖运算符的优先级还需要处理括号带来的优先级问题,而后缀表达式只需要从前往后运算即可,所以对于表达式求值，我们先需要把中缀表达式转换为后缀表达式,这里栈同样能大放异彩,比如我们考虑表达式 <span style="color:#FFB90F;">
+    
+\(a + b - a * ( ( c + d ) / e - f ) + g\)
+
+</span>,这是一个很普通的中缀表达式,很显然我们无法直接从左向右扫描完成运算,因为我们从左向右扫描的过程中无法感知当前运算符的优先级,所以我们需要将其转换为后缀表达式,使得扫描过程中遇到运算符就能立即运算,无须等待扫描剩余部分去考虑优先级,那么我们如何完成转换呢?我们思考一下后缀表达式的求值过程,后缀表达式扫描过程中遇到运算符就能利用扫描过的操作数完成运算,所以越靠前的运算符优先级越高,根据以往的计算经验我们知道 <span style="color:#FFB90F;">
+    
+\(*/%\)
+
+</span>优先级高于 <span style="color:#FFB90F;">
+    
+\(+-\)
+
+</span>, <span style="color:#FFB90F;">
+    
+\(（）\)
+
+</span>高于 <span style="color:#FFB90F;">
+    
+\(*/%\)
+
+</span>
+我们来模拟下上述表达式的算法处理过程
+<div style="padding-left:2.5rem; color:#BCEE68;">
+    
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描遇到a 是操作数直接输出
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描遇到+ 运算符栈为空,故优先级不确定将其压入栈,等待确定
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描遇到b 是操作数直接输出
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描遇到- 是运算符,栈中有+,显然二者优先级相等,故先进行左边运算,弹出+,
+		栈为空,故-优先级不能确定,压入-
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描遇到a 是操作数,直接输出
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到*,栈顶是-，而优先级大于-,且其优先级不能确定,故将其压人栈
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到(,是左括号需要配对右括号,故将其加入栈(左括号明确来说不是运算符,但将其压入栈的目的有两个,第一个是等待右括号匹配,需要将其缓存,第二个是作为优先级的分界点,左括号必须被弹出,栈顶下的运算符才有可能被弹出)
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到(,继续压入
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到c,直接输出
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到+，栈顶是(,无法确定其优先级,将其压入
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到),故(到)直接的表达式整体优先级最高且匹配左括号,直接弹出 + (
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到/,当前栈顶是左括号,且优先级不确定,故直接压入/
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到e,是操作数直接输出
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到-,栈顶是 /,故栈顶优先级确定,弹出/,-优先级不能确定,将其压入
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到f,是操作数直接弹出
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到),直接弹出 - （
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到+,栈顶是*，故其优先级可确定,直接弹出,当前栈顶是-,优先级也可确定,故可弹出,+优先级暂不确定,压入栈中(可利用递归实现,减少样板代码)
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描到g,是操作数,直接输出
+	
+    </span>
+</p>
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+		扫描完毕,输出栈中内容(也许你需要检查栈中是否有未匹配的括号)
+	
+    </span>
+</p>
+
+</div>
+
+综上输出结果为 <span style="color:#FFB90F;">
+    
+\(a b + a c d + e / f - * - g +\)
+
+</span>
+具体解析实现过程可查看源代码 <a href=https://github.com/MarcoEpsilon/GoAlgorithm/blob/master/linear-list/stack/apply/apply.go style="color:chartreuse; display:inline-block; position:relative">apply.go</a>
+<br/>
+我们得到了后缀表达式,接着进行表达式求值,我们继续使用栈,扫描后缀表达式过程中,将操作数压入栈,如果遇到操作符,则弹出两个操作数进行运算,再将运算结果压入栈中等待新的运算,最终栈中剩余的元素便为表达式的求值结果
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/ruby/basic_summary/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Ruby Basic Summary</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/algorithm/linear-list/">
+          <span class="button__text">Linear List</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

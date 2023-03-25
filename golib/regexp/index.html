@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Regexp :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="正则表达式语法概述(熟悉可跳过) 对于go 正则表达式语法也可以运行下列命令查看 go doc regexp/syntax 单字符集 符号 描述 . 匹配任意字符,可能包含&#39;\n&#39;(当 flag s ="/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/regexp/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Regexp :: Marco Epsilon — " />
+<meta name="twitter:description" content="正则表达式语法概述(熟悉可跳过) 对于go 正则表达式语法也可以运行下列命令查看 go doc regexp/syntax 单字符集 符号 描述 . 匹配任意字符,可能包含&#39;\n&#39;(当 flag s =" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Regexp :: Marco Epsilon — ">
+<meta property="og:description" content="正则表达式语法概述(熟悉可跳过) 对于go 正则表达式语法也可以运行下列命令查看 go doc regexp/syntax 单字符集 符号 描述 . 匹配任意字符,可能包含&#39;\n&#39;(当 flag s =" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/regexp/" />
+<meta property="og:site_name" content="Regexp" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-08-19 22:27:55 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/regexp/">Regexp</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-08-19
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/regexp/">regexp</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="正则表达式语法概述-熟悉可跳过">正则表达式语法概述(熟悉可跳过)</h1>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+对于go 正则表达式语法也可以运行下列命令查看
+
+</span>
+
+<pre><code class="language-bash/shell">go doc regexp/syntax
+</code></pre>
+
+<h4 id="单字符集">单字符集</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="25%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+.
+
+</td>
+<td >
+    
+匹配任意字符,可能包含'\n'(当 flag s = true)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[xyz]
+
+</td>
+<td >
+    
+字符集(匹配字符集中任意字符)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[^xyz]
+
+</td>
+<td >
+    
+否定字符集(排除字符集中任意字符)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\d
+
+</td>
+<td >
+    
+Perl字符集(匹配任意数字)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\D
+
+</td>
+<td >
+    
+否定Perl字符集(匹配任意非数字)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:alpha:]]
+
+</td>
+<td >
+    
+ASCII字符集(匹配ASCII字符集)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:^alpha:]]
+
+</td>
+<td >
+    
+否定ASCII字符集(排除ASCII字符集)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\pN
+
+</td>
+<td >
+    
+Unicode字符集(字符名)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\p{Greek}
+
+</td>
+<td >
+    
+Unicode字符集
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\PN
+
+</td>
+<td >
+    
+否定Unicode字符集(一个字符名)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\P{Greek}
+
+</td>
+<td >
+    
+否定Unicode字符集
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="复合">复合</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="25%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+xy
+
+</td>
+<td >
+    
+匹配字符x后接字符y
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x|y
+
+</td>
+<td >
+    
+匹配字符x或字符y
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="重复">重复</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="25%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x*
+
+</td>
+<td >
+    
+匹配零次或更多x,倾向于更多
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x+
+
+</td>
+<td >
+    
+匹配一次或更多x,倾向于更多
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x?
+
+</td>
+<td >
+    
+匹配0次或1次x,倾向于一次
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x{n,m}
+
+</td>
+<td >
+    
+匹配n或n+1或 ... 或 m次x,倾向于更多
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x{n, }
+
+</td>
+<td >
+    
+匹配n次或更多次x,倾向于更多
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x{n}
+
+</td>
+<td >
+    
+明确匹配n次x
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x*?
+
+</td>
+<td >
+    
+匹配0或更多次x,倾向于更少
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x+?
+
+</td>
+<td >
+    
+匹配1或更多次x,倾向于更少
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x??
+
+</td>
+<td >
+    
+匹配0次或1次x,倾向于0次
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x{n,m}?
+
+</td>
+<td >
+    
+匹配n或 n+1 或 ... 或m次x,倾向于更少
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x{n, }?
+
+</td>
+<td >
+    
+匹配n次或更多次x,倾向于更少
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x{n}?
+
+</td>
+<td >
+    
+明确匹配n次x
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="分组">分组</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="25%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+(re)
+
+</td>
+<td >
+    
+带编号的捕获分组(用于submatch)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+(?P&lt;name&gt;re)
+
+</td>
+<td >
+    
+命名且带编号的捕获分组(用于submatch)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+(?:re)
+
+</td>
+<td >
+    
+非捕获分组
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+(?flags)
+
+</td>
+<td >
+    
+对当前分组设置flags,非捕获分组
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+(?flags:re)
+
+</td>
+<td >
+    
+为re设置flags,非捕获分组
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="标志-flags">标志(Flags)</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+Flags语法: xyz(set flags) -xyz(clear flags) xy-z(set xy flags and clear z flags),具体有下列flags:
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="20%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+i
+
+</td>
+<td >
+    
+大小写不敏感(default false)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+m
+
+</td>
+<td >
+    
+多行模式:^和$匹配begin/end line以及begin/end text(default false)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+s
+
+</td>
+<td >
+    
+使得.匹配'\n'(default false)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+U
+
+</td>
+<td >
+    
+非贪婪模式:交换 x*和x*?,x+和x+?等语义(default false)
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="零宽度字符串">零宽度字符串</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="20%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+^
+
+</td>
+<td >
+    
+匹配在文本开始或行开始(flag m = true)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+$
+
+</td>
+<td >
+    
+匹配文本结束(like \z not Perl's \Z)或文本开始(flag m = true)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\A
+
+</td>
+<td >
+    
+匹配文本开始
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\b
+
+</td>
+<td >
+    
+匹配ASCII文本边界(\w on one side,and \W,\A, or \z on the other)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\B
+
+</td>
+<td >
+    
+排除ASCII文本边界
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\z
+
+</td>
+<td >
+    
+匹配文本结尾
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="转义序列">转义序列</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="20%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\a
+
+</td>
+<td >
+    
+响铃(== \007)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\f
+
+</td>
+<td >
+    
+换页符(== \014)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\t
+
+</td>
+<td >
+    
+水平制表符(== \011)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\n
+
+</td>
+<td >
+    
+换行符(== \012)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\r
+
+</td>
+<td >
+    
+回车符(== \015)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\v
+
+</td>
+<td >
+    
+垂直制表符(== \013)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\*
+
+</td>
+<td >
+    
+字面量*,*用于任何标点字符
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\123
+
+</td>
+<td >
+    
+八进制字符代码(最多三位数字)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\x7F
+
+</td>
+<td >
+    
+十六进制代码(明确两位数字)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\x{10FFFF}
+
+</td>
+<td >
+    
+十六进制代码
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\Q...\E
+
+</td>
+<td >
+    
+字面量 ... 即使...中含标点
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="字符集元素">字符集元素</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="20%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+x
+
+</td>
+<td >
+    
+单字符
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+A-Z
+
+</td>
+<td >
+    
+范围内字符(包含A,Z)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\d
+
+</td>
+<td >
+    
+Perl字符集(匹配数字0-9)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[:foo:]
+
+</td>
+<td >
+    
+ASCII字符集foo
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\p{Foo}
+
+</td>
+<td >
+    
+Unicode字符集Foo
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\pF
+
+</td>
+<td >
+    
+Unicode字符集(一个字符的名字)
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="被命名的字符集作字符集元素">被命名的字符集作字符集元素</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="20%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[\d]
+
+</td>
+<td >
+    
+匹配数字(== \d)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[^\d]
+
+</td>
+<td >
+    
+匹配非数字(== \D)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[\D]
+
+</td>
+<td >
+    
+匹配非数字(== \D)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[^\D]
+
+</td>
+<td >
+    
+匹配数字(== \d)
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:name:]]
+
+</td>
+<td >
+    
+在字符集中匹配被命名的ASCII类(== [:name:])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[^[:name:]]
+
+</td>
+<td >
+    
+在字符集中排除被命名的ASCII类(== [:^name:])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[\p{Name}]
+
+</td>
+<td >
+    
+在字符集中匹配带命名属性的Unicode字符类(== \p{Name})
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[^\p{Name}]
+
+</td>
+<td >
+    
+在字符集中排除带命名属性的Unicode字符类(== \P{Name})
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="perl字符集-ascii-only">Perl字符集(ASCII Only)</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="20%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\d
+
+</td>
+<td >
+    
+匹配数字(== [0-9])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\D
+
+</td>
+<td >
+    
+匹配非数字(== [^0-9])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\s
+
+</td>
+<td >
+    
+匹配空白字符(== [\t\r\f\n])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\S
+
+</td>
+<td >
+    
+匹配非空白字符(== [^\t\r\f\n])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\w
+
+</td>
+<td >
+    
+匹配单词字符集(== [0-9a-zA-Z_])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+\W
+
+</td>
+<td >
+    
+匹配非单词字符集(== [^0-9a-zA-Z])
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h4 id="ascii字符集">ASCII字符集</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="20%">
+    
+符号
+
+</th>
+<th width="">
+    
+描述
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:alnum:]]
+
+</td>
+<td >
+    
+字母(== [0-9a-zA-Z])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:alpha:]]
+
+</td>
+<td >
+    
+拼音(== [a-zA-Z])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:ascii:]]
+
+</td>
+<td >
+    
+ASCII([\x00-\x7F])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:cntrl:]]
+
+</td>
+<td >
+    
+控制符(== [\x00-\x1F\x7F])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:digit:]]
+
+</td>
+<td >
+    
+数字(== [0-9])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:graph:]]
+
+</td>
+<td >
+    
+可视化和可打印(== [!-~] == [A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:lower:]]
+
+</td>
+<td >
+    
+小写(== [a-z])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:print:]]
+
+</td>
+<td >
+    
+可打印的(== [ -~] == [ [:graph:]])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:punct:]]
+
+</td>
+<td >
+    
+标点(== [!-/:-@[-`{-~])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:space:]]
+
+</td>
+<td >
+    
+空白(== [\t\f\r\v\n])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:upper:]]
+
+</td>
+<td >
+    
+大写(== [A-Z])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:word:]]
+
+</td>
+<td >
+    
+单词(== [0-9a-zA-Z_])
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+[[:xdigit:]]
+
+</td>
+<td >
+    
+十六进制字符(== [0-9A-Fa-f])
+
+</td>
+ 
+</tr>
+
+</table>
+
+</span>
+
+<h3 id="regexp">Regexp</h3>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+regexp是go std library提供的一个用于处理正则表达式库,这里接受正则表达式的语法和Python,Perl等其他语言相同,更精确地说,被接受的语法由RE2确定,在 <a href=https://golang.org/s/re2syntax style="color:chartreuse; display:inline-block; position:relative">https://golang.org/s/re2syntax</a>
+<br/>
+中可以找到相关描述,里面的方法用于匹配的方法用正则表达式描述,类似于下面的格式:
+
+</span>
+
+<pre><code class="language-regex">Find(All)?(String)?(Submatch)?(Index)?
+</code></pre>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+<div style="padding-left:2.5rem; color:#FFBBFF;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    如果方法中存在'All',则表示会匹配整个表达式全部的非重叠连续区域,当然,存在一个指示参数可选希望获得匹配多少个,反之,则只会得到匹配中的一个
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    如果方法中存在'String',则表示方法接受的表达式类型是string,返回的匹配结果也是string,否则都是[]byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    如果方法中存在'Submatch',则表示希望方法返回的匹配结果是分组的切片,否则返回整个匹配结果
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    如果方法中存在'Index',则表示返回匹配结果在原表达式(字符串或byte切片)的位置范围
+    
+    </span>
+</p>
+
+</div>
+
+
+</span>
+
+<h4 id="匹配">匹配</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+为了判断某表达式是否匹配正则表达式格式,go language提供了如下方法:
+<div style="padding-left:2.5rem; color:#FFBBFF;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func Match(pattern string, b []byte) (matched bool, err error)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func MatchReader(pattern string, reader io.RuneReader) (matched bool, err error)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func MatchString(pattern string, s string) (matched bool, err error)
+    
+    </span>
+</p>
+
+</div>
+
+
+</span>
+
+<h4 id="example">Example</h4>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;regexp&quot;
+	&quot;fmt&quot;
+)
+
+func checkError(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
+func main() {
+	pattern := `[0-9]{6,11}`
+	tb := []byte(&quot;520912345&quot;)
+	matched, err := regexp.Match(pattern, tb)
+	checkError(err)
+	fmt.Println(matched) // true
+	matched, err = regexp.MatchString(pattern, &quot;1977&quot;)
+	checkError(err)
+	fmt.Println(matched) // false
+}
+</code></pre>
+
+<h4 id="预编译正则表达式">预编译正则表达式</h4>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+由于一个正则表达式可能会被多次使用,所以go提供了预编译方法,得到一个*Regexp,得到调用其方法的实例,可以重复利用已有的预编译好的正则表达式,并且除了些许配置函数如: Longest()外,Regexp在多个goroutine里是并发安全的
+<div style="padding-left:2.5rem; color:#FFBBFF;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func Compile(expr string) (*Regexp, error)
+    
+    </span>
+</p>
+    编译解析一个正则表达式并返回,若成功返回,则得到一个正则表达式对象匹配文本
+    <br/>
+    当匹配文本时,正则表达式匹配文本最左边(leftmost)开始匹配,并选择回朔搜索最早的匹配结果返回,所谓的leftmost-first匹配语义和Perl,Python等其他实现的方法相同,对于POSIX采用则是 <br/>
+    leftmost-longest match,我们可以使用CompilePOSIX声明采用的标准
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func CompilePOSIX(expr string) (*Regexp, error)
+    
+    </span>
+</p>
+    CompilePOSIX和Compile类似,但是限制正则表达式语法为 POSIX ERE(egrep)且改变匹配语义为 <br/>leftmost-longest
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func MustCompile(expr string) *Regexp
+    
+    </span>
+</p>
+    类似于Compile,但是正则表达式解析失败时会发生panic,常用于全局*Regexp的初始化
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func MustCompilePOSIX(expr string) *Regexp
+    类似于CompilePOSIX,但是正则表达式解析失败时会发生panic,常用于全局*Regexp的初始化
+    
+    </span>
+</p>
+
+</div>
+ 
+
+</span>
+
+<h4 id="example-1">Example</h4>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;regexp&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	re := regexp.MustCompile(`a.*?a`)
+	text := []byte(&quot;aabbaa&quot;)
+	finded := re.FindAll(text, -1)
+	fmt.Printf(&quot;%q\n&quot;, finded) //[&quot;aa&quot;, &quot;aa&quot;]
+	lre := regexp.MustCompilePOSIX(`a.*?a`) // [&quot;aabbbaa&quot;]
+	finded = lre.FindAll(text, -1)
+	fmt.Printf(&quot;%q\n&quot;, finded)
+}
+</code></pre>
+
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:leftmost-first和leftmost-longest区别在于leftmost-longest是贪婪匹配,而leftmost-first是惰性的匹配
+
+</div>
+
+<h3 id="查找">查找</h3>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+regexp提供了很方便的查找函数,可以通过正则表达式查找文本中符合正则表达式的子序列
+<div style="padding-left:2.5rem; color:#FFBBFF;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) Find(b []byte) []byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindAll(b []byte, n int) [][]byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindIndex(b []byte) []int
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindAllIndex(b []byte, n int) [][]int
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindSubmatch(b []byte) []byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func FindSubmatchIndex() []int
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindAllSubmatch(b []byte, n int) [][][]byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindAllSubmatchIndex(b []byte, n int) [][]int
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindString(str string) string
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindAllString(str string, n int) []string
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindStringIndex(str string) []int
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindAllStringIndex(str string, n int) [][]int
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindStringSubmatch(str string) []string
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindAllStringSubmatch(str string, n int) [][]string
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindStringSubmatchIndex(str string) []int
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) FindAllStringSubmatchIndex(str string, n int) [][]int
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ...
+    
+    </span>
+</p>
+
+</div>
+
+这些函数可以用来匹配文本子序列,子匹配,以及匹配在文本位置
+
+</span>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;regexp&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	expr := `(\d{4})-(\d{3})-(\d{4})`
+	text := []byte(&quot;1231-456-45631245-123-0012&quot;)
+	re := regexp.MustCompile(expr)
+	finded := re.Find(text)
+	fmt.Printf(&quot;%s\n&quot;, finded)
+	allfinded := re.FindAll(text, -1)
+	fmt.Printf(&quot;%s\n&quot;, allfinded)
+	submatch := re.FindSubmatch(text)
+	fmt.Printf(&quot;%s\n&quot;, submatch)
+	allsubmatch := re.FindAllSubmatch(text, -1)
+	fmt.Printf(&quot;%s\n&quot;, allsubmatch)
+	index := re.FindIndex(text)
+	fmt.Printf(&quot;%d\n&quot;, index)
+	allindex := re.FindAllIndex(text, -1)
+	fmt.Printf(&quot;%d\n&quot;, allindex)
+	submatchIndex := re.FindSubmatchIndex(text)
+	fmt.Printf(&quot;%d\n&quot;, submatchIndex)
+	allSubmatchIndex := re.FindAllSubmatchIndex(text, -1)
+	fmt.Printf(&quot;%d\n&quot;, allSubmatchIndex)
+}
+</code></pre>
+
+<p><div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+正则表达式中匹配和未匹配是一个非常重要的概念,如果已经匹配的是不会继续加入扫描范围中的,但是有时对于更精确,动态的将部分匹配序列继续加入扫描范围是很困难的,但是我们能通过多次使用正则表达式实现
+
+</div>
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+这里有一段代码解释了匹配了的序列部分是没有继续加入扫描范围的
+
+</span></p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;regexp&quot;
+)
+
+func main() {
+	expr := `\d{3}-\d{4}-\d{3}`
+	text := []byte(&quot;123-1234-5671-1234-123&quot;)
+	re := regexp.MustCompile(expr)
+	/*
+		实际输出:[123-1234-567]
+		而这里结果不是 [123-1234-567, 671-1234-123]
+		是因为&quot;67&quot;匹配后就被&quot;吃&quot;了
+	*/
+	all := re.FindAll(text, -1)
+	fmt.Printf(&quot;%s\n&quot;, all)
+}
+</code></pre>
+
+<h3 id="替换">替换</h3>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+我们可以通过一系列函数来实现替换匹配的分组(包括命名分组和编号分组),来重新生成文本(注:生成的文本是先copy源文本再替换副本,并返回副本的),部分API(没Literal,Func)可以使用Expand(占位符)来引用其分组,对于编号分组可以使用$0,$1,$2 ...,命名分组可以使用$name(name为分组名)也可以是${0},${1},${2} ... ${name}解析时是贪婪的,所以$10会被当成${10},要使用$字面量可以使用$$进行转义
+<div style="padding-left:2.5rem; color:#FFBBFF;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) ReplaceAll(src []byte, repl []byte) []byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) ReplaceAllString(src string, repl string) string
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) ReplaceFunc(src []byte, repl func([]byte) []byte) []byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) ReplaceAllStringFunc(src string, repl func(string) string) string
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) ReplaceAllLiteral(src []byte, repl []byte) []byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) ReplaceAllStringLiteral(src string, repl string) string
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ...
+    
+    </span>
+</p>
+
+</div>
+
+
+</span>
+
+<h4 id="example-2">Example</h4>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;regexp&quot;
+	&quot;bytes&quot;
+)
+
+func main() {
+	expr := `\b(?P&lt;begin&gt;\w+)\b \b(\w+)\b \b(?P&lt;end&gt;\w+)\b`
+	text := []byte(&quot;Hello Marco Epsilon&quot;)
+	re := regexp.MustCompile(expr)
+	replace := []byte(&quot;$end $2 $begin&quot;)
+	replaced := re.ReplaceAll(text, replace)
+	// Output: Epsilon Marco Hello
+	fmt.Printf(&quot;%s\n&quot;, replaced)
+	// add func to lowercase first alpha,without using expand
+	funced := re.ReplaceAllFunc(text, func(repl []byte) []byte {
+		return bytes.ToLower(repl)
+	})
+	// Output: hello marco epsilon
+	fmt.Printf(&quot;%s\n&quot;, funced)
+	// keep $3 $2 $1 because of literal,without using expand
+	literaled := re.ReplaceAllLiteral(text, []byte(&quot;$3 $2 $1&quot;))
+	fmt.Printf(&quot;%s\n&quot;, literaled)
+}
+</code></pre>
+
+<h2 id="组合">组合</h2>
+
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+除了上面一系列的方法,还有专门用于精确替换和组合特定分组序列的方法
+<div style="padding-left:2.5rem; color:#FFBBFF;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) Expand(dst []byte, template []byte, src []byte, match []int) []byte
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    func (re *Regexp) ExpandString(dst []byte, template string, src string, match []int) []byte
+    
+    </span>
+</p>
+
+</div>
+
+
+</span>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;regexp&quot;
+)
+
+func main() {
+	expr := `(?m)(?P&lt;key&gt;\w+):\s(?P&lt;value&gt;\w+)$`
+	re := regexp.MustCompile(expr)
+	text := []byte(`
+		optional1: content1
+		optional2: content2
+		optional3: content3
+	`)
+	dst := []byte{}
+	template := []byte(&quot;$key=$value\n&quot;)
+	allIndex := re.FindAllSubmatchIndex(text, -1)
+	for _, index := range allIndex {
+		dst = re.Expand(dst, template, text, index)
+	}
+	/*
+	Output:
+		optional1=content1
+		optional2=content2
+		optional3=content3
+	*/
+	fmt.Printf(&quot;%s&quot;, dst)
+}
+</code></pre>
+
+<h2 id="more-functions">More Functions</h2>
+
+<p><div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+func (re *Regexp) LiteralPrefix() (prefix string, completed bool)
+
+</div>
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+用于返回正则表达式字面量前缀和是否完全是字面量的指示
+
+</span></p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;regexp&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	expr := `hello,this is literal,next is not\d{3}`
+	re := regexp.MustCompile(expr)
+	literal, completed := re.LiteralPrefix()
+	// Output:
+	// hello,this is literal,next is not
+	// false
+	fmt.Println(literal)
+	fmt.Println(completed)
+}
+</code></pre>
+
+<p><div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+func (re *Regexp) Longest()
+
+</div>
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+将正则表达式匹配模式改为贪婪模式 即从leftmost-first改为 leftmost-longest(这个API可能会导致并发不安全)
+
+</span></p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;regexp&quot;
+)
+
+func main() {
+	// leftmost-first mode
+	expr := `(?U)a.*b`
+	text := []byte(&quot;abaaaab&quot;)
+	re := regexp.MustCompile(expr)
+	// Output:
+	// [ab aaaab]
+	fmt.Printf(&quot;%s\n&quot;, re.FindAll(text, -1))
+	// leftmost-longest mode
+	re.Longest()
+	// Output:
+	// [abaaaab]
+	fmt.Printf(&quot;%s\n&quot;, re.FindAll(text, -1))
+}
+</code></pre>
+
+<p><div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+func (re *Regexp) NumSubexp() int
+
+</div>
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+返回子分组个数
+
+</span></p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;regexp&quot;
+)
+
+func main() {
+	expr := `((\d{3})haha\d{2}){4}`
+	re := regexp.MustCompile(expr)
+	// Output:
+	// 2
+	fmt.Println(re.NumSubexp())
+}
+</code></pre>
+
+<p><div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+func (re *Regexp) Split(s string, n int) []string
+
+</div>
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+按照正则表达式FindAllString的结果返回不包含该结果子字符串集合,如果正则表达式中不包含元字符,则该结果和strings.SplitN相同
+返回的子字符串个数个数和n的关系
+<div style="padding-left:2.5rem; color:#FFBBFF;">
+    
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	n > 0
+	
+    </span>
+</p>
+	返回最多n个子串,最后一个子串是未分割的剩余字符串
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	n = 0
+	
+    </span>
+</p>
+	结果将会是nil
+	
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+	n < 0
+	
+    </span>
+</p>
+	返回所有子字符串
+
+</div>
+
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;regexp&quot;
+)
+
+func main() {
+	expr := `ab|bc`
+	re := regexp.MustCompile(expr)
+	text := &quot;cbabcbdebacbcabcbbacb&quot;
+	results := re.Split(text, -1)
+	for _, value := range results {
+		fmt.Println(value)
+	}
+	fmt.Println(&quot;-----------&quot;)
+	results = re.Split(text, 3)
+	for _, value := range results {
+		fmt.Println(value)
+	}
+	// Output:
+	/*
+	cb
+	cbdebac
+
+	cbbacb
+	-----------
+	cb
+	cbdebac
+	abcbbacb
+	*/
+}
+</code></pre>
+
+</span>
+<div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+func (re *Regexp) String() string
+
+</div>
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+返回之前用于编译的字符串
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;regexp&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	expr := `ab|bc\d{2,5}`
+	re := regexp.MustCompile(expr)
+	fmt.Println(re.String())
+	//Output: ab|bc\d{2,5}
+}
+</code></pre>
+
+</span>
+<div style="background-color:rgba(255,99,71,0.8); height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:2rem;">
+    
+func (re *Regexp) SubexpNames() []string
+
+</div>
+<span style="color:#008B8B; " class="plain_text plain_text_default">
+    
+返回正则表达式中子匹配表达式的名称切片m,m[0]永远为空字串(m[0]为整个表达式的名字,而整个表达式没有名字,故为空)
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:对于没有使用(?P<name>re)这种形式子匹配(即只带编号的匹配),该函数返回的结果和整个表达式没有名字的结果一样,也是空字符串,保持了统一性
+
+</div>
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;regexp&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	expr := `(?P&lt;name&gt;[^:]+):\s+(.*),\s+(?P&lt;age&gt;[^:]+):\s+(.*)`
+	re := regexp.MustCompile(expr)
+	names := re.SubexpNames()
+	for _, v := range names {
+		fmt.Println(v)
+	}
+	//Output:
+	/*
+	
+	name
+
+	age
+
+	*/
+}
+</code></pre>
+
+</span></p>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/os/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Os</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/io/">
+          <span class="button__text">Io</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

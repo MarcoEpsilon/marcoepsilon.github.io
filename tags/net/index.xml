@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>net on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/net/</link>
+    <description>Recent content in net on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 23 Sep 2019 17:16:17 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/net/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Net</title>
+      <link>https://marcoepsilon.github.io/golib/net/net/</link>
+      <pubDate>Mon, 23 Sep 2019 17:16:17 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/net/net/</guid>
+      <description>Overview net包提供了可移植的网络I/O接口,包括TCP/IP,UDP,域名解析,Unix域socket,尽管包提供了接近底层网络原语的方法,但是</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Atomic :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview 包atomic提供了底层原子atomic memory原语,用于实现同步算法. 这些函数要求格外的小心才能正确使用.除了特别的底层应用,同步最"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/sync/atomic/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Atomic :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview 包atomic提供了底层原子atomic memory原语,用于实现同步算法. 这些函数要求格外的小心才能正确使用.除了特别的底层应用,同步最" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Atomic :: Marco Epsilon — ">
+<meta property="og:description" content="Overview 包atomic提供了底层原子atomic memory原语,用于实现同步算法. 这些函数要求格外的小心才能正确使用.除了特别的底层应用,同步最" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/sync/atomic/" />
+<meta property="og:site_name" content="Atomic" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-11-06 22:08:28 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/sync/atomic/">Atomic</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-11-06
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/sync/atomic/">sync/atomic</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#E57662; " class="plain_text plain_text_default">
+    
+包atomic提供了底层原子atomic memory原语,用于实现同步算法.
+这些函数要求格外的小心才能正确使用.除了特别的底层应用,同步最好使用通道或sync包的使用.通过交流共享内存，而不是为了交流去共享内存.
+交换操作,被SwapT函数实现，它等价于:
+<br/>
+<pre><code class="language-go">old = *addr
+addr = new
+return old
+</code></pre>
+
+<p>比较和交换操作，通过CompareAndSwapT函数实现,等价于原子性的:</p>
+
+<pre><code class="language-go">if *addr == old {
+    *addr = new
+    return true
+}
+return false
+</code></pre>
+
+<p>增加操作,通过AddT实现,等价于原子性的:</p>
+
+<pre><code class="language-go">*addr += delta
+return *addr
+</code></pre>
+
+<p>加载和存储操作,由LoadT和StoreT实现,等价于原子性的&rdquo;return *addr&rdquo;和&rdquo;*addr = val&rdquo;</p>
+
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func AddInt32(data *int32, delta int32) (new int32)
+
+</p>
+将data原子性的增加delta,并返回其值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func AddInt64(data *int64, delta int64) (new int64)
+
+</p>
+将data原子性的增加delta,并返回其值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func AddUint32(data *uint32, delta uint32) (new uint32)
+
+</p>
+将data原子性的增加delta,并返回其值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func AddUint64(data *uint64, delta uint64) (new uint64)
+
+</p>
+将data原子性的增加delta,并返回其值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)
+
+</p>
+将addr原子性的增加delta,并返回其值
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func CompareAndSwapInt32(addr *int, old, new int32) (swaped bool)
+
+</p>
+如果值和old相同,则将addr和new原子性的交换,并返回是否交换
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func CompareAndSwapInt64(addr *int64, old, new int64) (swapped bool)
+
+</p>
+如果值和old相同,则将add和new原子性的交换,并返回是否交换
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func CompareAndSwapUint32(addr *uint32, old, new uint32) (swapped bool)
+
+</p>
+如果值和old相同,则将add和new原子性的交换,并返回是否交换
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func CompareAndSwapUint64(addr *uint64, old, new uint64) (swapped bool)
+
+</p>
+如果值和old相同,则将add和new原子性的交换,并返回是否交换
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func CompareAndSwapUintptr(addr *uintptr, old, new uintptr) (swapped bool)
+
+</p>
+如果值和old相同,则将add和new原子性的交换,并返回是否交换
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func CompareAndSwapPointer(addr *unsafe.Pointer, old, new unsafe.Pointer) (swapped bool)
+
+</p>
+如果值和old相同,则将add和new原子性的交换,并返回是否交换
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LoadInt32(addr *int32) (val int32)
+
+</p>
+加载addr数据
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LoadInt64(addr *int64) (val int64)
+
+</p>
+加载addr数据
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LoadUint32(addr *uint32) (val uint32)
+
+</p>
+加载addr数据
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LoadUint64(addr *uint64) (val uint64)
+
+</p>
+加载addr数据
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)
+
+</p>
+加载addr数据
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func LoadUintptr(addr *uintptr) (val uintptr)
+
+</p>
+加载addr数据
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StoreInt32(addr *int32, val int32)
+
+</p>
+原子性的将val存储到addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StoreInt64(addr *int64, val int64)
+
+</p>
+原子性的将val存储到addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StoreUint32(addr *uint32, val uint32)
+
+</p>
+原子性的将val存储到addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StoreUint64(addr *uint64, val uint64)
+
+</p>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func StoreUintptr(addr *uint64, val uintptr) 
+
+</p>
+StoreUintptr原子性的存储val到addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SwapInt32(addr *int32, new int32) (old int32)
+
+</p>
+SwapInt32原子性的存储new到*addr,并返回原来的*addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SwapInt64(addr *int64, new int64) (old int64)
+
+</p>
+SwapInt64原子性的存储new到*addr,并返回原来的*addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SwapUint32(addr *uint32, new uint32) (old uint32)
+
+</p>
+SwapUint32原子性的存储new到*addr,并返回原来的*addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SwapUint64(addr *uint64, new uint64) (old uint64)
+
+</p>
+SwapUint64原子性的存储new到*addr,并返回原来的*addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SwapUintptr(addr *uintptr, new uintptr) (old uintptr)
+
+</p>
+SwapUintptr原子性的存储new到*addr,并返回原来的*addr
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)
+
+</p>
+SwapPointer原子性的存储new到*addr,并返回原来的*addr
+
+</span>
+
+<h1 id="type-value">type Value</h1>
+
+<span style="color:#E57662; " class="plain_text plain_text_default">
+    
+<br/>
+<pre><code class="language-go">type Value struct {
+    // contains filtered or unexported fields
+}
+</code></pre>
+Value提供了原子性的加载和存储的一致性类型,Value的零值从Value返回nil,一旦Store调用，Value将不能被复制.
+Value使用后必须不能被复制
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (v *Value) Load() (x interface{})
+
+</p>
+Load返回最近Store设置的值,如果没有调用过Store返回nil
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func (v *Value) Store(x interface{}) 
+
+</p>
+设置Value的值为x,所有调用Store给出的值必须是固定的类型,设置不一致的类型将会panic,比如Store(nil)
+
+</span>
+
+<h1 id="example">Example</h1>
+
+<br/>
+<pre><code class="language-go">package main
+
+import (
+	&quot;sync&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	var done sync.WaitGroup
+	done.Add(2)
+	firstPipe := 0
+	secondPipe := 0
+	go func() {
+		for i := 0; i &lt; 50; i++ {
+			firstPipe++
+		}
+		done.Done()
+	}()
+	go func() {
+		for i := 0; i &lt; 200; i++ {
+			secondPipe++
+		}
+		done.Done()
+	}()
+	done.Wait()
+	fmt.Println(&quot;total: &quot;, (firstPipe + secondPipe))
+}
+</code></pre>
+
+<h1 id="example">Example</h1>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;sync&quot;
+	&quot;sync/atomic&quot;
+	&quot;fmt&quot;
+)
+
+func main() {
+	var counter int32 = 0
+	// for add 2
+	times := 100000
+	var done sync.WaitGroup
+	done.Add(2)
+	go func() {
+		for i := 0; i &lt; times; i++ {
+			atomic.AddInt32(&amp;counter, 2)
+		}
+		defer done.Done()
+	}()
+	// for sub 1
+	go func() {
+		for i := 0; i &lt; times; i++ {
+			atomic.AddInt32(&amp;counter, -1)
+		}
+		defer done.Done()
+	}()
+	done.Wait()
+	fmt.Println(&quot;counter: &quot;, counter, &quot;times: &quot;, times)
+}
+</code></pre>
+
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/unsafe/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Unsafe</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/sync/sync/">
+          <span class="button__text">Sync</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Linear-Algebra :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="逆序数 考虑一个长度为n的偏序序列 \(a_{1}a_{2}a_{3}{\cdots}a_{n}\) 首先我们需要对这个序列规定标准次序,比如规定序列升序是升序排列的,而若序列中前面与后面的元素违反了标准次序"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/math/linear-algebra/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Linear-Algebra :: Marco Epsilon — " />
+<meta name="twitter:description" content="逆序数 考虑一个长度为n的偏序序列 \(a_{1}a_{2}a_{3}{\cdots}a_{n}\) 首先我们需要对这个序列规定标准次序,比如规定序列升序是升序排列的,而若序列中前面与后面的元素违反了标准次序" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Linear-Algebra :: Marco Epsilon — ">
+<meta property="og:description" content="逆序数 考虑一个长度为n的偏序序列 \(a_{1}a_{2}a_{3}{\cdots}a_{n}\) 首先我们需要对这个序列规定标准次序,比如规定序列升序是升序排列的,而若序列中前面与后面的元素违反了标准次序" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/math/linear-algebra/" />
+<meta property="og:site_name" content="Linear-Algebra" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-07-18 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/math/linear-algebra/">Linear-Algebra</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-07-18
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/math/">math</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/linear-algebra/">linear-algebra</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<h1 id="逆序数">逆序数</h1>
+
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+考虑一个长度为n的偏序序列
+<span style="color:#FFB90F;">
+    
+\(a_{1}a_{2}a_{3}{\cdots}a_{n}\)
+
+</span>
+首先我们需要对这个序列规定标准次序,比如规定序列升序是升序排列的,而若序列中前面与后面的元素违反了标准次序,则称产生了一个逆序,我们通过扫描序列
+<span style="color:#FFB90F;">
+    
+\(a_{1}a_{2}a_{3}{\cdots}a_{n}\)
+
+</span>
+,统计序列中出现的逆序,就可以得到该序列的逆序数,一般标记为
+<span style="color:#FFB90F;">
+    
+\(\tau(a_{1}a_{2}a_{3}{\cdots}a_{n})\)
+
+</span>
+此外,若序列<span style="color:#FFB90F;">
+    
+\((a_{1}a_{2}a_{3}{\cdots}a_{n})\)
+
+</span>
+的逆序数
+<span style="color:#FFB90F;">
+    
+\((\tau(a_{1}a_{2}a_{3}{\cdots}a_{n}))\)
+
+</span>
+是奇数时,称该序列为奇排列,否则,称其为偶排列
+比如考虑序列
+<span style="color:#FFB90F;">
+    
+\({5,6,2,9,1,2,3}\)
+
+</span>
+(如若未特别说明,实数集标准次序为升序),我们扫描该序列可得到该序列逆序数为12,我们称其为偶排列
+
+</span>
+
+<h1 id="行列式">行列式</h1>
+
+<h1 id="逆序数表述">逆序数表述</h1>
+
+<p><span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+首先需要明确行列式是一种计算的方式,通过将<span style="color:#FFB90F;">
+    
+\(n^2\)
+
+</span>个元素按n行n列排列,以某种特定的方式进行计算,符号形式如下:
+
+</span>
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$\begin{vmatrix}
+{a_{11}}&{a_{12}}&{a_{13}}&{\cdots}&a_{1n}\\
+{a_{21}}&{a_{22}}&{a_{23}}&{\cdots}&{a_{2n}}\\
+{a_{31}}&{a_{32}}&{a_{33}}&{\cdots}&{a_{3n}}\\
+{\vdots}&{\vdots}&{\vdots}&{\ddots}&{\vdots}\\
+{a_{n1}}&{a_{n2}}&{a_{n3}}&{\cdots}&{a_{nn}}
+\end{vmatrix}$$
+
+</div>
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+计算方式:定义行指示器符号为 <span style="color:#FFB90F;">
+    
+\(i\)
+
+</span>,列指示器符号为 <span style="color:#FFB90F;">
+    
+\(j\)
+
+</span>,将列的全排序序列记为 <span style="color:#FFB90F;">
+    
+\(seq(j) = j_{1}j_{2}j_{3}{\cdots}j_{n}\)
+
+</span>(共有n!种),计算其对应的逆序数记为
+<span style="color:#FFB90F;">
+    
+\(\tau(seq(j))\)
+
+</span>,遍历n!种全排序计算 <span style="color:#FFB90F;">
+    
+\((-1)^{\tau(seq(j))} * a_{1j_{1}}*a_{2j_{2}}*a_{ij_{3}}*{\cdots}*a_{nj_{n}}\)
+
+</span>保存结果,随着全排序结果的遍历进行累加,由此记行列式计算结果为 <span style="color:#FFB90F;">
+    
+\(|A|\)
+
+</span>,于是有
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$ |A| = \sum_{j_{1}j_{2}j_{3}{\cdots}j_{n}}(-1)^{\tau({j_{1}j_{2}j_{3}}{\cdots}j_{n})} * a_{1j_{1}} * a_{2j_{2}} * a_{3j_{3}} * {\cdots} * a_{nj_{n}}$$
+
+</div>
+比如对于2x2的行列式
+<div style="font-size:20px; color:#48D1CC;">
+    
+\begin{vmatrix}
+a_{11}&a_{12}\\
+a_{21}&a_{22}\\
+\end{vmatrix}
+
+</div>
+计算:首先得出其列指示器全排序结果 {{1,2},{2,1}},计算出其对应逆序数{0,1},遍历其结果，计算并累加可得
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$|A| = a_{11} * a_{22} - a_{12} * a_{21}$$
+
+</div>
+(行列式的性质见后)
+
+</span>
+<div style="display: flex; flex-direction: row; justify-content: center; margin-top:2rem;">
+    
+<div style=" vertical-align:middle; margin-bottom:1rem; margin-top:1rem;">
+    <img src=/20190718/compute.svg alt="" height="auto" />
+</div>
+
+</div>
+</p>
+
+<h1 id="向量">向量</h1>
+
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+学过初高中的知识我们都知道,向量表示既具有大小又具有方向的量.我们可以认为是一种包含标量性质却又具有方向而与标量而区分开的量度,一般以 <span style="color:#FFB90F;">
+    
+\(\vec{n}\)
+
+</span>标记向量,我们通常用笛卡尔坐标系中的点表示向量,比如二维坐标系的向量可以表示为 <span style="color:#FFB90F;">
+    
+\(\vec{n} = (1,2)\)
+
+</span>
+通过笛卡尔坐标系我们可以很方便的表示向量,因为笛卡尔坐标系上的点可以帮助我们描述向量的大小和方向,下面我们在三维坐标系下讨论向量的表示
+<div style="padding-left:2.5rem; color:#00FA9A;">
+    
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+方向性
+
+    </span>
+</p>
+在现实世界中我们通常以东南西北等描述方向,但数学世界则更加精确一些,我们确定了坐标系后,只需要确定了两点,以及加上一个描述性语句便可描述一个方向,如从点A到点B,由此我们定义三维坐标系中的两个点, <span style="color:#FFB90F;">
+    
+\(A(x_{1},y_{1},z_{1}),B(x_{2},y_{2},z_{2})\)
+
+</span>,接着我们用数学符号<span style="color:#FFB90F;">
+    
+\(\overrightarrow{AB}\)
+
+</span>
+来描述是是从A到点B,至此,我们便得到了一个向量 <span style="color:#FFB90F;">
+    
+\(\overrightarrow{AB}\)
+
+</span>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+大小
+
+    </span>
+</p>
+向量是有大小的,在三维坐标系中,对于点 <span style="color:#FFB90F;">
+    
+\(A(x_{1},y_{1},z_{1}),B(x_{2},y_{2},z_{2})\)
+
+</span>
+表示的向量 
+<span style="color:#FFB90F;">
+    
+\(\overrightarrow{AB}\)
+
+</span>
+大小,我们以点A与点B的距离描述,
+对点A与点B之间的距离 
+<span style="color:#FFB90F;">
+    
+\(d_{AB}\)
+
+</span>我们有
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$d_{AB} = \sqrt{(x_{2} - x_{1})^{2} + (y_{2} - y_{1})^{2} + (z_{2} - z_{1})^{2}}$$
+
+</div>我们把
+<span style="color:#FFB90F;">
+    
+\(d_{AB}\)
+
+</span>
+就记作向量 <span style="color:#FFB90F;">
+    
+\(\overrightarrow{AB}\)
+
+</span>的大小,通常我们记作
+<span style="color:#FFB90F;">
+    
+\(|AB|\)
+
+</span>
+来表示向量 <span style="color:#FFB90F;">
+    
+\(\overrightarrow{AB}\)
+
+</span>
+的大小,也称作向量的模
+
+</div>
+
+
+</span>
+
+<h2 id="向量的运算">向量的运算</h2>
+
+<p><span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+记向量
+<span style="color:#FFB90F;">
+    
+\(\vec{A} = (a_{1},a_{2},a_{3},{\cdots},a_{n}),\vec{B} = (b_{1},b_{2},b_{3},{\cdots},b_{n})\)
+
+</span>,
+常量 <span style="color:#FFB90F;">
+    
+\(c\)
+
+</span>,
+<span style="color:#FFB90F;">
+    
+\(e_{1},e_{2},e_{3},{\cdots},e_{n}\)
+
+</span>为向量空间 <span style="color:#FFB90F;">
+    
+\(\mathbb{R}^{n}\)
+
+</span>
+的基(向量空间和基的概念后面再提)
+<span style="color:#FFB90F;">
+    
+\(\theta\)
+
+</span>
+为向量
+<span style="color:#FFB90F;">
+    
+\(\vec{A},\ \vec{B}\)
+
+</span>
+间的夹角
+<div style="padding-left:2.5rem; color:#00FA9A;">
+    
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+加减法
+
+    </span>
+</p>
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$\vec{A} \ {\pm} \ \vec{B} = (a_{1} \ {\pm} \ b_{1},a_{2} \ {\pm} \ b_{2},a_{3} \ {\pm} \ b_{3},{\cdots},a_{n} \ {\pm} \ b_{n})$$
+
+</div>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+数乘
+
+    </span>
+</p>
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$
+|c * \vec{A}| = c * |\vec{A}| \\
+c * \vec{A} = (c \ * \ a_{1},c \ * \ a_{2},c \ * \ a_{3},{\cdots},c \ * \ a_{n})
+$$
+
+</div>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+点乘
+
+    </span>
+</p>
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$\vec{A} \ \bullet \ \vec{B} = \sum_{i = 1}^{n}(a_{i} \ * \ b_{i})\\
+\vec{A} \ \bullet \ \vec{B} = |\vec{A}| \ * \ |\vec{B}| \ * \ \cos{\theta}
+$$
+
+</div>
+通过点乘的结果我们可以判断两个向量是否正交(垂直)
+
+<div style="background-color:#2C7575; height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:1rem; color:white; ">
+        
+注:通过学习完矩阵的正交我们可以发现这是 <span style="color:#FFB90F;">
+    
+\(n \times 1\)
+
+</span>矩阵的形式
+
+</div>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+叉乘
+
+    </span>
+</p>
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$ \vec{A} \times \vec{B} = \ \begin{vmatrix}
+e_{1}&e_{2}&e_{3}&{\cdots}&{e_{n}} \\
+a_{1}&a_{2}&a_{3}&{\cdots}&{a_{n}} \\
+b_{1}&b_{2}&b_{3}&{\cdots}&{b_{n}} \\
+\end{vmatrix}
+$$
+
+</div>
+求得的结果为向量空间基的线性组合(也是一个向量),并且与 
+<span style="color:#FFB90F;">
+    
+\(\vec{A},\ \vec{B}\)
+
+</span>
+正交(垂直),叉乘结果的模计算也很简单
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$|\vec{A} \ \times \ \vec{B}| = |\vec{A}| \ * \ |\vec{B}| \ * \ \sin{\theta}$$
+
+</div>
+
+<div style="background-color:#2C7575; height:35px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:2rem; margin-bottom:1rem; color:white; ">
+        
+通过学习完矩阵的施密特正交化,可否发现其联系?
+
+</div>
+
+</div>
+
+
+</span>
+</p>
+
+<h1 id="矩阵">矩阵</h1>
+
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+矩阵可以看作是一种信息的整合方式,它能够通过信息的排列来展示数据,跟主要的是它能够通过自身的运算反映信息的特点及变化趋势,以及如何利用自身信息向另一信息集转换,下面我们先来看个例子,矩阵的引入一般都是通过线性方程组开始的,我们来研究一下线性方程组是如何向矩阵转化的,考虑如下齐次线性方程组
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$
+    \begin{cases}
+        a_{1} * x  \ + \ b_{1} * y \ + \ c_{1} * z = 0 \\
+        a_{2} * x \ + \ b_{2} * y \ + \ c_{2} * z = 0 \\
+        a_{3} * x \ + \ b_{3} * y \ + \ c_{3} * z = 0 \\
+    \end{cases}
+$$
+
+</div>
+我们提取其关键信息,方程的常系数,方程的未知量
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$
+    A = \begin{bmatrix}
+       a_{1}&b_{1}&c_{1} \\
+       a_{2}&b_{2}&c_{2} \\
+       a_{3}&b_{3}&c_{3} \\
+    \end{bmatrix}
+    \quad
+    n = \begin{bmatrix}
+        x \\
+        y \\
+        z \\
+    \end{bmatrix}
+$$
+
+</div>
+初中我们解齐次线性方程组时就是通过不断变换消除化简方程组,我们会得到形如
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$
+    \begin{cases}
+        x \ = \ p_{1}\\
+        y \ = \ p_{2}\\
+        z \ = \ p_{3}\\
+    \end{cases} \quad (p_{1},p_{2},p_{3}可能部分包含自由变量)
+$$
+
+</div>来求得解集,上述通过矩阵提取得信息显然是可以完成求得解集得,所以我们也规定了矩阵得化简来完成上述信息得转化
+
+</span>
+
+<h4 id="阶梯形矩阵">阶梯形矩阵</h4>
+
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+阶梯形矩阵是一种特殊的矩阵,它需要满足一下性质:
+<div style="padding-left:2.5rem; color:#00FA9A;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        非零行在零行上面
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        某行先导元素位于下一行先导元素的左边,且该列先导元素下面的元素都为0
+    
+    </span>
+</p>
+
+</div>
+
+它可以通过矩阵的初等的行(列)变换得到
+
+</span>
+
+<h3 id="简化阶梯矩阵">简化阶梯矩阵</h3>
+
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+简化阶梯矩阵,是一种特殊的阶梯矩阵,其中主元行先导元素为 <span style="color:#FFB90F;">
+    
+\(1\)
+
+</span>
+
+</span>
+
+<h3 id="矩阵的初等变换">矩阵的初等变换</h3>
+
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+矩阵的初等变换又称矩阵的初等行(列)变换主要有以下几种
+<div style="padding-left:2.5rem; color:#00FA9A;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        行(列)交换:行(列)可以和其他行(列)相交换
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        行(列)倍乘:行(列)乘上一个非0常数因子
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        行(列)倍加:行(列)加上某一行(列)的倍乘
+    
+    </span>
+</p>
+
+</div>
+
+一个矩阵通过若干初等行(列)变换,得到一个新矩阵的过程称为矩阵的初等变换,得到的新矩阵是初等矩阵
+为了解释矩阵的初等变换让我们再来看一种特殊的矩阵
+
+</span>
+
+<h4 id="可逆矩阵">可逆矩阵</h4>
+
+<p><span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+可逆矩阵是一种特殊的矩阵,它必须是一个方阵 <span style="color:#FFB90F;">
+    
+\((n \times n的矩阵)\)
+
+</span>,而且其行列式必须不为0,这样的矩阵就是可逆矩阵
+
+</span>
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:行列式就是为 <span style="color:#FFB90F;">
+    
+\(n\)
+
+</span>阶方阵判断其可逆性的一利器,通过后面的介绍我们知道,这不是唯一的方式,但是行列式不等于0是矩阵可逆的充分必要条件
+
+</div></p>
+
+<h5 id="可逆矩阵定理">可逆矩阵定理</h5>
+
+<div style="padding-left:2.5rem; color:#00FA9A;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        行列式不为0
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        任何行(列)线性无关
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        对于 <span style="color:#FFB90F;">
+    
+        \(n\)
+        
+</span>阶矩阵,其秩为 <span style="color:#FFB90F;">
+    
+        \(n\)
+        
+</span>
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ......
+    
+    </span>
+</p>
+
+</div>
+
+
+<h4 id="特殊的矩阵">特殊的矩阵</h4>
+
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+<div style="padding-left:2.5rem; color:#00FA9A;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    单位矩阵
+    
+    </span>
+</p>
+    非对角线元素为0,对角线元素为1的矩阵
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    上(下)三角矩阵
+    
+    </span>
+</p>
+    对角线左下(右上)元素为0的矩阵
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    对角矩阵
+    
+    </span>
+</p>
+    非对角线元素全为0的矩阵
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    转置矩阵
+    
+    </span>
+</p>
+    转置矩阵指的是某矩阵通过转置操作得到的矩阵,所以说这是种相对而言的矩阵(需要参考系),转置操作是指将原矩阵的行(列)向量做为新矩阵的列(行)向量,一般将矩阵 <span style="color:#FFB90F;">
+    
+    \(A\)
+    
+</span>,其转置矩阵记为 <span style="color:#FFB90F;">
+    
+    \(A^{T}\)
+    
+</span>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    对称矩阵
+    
+    </span>
+</p>
+    对于矩阵 <span style="color:#FFB90F;">
+    
+    \(A\)
+    
+</span>,有<span style="color:#FFB90F;">
+    
+    \(A = A^{T}\)
+    
+</span>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    反对称矩阵
+    
+    </span>
+</p>
+    对于矩阵 <span style="color:#FFB90F;">
+    
+    \(A\)
+    
+</span>,有 <span style="color:#FFB90F;">
+    
+    \(A = -A^{T}\)
+    
+</span>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    正交矩阵
+    
+    </span>
+</p>
+    对于矩阵 <span style="color:#FFB90F;">
+    
+    \(A\)
+    
+</span>有 <span style="color:#FFB90F;">
+    
+    \(AA^{T} = E \quad (其中E是单位矩阵)\)
+    
+</span>
+
+</div>
+
+
+</span>
+
+<h4 id="矩阵的运算">矩阵的运算</h4>
+
+<h6 id="矩阵的加减">矩阵的加减</h6>
+
+<span style="color:#4682B4; " class="plain_text plain_text_default">
+    
+对于<span style="color:#FFB90F;">
+    
+\(m \times n\)
+
+</span>矩阵 <span style="color:#FFB90F;">
+    
+\(A\)
+
+</span>,和 <span style="color:#FFB90F;">
+    
+\(m \times n\)
+
+</span>矩阵 <span style="color:#FFB90F;">
+    
+\(B\)
+
+</span>有
+<div style="font-size:20px; color:#48D1CC;">
+    
+$$
+    \begin{align}
+    A + B &= {
+    \begin{bmatrix}
+        a_{11}&a_{12}& \cdots & a_{1n} \\
+        a_{21}&a_{22}& \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn} \\
+    \end{bmatrix}
+    + \begin{bmatrix}
+        b_{11}&b_{12}& \cdots & b_{1n} \\
+        b_{21}&b_{22}& \cdots & b_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        b_{m1} & b_{m2} & \cdots & b_{mn} \\
+    \end{bmatrix}} \\
+    & \\
+    & = \begin{bmatrix}
+        a_{11} + b_{11}&a_{12} + b_{12}& \cdots & a_{1n} + b_{1n} \\
+        a_{21} + b_{21}&a_{22} + b_{22}& \cdots & a_{2n} + b_{2n} \\
+        \vdots& \vdots & \ddots & \vdots \\
+        a_{m1} + b_{m1} & a_{m2} + b_{m2} & \cdots & a_{mn} + b_{mn}
+    \end{bmatrix}
+    \end{align}
+$$
+
+</div>
+
+</span>
+
+<h6 id="矩阵的数乘">矩阵的数乘</h6>
+
+<div style="background-color:#336666; height:50px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:10rem; margin-bottom:1rem; text-align: center;">
+    <span style="display:inline-block; height:50px; line-height: 50px; vertical-align: middle;">
+</span>
+</div>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/algorithm/linear-list/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Linear List</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/english/writing/">
+          <span class="button__text">English Writing</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

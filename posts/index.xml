@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/posts/</link>
+    <description>Recent content in Posts on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 01 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Attribute specifier sequence</title>
+      <link>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/</guid>
+      <description>Overview Attribute specifier sequence(Since C++11)的引入是为了指定type, object, code等实现定义的属性。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; [[attr]] [[attr1, attr2, attr3(arg)]] [[namespace::attr(arg)]] alignas_specifier 形式化地,语法应该如下: .tmp_note_table { padding:0px 0px; border:none; margin:4px 0px; width:auto; } .tmp_note_row td { border:none; }</description>
+    </item>
+    
+    <item>
+      <title>Function</title>
+      <link>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/</guid>
+      <description>Overview C++的函数声明介绍了函数的名称和函数的类型,而函数的定义是将函数的声明和函数体关联起来。 Function Declaration 函数声明能够出现在任何.tmp_link a:hover {</description>
+    </item>
+    
+    <item>
+      <title>&amp;lt;&amp;lt;The Art of R Programing&amp;gt;&amp;gt; -- exercise</title>
+      <link>https://marcoepsilon.github.io/posts/r/art-of-r-programing/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/r/art-of-r-programing/</guid>
+      <description>&amp;nbsp;Exercise #1 &amp;nbsp;Target: 图像操作 用户可以使用选取pgm图片对角线的位置,为其打上马赛克(为图片的灰度值增加噪声) &amp;nbsp;Details 运用pixmap读取pgm格式图片,使用pl</description>
+    </item>
+    
+    <item>
+      <title>Go Exercise Url-Shortener</title>
+      <link>https://marcoepsilon.github.io/posts/exercise/go/url-shortener/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/exercise/go/url-shortener/</guid>
+      <description>Exercise Requirement Go语言的语法及基本概念 包net/http的一些基本函数其含义和功能 一些JSON,YAML,TOML等格式数据的序列化和反序列化 命令行的</description>
+    </item>
+    
+    <item>
+      <title>Ruby Concurrent Programing</title>
+      <link>https://marcoepsilon.github.io/posts/ruby/ruby_thread/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/ruby/ruby_thread/</guid>
+      <description>Thread Threads用于实现Ruby并发编程模型,使用Thread Class是开发者的完美候选 比如,我们可以创建一个与主线程分离的新线程,通过:</description>
+    </item>
+    
+    <item>
+      <title>File &amp;&amp; Directory</title>
+      <link>https://marcoepsilon.github.io/posts/system/file/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/system/file/</guid>
+      <description>Overview 目录(Directory)主要用于将磁盘中的文件分级表示,而文件则用于在磁盘中存储数据,且目录与文件的组合,使得数据有组织,而不产生混乱 File</description>
+    </item>
+    
+    <item>
+      <title>Ruby Basic Summary</title>
+      <link>https://marcoepsilon.github.io/posts/ruby/basic_summary/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/ruby/basic_summary/</guid>
+      <description>Ruby Ruby是一门通用面向对象脚本语言,此外ruby还对函数式编程提供很好的支持,元编程也是这门语言的强大之处,编写DSL(Domain Specific Language) 也</description>
+    </item>
+    
+    <item>
+      <title>Stack &amp;&amp; Queue</title>
+      <link>https://marcoepsilon.github.io/posts/algorithm/stack_queue/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/algorithm/stack_queue/</guid>
+      <description>注:以下解释代码均是由go语言编写 完整示例代码 开始之前 栈(Stack)和队列(Queue)的逻辑结构都是线性表,而且其存储结构均可用顺序表和</description>
+    </item>
+    
+    <item>
+      <title>Linear List</title>
+      <link>https://marcoepsilon.github.io/posts/algorithm/linear-list/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/algorithm/linear-list/</guid>
+      <description>注意:下面算法描述是采用go语言编写 完整示例代码 线性表 线性表是一种具有 \(n\) 个相同元素 \((n = 0)\) 的有限序列 $$L = \{a_{1},\ a_{2},\ a_{3}, \ ...,\ a_{n}\}$$ 它们须满足: 存在逻辑上的第</description>
+    </item>
+    
+    <item>
+      <title>Linear-Algebra</title>
+      <link>https://marcoepsilon.github.io/posts/math/linear-algebra/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/math/linear-algebra/</guid>
+      <description>逆序数 考虑一个长度为n的偏序序列 \(a_{1}a_{2}a_{3}{\cdots}a_{n}\) 首先我们需要对这个序列规定标准次序,比如规定序列升序是升序排列的,而若序列中前面与后面的元素违反了标准次序</description>
+    </item>
+    
+    <item>
+      <title>English Writing</title>
+      <link>https://marcoepsilon.github.io/posts/english/writing/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/english/writing/</guid>
+      <description>2017 英语(一) Directions: You are to write a email to James Cook, a newly arrived Austrlian professor,recommending some tourist attractions in your city. Please give reasons for your recommendation. Self Analysis: 1. 第一段表达出对James Cook教授的到来感到高兴 2. 第二段开始介绍自</description>
+    </item>
+    
+    <item>
+      <title>Go Reflection</title>
+      <link>https://marcoepsilon.github.io/posts/20190713/</link>
+      <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190713/</guid>
+      <description>何为Reflection Reflection是一种能够窥探类型和值信息的技术,利用该技术我们能在运行时了解,修改类型和值内部结构的信息 interface{} in</description>
+    </item>
+    
+    <item>
+      <title>Golang Template</title>
+      <link>https://marcoepsilon.github.io/posts/20190706/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190706/</guid>
+      <description>Get Started 初识模板 模板是go编程里一项重要的技术,模板是进行生成代码(类似于其他语言的宏编程),web页面后端渲染,文件批量生成与替换等应用的高效</description>
+    </item>
+    
+    <item>
+      <title>Web前端开发环境的构建</title>
+      <link>https://marcoepsilon.github.io/posts/20190626/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/20190626/</guid>
+      <description>开始之前 先准备一下nodejs,npm(用于安装一些js包,npm一般是nodejs自带的包管理工具),通过官网下载即可 构建工具 先选择一个本</description>
+    </item>
+    
+  </channel>
+</rss>

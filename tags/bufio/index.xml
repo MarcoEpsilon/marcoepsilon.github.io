@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bufio on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/bufio/</link>
+    <description>Recent content in bufio on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Mon, 16 Sep 2019 22:48:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/bufio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bufio</title>
+      <link>https://marcoepsilon.github.io/golib/bufio/</link>
+      <pubDate>Mon, 16 Sep 2019 22:48:20 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/bufio/</guid>
+      <description>bufio Overview bufio实现了带缓冲的io操作,提供了对io.Reader,io.Write封装对象Reader,Writer,不仅实现了这些接口,而</description>
+    </item>
+    
+  </channel>
+</rss>

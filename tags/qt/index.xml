@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>qt on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/qt/</link>
+    <description>Recent content in qt on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Sat, 29 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://marcoepsilon.github.io/tags/qt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning of Qt Official Examples</title>
+      <link>https://marcoepsilon.github.io/posts/c&#43;&#43;/qt/example/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/c&#43;&#43;/qt/example/</guid>
+      <description>.pro-anchor { width: 100%; } .pro-anchor-title { display:flex; flex-direction: row; width:100%; padding-bottom:10px; } .pro-anchor-icon { width:48px; height:48px; display:inline; vertical-align: middle; } .pro-anchor-title-content { display: inline; } .pro-anchor-separate { margin:auto 2px; border:1px darkcyan dashed; height: 1px; width:60%; vertical-align: middle; text-align: center; } .pro-anchor-title-action { width:32px; height:32px; margin: auto 4px; display:block; z-index: 10000; } .pro-anchor-content { display: none; } analogclock .sub-anchor-unit { padding-left: 15px; } .sub-anchor-unit-title { width:100%; display: flex; flex-direction: row;</description>
+    </item>
+    
+  </channel>
+</rss>

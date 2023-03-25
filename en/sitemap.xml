@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/declarations/attributes/</loc>
+    <lastmod>2021-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/c&#43;&#43;11/</loc>
+    <lastmod>2021-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/declarations/</loc>
+    <lastmod>2021-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/</loc>
+    <lastmod>2021-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://marcoepsilon.github.io/cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://marcoepsilon.github.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/</loc>
+    <lastmod>2021-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/</loc>
+    <lastmod>2021-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://marcoepsilon.github.io/cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://marcoepsilon.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2021-02-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/function/</loc>
+    <lastmod>2021-02-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/c&#43;&#43;/languages/function/</loc>
+    <lastmod>2021-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/r/art-of-r-programing/</loc>
+    <lastmod>2020-10-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/programing/</loc>
+    <lastmod>2020-10-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/r/</loc>
+    <lastmod>2020-10-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/library/</loc>
+    <lastmod>2020-01-08T13:49:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/rust/</loc>
+    <lastmod>2020-01-08T13:49:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/rustlib/</loc>
+    <lastmod>2020-01-08T13:49:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/rustlib/serde/</loc>
+    <lastmod>2020-01-08T13:49:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/exercise/go/url-shortener/</loc>
+    <lastmod>2020-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/exercise/</loc>
+    <lastmod>2020-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/go/</loc>
+    <lastmod>2020-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/</loc>
+    <lastmod>2019-12-07T14:25:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/net/http/</loc>
+    <lastmod>2019-12-07T14:25:29+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/golang/</loc>
+    <lastmod>2019-12-07T14:25:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/http/</loc>
+    <lastmod>2019-12-07T14:25:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/life/life/</loc>
+    <lastmod>2019-12-06T12:34:48+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/life/</loc>
+    <lastmod>2019-12-06T12:34:48+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/log/syslog/</loc>
+    <lastmod>2019-11-24T22:45:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/log/syslog/</loc>
+    <lastmod>2019-11-24T22:45:02+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/log/log/</loc>
+    <lastmod>2019-11-21T22:25:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/log/</loc>
+    <lastmod>2019-11-21T22:25:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/sort/</loc>
+    <lastmod>2019-11-20T16:25:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/sort/</loc>
+    <lastmod>2019-11-20T16:25:24+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/unsafe/</loc>
+    <lastmod>2019-11-09T23:03:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/unsafe/</loc>
+    <lastmod>2019-11-09T23:03:46+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/sync/atomic/</loc>
+    <lastmod>2019-11-06T22:08:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/sync/atomic/</loc>
+    <lastmod>2019-11-06T22:08:28+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/sync/sync/</loc>
+    <lastmod>2019-11-02T22:29:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/sync/</loc>
+    <lastmod>2019-11-02T22:29:07+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/time/</loc>
+    <lastmod>2019-10-14T23:13:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/time/</loc>
+    <lastmod>2019-10-14T23:13:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/flag/</loc>
+    <lastmod>2019-10-12T00:14:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/flag/</loc>
+    <lastmod>2019-10-12T00:14:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/errors/</loc>
+    <lastmod>2019-10-11T22:54:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/errors/</loc>
+    <lastmod>2019-10-11T22:54:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/ruby/ruby_thread/</loc>
+    <lastmod>2019-09-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/concurrent/</loc>
+    <lastmod>2019-09-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/ruby/</loc>
+    <lastmod>2019-09-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/net/net/</loc>
+    <lastmod>2019-09-23T17:16:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/net/</loc>
+    <lastmod>2019-09-23T17:16:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/strings/</loc>
+    <lastmod>2019-09-20T22:50:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/strings/</loc>
+    <lastmod>2019-09-20T22:50:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/encoding/binary/</loc>
+    <lastmod>2019-09-19T18:28:05+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/encoding/binary/</loc>
+    <lastmod>2019-09-19T18:28:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/bufio/</loc>
+    <lastmod>2019-09-16T22:48:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/bufio/</loc>
+    <lastmod>2019-09-16T22:48:20+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/system/file/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/file/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/system/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/os/</loc>
+    <lastmod>2019-09-11T23:27:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/os/</loc>
+    <lastmod>2019-09-11T23:27:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/ruby/basic_summary/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/summary/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/photos/</loc>
+    <lastmod>2019-08-21T22:24:59+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/photos/photos/</loc>
+    <lastmod>2019-08-21T22:24:59+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/regexp/</loc>
+    <lastmod>2019-08-19T22:27:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/regexp/</loc>
+    <lastmod>2019-08-19T22:27:55+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/algorithm/stack_queue/</loc>
+    <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/datastructure-algorithm/</loc>
+    <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/stack-queue/</loc>
+    <lastmod>2019-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/future/</loc>
+    <lastmod>2019-07-22T22:41:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/rustlib/future/</loc>
+    <lastmod>2019-07-22T22:41:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/tokio/</loc>
+    <lastmod>2019-07-22T21:02:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/rustlib/tokio/</loc>
+    <lastmod>2019-07-22T21:02:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/golib/io/</loc>
+    <lastmod>2019-07-22T18:09:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/io/</loc>
+    <lastmod>2019-07-22T18:09:46+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/linear-list/</loc>
+    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/algorithm/linear-list/</loc>
+    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/algorithm/</loc>
+    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/datastructure/</loc>
+    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/math/linear-algebra/</loc>
+    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/linear-algebra/</loc>
+    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/math/</loc>
+    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/english/writing/</loc>
+    <lastmod>2019-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/composition/</loc>
+    <lastmod>2019-07-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/english/</loc>
+    <lastmod>2019-07-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tools/</loc>
+    <lastmod>2019-07-13T20:33:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/20190713/</loc>
+    <lastmod>2019-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/reflect/</loc>
+    <lastmod>2019-07-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/20190706/</loc>
+    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/template/</loc>
+    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/about/</loc>
+    <lastmod>2019-06-28T13:05:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/posts/20190626/</loc>
+    <lastmod>2019-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/react/</loc>
+    <lastmod>2019-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/webpack/</loc>
+    <lastmod>2019-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/tags/web%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2019-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://marcoepsilon.github.io/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://marcoepsilon.github.io/cn/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://marcoepsilon.github.io/categories/"
+                />
+  </url>
+  
+</urlset>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>errors on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/errors/</link>
+    <description>Recent content in errors on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Fri, 11 Oct 2019 22:54:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://marcoepsilon.github.io/tags/errors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Errors</title>
+      <link>https://marcoepsilon.github.io/golib/errors/</link>
+      <pubDate>Fri, 11 Oct 2019 22:54:01 +0800</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/golib/errors/</guid>
+      <description>Overview errors包实现了处理错误函数的实现 New函数用于创建带文本消息上下文的错误 Unwrap,Is,As函数工作于封装了其他错误的error</description>
+    </item>
+    
+  </channel>
+</rss>

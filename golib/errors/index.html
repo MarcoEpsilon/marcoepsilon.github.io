@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Errors :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Overview errors包实现了处理错误函数的实现 New函数用于创建带文本消息上下文的错误 Unwrap,Is,As函数工作于封装了其他错误的error"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/golib/errors/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Errors :: Marco Epsilon — " />
+<meta name="twitter:description" content="Overview errors包实现了处理错误函数的实现 New函数用于创建带文本消息上下文的错误 Unwrap,Is,As函数工作于封装了其他错误的error" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Errors :: Marco Epsilon — ">
+<meta property="og:description" content="Overview errors包实现了处理错误函数的实现 New函数用于创建带文本消息上下文的错误 Unwrap,Is,As函数工作于封装了其他错误的error" />
+<meta property="og:url" content="https://marcoepsilon.github.io/golib/errors/" />
+<meta property="og:site_name" content="Errors" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-10-11 22:54:01 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/golib/errors/">Errors</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-10-11
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/golang/">golang</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/library/">library</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/errors/">errors</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="overview">Overview</h1>
+
+<span style="color:#b6676d; " class="plain_text plain_text_default">
+    
+errors包实现了处理错误函数的实现
+New函数用于创建带文本消息上下文的错误
+Unwrap,Is,As函数工作于封装了其他错误的errors,一个错误封装另一个错误,如果它含有下面的方法
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+Unwrap() error
+
+</p>
+如果e.Unwrap返回一个non-nil error w,则表示e封装了错误w
+Unwrap解包封装的错误,如果参数含有Unwrap方法,将会调用它,否则会返回nil
+一个简单的方式创建封装的错误是调用 <span style="color:#FFA500; background-color:#1C1C1C;">
+     fmt.Errorf
+</span>,对错误参数应用%w动词
+<br/>
+<pre><code class="language-go">errors.Unwrap(fmt.Errorf(&quot;... %w ...&quot;, ..., err, ...))
+</code></pre>
+return err
+<br/>
+Is持续的解包第一个参数直到找到一个错误匹配第二个参数,它判断是否找到匹配,它应该比直接持续简单相等判断更优先使用:
+<br/>
+<pre><code class="language-go">if errors.Is(err, os.ErrExist)
+</code></pre>
+
+<p>优先于</p>
+
+<pre><code class="language-go">if err == os.ErrExist
+</code></pre>
+
+<p>因为err封装了os.ErrExist这种比较将会成功</p>
+
+As持续的解包第一个参数直到找到一个错误能够被赋值给第二个参数(必须是指针),如果成功,则进行赋值并返回true,否则返回false
+形式如下:
+<br/>
+<pre><code class="language-go">var perr *os.PathError
+if errors.As(err, &amp;perr) {
+    fmt.Println(perr.Path)
+}
+</code></pre>
+
+<p>优先于</p>
+
+<pre><code class="language-go">if perr, ok := err.(*os.PathError); ok {
+    fmt.Println(perr.Path)
+}
+</code></pre>
+
+因为这种形式将会成功如果错误封装了*os.PathError
+
+</span>
+
+<h1 id="函数-functions">函数(Functions)</h1>
+
+<span style="color:#b6676d; " class="plain_text plain_text_default">
+    
+<br/>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func As(err error, target interface{}) bool
+
+</p>
+<br/>
+<h4 id="example">Example</h4>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;errors&quot;
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	if _, err := os.Open(&quot;non-existfile&quot;); err != nil {
+		var pathErr *os.PathError
+		if errors.As(err, &amp;pathErr) {
+			fmt.Println(&quot;Failed at Path: &quot;, pathErr.Path)
+		} else {
+			fmt.Println(err)
+		}
+	}
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Is(err, target error) bool
+
+</p>
+<br/>
+<h4 id="example">Example</h4>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;errors&quot;
+	&quot;io&quot;
+	&quot;fmt&quot;
+)
+
+type ReadAtEnd struct {
+	id string
+}
+// 实现error interface
+func (r *ReadAtEnd) Error() string {
+	return fmt.Sprintf(&quot;%s: read at end&quot;, r.id)
+}
+func (r *ReadAtEnd) Unwrap() error {
+	return io.EOF
+}
+
+func main() {
+	var r *ReadAtEnd = &amp;ReadAtEnd {
+		id: &quot;frist error&quot;,
+	}
+	if errors.Is(r, io.EOF) {
+		fmt.Println(&quot;read at eof&quot;)
+	} else {
+		fmt.Println(r.Error())
+	}
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func New(text string) error
+
+</p>
+New函数返回一个有给定文本格式化的错误,每次调用New函数的错误都是有区别的,尽管它们有相同的文本
+<br/>
+<h4 id="example">Example</h4>
+
+<pre><code class="language-go">package main
+import (
+	&quot;fmt&quot;
+	&quot;errors&quot;
+)
+
+func main() {
+	err := errors.New(&quot;random error&quot;)
+	if err != nil {
+		fmt.Print(err)
+	}
+}
+</code></pre>
+<p style="background-color:rgba(143,188,143,0.2); width:100%; color:#FFA500; border-radius: 10px; font-size:16px; padding:0.2rem 0; text-indent:1em; word-wrap:break-word;">
+    
+func Unwrap(err error) error
+
+</p>
+解包错误
+
+</span>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/golib/flag/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Flag</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/golib/net/net/">
+          <span class="button__text">Net</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

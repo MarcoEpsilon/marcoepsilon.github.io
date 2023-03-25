@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Ruby Basic Summary :: Marco Epsilon</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Ruby Ruby是一门通用面向对象脚本语言,此外ruby还对函数式编程提供很好的支持,元编程也是这门语言的强大之处,编写DSL(Domain Specific Language) 也"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://marcoepsilon.github.io/posts/ruby/basic_summary/" />
+
+
+<link rel="stylesheet" href="https://marcoepsilon.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://marcoepsilon.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://marcoepsilon.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://marcoepsilon.github.io/favicon/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Ruby Basic Summary :: Marco Epsilon — " />
+<meta name="twitter:description" content="Ruby Ruby是一门通用面向对象脚本语言,此外ruby还对函数式编程提供很好的支持,元编程也是这门语言的强大之处,编写DSL(Domain Specific Language) 也" />
+<meta name="twitter:site" content="https://marcoepsilon.github.io/" />
+<meta name="twitter:creator" content="Marco Epsilon" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Ruby Basic Summary :: Marco Epsilon — ">
+<meta property="og:description" content="Ruby Ruby是一门通用面向对象脚本语言,此外ruby还对函数式编程提供很好的支持,元编程也是这门语言的强大之处,编写DSL(Domain Specific Language) 也" />
+<meta property="og:url" content="https://marcoepsilon.github.io/posts/ruby/basic_summary/" />
+<meta property="og:site_name" content="Ruby Basic Summary" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-09-05 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/particles/particles.min.js">
+
+</script>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg"></div>
+<div style="position:fixed; width:100%; height:100%; " id="marcoEpsilon-Bg-Second"></div>
+<script type="text/javascript" src="/particles/app.js">
+
+</script>
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Marco Epsilon&#39;s Terminal
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    
+<style>
+  .nav-guide {
+    background-color:chocolate;;;
+    width:70px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .nav-guide:hover {
+    background-color:darkcyan;
+  }
+  .nav-guide a {
+    line-height: 40px;
+    text-decoration: none;
+    color:white;
+  }
+  .library-nav {
+    list-style-type:none;
+    margin:0px;
+    display: none;
+  }
+  .library-item-name {
+    line-height:40px;
+  }
+  .library-nav li {
+    background-color:darkslategray;
+    width:70px;
+    height:40px;
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+    z-index:300;
+  }
+  .library-sub-item {
+    line-height:40px;
+  }
+  li.nav-guide.library-nav-guide:hover ul {
+    display: block;
+  }
+</style>
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          
+            <li class="nav-guide"><a  href="/about">关于</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/tools">工具</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide library-nav-guide">
+                <span class="library-item-name">库</span>
+                
+                  <ul class="library-nav">
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/golib" class="library-sub-item">
+                          Go
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="https://marcoepsilon.github.io/rustlib" class="library-sub-item">
+                          Rust
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+            </li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/photos">照片</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/life">生活</a></li>
+          
+        
+      
+        
+          
+            <li class="nav-guide"><a  href="/">首页</a></li>
+          
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">关于</a></li>
+      
+    
+      
+        <li><a href="/tools">工具</a></li>
+      
+    
+      
+        <li><a href="/golib">库</a></li>
+      
+    
+      
+        <li><a href="/photos">照片</a></li>
+      
+    
+      
+        <li><a href="/life">生活</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://marcoepsilon.github.io/posts/ruby/basic_summary/">Ruby Basic Summary</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-09-05
+    </span>
+    
+    
+    <span class="post-author">::
+      Marco Epsilon
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://marcoepsilon.github.io/tags/ruby/">ruby</a>&nbsp;
+    
+    #<a href="https://marcoepsilon.github.io/tags/summary/">summary</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+
+
+
+
+<h1 id="ruby">Ruby</h1>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+Ruby是一门通用面向对象脚本语言,此外ruby还对函数式编程提供很好的支持,元编程也是这门语言的强大之处,编写<span style="color:#FFA500; background-color:#1C1C1C;">
+    DSL(Domain Specific Language)
+</span>也是具有语法的优越性
+
+</span>
+
+<h2 id="相关工具">相关工具</h2>
+
+<h3 id="ruby-1">ruby</h3>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+ruby是Ruby官方的本地解释器,采用c语言写成,与此同时也有JRuby等一些用Java,C++等甚至是Ruby Language写的,Unbuntu等类Unix环境可以通过
+<br/>
+
+</span>
+
+<pre><code class="language-bash/shell">sudo apt-get install ruby
+</code></pre>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+下载,也可以在<a href=https://www.ruby-lang.org/zh_cn/ style="color:chartreuse; display:inline-block; position:relative">Ruby官网</a>进入下载页查看,那里有更好的说明(也可以通过下面的rvm下载)
+
+</span>
+
+<h3 id="rvm">rvm</h3>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+<span style="color:#FFA500; background-color:#1C1C1C;">
+    rvm(Ruby Version Manager)
+</span>是ruby的包管理工具,它使得多版本Ruby解释器能够在本地环境共存,且无缝切换,可以通过在<a href=https://rvm.io/ style="color:chartreuse; display:inline-block; position:relative">rvm官网</a>的指导下进行下载,安装完成后,执行
+<br/>
+<pre><code class="language-bash/shell">rvm list known
+</code></pre>可以选择自己查看想要的可供下载版本,比如下载jruby-9.2.1.0可以执行
+<br/>
+<pre><code class="language-bash/shell">rvm install jruby-9.2.1.0
+</code></pre>
+下载完成后,我们可以通过
+<br/>
+<pre><code class="language-bash/shell">rvm list
+</code></pre>
+查看已安装的版本,我们可以执行
+<br/>
+<pre><code class="language-bash/shell">rvm use jruby-9.2.1.0
+</code></pre>
+将当前ruby版本切换为jruby-9.2.1.0(当然可以是你已有的其他版本)<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/cool.svg" />
+
+</span>
+
+<h3 id="rubygems">RubyGems</h3>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+<span style="color:#FFA500; background-color:#1C1C1C;">
+    RubyGems
+</span>是ruby的包管理工具,可以进入<a href=https://rubygems.org/ style="color:chartreuse; display:inline-block; position:relative">RubyGems官网</a>下载安装RubyGems,也可以在其官网查询想要使用的包信息,进行下载,当然我们可以通过本地下载好的RubyGems进行查询及下载（Ruby的库也称呼为gem）,比如下载 <span style="color:#FFA500; background-color:#1C1C1C;">
+     Nokogiri
+</span>(Ruby解析XML,HTML的实用库),先用 <span style="color:#FFA500; background-color:#1C1C1C;">
+     gem 
+</span>命令进行查询(支持正则表达式)
+<br/>
+<pre><code class="language-bash/shell">gem search &quot;^nokogiri$&quot;
+</code></pre>
+找到适合的版本后运行(可以携带指定的版本号)<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/kiss.svg" />
+<br/>
+<pre><code class="language-bash/shell">gem install nokogiri
+</code></pre>
+
+</span>
+
+<h3 id="bundler">Bundler</h3>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+<span style="color:#FFA500; background-color:#1C1C1C;">
+     Bundler 
+</span>可以认为是 <span style="color:#FFA500; background-color:#1C1C1C;">
+     RubyGems 
+</span>功能的增强,Bundler可以使项目工程化,通过Gemfile来指定项目中的gem版本要求(类似于nodejs中的npm <img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/cool.svg" />),通过
+<br/>
+<pre><code class="language-bash/shell">gem install bundler
+</code></pre>
+可以下载bundler,进入我们需要准备的项目目录执行
+<br/>
+<pre><code class="language-bash/shell">bundler init
+</code></pre>将会在项目目录里产生Gemfile,我们可以编写Gemfile进行项目管理,具体细节可以访问<a href=https://bundler.io/ style="color:chartreuse; display:inline-block; position:relative">Bundler官网</a> 查看更多细节<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/shy.svg" />
+
+</span>
+
+<h1 id="ruby-language">Ruby Language</h1>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+接下来将会尽可能全面的介绍Ruby Language语法及特性
+
+</span>
+
+<h2 id="常用函数">常用函数</h2>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+这里介绍一下ruby里不出意外<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/fear.svg" />可以随处调用的函数
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    print arg1, arg2, ...
+    
+    </span>
+</p>
+    向标准输出原封不动打印参数(参数可变长)
+    <br/>
+<pre><code class="language-ruby"># Output: Marco Epsilon, hello, world
+print &quot;Marco Epsilon &quot;, &quot;hello, world&quot;
+</code></pre>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    puts arg1, arg2, ...
+    
+    </span>
+</p>
+    向标准输出打印参数(参数可变长),打印每个参数都会接着打印换行符
+    <br/>
+<pre><code class="language-ruby">=begin
+Output: 
+        Marco Epsilon
+        hello, world
+=end
+puts &quot;Marco Epsilon&quot;, &quot;hello, world&quot;
+</code></pre>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    p arg1, arg2, ...
+    
+    </span>
+</p>
+    直接向标准输出打印arg.inspect的结果和增加的换行符(一般用于调试<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/thinking.svg" />)
+<br/>
+<pre><code class="language-ruby">    # Output: &quot;hello, world&quot;
+    p &quot;hello, world&quot;
+</code></pre>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    obj.class
+    
+    </span>
+</p>
+    从Object继承来的方法,可以查看obj所属类
+<br/>
+<pre><code class="language-ruby"># Output: String
+p &quot;hello, world&quot;.class
+</code></pre>
+
+</div>
+
+
+</span>
+
+<h2 id="类型-也许说是常用类会更好">类型(也许说是常用类会更好)</h2>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+Ruby类型大致分为一下几种
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    数值类型
+    
+    </span>
+</p>
+    <div style="padding-left:2.5rem; color:#6A5ACD;">
+    
+        
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        FixNum
+        
+    </span>
+</p>
+        基本整数对应的类型,当超出固定容纳字节长度时，将会自动转化为Bignum
+        
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        Bignum
+        
+    </span>
+</p>
+        
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+        Float
+        
+    </span>
+</p>
+        浮点数对应类型
+    
+</div>
+
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    字符串(String)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    数组类型(Array)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    范围类型(Range)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    哈希表类型(Hash)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    正则表达式(Regexp)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    调用过程(Proc)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    时间(Time)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    日期(Date)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    符号(Symbol)
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ...
+    
+    </span>
+</p>
+
+</div>
+
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:上述类型只是对Ruby自带常用类的分类,是区别于其他如C/C++这样数值类型是基础类型的语言,上述类型在Ruby中本质上其实也只是一个类
+
+</div>
+我们可以通过对象class函数查看其所属类
+<br/>
+<pre><code class="language-ruby">=begin
+Output:
+Integer
+Float
+String
+Array
+Hash
+=end
+p 2019.class
+p 2.3.class
+p &quot;hello, world&quot;.class
+p [1,2,3].class
+p Hash.new({&quot;marco&quot; =&gt; &quot;epsilon&quot;,&quot;rgb&quot; =&gt; &quot;lala&quot;}).class
+</code></pre>
+
+</span>
+
+<h2 id="变量-variables">变量(Variables)</h2>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+Ruby变量分为四种 <span style="color:#FFA500; background-color:#1C1C1C;">
+    全局变量，实例变量, 类变量, 局部变量
+</span>
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    全局变量
+    
+    </span>
+</p>
+全局变量以$variableName声明,一般$variableName采用大写,全局变量在所有脚本中共用一个符号,所以如果不小心多个脚本都声明初始化同一个$variableName,则先加载的脚本就可能会被覆盖,所以遵循几乎所有编程语言的循循教诲,全局变量还是少用为好(ps:Ruby也有一些自带的全局变量,用到再说<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/thinking.svg" />)
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    实例变量
+    
+    </span>
+</p>
+    属于类的实例的变量,使用@variableName声明,可以认为是同一个类各实例不共享的变量,注意必须在类的方法中声明或定义(其实和作用域及当前self有关),可以通过 <span style="color:#FFA500; background-color:#1C1C1C;">
+    attr_accessor,attr_reader,attr_writer
+</span>控制访问权
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    类变量
+    
+    </span>
+</p>
+    属于类的变量,使用@@variableName声明,所有类实例岂可共享,可以需要自行编写函数控制其访问,可以在类中直接声明或定义
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    局部变量
+    
+    </span>
+</p>
+    随处都可以声明和初始化的变量,未初始化为nil,且只能在作用域内使用,脱离作用域后自动销毁
+
+</div>
+
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:实例变量其实还有类实例变量,类实例变量和类的实例变量其实是不同的,类实例变量是属于类的(类在Ruby中其实是一个对象),而类的实例变量是类的实例所持有的变量,而关于为什么不在上面直接分成两类的本质在于它们的确都是实例变量,只是子类和超类所持有的关系
+
+</div>
+<br/>
+<h3 id="example">Example</h3>
+
+<pre><code class="language-ruby"># 全局变量 不同脚本可共享
+$HELLO = &quot;全局变量: hello&quot;
+# 局部变量 只存在于当前顶级作用域
+hello = &quot;局部变量: hello&quot;
+class R
+    # 设置类的实例变量@hello的访问权
+    attr_accessor :hello
+    # 声明初始化类变量@@hello
+    @@hello = &quot;类变量: hello&quot;
+    def shared_hello
+        return @@hello
+    end
+    def shared_hello=(value)
+        @@hello = value
+    end
+end
+p $HELLO
+p hello
+r = R.new
+r.hello = &quot;类的实例变量: hello&quot;
+p r.hello
+p r.shared_hello
+r.shared_hello = &quot;类的实例变量: bye,bye!&quot;
+p r.shared_hello
+=begin
+Output:
+&quot;全局变量: hello&quot;
+&quot;局部变量: hello&quot;
+&quot;类实例变量: hello&quot;
+&quot;类变量: hello&quot;
+&quot;类实例变量: bye,bye!&quot;
+=end
+</code></pre>
+
+</span>
+
+<h2 id="结构化编程">结构化编程</h2>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+Ruby提供一些关键字使得我们能够很好的结构化编程
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    if condition1 then
+    <br/>
+    ... 
+    <br/>
+    [elsif] condition2 [then] 
+    <br/>
+    ...
+    <br/>
+    [else]
+    <br/>
+    ...
+    <br/> 
+    end
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    unless condition1 then
+    <br/>
+    ...
+    <br/>
+    [else]
+    <br/>
+    ...
+    <br/>
+    end
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    case expression
+    <br/>
+    [when expression, expression, ...] [then]
+    <br/>
+    ...
+    <br/>
+    [else]
+    <br/>
+    ...
+    <br/>
+    end
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    while condition do
+    <br/>
+    ...
+    <br/>
+    end
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    until condition do
+    <br/>
+    ...
+    <br/>
+    end
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    for variable1 [ ,variable2, ...] in expression do
+    end
+    
+    </span>
+</p>
+
+</div>
+
+上面的一些都是常规的条件控制语句,主要是分支检查和循环语句 if和unless,while和until可以相互转换
+<br/>
+<h3 id="example">Example</h3>
+
+<pre><code class="language-ruby">i = 2
+# if 语句
+if i &gt; 10 then
+    puts &quot;i大于10&quot;
+elsif i == 10 then
+    puts &quot;i等于10&quot;
+else
+    puts &quot;i小于10&quot;
+end
+# unless 语句
+unless i &gt; 10 then
+    puts &quot;i小于等于10&quot;
+else
+    puts &quot;i大于10&quot;
+end
+# case 语句
+case i
+when 0,1,2,3,4,5 then
+    puts &quot;#{i}&quot;
+else
+    puts &quot;#{-i}&quot;
+end
+# while
+while i &gt;= 0 do
+    puts i
+    i -= 1
+end
+# until
+until i &gt;= 2 do
+    puts i
+    i += 1
+end
+# for
+for i in (1..4)
+    puts i
+end
+</code></pre>
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:当if unless等语句在一行内写then可以省略(个人风格不省<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/cool.svg" />)
+
+</div>
+此外Ruby不同于其他编程语言之处提供了修饰符的概念,这种做法使得代码更加紧凑(算是一种语法糖吧),先执行修饰符的条件内容,若满足修饰符语义就执行表达式,主要有以下几种
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ... if codition
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ... unless condition
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ... while condition
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    ... until condition
+    
+    </span>
+</p>
+
+</div>
+
+<br/>
+<h3 id="example">Example</h3>
+
+<pre><code class="language-ruby">i = 2
+puts &quot;i大于1&quot; if i &gt; 1
+puts &quot;i&gt;0&quot; unless i &lt; 0
+puts (i += 1) while i &lt;= 4
+puts (i += 2) until i &gt;= 9
+=begin
+Output:
+i大于1
+i&gt;0
+3
+4
+5
+7
+9
+=end
+</code></pre>
+此外还有循环的控制语句,方便跳出循环
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    break
+    
+    </span>
+</p>
+    跳出循环或块调用
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    next
+    
+    </span>
+</p>
+    跳出此次循环,(如果在块中调用,则跳出此次块调用,若块要求返回值,可以使用next expression)
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    redo
+    
+    </span>
+</p>
+    不检查循环条件,重新进入循环
+
+</div>
+
+<br/>
+<h3 id="example">Example</h3>
+
+<pre><code class="language-ruby">for i in (0 ... 4) do
+    if i &gt;= 2 then
+        break
+    end
+    puts i
+end
+for i in (0 ... 4) do
+    if i == 2
+        next
+    end
+    puts i
+end
+for i in (0 ... 4) do
+    if i == 2 then
+        i += 1
+        redo
+    end
+    puts i
+end
+=begin
+Output:
+0
+1
+0
+1
+3
+0
+1
+3
+3
+=end
+</code></pre>
+
+</span>
+
+<h3 id="面向对象">面向对象</h3>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/innodragon.png"/>说到面向对象,我们先讨论下何谓面向对象(俨然是成为现代编程语言面向对象规格的面向对象)
+一般编程语言的面向对象主要有以下特点:
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    封装性
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    继承性
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    多态性
+    
+    </span>
+</p>
+
+</div>
+
+其实这几点可以与结构化编程进行类比,结构化编程是为了防止goto语句过度使用导致程序结构混乱,而封装性的出现是为了防止数据的暴露(例如全局变量)导致数据混乱而出现的,而继承性则弥补了封装性的绝对化,给数据提供了暴露的接口,使得数据得以共享(继承性使得数据是有组织的共享,也绝非唯一的手段),多态性则弥补了数据类型(主要是静态语言)无法动态的"转化"类型(往往我们需要在静态语言尝试 <span style="color:#FFA500; background-color:#1C1C1C;">
+    Duck Typing
+</span>(一种多态性的形式))
+
+</span>
+
+<h4 id="类">类</h4>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/frog.png"/> Ruby中可以通过 <span style="color:#FFA500; background-color:#1C1C1C;">
+    class className... end
+</span>来创建类,类是数据的封装,所以类是面向对象的基础,Ruby中类默认继承Object(先在这里提出一点:类在Ruby里其实只是一个全局对象),自定义的类可以通过调用从Object继承而来的new函数来构造对象,<span style="color:#FFA500; background-color:#1C1C1C;">
+    new
+</span>函数默认会调用 <span style="color:#FFA500; background-color:#1C1C1C;">
+    initialize
+</span> 函数,我们也可以自行编写 <span style="color:#FFA500; background-color:#1C1C1C;">
+    initialize
+</span>函数来构造对象,此外,Ruby类中没有属性(这样对obj.name不加括号调用的是函数没有好意外的了)这个概念(简单起见下面所说的类的都是Ruby中的类),实例变量只能在实例的作用域定义,而且我们只能通过类实例方法访问,这里的实例变量看起来的确是其他编程语言的属性,不过它们还是有差异的,我们定义完实例变量后其实不能直接从外部访问的,我们只能通过自行编写getter,setter函数来获得修改实例变量,(修改是通过拟态方法 variableName=来完成的)
+<br/>
+<h4 id="example">Example</h4>
+
+<pre><code class="language-ruby">class Dog
+    def initialize(name)
+        @name = name
+    end
+    def get_name()
+        @name
+    end
+    def set_name(name)
+        @name = name
+    end
+end
+dog = Dog.new(&quot;Joke&quot;)
+p dog.get_name
+dog.set_name &quot;Bike&quot;
+p dog.get_name
+#Output:
+=begin
+&quot;Joke&quot;
+&quot;Bike&quot;
+=end
+</code></pre>
+为了使方法更美观和模拟=,我们也可以这样定义:
+<br/>
+<h3 id="example">Example</h3>
+
+<pre><code class="language-ruby">class Dog
+    def initialize(name)
+        @name = name
+    end
+    def name()
+        @name
+    end
+    def name=(name)
+        @name = name
+    end
+end
+dog = Dog.new(&quot;Joke&quot;)
+p dog.name
+dog.name = &quot;Bike&quot;
+p dog.name
+# Output:
+=begin
+&quot;Joke&quot;
+&quot;Bike&quot;
+=end
+</code></pre>
+这样对于需要暴露诸多实例变量的类都要定义setter,getter方法是无意义的活动,好在超类里帮我们定义了下面几种类宏(本质也是方法)供我们调用控制实例变量的可访问性:
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    attr_accessor Symbol/String
+    
+    </span>
+</p>
+    提供实例变量的符号名或字符串名,生成setter,getter函数,使得实例变量可读写
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    attr_reader Symbol/String
+    
+    </span>
+</p>
+    提供实例变量的符号或字符串名,生成getter函数,使得实例变量可读
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    attr_writer Symbol/String
+    
+    </span>
+</p>
+    提供实例变量的符号或字符串名,生成setter函数,使得实例变量可写
+
+</div>
+
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:生成的setter,getter函数就是 obj.变量名=和obj.变量函数,是不是让人感觉像Ruby有属性概念一样？<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/cool.svg" />
+
+</div>
+这样就可以使得代码更简单
+<br/>
+<h3 id="example">Example</h3>
+
+<pre><code class="language-ruby">class Dog
+    attr_accessor :name
+    attr_reader :sex
+    attr_writer &quot;age&quot;
+    def initialize(name, age, sex)
+        @name = name
+        @age = age
+        @sex = sex
+    end
+end
+dog = Dog.new(&quot;Joke&quot;, 3, &quot;女&quot;)
+dog.name = &quot;Bike&quot;
+dog.age = 12
+p &quot;dog name: #{dog.name}, sex: #{dog.sex}&quot;
+# Output:
+=begin
+&quot;dog name: Bike, sex: 女&quot;
+=end
+</code></pre>
+
+</span>
+
+<h5 id="类的可访问性">类的可访问性</h5>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+由于Ruby类没有属性的概念,实例变量也由方法控制,故Ruby中可访问性主要针对的是类中方法的可访问性,可以设置类的三种可访问性,分别由三种关键字确定:
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    public
+    
+    </span>
+</p>
+    public方法设置类中的方法为公有,以实例方法的形式向外公开方法
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    protected
+    
+    </span>
+</p>
+    protected方法设置类中的方法为保护成员,该实例方法只能被子类和父类调用
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    private
+    
+    </span>
+</p>
+    private方法设置类中的方法为私有成员,该实例方法只能在缺省实例对象时才能被调用(不能指定接收者,但能被子类继承访问(这也是很其他语言有所差别的一点))
+
+</div>
+
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:initialize()在缺省指定可访问性时,访问性为private(其他的为public),可以调用obj.private_methods查看,当然也有obj.public_methods,obj.protected_methods,也可以显式的将<span style="color:#FFA500; background-color:#1C1C1C;">
+    initialize
+</span>方法设为public或protected
+
+</div>
+<br/>
+<h4 id="example">Example</h4>
+
+<pre><code class="language-ruby">#!/usr/bin/ruby
+# main.rb
+class Student
+    def initialize(name, age)
+        @name = name
+        @age = age
+    end
+    def learn()
+        puts &quot;public: #{@name} learn&quot;
+    end
+    def run()
+        puts &quot;protected: #{@name} run&quot;
+    end
+    def speak()
+        puts &quot;private: #{@name} speak&quot;
+    end
+    public :learn
+    protected :run
+    private :speak
+    public :initialize
+end
+# class Child &lt; Parent表示Child继承Parent
+class Marco &lt; Student
+    def initialize(age)
+        # 调用父类构造函数
+        super(&quot;Marco&quot;,age)
+    end
+    # 未指定访问性默认public
+    def play()
+        # 超类Student继承而来的保护方法run
+        self.run()
+        # run() 正确
+        # 超类Student继承而来的私有方法speak
+        speak()
+        # self.speak() 错误
+    end
+end
+student = Student.new(&quot;Marco&quot;, 18)
+student.learn()
+puts student.private_methods.grep(/^initialize$/)
+marco = Marco.new(21)
+marco.play
+puts marco.private_methods.grep(/^initialize$/)
+# Output:
+=begin
+public: Marco learn
+protected: Marco run
+private: Marco speak
+initialize
+=end
+</code></pre>
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:如果public,private，protected方法过多,上述指定方法写起来会累,所以Ruby让我们可以直接写public,private,protected直接开启一个可访问性作用域,直到下一个public,private,protected出现,才会被切换
+
+</div>
+
+</span>
+
+<h5 id="类的继承性">类的继承性</h5>
+
+<p><span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+Ruby类提供了继承,但是只有单继承,继承可以获得超类所有的方法(包括所有种类可访问性的方法),因此也就没有了C++的公有继承,保护继承,私有继承的概念<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/laugh.svg" />,Ruby中所有声明的类默认继承于Object,而Object继承于BasicObject,BasicObject是一个空白类(仅含几个必须的方法)
+<br/>
+<pre><code class="language-ruby">class Parent
+    attr_accessor :name
+    def initialize(name)
+        @name = name
+    end
+end
+
+class Child &lt; Parent
+    def initialize(name)
+        super(name)
+    end
+end
+child = Child.new(&quot;marco&quot;)
+p child.name
+child.name = &quot;epsilon&quot;
+p child.name
+# Output:
+=begin
+&quot;marco&quot;
+&quot;epsilon&quot;
+=end
+</code></pre>
+<div style="background-color:#8B8970; height:auto; color:white; padding-top:1rem; margin-top:1.25rem; border-radius:1.25rem; margin-bottom:1rem; padding-bottom:1rem;padding-left:1rem;padding-right:1rem;">
+    
+注:Ruby类中继承而来的都是方法,但是上例实例变量又是从何而来?<span style="color:#FFA500; background-color:#1C1C1C;">
+    Child
+</span>类貌似没有定义实例变量,这也是容易被忽视的一点,千万不要把实例变量当成其他语言的类属性来使用,要记住实例变量是在实例方法中定义的,所以只要有实例方法的存在,就可以随时随地的定义实例变量,下面的这个例子就说明了"野火烧不尽,春风吹又生"<img width="20" height="20" style="display: inline-block; vertical-align: middle;" src="/emoji/cool.svg" />
+
+</div>
+<br/>
+<h6 id="example">Example</h6>
+
+<pre><code class="language-ruby">class Parent
+    attr_accessor :name
+    def initialize(name)
+        @name = name
+    end
+end
+
+class Child &lt; Parent
+    def initialize(name)
+        super(name)
+    end
+end
+child = Child.new(&quot;marco&quot;)
+p child.name
+child.remove_instance_variable(:@name)
+p child.name
+child.name = &quot;epsilon&quot;
+p child.name
+Parent.remove_method(:name=)
+p child.name
+child.remove_instance_variable(:@name)
+p child.name
+# Output:
+=begin
+&quot;marco&quot;
+nil
+&quot;epsilon&quot;
+&quot;epsilon&quot;
+nil
+=end
+</code></pre>
+
+</span>
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+通过上例我们看到,尽管删除了实例变量,但是只要定义的方法在,我们还是可以让它"死而复生"<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/jiggly.png"/>
+
+</span></p>
+
+<h4 id="多继承-mix-in-by-module">多继承? Mix-in by Module</h4>
+
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+Ruby没有多继承,但是引入了Mix-in的概念(php7的trait也是),通过Mix-in的方法,可以很轻松的"继承"其他已有的方法,ruby的mix-in是通过moudle实现的,通过 <span style="color:#FFA500; background-color:#1C1C1C;">
+     module moduleName ... end 
+</span>就能创建一个module作用域,<span style="color:#FFA500; background-color:#1C1C1C;">
+     Module 
+</span>是Class的超类,所以Class有Module的所有方法,但是Module不能创建对象,需要使用Moudle类的方法可以通过 <span style="color:#FFA500; background-color:#1C1C1C;">
+     include moduleName 
+</span>得到
+<br/>
+<h5 id="example">Example</h5>
+
+<pre><code class="language-ruby">module Magic
+    def hello()
+        puts &quot;#{@name}&quot;
+    end
+end
+
+class Try
+    include Magic
+    def initialize(name)
+        @name = name
+    end
+end
+
+try = Try.new(&quot;marco&quot;)
+try.hello()
+# Output: marco
+</code></pre>
+
+</span>
+
+<h4 id="错误处理">错误处理</h4>
+
+<p><span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+Ruby的错误处理一般采用的是抛出异常,Ruby使用<span style="color:#FFA500; background-color:#1C1C1C;">
+    begin ... rescue ... end
+
+</span>来包围可能抛出异常的范围和处理范围,通常是
+<br/>
+<span style="color:#FFA500; background-color:#1C1C1C;">
+      
+begin
+<br/>
+    &nbsp;...
+<br/>
+    &nbsp;可能出现异常
+<br/>
+rescue => 引用异常的对象
+<br/>
+    &nbsp;异常处理
+<br/>
+end
+<br/>
+
+</span>
+异常发生时被自动赋值的全局变量:
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    $!
+    
+    </span>
+</p>
+    最后发生的异常(异常对象)
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    !@
+    
+    </span>
+</p>
+    最近异常的位置信息
+
+</div>
+
+
+</span>
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+<br/>
+异常对象方法:
+<table border="1" style="text-align: center; margin-top:20px; margin-bottom: 20px;">
+    
+<tr>
+   
+<th width="25%">
+    
+方法名
+
+</th>
+<th width="">
+    
+作用
+
+</th>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+class
+
+</td>
+<td >
+    
+返回异常的类名
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+message
+
+</td>
+<td >
+    
+返回异常的信息
+
+</td>
+ 
+</tr>
+<tr>
+   
+<td >
+    
+backtrace
+
+</td>
+<td >
+    
+返回异常的位置信息($!.backtrace与$@等价)
+
+</td>
+ 
+</tr>
+
+</table>
+建议自己编写异常时继承标准库的StandardError或者RuntimeError,这样用户能够更好的适应错误处理的变化,我们可以通过raise关键字抛出异常,用ensure定义无论异常是否后都必须执行的指令
+<br/>
+<h5 id="example">Example</h5>
+
+<pre><code class="language-ruby">class Error &lt; StandardError
+end
+class LinkError &lt; Error
+end
+class ConnectError &lt; Error
+end
+
+def try()
+    begin
+        #raise LinkError.new(&quot;link error may you should check&quot;)
+        raise ConnectError.new(&quot;connect error,retry?&quot;)
+        #raise Error.new(&quot;unchecked error&quot;)
+    rescue LinkError =&gt; link
+        puts link.message
+        puts $@
+    end
+end
+begin
+    try()
+rescue ConnectError =&gt; connect
+    puts $!.message
+rescue Error =&gt; error
+    puts error.message
+ensure
+    puts &quot;destroy resouce...&quot;
+end
+</code></pre>
+此外,Ruby还提供了<span style="color:#FFA500; background-color:#1C1C1C;">
+    rescue
+</span>修饰符,方便我们简化代码,语法:
+<span style="color:#FFA500; background-color:#1C1C1C;">
+     expression_1 rescue expression_2 
+</span>,如果 <span style="color:#FFA500; background-color:#1C1C1C;">
+    expression_1
+</span>抛出异常,就返回 <span style="color:#FFA500; background-color:#1C1C1C;">
+     expression_2
+</span>
+<br/>
+<h5 id="example">Example</h5>
+
+<pre><code class="language-ruby">n = Integer.new(&quot;abc&quot;) rescue 0
+puts n
+m = 2 / 0 rescue 0
+puts m
+# Output:
+=begin
+0
+0
+=end
+</code></pre>
+
+</span></p>
+
+<h1 id="lambda-vs-block-vs-proc">lambda vs block vs Proc</h1>
+
+<p><span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+block算是Ruby最常用的基础设施了,通过它很方便剥离可变的逻辑,它主要有以下几种用途:
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    循环逻辑
+    
+    </span>
+</p>
+    将block用作循环逻辑,算是很直观的用途,我们通过将序列遍历的元素,传给块,让块进行处理,使得我们可以定制化循环的逻辑,而不用自行遍历进行处理(显然会有大量相似难以复用的代码),或者记住大量特定操作的API(显然增加开发者脑负担),最常见的就是each方法了(自定义类或模块中只要实现each方法就可以复用Enumerable模块代码)
+    <br/>
+<pre><code class="language-ruby">numbers = [1, 2, 3, 4, 5]
+numbers.each do |num|
+    puts num
+end
+</code></pre>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    控制逻辑
+    
+    </span>
+</p>
+    控制逻辑常用于通过传入的参数,不同block能够反应出相应的提示信息,比如过滤,排序等逻辑,通过用户自行控制其逻辑,使得用户能够高度可定制
+<br/>
+<pre><code class="language-ruby">numbers = [1, 2, 3, 4, 5, 6]
+numbers.select! do |num|
+    num % 2 == 0
+end
+numbers.each do |num|
+    puts num
+end
+</code></pre>
+
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+...
+
+    </span>
+</p>
+
+</div>
+
+
+</span>
+<span style="color:#FF3E96; " class="plain_text plain_text_default">
+    
+lambda和block大致相似,但是lambad对参数检查更加严格,而block传入的参数可以少于或多余所需的参数,此时参数用nil代替或忽略,但是lambda则要求传入的参数必须和其要求的参数个数严格相等,可以通过 <span style="color:#FFA500; background-color:#1C1C1C;">
+     lambda {|...args| block...}
+</span>创建lambda
+也可以通过 <span style="color:#FFA500; background-color:#1C1C1C;">
+     ->(...args) {...block} 
+</span>创建,lambda也一种特殊的Proc对象,所以lambda可以通过&lambda获得block,也可以通过Proc.lambda获得lambda
+<br/>
+<pre><code class="language-ruby">numbers = [7,4,2,3,6,5,1]
+numbers.sort! &amp;lambda {|i, j|
+    i &lt;=&gt; j
+}
+numbers.each &amp;-&gt; (num) {puts num}
+</code></pre>
+lambda和Proc区别和lambda和block区别类似
+<br/>
+<pre><code class="language-ruby"># lambda VS non-lambda Proc(regular Proc) VS block 参数异同点
+numbers = [1, 2, 3, 4, 5, 6]
+numbers.each do |i, j|
+    if j == nil then
+        puts i
+    end
+end
+begin
+    numbers.each &amp;-&gt; (i, j) {puts i if j == nil}
+rescue ArgumentError =&gt; e
+    puts &quot;Step 2 use lambad transform occur ArgumentError #{e.message}&quot;
+end
+procdure = Proc.new { |i,j| puts i if j == nil }
+numbers.each &amp;procdure
+
+# lambda VS non-lambda Proc(regular Proc) VS block return语句异同点
+def return_test(src, &amp;block)
+    numbers = [5,4,2,7,1,6,3]
+    if block_given? then
+        puts &quot;#{src} begin call&quot;
+        numbers.sort! &amp;block
+        puts &quot;#{src} result: #{numbers}&quot;
+    end
+end
+def test_block()
+    return_test &quot;block&quot; do |i, j|
+        return i &lt;=&gt; j
+    end
+end
+def test_proc()
+    procdure = Proc.new do |i, j|
+        return i &lt;=&gt; j
+    end
+    return_test &quot;non-lambda Proc (regular Proc)&quot;, &amp;procdure
+end
+def test_lambda()
+    return_test &quot;lambda&quot;, &amp;-&gt;(i, j) {return i &lt;=&gt; j}
+end
+test_block()
+test_proc()
+test_lambda()
+</code></pre>
+对于Proc分为non-lambda对象(主要通过Proc.new创建),lambda对象(通过lambda关键字创建),此外一个block代码块(block不是对象),non-lambda和block行为差不多相同,lambda则与两者有所不同(转化为block性质不变),主要体现在以下两点:
+<div style="padding-left:2.5rem; color:#FF82AB;">
+    
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    lambda对参数要求更严格,形参和实参个数必须相同,而non-lambda和block则对于实参少于形参时用nil代替,多于时忽略
+    
+    </span>
+</p>
+    
+<p style="font-size:1em;  margin-bottom:10px; margin-top:10px; display:list-item;">
+    <span style="font-size: 0.85em;">
+        
+    non-lambda和block尽量不要使用return关键字,因为non-lambda和block会在调用它的作用域退出到创建它的作用域上一层,而lambda则直接退出调用它的作用域
+    
+    </span>
+</p>
+
+</div>
+
+
+</span></p>
+
+<p><div style="display: flex; flex-direction: row; justify-content: space-between; margin-top:2rem;">
+    
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/pinkly.png"/>
+<img width="60px" height="63px" style="display: inline-block; vertical-align: middle;" src="/emoji/bufuly.png"/>
+
+</div>
+<div style="background-color:#336666; height:50px; border-radius: 15px; padding-left:1rem; padding-right:1rem; line-height:35px; margin-top:10rem; margin-bottom:1rem; text-align: center;">
+    <span style="display:inline-block; height:50px; line-height: 50px; vertical-align: middle;">
+学习一门语言之前,请忘掉之前学的语言
+</span>
+</div></p>
+
+  </div>
+  
+  <div style="margin-top:0px;" class="pagination">
+    <div style="margin-top:10px;" class="pagination__title">
+      <span
+        class="pagination__title-h">Next Post</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://marcoepsilon.github.io/posts/system/file/">
+          <span class="button__icon">←</span>
+          <span class="button__text">File &amp;&amp; Directory</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://marcoepsilon.github.io/posts/algorithm/stack_queue/">
+          <span class="button__text">Stack &amp;&amp; Queue</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+<script src="https://utteranc.es/client.js"
+        repo="MarcoEpsilon/marcoepsilon.github.io"
+        issue-term="og:title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Marco Epsilon@Copyright</div>
+    
+  </div>
+</footer>
+<link rel="stylesheet" type="text/css" href="/assets/prism.css" />
+<script src="https://marcoepsilon.github.io/assets/main.js"></script>
+<script src="https://marcoepsilon.github.io/assets/prism.js"></script>
+
+
+
+<div style="">
+    <p style="width:100%; padding-left:25%; color:brown; font-size:23px;">
+        我只知道一件事情
+    </p>
+    <p style="width:100%; padding-left:48%; color:coral; font-size:23px;">我什么都不知道</p>
+</div>
+
+
+  
+</div>
+
+</body>
+</html>

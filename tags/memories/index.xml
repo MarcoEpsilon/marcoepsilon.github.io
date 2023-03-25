@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>memories on Marco Epsilon</title>
+    <link>https://marcoepsilon.github.io/tags/memories/</link>
+    <description>Recent content in memories on Marco Epsilon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Marco Epsilon@Copyright</copyright>
+    <lastBuildDate>Thu, 30 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://marcoepsilon.github.io/tags/memories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021年度总结</title>
+      <link>https://marcoepsilon.github.io/posts/memories/2021/</link>
+      <pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcoepsilon.github.io/posts/memories/2021/</guid>
+      <description>Preamble 『昨夜星辰昨夜风,只缘身在此山中』 .sub-anchor-unit { padding-left: 15px; } .sub-anchor-unit-title { width:100%; display: flex; flex-direction: row; justify-content: flex-start; } .sub-anchor-unit-title-prefix { min-width: 15%; max-width: 25%; height:100%; } .sub-anchor-separate { height:1px; border:1px rgb(42, 143, 226) dashed; max-width:60%; min-width:60%; margin:auto 2px; } .sub-anchor-avar { width: 44px; height: 44px; vertical-align: middle; display: inline-block; } .sub-anchor-title { text-align: center; display:</description>
+    </item>
+    
+  </channel>
+</rss>
